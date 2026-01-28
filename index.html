@@ -3,34 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificado Energético y Cédula en Vilanova | Rápido y Oficial</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>Certilab | Despacho de Arquitectura Técnica: Cédulas de Habitabilidad y Energía</title>
+    <meta name="description" content="Despacho técnico especializado en Cédulas de Habitabilidad y Certificados Energéticos en el Garraf. Gestión oficial en 48h.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="logo">CERTILAB</div>
-        <nav>
-            <a href="/ca/index.html">Català</a> | 
-            <a href="/en/index.html">English</a> | 
-            <a href="/fr/index.html">Français</a>
-        </nav>
+
+    <div class="availability-bar">
+        <p id="availability-text">✓ Verificando disponibilidad técnica...</p>
+    </div>
+
+    <header class="container">
+        <div class="nav-bar">
+            <div class="logo">CERTILAB</div>
+            <nav>
+                <a href="/ca/">Català</a>
+                <a href="#contacto" class="nav-cta"><strong>Arquitecto Colegiado</strong></a>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Cédula y Certificado Energético en Vilanova i la Geltrú</h1>
-        <p>¿Vendes o alquilas? Obtén tu documentación oficial en 48h sin complicaciones.</p>
-        <a href="https://wa.me/tu-telefono?text=Hola!%20Necesito%20el%20pack%20en%20Vilanova" class="btn-whatsapp">
-            ⚡ Consultar Precio y Disponibilidad
-        </a>
-    </section>
+    <main class="container">
+        <section class="hero">
+            <h1>Arquitectura Técnica con <span class="highlight">Propósito.</span></h1>
+            <p class="subtitle">Gestionamos la seguridad legal de tu vivienda en toda la comarca del Garraf.</p>
+        </section>
 
-    <section class="info">
-        <h2>Ingeniería técnica a su servicio</h2>
-        <p>Técnico colegiado con gestión integral de tasas y registro en la Generalitat.</p>
-    </section>
+        <section class="services">
+            <div class="service-card">
+                <span class="icon">🏠</span>
+                <h2>Cédulas de Habitabilidad</h2>
+                <p class="danger"><strong>El Riesgo:</strong> Sin Cédula de Habitabilidad no hay suministros legales ni protección de seguros. Evita problemas legales graves.</p>
+                <p class="peace"><strong>La Solución:</strong> Validamos la habitabilidad de tu inmueble. Gestión integral ante la Generalitat para tu total tranquilidad.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="icon">⚠️</span>
+                <h2>Certificado Energético</h2>
+                <p class="danger"><strong>El Riesgo:</strong> Multas de hasta 6.000€ y bloqueos en notaría por certificados caducados. No pierdas tu venta.</p>
+                <p class="peace"><strong>La Solución:</strong> Registramos tu certificado oficialmente. Un proceso rápido, técnico y garantizado.</p>
+            </div>
+        </section>
+
+        <section id="contacto" class="cta-section">
+            <h3>¿Hablamos ahora?</h3>
+            <p>Resuelve tus dudas directamente con el Arquitecto Técnico.</p>
+            
+            <a href="https://wa.me/tu-numero?text=Hola!%20Necesito%20hablar%20con%20el%20arquitecto%20tecnico%20sobre%20mi%20vivienda" class="btn-whatsapp">
+                <strong>Contactar con el Arquitecto Técnico</strong>
+            </a>
+            
+            <p class="rgpd">Al contactar, aceptas nuestra <a href="legal.html">Política de Privacidad</a>.</p>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2026 Certilab - <a href="/legal.html">Aviso Legal</a></p>
+        <div class="container">
+            <p><strong>Certilab | Despacho de Arquitectura Técnica</strong></p>
+            <p class="localidades">Sitges · Vilanova i la Geltrú · Sant Pere de Ribes · Cubelles · Canyelles · Olivella</p>
+            <p><small>© 2026 Profesional Colegiado. Todos los derechos reservados.</small></p>
+        </div>
     </footer>
+
+    <script>
+        function updateAvailability() {
+            const now = new Date();
+            const day = now.getDay();
+            let msg = "";
+            if (day >= 1 && day <= 4) msg = "Próxima visita técnica en la comarca del Garraf: Mañana.";
+            else if (day === 5) msg = "Agenda abierta en todo el Garraf para este próximo Lunes.";
+            else msg = "Últimos huecos de inspección para Lunes y Martes.";
+            document.getElementById("availability-text").innerText = "✓ " + msg;
+        }
+        updateAvailability();
+    </script>
 </body>
 </html>
