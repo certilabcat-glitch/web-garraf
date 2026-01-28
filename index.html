@@ -21,7 +21,6 @@
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; }
         .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-        /* Banner de disponibilidad dinámica */
         .availability-bar { background: #000; color: var(--gold); text-align: center; padding: 12px 5px; font-weight: 600; font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
 
         header { padding: 25px 0; border-bottom: 1px solid rgba(0,0,0,0.08); background: rgba(229, 226, 221, 0.95); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
@@ -29,27 +28,31 @@
         .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; letter-spacing: 3px; color: #000; text-decoration: none; }
         .lang-menu a { text-decoration: none; color: #666; font-size: 0.7rem; margin-left: 12px; font-weight: 700; }
 
-        /* HERO CON IMAGEN DE PLANOS Y ETIQUETA ENERGÉTICA */
+        /* SECCIÓN HERO CON IMAGEN */
         .hero-visual {
             position: relative;
-            /* Imagen que refleja planos técnicos y certificación energética */
-            background: url('https://images.unsplash.com/photo-1503387762-592dee582a7b?auto=format&fit=crop&w=1600&q=80'); 
+            /* OPCIÓN A: Usa tu propia imagen subiéndola como 'fondo-hero.jpg' */
+            /* OPCIÓN B: He puesto una de arquitectura técnica de alta fiabilidad aquí abajo */
+            background-image: url('https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); 
             background-size: cover;
             background-position: center;
-            padding: 120px 0;
+            background-attachment: fixed; /* Efecto elegante al hacer scroll */
+            padding: 140px 0;
             text-align: center;
             color: white;
         }
+
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 30, 0.7); /* Oscurecido elegante para lectura */
+            background: rgba(0, 0, 0, 0.65); /* Oscurece la foto para que el texto resalte */
             z-index: 1;
         }
+
         .hero-content { position: relative; z-index: 2; }
-        .hero-visual h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero-visual h1 { font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
         .hero-visual .highlight { color: var(--gold); }
-        .hero-visual .subtitle { font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: 0 auto; opacity: 0.95; }
+        .hero-visual .subtitle { font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: 0 auto; }
 
         /* Servicios */
         .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 60px 0; }
@@ -58,28 +61,26 @@
         .danger-box { color: var(--alert-text); border-left: 2px solid var(--gold); padding-left: 15px; margin: 25px 0; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
         .peace-box { color: var(--safe-text); font-weight: 300; font-size: 1rem; }
 
-        .btn-whatsapp { background: #128C7E; color: white; padding: 20px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-top: 30px; transition: 0.3s; border: 1px solid var(--gold); }
-        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .btn-whatsapp { background: #128C7E; color: white; padding: 20px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; margin-top: 30px; border: 1px solid var(--gold); transition: 0.3s; }
+        .btn-whatsapp:hover { transform: scale(1.05); }
 
-        /* Footer Crema */
         footer { padding: 80px 0; text-align: center; background: var(--footer-bg); color: var(--text); border-top: 1px solid rgba(0,0,0,0.05); }
         .institutional-logos { display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 50px; filter: grayscale(1); opacity: 0.6; flex-wrap: wrap; }
-        .inst-logo { height: 60px; width: auto; object-fit: contain; }
+        .inst-logo { height: 60px; width: auto; }
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; letter-spacing: 5px; margin-bottom: 20px; color: #000; }
         .footer-address { letter-spacing: 2px; font-size: 0.85rem; text-transform: uppercase; color: var(--gold); margin-bottom: 25px; font-weight: 600; }
         .localidades { color: #555; font-size: 0.8rem; letter-spacing: 2px; line-height: 2; text-transform: uppercase; margin-bottom: 35px; }
         .footer-links a { color: #666; text-decoration: none; font-size: 0.75rem; margin: 0 12px; text-transform: uppercase; font-weight: 600; }
 
         @media (min-width: 768px) {
-            .hero-visual h1 { font-size: 4rem; }
-            .hero-visual { padding: 160px 0; }
+            .hero-visual h1 { font-size: 4.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="availability-bar">
-        <span id="availability-text">CÉDULAS Y CERTIFICADOS: CONTACTE PARA AGENDAR VISITA ESTA SEMANA</span>
+        <span id="availability-text">CÉDULAS Y CERTIFICADOS: CONTACTE PARA AGENDAR VISITA</span>
     </div>
 
     <header>
@@ -96,7 +97,7 @@
             <div class="hero-overlay"></div>
             <div class="container hero-content">
                 <h1>Rigor técnico. <br><span class="highlight">Seguridad jurídica.</span></h1>
-                <p class="subtitle">Despacho especializado en Cédulas de Habitabilidad y Certificados de Eficiencia Energética en el Garraf.</p>
+                <p class="subtitle">Arquitectura Técnica especializada en Cédulas de Habitabilidad y Certificados Energéticos en el Garraf.</p>
                 <a href="https://wa.me/34608515922" class="btn-whatsapp">Contactar vía WhatsApp</a>
             </div>
         </section>
@@ -106,13 +107,13 @@
                 <div class="service-card">
                     <h2>Cédula de Habitabilidad</h2>
                     <div class="danger-box">RIESGO: Sin cédula vigente su propiedad no puede venderse ni alquilarse legalmente.</div>
-                    <div class="peace-box">SOLUCIÓN: Tramitación completa ante la Generalitat para garantizar que su vivienda cumple la normativa técnica.</div>
+                    <div class="peace-box">SOLUCIÓN: Gestión técnica integral ante la Generalitat para garantizar la legalidad de su vivienda.</div>
                 </div>
 
                 <div class="service-card">
                     <h2>Certificado Energético</h2>
-                    <div class="danger-box">RIESGO: Sanciones administrativas graves y falta de transparencia en el consumo.</div>
-                    <div class="peace-box">SOLUCIÓN: Inspección técnica y registro en el ICAEN para obtener la etiqueta de eficiencia obligatoria.</div>
+                    <div class="danger-box">RIESGO: Multas de hasta 6.000€ y bloqueo de contratos ante notario.</div>
+                    <div class="peace-box">SOLUCIÓN: Inspección profesional y registro oficial en el ICAEN con etiqueta obligatoria.</div>
                 </div>
             </section>
         </div>
@@ -129,7 +130,6 @@
             <div class="footer-logo">CERTILAB</div>
             <p class="footer-address">Despacho de Arquitectura Técnica · Vilanova i la Geltrú · 08800 El Garraf</p>
             <p class="localidades">Sitges · Vilanova i la Geltrú · Sant Pere de Ribes · Cubelles · Canyelles · Olivella</p>
-            
             <div class="footer-links">
                 <a href="legal.html">Aviso Legal</a>
                 <a href="privacidad.html">Privacidad</a>
@@ -148,3 +148,4 @@
     </script>
 </body>
 </html>
+
