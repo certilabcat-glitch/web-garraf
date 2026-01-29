@@ -3,99 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoría Técnica Sitges | Eva Gonzalez</title>
+    <title>Consultoría Técnica Inmobiliaria Sitges | Eva Gonzalez</title>
+    <meta name="description" content="Especialista en Cédulas de Habitabilidad y Certificados Energéticos en Sitges. Desbloqueamos su firma en notaría con rigor técnico y entrega inmediata.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Architect",
+      "name": "Certilab Sitges - Eva Gonzalez",
+      "description": "Servicio de arquitectura técnica para activos inmobiliarios en Sitges.",
+      "url": "https://certilab.cat/sitges/",
+      "telephone": "+34608515922",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sitges",
+        "addressRegion": "Barcelona",
+        "addressCountry": "ES"
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root { 
             --gold: #c5a35d; 
-            --dark-bg: #1a1a1a; /* Negro antracita profundo */
+            --dark-bg: #1a1a1a; 
             --darker: #111111; 
             --text-gray: #a0a0a0;
             --white: #e5e5e5; 
         }
 
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--dark-bg); 
-            color: var(--white); 
-            line-height: 1.7;
-        }
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--dark-bg); color: var(--white); line-height: 1.7; }
         .container { width: 85%; max-width: 1100px; margin: 0 auto; }
 
-        /* NAVEGACIÓN OSCURA */
-        nav { 
-            padding: 40px 0; 
-            background: var(--darker); 
-            border-bottom: 1px solid rgba(197, 163, 93, 0.2);
-        }
+        /* NAVEGACIÓN */
+        nav { padding: 30px 0; background: var(--darker); border-bottom: 1px solid rgba(197, 163, 93, 0.2); position: sticky; top: 0; z-index: 1000; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.8rem; letter-spacing: 5px; color: var(--gold); text-decoration: none; }
-        
-        .lang-switcher a { text-decoration: none; color: var(--text-gray); font-size: 0.75rem; margin-left: 20px; letter-spacing: 2px; transition: 0.3s; }
-        .lang-switcher a.active { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; letter-spacing: 5px; color: var(--gold); text-decoration: none; }
+        .lang-switcher a { text-decoration: none; color: var(--text-gray); font-size: 0.7rem; margin-left: 15px; letter-spacing: 2px; transition: 0.3s; }
+        .lang-switcher a.active { color: var(--gold); border-bottom: 1px solid var(--gold); }
 
-        /* HERO SECCIÓN CON PESO VISUAL */
-        .hero { 
-            padding: 120px 0; 
-            background: linear-gradient(to bottom, var(--darker), var(--dark-bg));
-            text-align: left; 
-        }
-        .hero span { color: var(--gold); text-transform: uppercase; letter-spacing: 6px; font-size: 0.8rem; display: block; margin-bottom: 20px; }
-        .hero h1 { 
-            font-family: 'Cinzel', serif; 
-            font-size: 3.5rem; 
-            margin: 0; 
-            line-height: 1.1; 
-            color: var(--white);
-            max-width: 800px;
-        }
-        .hero p { color: var(--text-gray); font-size: 1.3rem; max-width: 650px; margin-top: 30px; font-weight: 300; }
+        /* HERO */
+        .hero { padding: 100px 0 60px 0; text-align: left; }
+        .hero span { color: var(--gold); text-transform: uppercase; letter-spacing: 6px; font-size: 0.75rem; display: block; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 3.2rem; margin: 0; line-height: 1.1; font-weight: 400; }
+        .hero p { color: var(--text-gray); font-size: 1.2rem; max-width: 700px; margin-top: 25px; font-weight: 300; }
 
-        /* BLOQUES DE VALOR (INGENIERÍA INVERSA) */
-        .value-section { padding-bottom: 100px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
-        .value-item h2 { 
-            font-family: 'Cinzel', serif; 
-            color: var(--gold); 
-            font-size: 1.5rem; 
-            border-bottom: 1px solid rgba(197, 163, 93, 0.3);
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-        .value-item p { color: var(--text-gray); font-size: 1rem; }
+        /* SECCIÓN SERVICIOS */
+        .services-section { padding: 60px 0 100px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 60px; }
+        .service-card { border-left: 1px solid rgba(197, 163, 93, 0.4); padding-left: 30px; }
+        .service-card h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; font-weight: 400; }
+        .service-card p { color: var(--white); font-weight: 400; margin-bottom: 15px; }
+        .service-card ul { list-style: none; padding: 0; color: var(--text-gray); font-size: 0.9rem; }
+        .service-card ul li { margin-bottom: 10px; display: flex; align-items: baseline; }
+        .service-card ul li::before { content: "—"; color: var(--gold); margin-right: 10px; }
 
-        /* CTA IMPACTANTE */
-        .cta-box { 
-            background: var(--darker); 
-            padding: 100px 0; 
-            text-align: center; 
-            border-top: 1px solid rgba(197, 163, 93, 0.2);
-        }
-        .btn-gold { 
-            border: 1px solid var(--gold); 
-            padding: 25px 60px; 
-            color: var(--gold); 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            font-size: 0.9rem; 
-            transition: 0.4s;
-            display: inline-block;
-        }
+        /* NOTA TÉCNICA */
+        .tech-note { background: var(--darker); padding: 30px; border-radius: 2px; border: 1px solid rgba(197, 163, 93, 0.1); margin-top: 50px; }
+        .tech-note p { font-size: 0.85rem; color: var(--text-gray); margin: 0; font-style: italic; }
+
+        /* CTA */
+        .cta-box { background: var(--darker); padding: 80px 0; text-align: center; border-top: 1px solid rgba(197, 163, 93, 0.2); }
+        .btn-gold { border: 1px solid var(--gold); padding: 22px 50px; color: var(--gold); text-decoration: none; text-transform: uppercase; letter-spacing: 4px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; }
         .btn-gold:hover { background: var(--gold); color: var(--darker); }
 
-        footer { 
-            padding: 50px 0; 
-            font-size: 0.7rem; 
-            color: #555; 
-            text-align: center; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-        }
-        .footer-links a { color: #777; text-decoration: none; margin: 0 15px; }
+        /* FOOTER */
+        footer { padding: 50px 0; background: #0a0a0a; color: #444; text-align: center; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+        .footer-links a { color: #666; text-decoration: none; margin: 0 15px; }
     </style>
 </head>
 <body>
@@ -112,30 +87,43 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <span>Eva González · Arquitecta Técnica</span>
-            <h1>Garantía Jurídica e Inmobiliaria en Sitges</h1>
-            <p>Especialista en la solvencia técnica de activos residenciales. Desbloqueamos su firma en notaría con rigor y máxima celeridad.</p>
-        </div>
+    <section class="hero container">
+        <span>Eva González · Arquitecta Técnica Colegiada</span>
+        <h1>Garantía Jurídica y <br> Solvencia Inmobiliaria</h1>
+        <p>Especialista en la validación técnica de activos residenciales en Sitges. Resolvemos el cumplimiento normativo para asegurar su firma en notaría.</p>
     </section>
 
-    <section class="container value-section">
+    <section class="container services-section">
         <div class="grid">
-            <div class="value-item">
-                <h2>Seguridad Patrimonial</h2>
-                <p>Análisis técnico exhaustivo para asegurar que su propiedad cumpla con los estándares de la Generalitat. Evite incidencias administrativas que comprometan la compraventa.</p>
+            <div class="service-card">
+                <h2>Cédula de Habitabilidad</h2>
+                <p>Certificación de la Aptitud Legal de la vivienda.</p>
+                <ul>
+                    <li>Visita técnica y diagnóstico presencial en 24/48h.</li>
+                    <li>Tramitación inmediata ante el Departament d'Habitatge.</li>
+                    <li>Esencial para escriturar, alquilar o dar de alta suministros.</li>
+                </ul>
             </div>
-            <div class="value-item">
-                <h2>Respuesta Inmediata</h2>
-                <p>Gestión directa de Cédulas de Habitabilidad y Certificados Energéticos. Registro oficial y entrega de documentación el mismo día de la inspección.</p>
+
+            <div class="service-card">
+                <h2>Certificado Energético</h2>
+                <p>Auditoría de eficiencia y registro oficial ICAEN.</p>
+                <ul>
+                    <li>Entrega de etiqueta y certificado el mismo día de la visita.</li>
+                    <li>Vigencia oficial de 10 años para venta o alquiler.</li>
+                    <li>Evite sanciones por publicidad inmobiliaria sin etiqueta.</li>
+                </ul>
             </div>
+        </div>
+
+        <div class="tech-note">
+            <p><strong>Nota de Autoridad:</strong> La diligencia técnica garantiza que el expediente sea admitido sin requerimientos. Mi compromiso es la celeridad absoluta en el registro para minimizar los plazos de la Administración pública.</p>
         </div>
     </section>
 
     <section class="cta-box">
         <div class="container">
-            <p style="letter-spacing: 3px; margin-bottom: 40px; color: var(--text-gray);">DISPONIBILIDAD PARA ACTIVOS SINGULARES</p>
+            <p style="letter-spacing: 3px; margin-bottom: 30px; color: var(--text-gray); font-size: 0.8rem;">DISPONIBILIDAD INMEDIATA EN EL GARRAF</p>
             <a href="https://wa.me/34608515922" class="btn-gold">SOLICITAR CONSULTA TÉCNICA</a>
         </div>
     </section>
@@ -147,7 +135,7 @@
                 <a href="/cookies.html">Cookies</a>
                 <a href="/legal.html">Aviso Legal</a>
             </div>
-            <p style="margin-top: 20px;">© 2026 CERTILAB · SITGES · BARCELONA · COLEGIADA 9457</p>
+            <p style="margin-top: 20px;">© 2026 CERTILAB · SITGES · BARCELONA · COLEGIO TÉCNICO CATEEB 9457</p>
         </div>
     </footer>
 
