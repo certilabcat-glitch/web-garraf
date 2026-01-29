@@ -7,27 +7,6 @@
     <title>Cédula de Habitabilidad y Certificado Energético Sitges | Eva González</title>
     <meta name="description" content="Arquitecta Técnica en Sitges. Especialista en Cédulas de Habitabilidad y Certificados Energéticos urgentes. Entrega en 24h para firmas en notaría.">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Certilab - Eva González Arquitecta Técnica",
-      "description": "Servicios técnicos de arquitectura: Cédulas de Habitabilidad y Certificados Energéticos en Sitges.",
-      "url": "https://certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/",
-      "telephone": "+34608515922",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Vilanova i la Geltrú",
-        "addressRegion": "Barcelona",
-        "addressCountry": "ES"
-      },
-      "areaServed": [
-        {"@type": "City", "name": "Sitges"},
-        {"@type": "City", "name": "Vilanova i la Geltrú"}
-      ]
-    }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
@@ -45,20 +24,12 @@
             line-height: 1.8; -webkit-font-smoothing: antialiased;
         }
 
-        /* CONTENEDOR AJUSTADO PARA NO TOCAR BORDES EN MÓVIL */
-        .container { 
-            width: 90%; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            box-sizing: border-box; 
-        }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
 
+        /* NAVEGACIÓN */
         nav { 
-            padding: 25px 0; 
-            background: rgba(242, 240, 237, 0.95); 
-            backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 25px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); text-decoration: none; font-weight: 600; }
@@ -66,46 +37,50 @@
         .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; margin-left: 12px; letter-spacing: 1px; font-weight: 500; }
         .lang-switcher a.active { color: var(--gold-muted); border-bottom: 1px solid var(--gold-muted); }
 
+        /* HERO & SERVICES */
         .hero { padding: 80px 0 40px 0; }
         .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 500; }
         .hero h1 { font-family: 'Cinzel', serif; font-size: 2.4rem; margin: 0; line-height: 1.2; font-weight: 400; }
         .hero p { font-size: 1.1rem; max-width: 750px; margin-top: 25px; font-weight: 300; color: #555; }
 
-        /* GRID DE SERVICIOS OPTIMIZADO */
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            padding: 40px 0 60px 0; 
-        }
-        .service-box { 
-            background: var(--white-pure); 
-            padding: 45px 35px; 
-            border-radius: 2px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
-            box-sizing: border-box; 
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0 60px 0; }
+        .service-box { background: var(--white-pure); padding: 45px 35px; border-radius: 2px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); box-sizing: border-box; }
         .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; margin-bottom: 25px; letter-spacing: 1px; }
         .service-box ul { list-style: none; padding: 0; margin: 0; }
         .service-box li { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: baseline; color: #555; }
         .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; font-size: 1.2rem; }
 
-        /* SEO LOCAL: BARRIOS DE SITGES */
-        .towns { padding: 50px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .towns h3 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 3px; color: #999; margin-bottom: 30px; }
-        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.75rem; letter-spacing: 1px; color: #777; font-weight: 500; }
+        /* CTA */
+        .cta-section { padding: 80px 0; text-align: center; background: var(--accent-soft); }
+        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: none; cursor: pointer; }
+        .btn-luxury:hover { background: var(--gold-muted); }
 
-        .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
-        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; }
-        .btn-luxury:hover { background: var(--gold-muted); transform: translateY(-2px); }
+        /* FOOTER & POLÍTICAS */
+        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; }
+        .footer-nav { margin-bottom: 20px; }
+        .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; }
+        .footer-nav a:hover { color: var(--gold-muted); }
 
-        footer { padding: 60px 0; text-align: center; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; }
+        /* BANNER DE COOKIES MINIMALISTA */
+        #cookie-banner {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 600px; background: var(--white-pure);
+            padding: 20px 30px; border-radius: 4px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            z-index: 2000; border: 1px solid var(--accent-soft);
+            visibility: hidden; opacity: 0; transition: 0.5s ease-in-out;
+        }
+        #cookie-banner.show { visibility: visible; opacity: 1; }
+        #cookie-banner p { font-size: 0.8rem; color: #666; margin: 0 0 15px 0; line-height: 1.5; }
+        .cookie-btns { display: flex; gap: 15px; }
+        .btn-cookie { padding: 10px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border: 1px solid var(--text-main); cursor: pointer; transition: 0.3s; }
+        .btn-accept { background: var(--text-main); color: var(--white-pure); }
+        .btn-accept:hover { background: var(--gold-muted); border-color: var(--gold-muted); }
+        .btn-settings { background: transparent; color: var(--text-main); }
 
-        /* FIX PARA MÓVILES */
         @media (max-width: 480px) {
             .hero h1 { font-size: 1.9rem; }
-            .service-box { padding: 35px 25px; }
-            .logo { font-size: 1.1rem; }
+            .service-box { padding: 35px 20px; }
         }
     </style>
 </head>
@@ -126,51 +101,70 @@
         <section class="hero">
             <span>Eva González · Arquitecta Técnica Colegiada 9457</span>
             <h1>Cédula de Habitabilidad y <br> Certificado Energético en Sitges</h1>
-            <p>Arquitectura técnica de alta precisión para la validación de activos inmobiliarios. Garantizamos rigor administrativo y celeridad en la entrega para su firma en notaría.</p>
+            <p>Arquitectura técnica de alta precisión. Gestión inmediata para la transmisión de activos inmobiliarios en Sitges y el Garraf.</p>
         </section>
 
         <section class="services-grid">
             <div class="service-box">
                 <h2>Cédula de Habitabilidad</h2>
                 <ul>
-                    <li>Inspección técnica presencial en 24h/48h.</li>
-                    <li>Registro inmediato ante la Generalitat de Catalunya.</li>
-                    <li>Especialista en propiedades singulares y patrimonio.</li>
-                    <li>Gestión de renovaciones y expedientes caducados.</li>
+                    <li>Inspección técnica en 24h/48h.</li>
+                    <li>Registro oficial ante la Generalitat.</li>
+                    <li>Expertise en viviendas de alto standing.</li>
                 </ul>
             </div>
-
             <div class="service-box">
                 <h2>Certificado Energético</h2>
                 <ul>
-                    <li>Auditoría técnica de eficiencia y registro ICAEN.</li>
-                    <li>Entrega de etiqueta oficial el mismo día de la visita.</li>
-                    <li>Validez legal de 10 años para venta o alquiler.</li>
-                    <li>Asesoramiento en mejora de calificación energética.</li>
+                    <li>Auditoría técnica y registro ICAEN.</li>
+                    <li>Etiqueta oficial el mismo día de la visita.</li>
+                    <li>Validez legal de 10 años garantizada.</li>
                 </ul>
             </div>
         </section>
     </main>
 
-    <section class="towns container">
-        <h3>Especialista en Zonas Residenciales de Sitges</h3>
-        <div class="town-list">
-            <span>Terramar</span> <span>El Vinyet</span> <span>Levantina</span> <span>Quint Mar</span> <span>Vallpineda</span> <span>Aiguadolç</span> <span>Can Girona</span> <span>Centro</span>
-        </div>
-    </section>
-
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Cinzel'; margin-bottom: 40px; font-weight: 400; font-size: 1.6rem; letter-spacing: 1px;">¿Necesita asistencia técnica inmediata?</h2>
-            <a href="https://wa.me/34608515922" class="btn-luxury">SOLICITAR CONSULTA PROFESIONAL</a>
+            <h2 style="font-family: 'Cinzel'; margin-bottom: 30px; font-weight: 400; font-size: 1.5rem;">¿Hablamos sobre su propiedad?</h2>
+            <a href="https://wa.me/34608515922" class="btn-luxury">SOLICITAR CONSULTA TÉCNICA</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 CERTILAB · EVA GONZÁLEZ · ARQUITECTA TÉCNICA · SITGES · VILANOVA</p>
+            <div class="footer-nav">
+                <a href="/aviso-legal/">Aviso Legal</a>
+                <a href="/politica-privacidad/">Privacidad</a>
+                <a href="/politica-cookies/">Cookies</a>
+            </div>
+            <p>© 2026 CERTILAB · EVA GONZÁLEZ · ARQUITECTA TÉCNICA · VILANOVA I LA GELTRÚ</p>
         </div>
     </footer>
+
+    <div id="cookie-banner">
+        <p>Utilizamos cookies propias para asegurar la mejor experiencia técnica y jurídica en nuestra web. Al continuar, acepta nuestra política de privacidad.</p>
+        <div class="cookie-btns">
+            <button class="btn-cookie btn-accept" onclick="acceptCookies()">Aceptar</button>
+            <a href="/politica-cookies/" class="btn-cookie btn-settings" style="text-decoration: none; display: flex; align-items: center;">Saber más</a>
+        </div>
+    </div>
+
+    <script>
+        // Lógica simple para el banner de cookies
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').classList.add('show');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').classList.remove('show');
+        }
+    </script>
 
 </body>
 </html>
