@@ -1,1 +1,73 @@
-
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cèdula d'Habitabilitat i Certificat Energètic Vilanova | Eva González</title>
+    <meta name="description" content="Arquitecta Tècnica a Vilanova i la Geltrú. Tramitació de Cèdules d'Habitabilitat i Certificats Energètics. Servei local, ràpid i professional.">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-warm: #f2f0ed; --text-main: #2c2c2c; --gold-muted: #a68b5b; --white-pure: #ffffff; --accent-soft: #e8e4df; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-warm); color: var(--text-main); line-height: 1.8; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+        nav { padding: 25px 0; background: rgba(242, 240, 237, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); text-decoration: none; font-weight: 600; }
+        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; margin-left: 12px; }
+        .lang-switcher a.active { color: var(--gold-muted); border-bottom: 1px solid var(--gold-muted); }
+        .hero { padding: 80px 0 40px 0; }
+        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.4rem; margin: 0; line-height: 1.2; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0; }
+        .service-box { background: var(--white-pure); padding: 45px 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
+        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; }
+        .service-box ul { list-style: none; padding: 0; }
+        .service-box li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: baseline; }
+        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; }
+        .towns { padding: 50px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
+        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.75rem; color: #777; text-transform: uppercase; }
+        .cta-section { padding: 80px 0; text-align: center; background: var(--accent-soft); }
+        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; }
+        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+    <nav><div class="container nav-flex"><a href="/" class="logo">CERTILAB</a>
+        <div class="lang-switcher">
+            <a href="#" class="active">CAT</a>
+            <a href="/cedula-habitabilidad-certificado-energetico-vilanova/">ES</a>
+            <a href="/en/habitation-certificate-energy-report-vilanova/">EN</a>
+        </div>
+    </div></nav>
+    <main class="container">
+        <section class="hero">
+            <span>Eva González · Arquitecta Tècnica Col·legiada 9457</span>
+            <h1>Cèdula d'Habitabilitat i <br> Certificat Energètic a Vilanova</h1>
+            <p>Despatx tècnic a Vilanova i la Geltrú. Gestió ràpida de la documentació obligatòria per a la venda o lloguer de la seva vivenda.</p>
+        </section>
+        <section class="services-grid">
+            <div class="service-box">
+                <h2>Cèdula d'Habitabilitat</h2>
+                <ul>
+                    <li>Inspecció tècnica immediata a Vilanova.</li>
+                    <li>Registre oficial davant la Generalitat.</li>
+                    <li>Tramitació de renovacions i duplicats.</li>
+                </ul>
+            </div>
+            <div class="service-box">
+                <h2>Certificat Energètic</h2>
+                <ul>
+                    <li>Auditoria d'eficiència i registre ICAEN.</li>
+                    <li>Etiqueta oficial entregada en 24h.</li>
+                    <li>Validesa de 10 anys segons normativa.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <section class="towns container"><div class="town-list">
+        <span>Centre Vila</span> <span>Barri de Mar</span> <span>La Collada</span> <span>L'Aragai</span> <span>Sant Joan</span> <span>Molí de Vent</span> <span>Ribes Roges</span>
+    </div></section>
+    <section class="cta-section"><a href="https://wa.me/34608515922" class="btn-luxury">SOL·LICITAR ASSISTÈNCIA</a></section>
+    <footer>© 2026 CERTILAB · EVA GONZÁLEZ · VILANOVA I LA GELTRÚ</footer>
+</body>
+</html>
