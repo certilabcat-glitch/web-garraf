@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoría Técnica Inmobiliaria Sitges | Eva Gonzalez</title>
-    <meta name="description" content="Arquitectura Técnica especializada en Sitges. Gestión de Cédulas y Certificados Energéticos con rigor, rapidez y solvencia legal.">
+    
+    <title>Cédula de Habitabilidad y Certificado Energético Sitges | Eva González</title>
+    <meta name="description" content="Arquitecta Técnica en Sitges. Tramitación urgente de Cédula de Habitabilidad y Certificado Energético. Entrega en 24h para firmas en notaría.">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     
@@ -14,105 +15,47 @@
             --text-main: #2c2c2c; 
             --gold-muted: #a68b5b; 
             --white-pure: #ffffff;
-            --accent-soft: #e8e4df;
         }
 
         body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-warm); 
-            color: var(--text-main); 
-            line-height: 1.8;
-            -webkit-font-smoothing: antialiased;
+            margin: 0; font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-warm); color: var(--text-main); 
+            line-height: 1.8; -webkit-font-smoothing: antialiased;
         }
 
-        /* CONTENEDOR CON MARGEN DE SEGURIDAD */
-        .container { 
-            width: 90%; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            box-sizing: border-box;
-        }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
 
-        nav { 
-            padding: 25px 0; 
-            background: rgba(242, 240, 237, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        nav { padding: 25px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); text-decoration: none; font-weight: 600; }
         
-        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; margin-left: 12px; letter-spacing: 1px; font-weight: 500; }
+        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; margin-left: 12px; letter-spacing: 1px; }
         .lang-switcher a.active { color: var(--gold-muted); border-bottom: 1px solid var(--gold-muted); }
 
-        .hero { padding: 80px 0 60px 0; }
+        .hero { padding: 80px 0 40px 0; }
         .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 500; }
-        .hero h1 { 
-            font-family: 'Cinzel', serif; 
-            font-size: 2.4rem; 
-            margin: 0; 
-            line-height: 1.2; 
-            font-weight: 400;
-        }
-        .hero p { font-size: 1.1rem; max-width: 700px; margin-top: 25px; font-weight: 300; color: #555; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.2rem; margin: 0; line-height: 1.2; font-weight: 400; }
+        .hero p { font-size: 1.1rem; max-width: 750px; margin-top: 25px; font-weight: 300; color: #555; }
 
-        /* GRID CORREGIDO PARA MÓVIL */
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-            padding-bottom: 60px;
-        }
-        .service-box { 
-            background: var(--white-pure); 
-            padding: 40px 30px; /* Padding interno equilibrado */
-            border-radius: 2px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            box-sizing: border-box; /* Asegura que el padding no ensanche el cuadro */
-        }
-        .service-box h2 { 
-            font-family: 'Cinzel', serif; 
-            color: var(--gold-muted); 
-            font-size: 1.2rem; 
-            margin-top: 0;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
+        /* EL PACK: LAS DOS KEYWORDS JUNTAS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 0 60px 0; }
+        .service-box { background: var(--white-pure); padding: 40px 30px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); box-sizing: border-box; }
+        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.2rem; margin-top: 0; margin-bottom: 20px; }
         .service-box ul { list-style: none; padding: 0; margin: 0; }
         .service-box li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: baseline; color: #555; }
-        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 10px; font-size: 1.1rem; }
+        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 10px; }
 
-        .towns { padding: 60px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .towns h3 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 3px; color: #999; margin-bottom: 30px; }
-        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 0.7rem; letter-spacing: 1px; font-weight: 500; color: #777; }
+        /* SEO LOCAL: BARRIOS */
+        .towns { padding: 40px 0; border-top: 1px solid #e1deda; text-align: center; }
+        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 0.7rem; letter-spacing: 1px; color: #888; text-transform: uppercase; }
 
-        .cta-section { padding: 80px 0; text-align: center; background: var(--accent-soft); }
-        .btn-luxury { 
-            background: var(--text-main); 
-            color: var(--white-pure); 
-            padding: 20px 40px; 
-            text-decoration: none; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 0.8rem; 
-            font-weight: 500; 
-            transition: 0.4s;
-            display: inline-block;
-        }
+        .cta-section { padding: 80px 0; text-align: center; background: #e8e4df; }
+        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 20px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; font-weight: 600; display: inline-block; transition: 0.4s; }
+        .btn-luxury:hover { background: var(--gold-muted); }
 
-        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; }
-        .footer-links a { color: #888; text-decoration: none; margin: 0 10px; }
-
-        /* AJUSTES ESPECÍFICOS PARA MÓVILES PEQUEÑOS */
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .service-box { padding: 30px 20px; } /* Más aire lateral en móviles muy pequeños */
-            .logo { font-size: 1.1rem; letter-spacing: 2px; }
-        }
+        footer { padding: 40px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; }
+        
+        @media (max-width: 480px) { .hero h1 { font-size: 1.7rem; } .service-box { padding: 30px 20px; } }
     </style>
 </head>
 <body>
@@ -121,65 +64,56 @@
         <div class="container nav-flex">
             <a href="/" class="logo">CERTILAB</a>
             <div class="lang-switcher">
-                <a href="/ca/sitges/">CAT</a>
-                <a href="/sitges/" class="active">ES</a>
-                <a href="/en/sitges/">EN</a>
-                <a href="/fr/sitges/">FR</a>
+                <a href="/ca/cedula-habitabilidad-certificado-energetico-sitges/">CAT</a>
+                <a href="/cedula-habitabilidad-certificado-energetico-sitges/" class="active">ES</a>
+                <a href="/en/habitation-certificate-energy-report-sitges/">EN</a>
             </div>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <span>Eva González · Arquitecta Técnica</span>
-            <h1>Especialista en Activos <br> Inmobiliarios en Sitges</h1>
-            <p>Solvencia técnica y rigor administrativo para asegurar la validez legal de su propiedad en el Garraf.</p>
+            <span>Servicios Técnicos Sitges · Eva González</span>
+            <h1>Cédula de Habitabilidad y Certificado Energético</h1>
+            <p>Gestión integral y urgente para la transmisión de activos inmobiliarios. Obtenga la documentación técnica necesaria para su firma en notaría sin demoras administrativas.</p>
         </section>
 
         <section class="services-grid">
             <div class="service-box">
                 <h2>Cédula de Habitabilidad</h2>
-                <p>Validación de la aptitud legal necesaria para escriturar o alquilar su activo.</p>
                 <ul>
-                    <li>Inspección técnica presencial en 24h/48h.</li>
-                    <li>Registro oficial inmediato ante la Generalitat.</li>
-                    <li>Gestión de duplicados y renovaciones.</li>
+                    <li>Inspección técnica presencial en 24h.</li>
+                    <li>Registro inmediato ante el Departament d'Habitatge.</li>
+                    <li>Especialista en viviendas de alta gama y patrimonio.</li>
                 </ul>
             </div>
             <div class="service-box">
                 <h2>Certificado Energético</h2>
-                <p>Auditoría de eficiencia obligatoria para la comercialización de viviendas.</p>
                 <ul>
-                    <li>Tramitación en el ICAEN con entrega el mismo día.</li>
-                    <li>Etiqueta oficial con validez de 10 años.</li>
-                    <li>Asesoramiento en ahorro y calificación.</li>
+                    <li>Auditoría y etiqueta oficial del ICAEN.</li>
+                    <li>Entrega de documentación el mismo día de la visita.</li>
+                    <li>Indispensable para la venta o alquiler de su activo.</li>
                 </ul>
             </div>
         </section>
     </main>
 
     <section class="towns container">
-        <h3>Áreas de Intervención en Sitges</h3>
         <div class="town-list">
-            <span>TERRAMAR</span> <span>EL VINYET</span> <span>QUINT MAR</span> <span>VALLPINEDA</span> <span>AIGUADOLÇ</span> <span>LEVANTINA</span>
+            <span>Terramar</span> <span>Vinyet</span> <span>Vallpineda</span> <span>Levantina</span> <span>Quint Mar</span> <span>Aiguadolç</span> <span>Can Girona</span>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Cinzel'; margin-bottom: 30px; font-weight: 400; font-size: 1.5rem;">¿Hablamos sobre su propiedad?</h2>
-            <a href="https://wa.me/34608515922" class="btn-luxury">SOLICITAR CONSULTA TÉCNICA</a>
+            <h2 style="font-family: 'Cinzel'; margin-bottom: 30px; font-weight: 400; font-size: 1.4rem;">¿Necesita su certificado con urgencia?</h2>
+            <a href="https://wa.me/34608515922" class="btn-luxury">CONTACTAR CON ARQUITECTA</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="/privacidad.html">Privacidad</a>
-                <a href="/cookies.html">Cookies</a>
-                <a href="/legal.html">Aviso Legal</a>
-            </div>
-            <p style="margin-top: 25px;">© 2026 CERTILAB · COLEGIADA 9457 · SITGES · VILANOVA</p>
+            <p>© 2026 CERTILAB · ARQUITECTA TÉCNICA 9457 · SITGES · VILANOVA</p>
         </div>
     </footer>
 
