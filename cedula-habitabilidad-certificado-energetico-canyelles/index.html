@@ -45,12 +45,9 @@
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-warm); color: var(--text-main); line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
 
-        /* BARRA URGENCIA (TAL CUAL LA TENÍAS) */
-        .availability-bar { background: #000; color: var(--gold-muted); text-align: center; padding: 12px 5px; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--gold-muted); }
-
-        /* HEADER PREMIUM (OPCIÓN 2 - DESPACHO ARQUITECTURA) */
+        /* HEADER PREMIUM (OPCIÓN 2) - SIN BARRA SUPERIOR */
         nav { 
-            padding: 20px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
+            padding: 25px 0; background: rgba(242, 240, 237, 0.98); backdrop-filter: blur(10px); 
             position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
@@ -63,10 +60,10 @@
         .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; letter-spacing: 1px; font-weight: 600; padding: 8px 12px; border: 1px solid transparent; border-radius: 2px; transition: 0.3s all ease; }
         .lang-switcher a.active { color: var(--gold-muted); border: 1px solid var(--gold-muted); background: rgba(166, 139, 91, 0.05); }
 
-        /* HERO & CONTENIDO */
-        .hero { padding: 80px 0 40px 0; }
+        /* CONTENIDO */
+        .hero { padding: 90px 0 40px 0; }
         .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 600; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; margin: 0; line-height: 1.2; font-weight: 400; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.8rem; margin: 0; line-height: 1.2; font-weight: 400; }
         .hero p { font-size: 1.1rem; max-width: 750px; margin-top: 25px; font-weight: 300; color: #555; }
 
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0 60px 0; }
@@ -83,6 +80,7 @@
 
         .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
         .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; }
+        .btn-luxury:hover { background: transparent; color: var(--text-main); }
 
         footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; background: #f9f8f7; }
         .footer-nav { margin-bottom: 20px; }
@@ -93,15 +91,11 @@
         @media (max-width: 768px) {
             .nav-flex { flex-direction: column; gap: 20px; text-align: center; }
             .logo-group { align-items: center; }
-            .hero h1 { font-size: 2.1rem; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
-
-    <div class="availability-bar">
-        TRÁMITE URGENTE: INSPECCIONES DISPONIBLES ESTA SEMANA EN CANYELLES
-    </div>
 
     <nav>
         <div class="container nav-flex">
