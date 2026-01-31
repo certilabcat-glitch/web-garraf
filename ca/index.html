@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Certilab | Cèdules d'Habitabilitat i Certificats Energètics al Garraf</title>
-    <meta name="description" content="Eva González, Arquitecta Tècnica col·legiada 9457. Gestió urgent de Cèdules d'Habitabilitat i Certificats Energètics a Vilanova i la Geltrú, Sitges i Garraf.">
-    <link rel="canonical" href="https://certilab.cat/ca/">
+    <title>Certilab | Cèdules d'Habitabilitat i Certificats Energètics Urgents al Garraf</title>
+    <meta name="description" content="Eva González, Arquitecta Tècnica col·legiada 9457. Gestió urgent i prioritària de Cèdules d'Habitabilitat i Certificats Energètics a Vilanova, Sitges i Garraf.">
+    
+    <link rel="canonical" href="https://www.certilab.cat/ca/">
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="alternate" hreflang="ca" href="https://certilab.cat/ca/" />
-    <link rel="alternate" hreflang="es" href="https://certilab.cat/" />
-    <link rel="alternate" hreflang="en" href="https://certilab.cat/en/" />
+    <link rel="alternate" hreflang="es" href="https://www.certilab.cat/" />
+    <link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/" />
+    <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.certilab.cat/" />
+
+    <meta name="google-site-verification" content="7VCVmdemmkNmVYz9SnjCaB61Y5hYMZCf12_mZpYaF2Q" />
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "Certilab - Eva González Arquitectura Tècnica",
-      "image": "https://certilab.cat/logo.png",
-      "@id": "https://certilab.cat",
-      "url": "https://certilab.cat/ca/",
+      "image": "https://www.certilab.cat/logo.png",
+      "@id": "https://www.certilab.cat",
+      "url": "https://www.certilab.cat/ca/",
       "telephone": "+34608515922",
       "address": {
         "@type": "PostalAddress",
@@ -39,7 +43,7 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -52,102 +56,105 @@
             --alert-text: #ff8a8a;
         }
 
-        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.8; font-size: 16px; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
+        * { box-sizing: border-box; }
+
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.8; font-size: 16px; overflow-x: hidden; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
         /* BARRA URGÈNCIA */
-        .availability-bar { background: #000; color: var(--gold-muted); text-align: center; padding: 12px 5px; font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--gold-muted); }
+        .availability-bar { 
+            background: #000; 
+            color: var(--gold-muted); 
+            text-align: center; 
+            padding: 14px 10px; 
+            font-weight: 700; 
+            font-size: 0.75rem; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid var(--gold-muted); 
+        }
 
-        /* HEADER PREMIUM (OPCIÓN 2) */
+        /* HEADER PREMIUM */
         nav { 
             padding: 20px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
             position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        
-        .logo-group { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+        .logo-group { text-decoration: none; display: flex; flex-direction: column; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 4px; color: #000; font-weight: 600; line-height: 1; }
-        .tagline-sub { font-size: 0.52rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; line-height: 1.2; }
+        .tagline-sub { font-size: 0.52rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 5px; }
         
         .lang-switcher { display: flex; gap: 8px; align-items: center; }
         .lang-switcher a { 
-            text-decoration: none; color: #888; font-size: 0.7rem; letter-spacing: 1px; font-weight: 600; 
-            padding: 8px 12px; border: 1px solid transparent; border-radius: 2px; transition: 0.3s;
+            text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; 
+            padding: 8px 12px; transition: 0.3s;
         }
-        .lang-switcher a:hover { color: var(--gold-muted); }
-        .lang-switcher a.active { color: var(--gold-muted); border: 1px solid var(--gold-muted); background: rgba(166, 139, 91, 0.05); }
+        .lang-switcher a.active { color: #000; border-bottom: 2px solid var(--gold-muted); }
 
         /* HERO */
         .hero-visual {
             position: relative;
             background: linear-gradient(135deg, #2c3e50 0%, #0f171e 100%);
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
             color: white;
-            overflow: hidden;
         }
-        .hero-visual::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(circle, rgba(166, 139, 91, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px; z-index: 1;
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-visual h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; line-height: 1.2; margin-bottom: 20px; font-weight: 700; }
-        .hero-visual .highlight { color: var(--gold-muted); border-bottom: 2px solid var(--gold-muted); }
+        .hero-visual h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero-visual .highlight { color: var(--gold-muted); }
 
         /* SERVEIS */
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin: 60px 0; }
-        .service-card { background: var(--dark-card); color: var(--white-pure); padding: 50px 35px; border-bottom: 6px solid var(--gold-muted); box-shadow: 0 25px 50px rgba(0,0,0,0.15); transition: 0.3s; border-radius: 2px; box-sizing: border-box; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold-muted); margin-bottom: 25px; }
-        .danger-box { color: var(--alert-text); border-left: 2px solid var(--gold-muted); padding-left: 15px; margin: 25px 0; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 60px 0; }
+        .service-card { background: var(--dark-card); color: var(--white-pure); padding: 40px 30px; border-bottom: 6px solid var(--gold-muted); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .service-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold-muted); margin-bottom: 20px; }
+        .urgente-tag { color: var(--alert-text); border: 1px solid var(--alert-text); padding: 2px 10px; font-size: 0.6rem; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+
         /* CTA */
-        .cta-section { 
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80'); 
-            background-size: cover; background-position: center; padding: 100px 0; text-align: center; color: white; margin-top: 60px;
+        .cta-section { background: #0f171e; padding: 80px 0; text-align: center; color: white; border-top: 1px solid var(--gold-muted); }
+        .btn-whatsapp { 
+            background: #128C7E; 
+            color: white; 
+            padding: 20px 30px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            display: inline-block; 
+            border: 1px solid var(--gold-muted); 
+            transition: 0.3s; 
+            border-radius: 4px;
+            font-size: 0.9rem;
+            width: auto;
+            max-width: 95%;
         }
-        .cta-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 30, 0.85); z-index: 1; }
-        .cta-content { position: relative; z-index: 2; }
-        .btn-whatsapp { background: #128C7E; color: white; padding: 22px 45px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: inline-block; border: 1px solid var(--gold-muted); transition: 0.3s; border-radius: 2px; font-size: 0.9rem; }
         .btn-whatsapp:hover { background: #075E54; transform: scale(1.02); }
 
         /* FOOTER */
-        footer { padding: 80px 0; text-align: center; background: #f9f8f7; color: var(--text-main); border-top: 1px solid rgba(0,0,0,0.05); }
-        .footer-logo { font-family: 'Cinzel', serif; font-size: 1.8rem; letter-spacing: 5px; color: #000; margin-bottom: 5px; }
-        .footer-tagline { text-transform: uppercase; letter-spacing: 3px; font-size: 0.65rem; margin-top: 0; margin-bottom: 30px; color: var(--gold-muted); font-weight: 700; }
-        .localidades { color: #555; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; font-weight: 600; }
-        .localidades a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .localidades a:hover { border-bottom-color: var(--gold-muted); color: var(--gold-muted); }
-        .footer-links a { color: #666; text-decoration: none; font-size: 0.7rem; margin: 0 10px; text-transform: uppercase; font-weight: 600; }
+        footer { padding: 60px 0; text-align: center; background: #f9f8f7; border-top: 1px solid rgba(0,0,0,0.05); }
+        .localidades { color: #555; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin: 20px 0; }
 
         /* COOKIES BANNER */
         #cookie-banner {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px;
-            background: var(--white-pure); padding: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 9999;
-            border-radius: 4px; border: 1px solid var(--gold-muted); display: none; flex-direction: column; gap: 15px; text-align: center;
+            position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px;
+            background: var(--white-pure); padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999;
+            border-radius: 4px; border: 1px solid var(--gold-muted); display: none; flex-direction: column; gap: 15px;
         }
-        .btn-cookie { background: var(--dark-card); color: white; border: none; padding: 12px 20px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; transition: 0.3s; }
 
         @media (max-width: 768px) {
-            .nav-flex { flex-direction: column; gap: 20px; text-align: center; }
-            .logo-group { align-items: center; }
-            .hero-visual h1 { font-size: 2.3rem; }
-            .hero-visual { padding: 80px 0; }
-            .btn-whatsapp { width: 100%; box-sizing: border-box; }
+            .nav-flex { flex-direction: column; gap: 20px; }
+            .hero-visual h1 { font-size: 2.1rem; padding: 0 10px; }
+            .btn-whatsapp { width: 90%; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
     <div id="cookie-banner">
-        <p style="font-size: 0.85rem; color: #444; margin: 0;">Utilitzem cookies tècniques per garantir la seguretat de les seves gestions. <a href="/cookies.html" style="color: var(--gold-muted); text-decoration: none; font-weight: 600;">Més informació</a></p>
-        <button onclick="acceptCookies()" class="btn-cookie">Acceptar i continuar</button>
+        <p style="font-size: 0.8rem; color: #444; margin: 0;">Utilitzem cookies tècniques per garantir la seguretat de les seves gestions. <a href="/cookies.html" style="color: var(--gold-muted); text-decoration: none; font-weight: 600;">Més informació</a></p>
+        <button onclick="acceptCookies()" style="background: var(--dark-card); color: white; border: none; padding: 10px; cursor: pointer; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Acceptar i continuar</button>
     </div>
 
     <div class="availability-bar">
-        TRÀMITS URGENTS DISPONIBLES
+        TRÀMITS URGENTS DISPONIBLES: INSPECCIONS EN 24/48H AL GARRAF
     </div>
 
     <nav>
@@ -158,7 +165,9 @@
             </a>
             <div class="lang-switcher">
                 <a href="/">ES</a>
+                <span style="color:#ccc">|</span>
                 <a href="/ca/" class="active">CAT</a>
+                <span style="color:#ccc">|</span>
                 <a href="/en/">EN</a>
             </div>
         </div>
@@ -166,35 +175,35 @@
 
     <main>
         <section class="hero-visual">
-            <div class="hero-content">
-                <div class="container">
-                    <h1>Rigor tècnic. <br><span class="highlight">Seguretat jurídica.</span></h1>
-                    <p style="font-size: 1.1rem; font-weight: 300; opacity: 0.9; max-width: 750px; margin: 25px auto;">Eva González · Arquitecta Tècnica Col·legiada 9457.<br>Gestió oficial de <strong>Cèdules</strong> i <strong>Certificats Energètics</strong> al Garraf.</p>
-                </div>
+            <div class="container">
+                <h1>Servei de <br><span class="highlight">Tràmits Urgents</span></h1>
+                <p style="font-size: 1.1rem; font-weight: 300; opacity: 0.9; max-width: 800px; margin: 25px auto;">
+                    Eva González · Arquitecta Tècnica Col·legiada 9457.<br>
+                    Cèdules i Certificats Energètics amb gestió immediata per a signatures davant Notari.
+                </p>
             </div>
         </section>
 
         <div class="container">
             <section class="services">
                 <article class="service-card">
+                    <span class="urgente-tag">Prioritat Màxima</span>
                     <h2>Cèdula d'Habitabilitat</h2>
-                    <div class="danger-box">Atenció: Imprescindible per llogar, vendre o donar d'alta subministraments.</div>
-                    <p>Tramitació oficial davant l'Agència de l'Habitatge. Revisem que la seva llar compleixi els requisits de solidesa i salubritat vigents.</p>
+                    <p>Tramitació immediata per evitar sancions o bloquejos en la venda i lloguer del seu habitatge.</p>
                 </article>
 
                 <article class="service-card">
+                    <span class="urgente-tag">Lliurament Ràpid</span>
                     <h2>Certificat Energètic</h2>
-                    <div class="danger-box">Risc: Multes de fins a 6.000€ per oferir immobles sense etiqueta oficial.</div>
-                    <p>Auditoria d'eficiència amb registre a l'ICAEN. Lliurem l'etiqueta en un termini màxim de 24 hores després de la inspecció.</p>
+                    <p>Inspecció tècnica detallada amb registre oficial a l'ICAEN en terminis mínims.</p>
                 </article>
             </section>
         </div>
 
         <section class="cta-section">
-            <div class="cta-overlay"></div>
-            <div class="container cta-content">
-                <h3 style="font-family: 'Playfair Display'; font-size: 2.2rem; margin-bottom: 40px; color: white;">Necessita una inspecció immediata?</h3>
-                <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necessito%20informació%20sobre%20Cèdules%20o%20Certificats%20Energètics." class="btn-whatsapp">Sol·licitar per WhatsApp</a>
+            <div class="container">
+                <h3 style="font-family: 'Playfair Display'; font-size: 2rem; margin-bottom: 35px;">Necessita una inspecció avui mateix?</h3>
+                <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necessito%20un%20SERVEI%20URGENT%20de%20Cèdula/Certificat" class="btn-whatsapp">SOL·LICITAR TRÀMIT URGENT</a>
             </div>
         </section>
     </main>
@@ -202,31 +211,23 @@
     <footer>
         <div class="container">
             <div class="footer-logo">CERTILAB</div>
-            <p class="footer-tagline">Eva González · Arquitecta Tècnica</p>
-            <p class="footer-address"><strong>Plaça de les Cols</strong> · 08800 Vilanova i la Geltrú</p>
-            <p class="localidades">
-                <a href="/ca/cedula-habitabilitat-certificat-energetic-sitges/">Sitges</a> · 
-                <a href="/ca/cedula-habitabilitat-certificat-energetic-vilanova/">Vilanova</a> · 
-                <a href="/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/">Ribes</a> · 
-                Cubelles · Canyelles · Olivella
-            </p>
-            <div class="footer-links">
-                <a href="/privacidad.html">Privadesa</a>
-                <a href="/cookies.html">Cookies</a>
-                <a href="/legal.html">Avís Legal</a>
+            <p class="localidades">Sitges · Vilanova · Ribes · Cubelles · Canyelles · Olivella</p>
+            <div style="font-size: 0.7rem; margin-bottom: 20px;">
+                <a href="/privacidad.html" style="color: #666; text-decoration: none; margin: 0 10px;">Privadesa</a>
+                <a href="/legal.html" style="color: #666; text-decoration: none; margin: 0 10px;">Avís Legal</a>
             </div>
-            <p style="font-size: 0.6rem; color: #888; margin-top: 50px; letter-spacing: 1px;">© 2026 CERTILAB · EVA GONZÁLEZ · COL·LEGIADA 9457 CATEEB</p>
+            <p style="font-size: 0.6rem; color: #888;">© 2026 CERTILAB · Eva González · Col·legiada 9457 Cateeb</p>
         </div>
     </footer>
 
     <script>
         function acceptCookies() {
-            localStorage.setItem('rgpd_consent', 'true');
+            localStorage.setItem('certilabCookiesAccepted', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
         }
         window.onload = function() {
-            if (localStorage.getItem('rgpd_consent') !== 'true') {
-                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'flex'; }, 1000);
+            if (localStorage.getItem('certilabCookiesAccepted') !== 'true') {
+                document.getElementById('cookie-banner').style.display = 'flex';
             }
         };
     </script>
