@@ -6,3 +6,9 @@ Sitemap: https://certilab.cat/sitemap.xml
 
 # Bloquea el acceso a carpetas técnicas si fuera necesario
 Disallow: /cgi-bin/
+User-agent: *
+Allow: /
+# Evitamos que Google indexe el contenido en francés mientras lo trabajas
+Disallow: /fr/
+
+Sitemap: https://certilab.cat/sitemap.xml
