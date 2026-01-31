@@ -6,7 +6,13 @@
     
     <title>Cédula de Habitabilidad y Certificado Energético Sant Pere de Ribes | Eva González</title>
     <meta name="description" content="Arquitecta Técnica en Sant Pere de Ribes y Les Roquetes. Especialista en Cédulas de Habitabilidad y Certificados Energéticos. Gestión rápida y profesional.">
-    
+    <link rel="canonical" href="https://certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="alternate" hreflang="es" href="https://certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/" />
+    <link rel="alternate" hreflang="ca" href="https://certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/" />
+    <link rel="alternate" hreflang="en" href="https://certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/" />
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -29,7 +35,7 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root { 
@@ -44,82 +50,107 @@
             margin: 0; font-family: 'Inter', sans-serif; 
             background-color: var(--bg-warm); color: var(--text-main); 
             line-height: 1.8; -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        .container { 
-            width: 90%; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            box-sizing: border-box; 
-        }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
 
+        /* HEADER & LOGO GROUP PREMIUM */
         nav { 
-            padding: 25px 0; 
-            background: rgba(242, 240, 237, 0.95); 
-            backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 20px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); text-decoration: none; font-weight: 600; }
         
-        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; margin-left: 12px; letter-spacing: 1px; font-weight: 500; }
-        .lang-switcher a.active { color: var(--gold-muted); border-bottom: 1px solid var(--gold-muted); }
+        .logo-group { 
+            text-decoration: none; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2px;
+        }
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 1.4rem; 
+            letter-spacing: 4px; 
+            color: var(--text-main); 
+            font-weight: 600; 
+            line-height: 1;
+        }
+        .tagline-sub {
+            font-size: 0.52rem;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* LANG SWITCHER */
+        .lang-switcher { display: flex; gap: 8px; align-items: center; }
+        .lang-switcher a { 
+            text-decoration: none; 
+            color: #888; 
+            font-size: 0.7rem; 
+            letter-spacing: 1px; 
+            font-weight: 600; 
+            padding: 8px 12px;
+            border: 1px solid transparent;
+            border-radius: 2px;
+            transition: 0.3s all ease;
+        }
+        .lang-switcher a.active { 
+            color: var(--gold-muted); 
+            border: 1px solid var(--gold-muted); 
+            background: rgba(166, 139, 91, 0.05);
+        }
 
+        /* HERO */
         .hero { padding: 80px 0 40px 0; }
-        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 500; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.4rem; margin: 0; line-height: 1.2; font-weight: 400; }
+        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 600; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; margin: 0; line-height: 1.2; font-weight: 400; }
         .hero p { font-size: 1.1rem; max-width: 750px; margin-top: 25px; font-weight: 300; color: #555; }
 
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
-            padding: 40px 0 60px 0; 
-        }
-        .service-box { 
-            background: var(--white-pure); 
-            padding: 45px 35px; 
-            border-radius: 2px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
-            box-sizing: border-box; 
-        }
+        /* SERVICIOS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0 60px 0; }
+        .service-box { background: var(--white-pure); padding: 45px 35px; border-radius: 2px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); box-sizing: border-box; border-bottom: 3px solid transparent; transition: 0.3s; }
+        .service-box:hover { border-bottom-color: var(--gold-muted); transform: translateY(-5px); }
         .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; margin-bottom: 25px; letter-spacing: 1px; }
         .service-box ul { list-style: none; padding: 0; margin: 0; }
         .service-box li { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: baseline; color: #555; }
         .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; font-size: 1.2rem; }
 
-        .towns { padding: 50px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .towns h3 { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 3px; color: #999; margin-bottom: 30px; }
-        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.75rem; letter-spacing: 1px; color: #777; font-weight: 500; }
+        /* COBERTURA */
+        .towns { padding: 60px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
+        .towns h3 { font-family: 'Cinzel', serif; font-size: 1rem; letter-spacing: 2px; margin-bottom: 30px; color: var(--gold-muted); font-weight: 400; }
+        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.75rem; letter-spacing: 1px; color: #777; text-transform: uppercase; font-weight: 600; }
 
+        /* CTA */
         .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
-        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: none; cursor: pointer; }
-        .btn-luxury:hover { background: var(--gold-muted); transform: translateY(-2px); }
+        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; }
+        .btn-luxury:hover { background: transparent; color: var(--text-main); transform: translateY(-2px); }
 
-        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; }
+        /* FOOTER */
+        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; background: #f9f8f7; }
         .footer-nav { margin-bottom: 20px; }
-        .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; }
-        .footer-nav a:hover { color: var(--gold-muted); }
+        .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
 
-        /* BANNER DE COOKIES */
+        /* COOKIES */
         #cookie-banner {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 600px; background: var(--white-pure);
-            padding: 25px; border-radius: 4px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            z-index: 2000; border: 1px solid var(--accent-soft);
-            visibility: hidden; opacity: 0; transition: 0.5s ease-in-out;
+            width: 90%; max-width: 500px; background: var(--white-pure);
+            padding: 25px; border-radius: 4px; box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            display: none; flex-direction: column; align-items: center; text-align: center;
+            z-index: 2000; border: 1px solid var(--gold-muted);
         }
-        #cookie-banner.show { visibility: visible; opacity: 1; }
-        #cookie-banner p { font-size: 0.8rem; color: #666; margin: 0 0 15px 0; }
-        .cookie-btns { display: flex; gap: 15px; margin-top: 15px; }
-        .btn-cookie { padding: 10px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border: 1px solid var(--text-main); cursor: pointer; }
-        .btn-accept { background: var(--text-main); color: var(--white-pure); }
+        .btn-cookie { padding: 12px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; border: 1px solid var(--text-main); cursor: pointer; transition: 0.3s; }
 
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.9rem; }
-            .service-box { padding: 35px 25px; }
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-flex { flex-direction: column; gap: 20px; text-align: center; }
+            .logo-group { align-items: center; }
+            .tagline-sub { font-size: 0.48rem; letter-spacing: 1.5px; }
+            .hero h1 { font-size: 2.1rem; }
+            .lang-switcher a { padding: 10px 15px; font-size: 0.8rem; background: rgba(0,0,0,0.02); }
         }
     </style>
 </head>
@@ -127,12 +158,15 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="/" class="logo">CERTILAB</a>
+            <a href="/" class="logo-group">
+                <span class="logo">CERTILAB</span>
+                <span class="tagline-sub">Despacho de Arquitectura Técnica · Gestión Legal de la Vivienda</span>
+            </a>
             <div class="lang-switcher">
-    <a href="/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/">CAT</a>
-    <a href="/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/" class="active">ES</a>
-    <a href="/en/habitation-certificate-energy-report-sant-pere-de-ribes/">EN</a>
-</div>
+                <a href="/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/">CAT</a>
+                <a href="/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/" class="active">ES</a>
+                <a href="/en/habitation-certificate-energy-report-sant-pere-de-ribes/">EN</a>
+            </div>
         </div>
     </nav>
 
@@ -166,14 +200,14 @@
     <section class="towns container">
         <h3>Cobertura Técnica en Sant Pere de Ribes</h3>
         <div class="town-list">
-            <span>Núcleo Ribes</span> <span>Les Roquetes</span> <span>Vallesaltos</span> <span>Mas d'en Serra</span> <span>Els Cards</span> <span>Puigmoltó</span> <span>Pineda de Mar</span>
+            <span>Núcleo Ribes</span> <span>Les Roquetes</span> <span>Vallesaltos</span> <span>Mas d'en Serra</span> <span>Els Cards</span> <span>Puigmoltó</span> <span>Mas Alba</span>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
             <h2 style="font-family: 'Cinzel'; margin-bottom: 40px; font-weight: 400; font-size: 1.6rem;">¿Desea solicitar su presupuesto hoy?</h2>
-            <a href="https://wa.me/34608515922" class="btn-luxury">SOLICITAR ASISTENCIA</a>
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20información%20sobre%20Cédulas%20o%20Certificados%20en%20Sant%20Pere%20de%20Ribes." class="btn-luxury">SOLICITAR ASISTENCIA</a>
         </div>
     </section>
 
@@ -189,22 +223,22 @@
     </footer>
 
     <div id="cookie-banner">
-        <p>Utilizamos cookies propias para garantizar la mejor experiencia técnica. Al continuar, acepta nuestra política de privacidad.</p>
-        <div class="cookie-btns">
-            <button class="btn-cookie btn-accept" onclick="acceptCookies()">Aceptar</button>
+        <p style="font-size: 0.85rem; color: #444; margin: 0 0 20px 0;">Utilizamos cookies técnicas para garantizar la seguridad de sus gestiones. Al continuar, acepta nuestra política de privacidad.</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn-cookie" style="background: var(--text-main); color: white;" onclick="acceptCookies()">Aceptar</button>
             <a href="/cookies.html" class="btn-cookie" style="text-decoration:none; color:inherit; display:flex; align-items:center;">Saber más</a>
         </div>
     </div>
 
     <script>
         window.onload = function() {
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => { document.getElementById('cookie-banner').classList.add('show'); }, 1000);
+            if (localStorage.getItem('rgpd_consent') !== 'true') {
+                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'flex'; }, 1000);
             }
         }
         function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookie-banner').classList.remove('show');
+            localStorage.setItem('rgpd_consent', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
         }
     </script>
 
