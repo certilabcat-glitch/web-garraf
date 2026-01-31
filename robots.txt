@@ -1,1 +1,8 @@
+User-agent: *
+Allow: /
 
+# Indica a Google dónde está tu sitemap
+Sitemap: https://certilab.cat/sitemap.xml
+
+# Bloquea el acceso a carpetas técnicas si fuera necesario
+Disallow: /cgi-bin/
