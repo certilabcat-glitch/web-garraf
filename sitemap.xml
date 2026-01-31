@@ -8,41 +8,37 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/"/>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/"/>
-    <priority>0.8</priority>
+    <loc>https://www.certilab.cat/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/"/>
+    <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-cubelles/"/>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-olivella/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/"/>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/"/>
-    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/"/>
-    <priority>0.8</priority>
+    <loc>https://www.certilab.cat/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/"/>
+    <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sitges/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sitges/"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sitges/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sitges/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sitges/"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-sitges/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/"/>
     <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sitges/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sitges/"/>
@@ -55,6 +51,108 @@
     <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-vilanova/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-vilanova/"/>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-vilanova/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-vilanova/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-vilanova/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-vilanova/"/>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-vilanova/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-vilanova/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-vilanova/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-vilanova/"/>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-sant-pere-de-ribes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-sant-pere-de-ribes/"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-cubelles/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-cubelles/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-cubelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-cubelles/"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/"/>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-olivella/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/"/>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-olivella/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/"/>
+    <priority>0.8</priority>
   </url>
 
 </urlset>
