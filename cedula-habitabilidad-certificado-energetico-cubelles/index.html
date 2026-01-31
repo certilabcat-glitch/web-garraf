@@ -13,28 +13,6 @@
     <link rel="alternate" hreflang="ca" href="https://certilab.cat/ca/cedula-habitabilitat-certificat-energetic-cubelles/" />
     <link rel="alternate" hreflang="en" href="https://certilab.cat/en/habitation-certificate-energy-report-cubelles/" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Certilab - Eva González Arquitecta Técnica",
-      "description": "Servicios técnicos de Cédula de Habitabilidad y Certificado Energético en Cubelles.",
-      "url": "https://certilab.cat/cedula-habitabilidad-certificado-energetico-cubelles/",
-      "telephone": "+34608515922",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Vilanova i la Geltrú",
-        "addressRegion": "Barcelona",
-        "addressCountry": "ES"
-      },
-      "areaServed": [
-        {"@type": "City", "name": "Cubelles"},
-        {"@type": "City", "name": "Cunit"},
-        {"@type": "City", "name": "Vilanova i la Geltrú"}
-      ]
-    }
-    </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
@@ -55,14 +33,37 @@
 
         .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
 
-        /* HEADER & BOTONES IDIOMA ACTUALIZADOS */
+        /* HEADER & LOGO GROUP */
         nav { 
             padding: 20px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
             position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 3px; color: var(--text-main); text-decoration: none; font-weight: 600; }
         
+        .logo-group { 
+            text-decoration: none; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 2px;
+        }
+        .logo { 
+            font-family: 'Cinzel', serif; 
+            font-size: 1.4rem; 
+            letter-spacing: 4px; 
+            color: var(--text-main); 
+            font-weight: 600; 
+            line-height: 1;
+        }
+        .tagline-sub {
+            font-size: 0.52rem;
+            color: var(--gold-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+        
+        /* LANG SWITCHER */
         .lang-switcher { display: flex; gap: 8px; align-items: center; }
         .lang-switcher a { 
             text-decoration: none; 
@@ -96,10 +97,6 @@
         .service-box li { margin-bottom: 15px; font-size: 0.95rem; display: flex; align-items: baseline; color: #555; }
         .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; font-size: 1.2rem; }
 
-        /* ZONAS CUBELLES */
-        .towns { padding: 50px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .town-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 0.75rem; letter-spacing: 1px; color: #777; text-transform: uppercase; font-weight: 500; }
-
         /* CTA */
         .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
         .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; }
@@ -109,9 +106,8 @@
         footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; background: #f9f8f7; }
         .footer-nav { margin-bottom: 20px; }
         .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
-        .footer-nav a:hover { color: var(--gold-muted); }
 
-        /* BANNER COOKIES UNIFICADO */
+        /* COOKIES */
         #cookie-banner {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 500px; background: var(--white-pure);
@@ -119,17 +115,14 @@
             display: none; flex-direction: column; align-items: center; text-align: center;
             z-index: 2000; border: 1px solid var(--gold-muted);
         }
-        #cookie-banner p { font-size: 0.85rem; color: #444; margin: 0 0 20px 0; }
-        .cookie-btns { display: flex; gap: 15px; }
-        .btn-cookie { padding: 12px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; border: 1px solid var(--text-main); cursor: pointer; transition: 0.3s; }
-        .btn-accept { background: var(--text-main); color: var(--white-pure); }
+        .btn-cookie { padding: 12px 25px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; border: 1px solid var(--text-main); cursor: pointer; }
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .nav-flex { flex-direction: column; gap: 20px; }
-            .hero { text-align: center; padding: 60px 0 30px 0; }
+            .nav-flex { flex-direction: column; gap: 20px; text-align: center; }
+            .logo-group { align-items: center; }
+            .tagline-sub { font-size: 0.48rem; letter-spacing: 1.5px; }
             .hero h1 { font-size: 2.1rem; }
-            .hero p { margin: 25px auto; }
             .lang-switcher a { padding: 10px 15px; font-size: 0.8rem; background: rgba(0,0,0,0.02); }
         }
     </style>
@@ -138,7 +131,10 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="/" class="logo">CERTILAB</a>
+            <a href="/" class="logo-group">
+                <span class="logo">CERTILAB</span>
+                <span class="tagline-sub">Despacho de Arquitectura Técnica · Gestión Legal de la Vivienda</span>
+            </a>
             <div class="lang-switcher">
                 <a href="/ca/cedula-habitabilitat-certificat-energetic-cubelles/">CAT</a>
                 <a href="/cedula-habitabilidad-certificado-energetico-cubelles/" class="active">ES</a>
@@ -174,12 +170,6 @@
         </section>
     </main>
 
-    <section class="towns container">
-        <div class="town-list">
-            <span>Marítim</span> <span>Santa Maria</span> <span>Mas Tradició</span> <span>Madriguera</span> <span>Parc de Cubelles</span> <span>Cunit</span>
-        </div>
-    </section>
-
     <section class="cta-section">
         <div class="container">
             <h2 style="font-family: 'Cinzel'; margin-bottom: 40px; font-weight: 400; font-size: 1.6rem;">¿Necesita sus certificados en Cubelles?</h2>
@@ -199,20 +189,17 @@
     </footer>
 
     <div id="cookie-banner">
-        <p>Utilizamos cookies técnicas para garantizar la seguridad de sus gestiones. Al continuar, acepta nuestra política de privacidad.</p>
-        <div class="cookie-btns">
-            <button class="btn-cookie btn-accept" onclick="acceptCookies()">Aceptar</button>
+        <p style="font-size: 0.85rem; color: #444; margin: 0 0 20px 0;">Utilizamos cookies técnicas para garantizar la seguridad de sus gestiones. Al continuar, acepta nuestra política de privacidad.</p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn-cookie" style="background: var(--text-main); color: white;" onclick="acceptCookies()">Aceptar</button>
             <a href="/cookies.html" class="btn-cookie" style="text-decoration:none; color:inherit; display:flex; align-items:center;">Saber más</a>
         </div>
     </div>
 
     <script>
-        // Lógica de cookies unificada
         window.onload = function() {
             if (localStorage.getItem('rgpd_consent') !== 'true') {
-                setTimeout(() => { 
-                    document.getElementById('cookie-banner').style.display = 'flex'; 
-                }, 1000);
+                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'flex'; }, 1000);
             }
         }
         function acceptCookies() {
