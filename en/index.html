@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Certilab | Urgent Habitation Certificates & Energy EPC in Garraf</title>
-    <meta name="description" content="Eva Gonzalez, Registered Technical Architect. Priority service for Habitation Certificates and EPC. Urgent inspections in 24/48h across Sitges and Vilanova.">
+    <meta name="description" content="Eva Gonzalez, Chartered Technical Architect 9457. Priority management of Habitation Certificates and Energy Certificates (EPC) in Sitges and Vilanova.">
+    
     <link rel="canonical" href="https://www.certilab.cat/en/">
-
     <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="alternate" hreflang="es" href="https://www.certilab.cat/" />
+    <link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/" />
+    <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.certilab.cat/" />
 
     <meta name="google-site-verification" content="7VCVmdemmkNmVYz9SnjCaB61Y5hYMZCf12_mZpYaF2Q" />
 
@@ -35,11 +40,11 @@
         "longitude": 1.7258
       },
       "servesArea": ["Vilanova i la Geltrú", "Sitges", "Sant Pere de Ribes", "Cubelles", "Canyelles", "Olivella"],
-      "description": "Urgent technical architecture services in the Garraf area."
+      "description": "Urgent technical architecture and property certification in Sitges and the Garraf area."
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -77,12 +82,9 @@
         .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 2px; color: #000; text-decoration: none; line-height: 1; }
         .tagline { font-size: 0.55rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-top: 5px; }
         
-        /* PREMIUM LANG MENU */
         .lang-menu { display: flex; align-items: center; gap: 5px; }
-        .lang-link { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; transition: 0.3s; padding: 4px 6px; }
-        .lang-link:hover { color: var(--gold); }
+        .lang-link { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; padding: 4px 6px; transition: 0.3s; }
         .lang-link.active { color: #000; border-bottom: 2px solid var(--gold); }
-        .separator { color: #ccc; font-size: 0.7rem; }
 
         /* HERO */
         .hero-visual {
@@ -101,7 +103,7 @@
         .service-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; }
         .urgente-tag { color: var(--alert-text); border: 1px solid var(--alert-text); padding: 2px 10px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: inline-block; }
 
-        /* CTA BUTTON ADJUSTED FOR MOBILE */
+        /* CTA BUTTON */
         .cta-section { background: #0f171e; padding: 80px 0; text-align: center; color: white; border-top: 1px solid var(--gold); }
         .btn-whatsapp { 
             background: #128C7E; 
@@ -116,7 +118,8 @@
             transition: 0.3s; 
             border-radius: 4px;
             font-size: 0.9rem;
-            max-width: 95%; 
+            width: auto;
+            max-width: 95%;
         }
         .btn-whatsapp:hover { background: #075E54; transform: scale(1.02); }
 
@@ -127,26 +130,22 @@
         /* COOKIE BANNER */
         #cookie-banner {
             position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 400px;
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-            padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999;
-            border-radius: 8px; border: 1px solid var(--gold);
-            display: none; flex-direction: column; gap: 10px;
+            background: white; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 9999;
+            border-radius: 4px; border: 1px solid var(--gold); display: none; flex-direction: column; gap: 15px;
         }
-        #cookie-banner p { font-size: 0.8rem; margin: 0; color: #333; }
-        #cookie-banner button { background: var(--dark-card); color: white; border: none; padding: 10px; cursor: pointer; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
 
         @media (max-width: 768px) {
             .nav-bar { flex-direction: column; gap: 15px; }
             .hero-visual h1 { font-size: 2.1rem; padding: 0 10px; }
-            .btn-whatsapp { width: 90%; font-size: 0.8rem; padding: 18px 10px; }
+            .btn-whatsapp { width: 90%; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
     <div id="cookie-banner">
-        <p>We use essential cookies for <strong>legal security</strong> and professional site management. <a href="/cookies.html" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn more</a></p>
-        <button onclick="acceptCookies()">Accept & Continue</button>
+        <p style="font-size: 0.8rem; color: #444; margin: 0;">We use essential cookies to ensure the legal security of your procedures. <a href="/cookies.html" style="color: var(--gold); text-decoration: none; font-weight: 600;">Learn more</a></p>
+        <button onclick="acceptCookies()" style="background: var(--dark-card); color: white; border: none; padding: 10px; cursor: pointer; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Accept & Continue</button>
     </div>
 
     <div class="availability-bar">
@@ -157,14 +156,14 @@
         <nav class="container nav-bar">
             <div class="logo-group">
                 <a href="/en/" class="logo">CERTILAB</a>
-                <span class="tagline">Technical Architecture · Priority Management</span>
+                <span class="tagline">Chartered Architect · Priority Management</span>
             </div>
             
             <div class="lang-menu">
                 <a href="/ca/" class="lang-link">CAT</a>
-                <span class="separator">|</span>
+                <span style="color:#ccc">|</span>
                 <a href="/" class="lang-link">ES</a>
-                <span class="separator">|</span>
+                <span style="color:#ccc">|</span>
                 <a href="/en/" class="lang-link active">EN</a>
             </div>
         </nav>
@@ -186,13 +185,13 @@
                 <article class="service-card">
                     <span class="urgente-tag">Priority Service</span>
                     <h2>Habitation Certificate</h2>
-                    <p>Immediate management for renewals and new occupancy. Avoid legal blocks during property transfers.</p>
+                    <p>Immediate management for renewals and new occupancy. Essential to avoid legal delays during property transfers.</p>
                 </article>
 
                 <article class="service-card">
                     <span class="urgente-tag">Fast Delivery</span>
                     <h2>Energy Certificate (EPC)</h2>
-                    <p>Rigorous technical inspection with official registration. Mandatory for any real estate transaction in Catalonia.</p>
+                    <p>Detailed technical inspection with official registration. Mandatory for any real estate transaction in Spain.</p>
                 </article>
             </section>
         </div>
@@ -211,7 +210,7 @@
             <p class="localidades">Sitges · Vilanova · Ribes · Cubelles · Canyelles · Olivella</p>
             <div style="font-size: 0.7rem; margin-bottom: 20px;">
                 <a href="/privacidad.html" style="color: #666; text-decoration: none; margin: 0 10px;">Privacy</a>
-                <a href="/legal.html" style="color: #666; text-decoration: none; margin: 0 10px;">Legal</a>
+                <a href="/legal.html" style="color: #666; text-decoration: none; margin: 0 10px;">Legal Notice</a>
             </div>
             <p style="font-size: 0.6rem; color: #888;">© 2026 CERTILAB · Eva Gonzalez · Chartered 9457 Cateeb</p>
         </div>
@@ -219,8 +218,8 @@
 
     <script>
         function acceptCookies() {
-            document.getElementById('cookie-banner').style.display = 'none';
             localStorage.setItem('certilabCookiesAccepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
         }
         window.onload = function() {
             if (localStorage.getItem('certilabCookiesAccepted') !== 'true') {
