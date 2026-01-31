@@ -43,7 +43,7 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -57,9 +57,18 @@
         }
 
         * { box-sizing: border-box; }
-
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.8; font-size: 16px; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
         .container { width: 90%; max-width: 1100px; margin: 0 auto; }
+
+        /* COOKIE BANNER PREMIUM */
+        #cookie-banner {
+            position: fixed; bottom: 30px; left: 30px; width: 350px; background: var(--white-pure);
+            padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); z-index: 10000;
+            border-radius: 2px; border-left: 4px solid var(--gold-muted); display: none;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         /* BARRA URGÈNCIA */
         .availability-bar { 
@@ -79,20 +88,13 @@
         .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 4px; color: #000; font-weight: 600; line-height: 1; }
         .tagline-sub { font-size: 0.52rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-top: 5px; }
         
-        .lang-switcher { display: flex; gap: 8px; align-items: center; }
-        .lang-switcher a { 
-            text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; 
-            padding: 8px 12px; transition: 0.3s;
-        }
+        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; padding: 8px 12px; transition: 0.3s; }
         .lang-switcher a.active { color: #000; border-bottom: 2px solid var(--gold-muted); }
 
         /* HERO */
         .hero-visual {
-            position: relative;
             background: linear-gradient(135deg, #1a252f 0%, #0f171e 100%);
-            padding: 120px 0;
-            text-align: center;
-            color: white;
+            padding: 120px 0; text-align: center; color: white;
         }
         .hero-visual h1 { font-family: 'Cinzel', serif; font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; font-weight: 400; letter-spacing: 2px; }
         .hero-visual .highlight { color: var(--gold-muted); display: block; margin-top: 10px; }
@@ -100,44 +102,34 @@
         /* SERVEIS */
         .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 80px 0; }
         .service-card { background: var(--dark-card); color: var(--white-pure); padding: 50px 35px; border-bottom: 4px solid var(--gold-muted); box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.3s; }
-        .service-card:hover { transform: translateY(-5px); }
-        .service-card h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-muted); margin-bottom: 20px; letter-spacing: 1px; }
+        .service-card h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold-muted); margin-bottom: 20px; }
         .urgente-tag { color: var(--alert-text); border: 1px solid var(--alert-text); padding: 3px 12px; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 15px; display: inline-block; font-weight: 600; }
 
-        /* SECCIÓ LOCALITATS (SEO) */
+        /* SECCIÓ LOCALITATS SEO */
         .area-links { background: var(--white-pure); padding: 80px 0; border-top: 1px solid rgba(0,0,0,0.05); }
         .area-links h4 { font-family: 'Cinzel', serif; text-align: center; font-size: 1rem; letter-spacing: 4px; color: var(--gold-muted); margin-bottom: 40px; text-transform: uppercase; }
-        .grid-localitats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .grid-localitats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
         .grid-localitats a { 
-            text-decoration: none; color: var(--text-main); font-size: 0.75rem; font-weight: 600; 
+            text-decoration: none; color: var(--text-main); font-size: 0.72rem; font-weight: 600; 
             text-transform: uppercase; letter-spacing: 1.5px; padding: 20px; border: 1px solid var(--bg); 
-            text-align: center; transition: 0.3s all ease; background: var(--bg);
+            text-align: center; transition: 0.3s; background: var(--bg);
         }
         .grid-localitats a:hover { border-color: var(--gold-muted); color: var(--gold-muted); background: #fff; }
 
         /* CTA */
-        .cta-section { background: #0f171e; padding: 100px 0; text-align: center; color: white; border-top: 1px solid var(--gold-muted); }
+        .cta-section { background: #0f171e; padding: 100px 0; text-align: center; color: white; }
         .btn-whatsapp { 
             background: #128C7E; color: white; padding: 22px 40px; text-decoration: none; 
             font-weight: 700; text-transform: uppercase; letter-spacing: 2px; 
-            display: inline-block; border: 1px solid var(--gold-muted); 
-            transition: 0.3s; border-radius: 2px; font-size: 0.9rem;
+            display: inline-block; border: 1px solid var(--gold-muted); border-radius: 2px;
         }
-        .btn-whatsapp:hover { background: transparent; color: white; transform: scale(1.02); }
 
         /* FOOTER */
-        footer { padding: 80px 0; text-align: center; background: #f9f8f7; color: #888; }
-        .footer-nav a { color: #666; text-decoration: none; margin: 0 15px; font-size: 0.7rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
-
-        /* COOKIES */
-        #cookie-banner {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px;
-            background: var(--white-pure); padding: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.2); z-index: 9999;
-            border-radius: 4px; border: 1px solid var(--gold-muted); display: none; flex-direction: column; text-align: center;
-        }
+        footer { padding: 80px 0; text-align: center; background: #f9f8f7; color: #888; border-top: 1px solid rgba(0,0,0,0.05); }
 
         @media (max-width: 768px) {
             .hero-visual h1 { font-size: 2rem; }
+            #cookie-banner { left: 5%; bottom: 20px; width: 90%; }
             .grid-localitats { grid-template-columns: 1fr 1fr; }
         }
     </style>
@@ -145,10 +137,15 @@
 <body>
 
     <div id="cookie-banner">
-        <p style="font-size: 0.85rem; color: #444; margin: 0 0 20px 0;">Utilitzem cookies tècniques per garantir la seguretat de les seves gestions.</p>
-        <div style="display: flex; gap: 10px; justify-content: center;">
-            <button onclick="acceptCookies()" style="background: var(--dark-card); color: white; border: none; padding: 12px 20px; cursor: pointer; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Acceptar</button>
-            <a href="/cookies.html" style="text-decoration: none; color: #888; font-size: 0.7rem; display: flex; align-items: center; font-weight: 600;">Més info</a>
+        <div style="text-align: left; margin-bottom: 15px;">
+            <span style="font-family: 'Cinzel'; font-size: 0.8rem; color: var(--gold-muted); font-weight: 600;">PRIVACESA</span>
+        </div>
+        <p style="font-size: 0.82rem; color: #444; margin: 0 0 20px 0; text-align: left;">
+            Utilitzem cookies pròpies per garantir la seguretat de les seves gestions i millorar la seva experiència.
+        </p>
+        <div style="display: flex; gap: 10px; flex-direction: column;">
+            <button onclick="acceptCookies()" style="background: var(--dark-card); color: white; border: none; padding: 12px; cursor: pointer; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;">Acceptar i continuar</button>
+            <a href="/ca/cookies/" style="text-decoration: none; color: #888; font-size: 0.65rem; text-align: center; font-weight: 600;">MÉS INFORMACIÓ</a>
         </div>
     </div>
 
@@ -176,7 +173,7 @@
                 <h1>SERVEI DE <span class="highlight">TRÀMITS URGENTS</span></h1>
                 <p style="font-size: 1.1rem; font-weight: 300; opacity: 0.9; max-width: 800px; margin: 30px auto;">
                     Eva González · Arquitecta Tècnica Col·legiada 9457.<br>
-                    Gestió immediata de Cèdules i Certificats Energètics per a signatures davant Notari.
+                    Cèdules i Certificats Energètics amb gestió immediata al Garraf.
                 </p>
             </div>
         </section>
@@ -186,20 +183,20 @@
                 <article class="service-card">
                     <span class="urgente-tag">Prioritat Màxima</span>
                     <h2>Cèdula d'Habitabilitat</h2>
-                    <p>Tramitació oficial a l'Agència de l'Habitatge. Eviti retards en la seva compravenda o lloguer amb una gestió tècnica ràpida i eficaç.</p>
+                    <p>Tramitació oficial ràpida per a compravenda i lloguer. Eviti esperes innecessàries per a la seva signatura davant Notari.</p>
                 </article>
 
                 <article class="service-card">
                     <span class="urgente-tag">Lliurament 24h</span>
                     <h2>Certificat Energètic</h2>
-                    <p>Auditoria d'eficiència i registre a l'ICAEN. Etiqueta energètica obligatòria tramitada per professional col·legiada al Garraf.</p>
+                    <p>Auditoria d'eficiència amb registre oficial a l'ICAEN. Professionalitat i rigor en cada inspecció tècnica.</p>
                 </article>
             </section>
         </div>
 
         <section class="area-links">
             <div class="container">
-                <h4>Àrees de Servei Prioritari</h4>
+                <h4>Àrees de Servei al Garraf</h4>
                 <div class="grid-localitats">
                     <a href="/ca/cedula-habitabilitat-certificat-energetic-sitges/">Sitges</a>
                     <a href="/ca/cedula-habitabilitat-certificat-energetic-vilanova-i-la-geltru/">Vilanova i la Geltrú</a>
@@ -213,33 +210,36 @@
 
         <section class="cta-section">
             <div class="container">
-                <h3 style="font-family: 'Cinzel'; font-size: 1.8rem; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px;">Necessita una inspecció avui mateix?</h3>
-                <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necessito%20un%20SERVEI%20URGENT%20de%20Cèdula/Certificat" class="btn-whatsapp">SOL·LICITAR TRÀMIT URGENT</a>
+                <h3 style="font-family: 'Cinzel'; font-size: 1.8rem; margin-bottom: 40px; font-weight: 400;">Necessita una inspecció avui mateix?</h3>
+                <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necessito%20un%20SERVEI%20URGENT" class="btn-whatsapp">SOL·LICITAR TRÀMIT URGENT</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-nav" style="margin-bottom: 30px;">
-                <a href="/privacidad.html">Privadesa</a>
-                <a href="/legal.html">Avís Legal</a>
-                <a href="/cookies.html">Cookies</a>
+            <div style="margin-bottom: 30px;">
+                <a href="/ca/privadesa/" style="color: #666; text-decoration: none; margin: 0 15px; font-size: 0.7rem; text-transform: uppercase;">Privadesa</a>
+                <a href="/ca/avis-legal/" style="color: #666; text-decoration: none; margin: 0 15px; font-size: 0.7rem; text-transform: uppercase;">Avís Legal</a>
+                <a href="/ca/cookies/" style="color: #666; text-decoration: none; margin: 0 15px; font-size: 0.7rem; text-transform: uppercase;">Cookies</a>
             </div>
-            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #aaa; text-transform: uppercase;">
-                © 2026 CERTILAB · Eva González · Col·legiada 9457 Cateeb · Vilanova i la Geltrú
+            <p style="font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;">
+                © 2026 CERTILAB · Eva González · Col·legiada 9457 Cateeb
             </p>
         </div>
     </footer>
 
     <script>
         function acceptCookies() {
-            localStorage.setItem('certilabCookiesAccepted', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
+            localStorage.setItem('certilab_consent_2026', 'true');
+            const banner = document.getElementById('cookie-banner');
+            banner.style.opacity = '0';
+            setTimeout(() => { banner.style.display = 'none'; }, 500);
         }
+
         window.onload = function() {
-            if (localStorage.getItem('certilabCookiesAccepted') !== 'true') {
-                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'flex'; }, 1000);
+            if (localStorage.getItem('certilab_consent_2026') !== 'true') {
+                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1500);
             }
         };
     </script>
