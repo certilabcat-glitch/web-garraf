@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Certilab | Trámites Urgentes de Cédulas y Certificados en el Garraf</title>
-    <meta name="description" content="Eva Gonzalez, Arquitecta Técnica. Gestión prioritaria de Cédulas de Habitabilidad y Certificados Energéticos. Inspecciones urgentes en Vilanova, Sitges y Garraf.">
+    <meta name="description" content="Eva Gonzalez, Arquitecta Técnica. Gestión prioritaria de Cédulas de Habitabilidad y Certificados Energéticos. Inspecciones urgentes 24/48h en Vilanova y Sitges.">
     
     <link rel="canonical" href="https://www.certilab.cat/">
+    <link rel="alternate" hreflang="es" href="https://www.certilab.cat/" />
+    <link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/" />
+    <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.certilab.cat/" />
     
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -36,7 +40,7 @@
         "longitude": 1.7258
       },
       "servesArea": ["Vilanova i la Geltrú", "Sitges", "Sant Pere de Ribes", "Cubelles", "Canyelles", "Olivella"],
-      "description": "Servicio urgente de arquitectura técnica en la comarca del Garraf."
+      "description": "Especialista en trámites urgentes de arquitectura técnica en la comarca del Garraf."
     }
     </script>
 
@@ -53,12 +57,12 @@
             --alert-text: #ff8a8a;
         }
 
-        * { box-sizing: border-box; } /* Evita que los paddings rompan el layout en móvil */
+        * { box-sizing: border-box; }
 
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px; overflow-x: hidden; }
         .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-        /* BARRA DE TRÁMITES URGENTES */
+        /* BARRA DE URGENCIA */
         .availability-bar { 
             background: #000; 
             color: var(--gold); 
@@ -78,7 +82,6 @@
         .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 2px; color: #000; text-decoration: none; line-height: 1; }
         .tagline { font-size: 0.55rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--gold); margin-top: 5px; }
         
-        /* IDIOMAS PREMIUM */
         .lang-menu { display: flex; align-items: center; gap: 5px; }
         .lang-link { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 700; transition: 0.3s; padding: 4px 6px; }
         .lang-link.active { color: #000; border-bottom: 2px solid var(--gold); }
@@ -101,7 +104,7 @@
         .service-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 15px; }
         .urgente-tag { color: var(--alert-text); border: 1px solid var(--alert-text); padding: 2px 10px; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; display: inline-block; }
 
-        /* SECCIÓN CTA ADAPTADA A MÓVIL */
+        /* SECCIÓN CTA (BOTÓN AJUSTADO) */
         .cta-section { background: #0f171e; padding: 80px 0; text-align: center; color: white; border-top: 1px solid var(--gold); }
         .btn-whatsapp { 
             background: #128C7E; 
@@ -117,7 +120,7 @@
             border-radius: 4px;
             font-size: 0.9rem;
             width: auto;
-            max-width: 95%; /* Seguridad para móviles pequeños */
+            max-width: 95%;
         }
         .btn-whatsapp:hover { background: #075E54; transform: scale(1.02); }
 
@@ -127,16 +130,13 @@
 
         /* RESPONSIVE MÓVIL */
         @media (max-width: 768px) {
-            .availability-bar { font-size: 0.65rem; }
             .nav-bar { flex-direction: column; gap: 15px; }
             .hero-visual h1 { font-size: 2.1rem; padding: 0 10px; }
             .btn-whatsapp { 
                 width: 90%; 
                 font-size: 0.8rem; 
                 padding: 18px 10px;
-                letter-spacing: 1px;
             }
-            .service-card { padding: 30px 20px; }
         }
     </style>
 </head>
