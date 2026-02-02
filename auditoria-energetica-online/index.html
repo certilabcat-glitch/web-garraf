@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certilab | Ingeniería Energética | Auditoría Online 99,99€</title>
-    <meta name="description" content="Evita estafas en tu reforma. Auditoría técnica online para ahorrar energía y recuperar hasta 5.000€ de IRPF con Eva González, Arquitecta Técnica Colegiada 9457.">
+    <title>Certilab | Ingeniería Energética | Auditoría Técnica</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-
-    <link rel="canonical" href="https://www.certilab.cat/auditoria-energetica-online/" />
-    <link rel="alternate" hreflang="es" href="https://www.certilab.cat/auditoria-energetica-online/" />
-    <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/auditoria-energetica-online/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.certilab.cat/auditoria-energetica-online/" />
 
     <style>
         :root { 
             --bg: #f2f0ed; 
-            --text: #1a1e26; /* Azul grisáceo muy oscuro para texto */
-            --dark-elegant: #2c3544; /* AZUL GRISÁCEO ELEGANTE (Sustituye al negro) */
-            --gold: #70562d; 
+            --text: #1a1e26; 
+            --dark-elegant: #2c3544; /* Azul Grisáceo Profundo */
+            --gold: #7a633a; 
             --white: #ffffff; 
             --accent: #d1cdc7; 
-            --red-strong: #8b0000; 
+            --brown-elegant: #6d4c41; /* MARRÓN SOFISTICADO (Sustituye al rojo) */
             --grey-text: #535b69; 
         }
         
@@ -34,79 +27,65 @@
 
         .container { width: 92%; max-width: 800px; margin: 0 auto; }
 
-        /* CABECERA CON NUEVO COLOR */
-        .top-bar { background: var(--dark-elegant); color: var(--white); padding: 12px 0; text-align: center; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        /* CABECERA */
+        .top-bar { background: var(--dark-elegant); color: var(--white); padding: 12px 0; text-align: center; font-size: 0.75rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
         .top-bar span { color: #f0c674; }
 
-        nav { padding: 20px 0; background: var(--bg); border-bottom: 1px solid var(--accent); }
+        nav { padding: 25px 0; background: var(--bg); border-bottom: 1px solid var(--accent); }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         
         .logo-group { text-decoration: none; color: var(--text); flex: 1; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; font-weight: 600; display: block; }
         .sublogo { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; font-weight: 700; display: block; }
         
-        .nav-right { text-align: right; }
-        .lang-selector { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; }
+        .col-info { font-size: 0.75rem; color: var(--grey-text); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; text-align: right; }
+        
+        .lang-selector { font-size: 0.85rem; font-weight: 700; margin-bottom: 5px; text-align: right; }
         .lang-selector a { color: var(--text); text-decoration: none; padding: 2px 5px; border-bottom: 2px solid transparent; }
         .lang-selector a.active { border-bottom: 2px solid var(--gold); }
 
-        .col-info { 
-            font-size: 0.75rem; 
-            color: var(--grey-text); 
-            font-weight: 700; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: right;
-        }
-
-        /* DISEÑO RESPONSIVE MÓVIL */
+        /* MÓVIL ADAPTADO */
         @media (max-width: 600px) {
-            .nav-flex { flex-direction: column; text-align: center; gap: 12px; }
-            .nav-right { text-align: center; width: 100%; order: 3; }
-            .logo-group { order: 1; margin-bottom: 5px; }
-            .col-info { 
-                order: 2; 
-                width: 100%; 
-                text-align: center; 
-                background: rgba(44, 53, 68, 0.05); /* Fondo azul grisáceo muy suave */
-                padding: 10px;
-                border-radius: 4px;
-                font-size: 0.68rem;
-                line-height: 1.4;
-            }
+            .nav-flex { flex-direction: column; text-align: center; gap: 15px; }
+            .logo-group { order: 1; }
+            .col-info { order: 2; width: 100%; text-align: center; background: rgba(109, 76, 65, 0.05); padding: 10px; border-radius: 4px; }
+            .nav-right { order: 3; width: 100%; text-align: center; }
         }
 
-        /* CUERPO DE PÁGINA */
-        .hero { text-align: center; padding: 40px 0; }
-        h1 { font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 6vw, 2.5rem); margin-bottom: 15px; color: var(--dark-elegant); }
+        /* CUERPO */
+        .hero { text-align: center; padding: 50px 0; }
+        h1 { font-family: 'Cinzel', serif; font-size: clamp(1.6rem, 5.5vw, 2.3rem); margin-bottom: 15px; color: var(--dark-elegant); font-weight: 600; }
         
-        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; }
-        .pain-card { background: #fff1f1; padding: 25px; border-left: 5px solid var(--red-strong); text-align: left; }
-        .pain-card h2 { font-size: 0.95rem; text-transform: uppercase; color: var(--red-strong); margin-bottom: 10px; font-weight: 800; }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 35px 0; }
+        .pain-card { background: var(--white); padding: 25px; border-top: 3px solid var(--brown-elegant); border-radius: 2px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .pain-card h2 { font-family: 'Cinzel', serif; font-size: 0.9rem; text-transform: uppercase; color: var(--brown-elegant); margin-bottom: 12px; font-weight: 700; }
+        .pain-card p { font-size: 0.9rem; color: var(--grey-text); margin: 0; }
 
-        .value-box { background: var(--white); border: 1px solid var(--accent); padding: 40px 25px; margin: 30px 0; text-align: left; }
-        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px; font-size: 1.3rem; color: var(--dark-elegant); }
+        .value-box { background: var(--white); border: 1px solid var(--accent); padding: 45px 30px; margin: 40px 0; }
+        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 35px; font-size: 1.2rem; letter-spacing: 1px; }
         .value-list { list-style: none; padding: 0; }
-        .value-list li { margin-bottom: 25px; display: flex; gap: 15px; font-size: 1.05rem; align-items: flex-start; }
-        .check { color: var(--gold); font-size: 1.3rem; font-weight: bold; }
+        .value-list li { margin-bottom: 25px; display: flex; gap: 18px; font-size: 1rem; align-items: flex-start; }
+        .check { color: var(--gold); font-weight: bold; }
 
-        /* TARJETA DE PRECIO CON EL NUEVO COLOR AZUL GRISÁCEO */
-        .price-card { text-align: center; padding: 60px 20px; background: var(--dark-elegant); color: var(--white); margin-top: 40px; }
-        .price-tag { font-size: 4.5rem; color: #f0c674; font-family: 'Cinzel'; font-weight: 600; display: block; margin: 15px 0; }
-        .btn-luxury { background: var(--gold); color: var(--white); padding: 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: 800; display: block; transition: 0.3s; }
-        .btn-luxury:hover { background: #856a3e; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        /* PRECIO REFINADO */
+        .price-card { text-align: center; padding: 65px 20px; background: var(--dark-elegant); color: var(--white); margin-top: 45px; }
+        .price-tag { font-size: 3rem; color: #f0c674; font-family: 'Cinzel', serif; font-weight: 400; display: block; margin: 10px 0; letter-spacing: 4px; }
+        .price-card p { text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; opacity: 0.8; }
+        
+        .btn-luxury { background: var(--gold); color: var(--white); padding: 20px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; border-radius: 1px; }
+        .btn-luxury:hover { background: #5d4b2c; letter-spacing: 4px; }
 
-        footer { padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--grey-text); border-top: 1px solid var(--accent); }
-        footer a { color: var(--dark-elegant); margin: 0 12px; text-decoration: underline; font-weight: 700; }
+        footer { padding: 50px 0; text-align: center; font-size: 0.75rem; color: var(--grey-text); letter-spacing: 1px; }
+        footer a { color: var(--dark-elegant); margin: 0 10px; text-decoration: none; border-bottom: 1px solid var(--accent); font-weight: 600; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="top-bar">
-            ⚡ <span>SOLO 10 PLAZAS</span> POR SEMANA · ENTREGA EN <span>48H</span>
+            ⚡ <span>Solo 10 plazas</span> por semana · Entrega en <span>48h</span>
         </div>
-        <nav aria-label="Navegación de marca">
+        <nav>
             <div class="container nav-flex">
                 <a href="/auditoria-energetica-online/index.html" class="logo-group">
                     <span class="logo">CERTILAB</span>
@@ -130,20 +109,20 @@
     <main class="container">
         <section class="hero">
             <h1>¿Tu casa pierde dinero o <br> tú estás perdiendo el tiempo?</h1>
-            <p style="font-size: 1.2rem; color: var(--grey-text); font-weight: 500;">Una vivienda ineficiente es una hucha rota que consume tu capital cada mes.</p>
+            <p style="color: var(--grey-text); font-style: italic;">La ingeniería al servicio del ahorro real y la seguridad técnica.</p>
             
             <div class="pain-grid">
                 <article class="pain-card">
                     <h2>Facturas Infladas</h2>
-                    <p>Pagas por energía que se escapa por tus ventanas y muros. Dinero tirado cada mes.</p>
+                    <p>Energía que se escapa por cerramientos deficientes. Capital perdido mes a mes.</p>
                 </article>
                 <article class="pain-card">
-                    <h2>Devaluación Real</h2>
-                    <p>Una letra de eficiencia baja resta valor de mercado a tu inmueble hoy mismo.</p>
+                    <h2>Devaluación</h2>
+                    <p>Una baja calificación energética reduce el valor patrimonial de su inmueble.</p>
                 </article>
                 <article class="pain-card">
-                    <h2>Peligro de Estafa</h2>
-                    <p>Sin una auditoría previa, los presupuestos de reforma suelen estar mal calculados.</p>
+                    <h2>Riesgo Técnico</h2>
+                    <p>Presupuestos de reforma sin base científica suelen derivar en costes imprevistos.</p>
                 </article>
             </div>
         </section>
@@ -151,25 +130,25 @@
         <section class="value-box">
             <h2>AUDITORÍA TÉCNICA DE ALTA INGENIERÍA</h2>
             <ul class="value-list">
-                <li><span class="check">✔</span><span><strong>Blindaje contra Estafas:</strong> Calculamos el coste real de tu reforma. Sabrás materiales y precio justo.</span></li>
-                <li><span class="check">✔</span><span><strong>Simulación Térmica:</strong> Modelado profesional para detectar dónde pierdes dinero hoy mismo.</span></li>
-                <li><span class="check">✔</span><span><strong>Deducción IRPF:</strong> Documentación técnica lista para recuperar hasta el 60% de la inversión.</span></li>
-                <li><span class="check">✔</span><span><strong>Análisis de Amortización:</strong> Calculamos en cuántos meses tu reforma se habrá pagado sola.</span></li>
+                <li><span class="check">/</span><span><strong>Control de Inversión:</strong> Determinamos el coste justo de los materiales necesarios para su reforma.</span></li>
+                <li><span class="check">/</span><span><strong>Simulación Energética:</strong> Análisis técnico de puntos críticos para eliminar pérdidas térmicas.</span></li>
+                <li><span class="check">/</span><span><strong>Beneficio Fiscal:</strong> Gestión de la documentación para deducciones IRPF hasta 5.000€.</span></li>
+                <li><span class="check">/</span><span><strong>Viabilidad Económica:</strong> Informe preciso sobre el retorno de la inversión mediante el ahorro generado.</span></li>
             </ul>
         </section>
 
         <section class="price-card">
-            <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">VALOR REAL: <del style="opacity: 0.6;">250€</del></p>
+            <p>Inversión por Auditoría</p>
             <span class="price-tag">99,99€</span>
-            <p style="color: #bbb; font-size: 0.85rem; margin-bottom: 30px; font-weight: 600;">IVA INCLUIDO · PRECIO CERRADO</p>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20la%20auditor%C3%ADa%20completa%20de%2099,99€." class="btn-luxury">RESERVAR MI PLAZA AHORA</a>
+            <p style="font-size: 0.7rem;">Iva incluido · Precio profesional cerrado</p>
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20la%20auditor%C3%ADa%20completa%20de%2099,99€." class="btn-luxury">Solicitar Auditoría</a>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 CERTILAB · SERVICIO NACIONAL ESPAÑA</p>
-        <div style="margin-top: 15px;">
-            <a href="/legal.html">AVISO LEGAL</a> | <a href="/privacidad.html">PRIVACIDAD</a> | <a href="/cookies.html">COOKIES</a>
+        <p>© 2026 CERTILAB · SERVICIO TÉCNICO NACIONAL</p>
+        <div style="margin-top: 20px;">
+            <a href="/legal.html">AVISO LEGAL</a> <a href="/privacidad.html">PRIVACIDAD</a> <a href="/cookies.html">COOKIES</a>
         </div>
     </footer>
 
