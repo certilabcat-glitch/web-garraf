@@ -20,6 +20,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.certilab.cat/ca/cedula-habitabilitat-certificat-energetic-canyelles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-canyelles/"/>
+    <priority>0.8</priority>
+  </url>
 
   <url>
     <loc>https://www.certilab.cat/cedula-habitabilidad-certificado-energetico-sitges/</loc>
