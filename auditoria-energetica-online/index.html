@@ -40,6 +40,7 @@
         .hero { text-align: center; }
         .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 20px; color: #1a1a1a; line-height: 1.2; }
         .hero p { font-size: 1.05rem; color: #555; max-width: 650px; margin: 0 auto 30px; }
+        
         .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 40px 0; }
         .pain-card { background: var(--red-soft); padding: 25px; border-bottom: 3px solid #d9a3a3; text-align: left; }
         .pain-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #a34a4a; margin-bottom: 10px; font-weight: 600; }
@@ -48,10 +49,14 @@
         .highlight-box { background: var(--text); color: var(--white); padding: 60px 30px; text-align: center; }
         .highlight-box h2 { font-size: 2.2rem; color: var(--gold); margin-bottom: 15px; }
 
+        /* VALOR AÑADIDO */
+        .value-list { list-style: none; padding: 0; max-width: 600px; margin: 0 auto; font-size: 0.9rem; color: #444; }
+        .value-list li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+        .value-list span.check { color: var(--gold); font-weight: bold; }
+
         .tax-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
         .tax-item { background: var(--white); padding: 25px 15px; text-align: center; border: 1px solid var(--accent); position: relative; }
         .tax-item span { font-size: 1.8rem; font-weight: 600; color: var(--text); display: block; }
-        .tax-item strong { color: var(--gold); font-size: 0.9rem; display: block; }
         .tax-featured { border: 2px solid var(--gold); background: #fdfbf8; }
         .top-label { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: white; font-size: 0.5rem; padding: 2px 10px; border-radius: 10px; }
 
@@ -103,20 +108,24 @@
             <p>Con el ahorro mensual y la deducción fiscal de hasta 5.000 €, la inversión se amortiza sola.</p>
         </section>
 
-        <section class="section">
-            <h3 style="text-align: center; color: var(--gold); margin-bottom: 30px;">Escalas de Beneficio Fiscal (IRPF 2026)</h3>
-            <div class="tax-grid">
-                <div class="tax-item"><span>20%</span><strong>Hasta 1.000€</strong><p>Reducción demanda 7%</p></div>
-                <div class="tax-item"><span>40%</span><strong>Hasta 3.000€</strong><p>Reducción consumo 30%</p></div>
-                <div class="tax-item tax-featured"><div class="top-label">MÁXIMO</div><span style="color: var(--gold);">60%</span><strong>Hasta 5.000€</strong><p>Rehabilitación integral</p></div>
-            </div>
+        <section class="section" style="background: rgba(166, 139, 91, 0.05); border-radius: 4px; padding: 40px 20px;">
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; letter-spacing: 1px;">¿QUÉ INCLUYE TU AUDITORÍA PREMIUM?</h3>
+            <ul class="value-list">
+                <li><span class="check">✔</span> <span><strong>Simulación Energética Profesional:</strong> Modelado técnico para detectar fugas de calor.</span></li>
+                <li><span class="check">✔</span> <span><strong>Cálculo de Ahorro Real:</strong> Proyectamos cuánto bajarán tus facturas tras la obra.</span></li>
+                <li><span class="check">✔</span> <span><strong>Dossier para Deducción IRPF:</strong> Documentación necesaria para recuperar hasta 5.000€.</span></li>
+                <li><span class="check">✔</span> <span><strong>Optimización de Materiales:</strong> Te guiamos para no gastar de más en soluciones inútiles.</span></li>
+            </ul>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--gold); margin-top: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                Más de 12 horas de ingeniería especializada concentradas en tu ahorro.
+            </p>
         </section>
 
         <section class="price-card">
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Inversión Auditoría Técnica</p>
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;">Valor real del servicio: <del style="opacity: 0.5;">250€</del></p>
             <h2 class="price-tag">99,99€</h2>
-            <p style="letter-spacing: 2px; color: #888; font-size: 0.7rem; margin: 10px 0 30px; text-transform: uppercase;">IVA Incluido · Precio Cerrado</p>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20quiero%20mi%20auditor%C3%ADa%20en%20Espa%C3%B1ol." rel="nofollow noopener" class="btn-luxury">SOLICITAR POR WHATSAPP</a>
+            <p style="letter-spacing: 2px; color: #888; font-size: 0.7rem; margin: 10px 0 30px; text-transform: uppercase;">Promoción Limitada · IVA Incluido</p>
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20la%20auditor%C3%ADa%20completa%20de%2099,99€." rel="nofollow noopener" class="btn-luxury">RESERVAR MI PLAZA AHORA</a>
         </section>
     </main>
 
@@ -130,8 +139,10 @@
     </footer>
 
     <div id="cookie-banner">
-        <p style="font-size: 0.7rem; margin-bottom: 10px;">Usamos cookies y gestionamos datos vía WhatsApp según nuestra <a href="/privacidad.html">política</a>.</p>
-        <button onclick="acceptCookies()" style="background: var(--text); color: #fff; border: none; padding: 8px 20px; font-size: 0.6rem; cursor: pointer;">ACEPTAR</button>
+        <div class="container" style="text-align: center;">
+            <p style="font-size: 0.7rem; color: #666; margin-bottom: 10px;">Usamos cookies y gestionamos datos vía WhatsApp según nuestra <a href="/privacidad.html">política</a>.</p>
+            <button onclick="acceptCookies()" style="background: var(--text); color: #fff; border: none; padding: 8px 20px; font-size: 0.6rem; cursor: pointer;">ACEPTAR</button>
+        </div>
     </div>
 
     <script>
