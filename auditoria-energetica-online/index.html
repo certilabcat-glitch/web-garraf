@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certilab | Ingeniería Energética | Auditoría Técnica</title>
+    <title>Certilab | Ingeniería Energética | Auditoría Técnica Online</title>
+    
+    <meta name="description" content="Evita sobrecostes en tu reforma con una auditoría técnica profesional. Recupera hasta 5.000€ de IRPF y optimiza tu ahorro con Eva González, Arquitecta Técnica Colegiada 9457.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+
+    <link rel="canonical" href="https://www.certilab.cat/auditoria-energetica-online/" />
+    <link rel="alternate" hreflang="es" href="https://www.certilab.cat/auditoria-energetica-online/" />
+    <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/auditoria-energetica-online/" />
 
     <style>
         :root { 
@@ -18,7 +24,7 @@
             --gold: #7a633a; 
             --white: #ffffff; 
             --accent: #d1cdc7; 
-            --brown-elegant: #6d4c41; /* MARRÓN SOFISTICADO (Sustituye al rojo) */
+            --brown-elegant: #6d4c41; /* Marrón elegante para avisos técnicos */
             --grey-text: #535b69; 
         }
         
@@ -47,9 +53,8 @@
         /* MÓVIL ADAPTADO */
         @media (max-width: 600px) {
             .nav-flex { flex-direction: column; text-align: center; gap: 15px; }
-            .logo-group { order: 1; }
-            .col-info { order: 2; width: 100%; text-align: center; background: rgba(109, 76, 65, 0.05); padding: 10px; border-radius: 4px; }
-            .nav-right { order: 3; width: 100%; text-align: center; }
+            .col-info { width: 100%; text-align: center; background: rgba(109, 76, 65, 0.05); padding: 10px; border-radius: 4px; }
+            .nav-right { width: 100%; text-align: center; }
         }
 
         /* CUERPO */
@@ -57,12 +62,12 @@
         h1 { font-family: 'Cinzel', serif; font-size: clamp(1.6rem, 5.5vw, 2.3rem); margin-bottom: 15px; color: var(--dark-elegant); font-weight: 600; }
         
         .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 35px 0; }
-        .pain-card { background: var(--white); padding: 25px; border-top: 3px solid var(--brown-elegant); border-radius: 2px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .pain-card { background: var(--white); padding: 25px; border-top: 3px solid var(--brown-elegant); border-radius: 2px; }
         .pain-card h2 { font-family: 'Cinzel', serif; font-size: 0.9rem; text-transform: uppercase; color: var(--brown-elegant); margin-bottom: 12px; font-weight: 700; }
         .pain-card p { font-size: 0.9rem; color: var(--grey-text); margin: 0; }
 
         .value-box { background: var(--white); border: 1px solid var(--accent); padding: 45px 30px; margin: 40px 0; }
-        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 35px; font-size: 1.2rem; letter-spacing: 1px; }
+        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 35px; font-size: 1.2rem; }
         .value-list { list-style: none; padding: 0; }
         .value-list li { margin-bottom: 25px; display: flex; gap: 18px; font-size: 1rem; align-items: flex-start; }
         .check { color: var(--gold); font-weight: bold; }
@@ -72,10 +77,10 @@
         .price-tag { font-size: 3rem; color: #f0c674; font-family: 'Cinzel', serif; font-weight: 400; display: block; margin: 10px 0; letter-spacing: 4px; }
         .price-card p { text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; opacity: 0.8; }
         
-        .btn-luxury { background: var(--gold); color: var(--white); padding: 20px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; border-radius: 1px; }
+        .btn-luxury { background: var(--gold); color: var(--white); padding: 20px 40px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; }
         .btn-luxury:hover { background: #5d4b2c; letter-spacing: 4px; }
 
-        footer { padding: 50px 0; text-align: center; font-size: 0.75rem; color: var(--grey-text); letter-spacing: 1px; }
+        footer { padding: 50px 0; text-align: center; font-size: 0.75rem; color: var(--grey-text); }
         footer a { color: var(--dark-elegant); margin: 0 10px; text-decoration: none; border-bottom: 1px solid var(--accent); font-weight: 600; }
     </style>
 </head>
@@ -109,38 +114,38 @@
     <main class="container">
         <section class="hero">
             <h1>¿Tu casa pierde dinero o <br> tú estás perdiendo el tiempo?</h1>
-            <p style="color: var(--grey-text); font-style: italic;">La ingeniería al servicio del ahorro real y la seguridad técnica.</p>
+            <p style="color: var(--grey-text); font-style: italic;">Soluciones técnicas para una reforma inteligente y segura.</p>
             
             <div class="pain-grid">
                 <article class="pain-card">
                     <h2>Facturas Infladas</h2>
-                    <p>Energía que se escapa por cerramientos deficientes. Capital perdido mes a mes.</p>
+                    <p>La ineficiencia térmica consume su capital cada mes. Detenga la pérdida energética.</p>
                 </article>
                 <article class="pain-card">
                     <h2>Devaluación</h2>
-                    <p>Una baja calificación energética reduce el valor patrimonial de su inmueble.</p>
+                    <p>Una vivienda ineficiente pierde competitividad en el mercado inmobiliario actual.</p>
                 </article>
                 <article class="pain-card">
-                    <h2>Riesgo Técnico</h2>
-                    <p>Presupuestos de reforma sin base científica suelen derivar en costes imprevistos.</p>
+                    <h2>Riesgo de Reforma</h2>
+                    <p>Invertir sin un diagnóstico técnico previo multiplica la posibilidad de errores costosos.</p>
                 </article>
             </div>
         </section>
 
         <section class="value-box">
-            <h2>AUDITORÍA TÉCNICA DE ALTA INGENIERÍA</h2>
+            <h2>AUDITORÍA TÉCNICA PROFESIONAL</h2>
             <ul class="value-list">
-                <li><span class="check">/</span><span><strong>Control de Inversión:</strong> Determinamos el coste justo de los materiales necesarios para su reforma.</span></li>
-                <li><span class="check">/</span><span><strong>Simulación Energética:</strong> Análisis técnico de puntos críticos para eliminar pérdidas térmicas.</span></li>
-                <li><span class="check">/</span><span><strong>Beneficio Fiscal:</strong> Gestión de la documentación para deducciones IRPF hasta 5.000€.</span></li>
-                <li><span class="check">/</span><span><strong>Viabilidad Económica:</strong> Informe preciso sobre el retorno de la inversión mediante el ahorro generado.</span></li>
+                <li><span class="check">/</span><span><strong>Control de Costes:</strong> Definimos la inversión exacta necesaria para optimizar su vivienda.</span></li>
+                <li><span class="check">/</span><span><strong>Análisis Térmico:</strong> Localización precisa de puentes térmicos y deficiencias en cerramientos.</span></li>
+                <li><span class="check">/</span><span><strong>Ayudas Públicas:</strong> Preparación técnica para acceder a deducciones fiscales de hasta 5.000€.</span></li>
+                <li><span class="check">/</span><span><strong>Retorno Real:</strong> Cálculo científico del ahorro mensual tras la mejora energética.</span></li>
             </ul>
         </section>
 
         <section class="price-card">
             <p>Inversión por Auditoría</p>
             <span class="price-tag">99,99€</span>
-            <p style="font-size: 0.7rem;">Iva incluido · Precio profesional cerrado</p>
+            <p style="font-size: 0.7rem;">Iva incluido · Tarifa profesional cerrada</p>
             <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20la%20auditor%C3%ADa%20completa%20de%2099,99€." class="btn-luxury">Solicitar Auditoría</a>
         </section>
     </main>
