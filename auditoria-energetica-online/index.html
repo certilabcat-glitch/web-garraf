@@ -33,12 +33,16 @@
         .lang-selector a { color: var(--text); text-decoration: none; opacity: 0.4; padding: 2px 5px; }
         .lang-selector a.active { opacity: 1; border-bottom: 1px solid var(--gold); }
 
-        /* SECCIONES */
-        .section { padding: 40px 0; }
+        /* HERO & DOLOROSAS */
+        .hero { text-align: center; padding: 60px 0 20px; }
         h1, h2, h3 { font-family: 'Cinzel', serif; font-weight: 400; margin: 0; }
-        .hero { text-align: center; padding: 60px 0; }
         .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 20px; line-height: 1.2; }
         
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 30px 0 50px; }
+        .pain-card { background: var(--red-soft); padding: 25px; border-bottom: 3px solid #d9a3a3; text-align: left; }
+        .pain-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #a34a4a; margin-bottom: 10px; font-weight: 600; }
+        .pain-card p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
+
         /* BLOQUE DE VALOR */
         .value-box { background: rgba(166, 139, 91, 0.05); border-radius: 4px; padding: 45px 25px; margin: 40px 0; }
         .value-list { list-style: none; padding: 0; max-width: 650px; margin: 0 auto; }
@@ -80,12 +84,27 @@
         <section class="hero">
             <h1>¿Tu casa pierde dinero o <br> tú estás perdiendo el tiempo?</h1>
             <p>Una vivienda ineficiente es una hucha rota que consume tu capital cada mes.</p>
+            
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>Facturas Infladas</h3>
+                    <p>Pagas por energía que se escapa por tus ventanas y muros. Dinero tirado cada mes.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>Devaluación</h3>
+                    <p>Una letra de eficiencia baja resta valor de mercado a tu inmueble. Es más difícil de vender o alquilar.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>Peligro de Estafa</h3>
+                    <p>Sin una auditoría previa, los presupuestos de reforma suelen estar inflados o mal calculados.</p>
+                </div>
+            </div>
         </section>
 
         <section class="value-box">
             <h3 style="text-align: center; margin-bottom: 35px; letter-spacing: 2px;">AUDITORÍA TÉCNICA DE ALTA INGENIERÍA</h3>
             <ul class="value-list">
-                <li><span class="check">🛡️</span> <span><strong>Blindaje contra Estafas:</strong> Calculamos el coste real de tu reforma. Sabrás qué materiales necesitas y su precio justo, evitando presupuestos inflados.</span></li>
+                <li><span class="check">🛡️</span> <span><strong>Blindaje contra Estafas:</strong> Calculamos el coste real de tu reforma. Sabrás qué materiales necesitas y su precio justo, evitando presupuestos engañosos.</span></li>
                 <li><span class="check">📊</span> <span><strong>Simulación Térmica:</strong> Modelado profesional para detectar los puntos críticos donde pierdes dinero hoy mismo.</span></li>
                 <li><span class="check">💰</span> <span><strong>Deducción IRPF:</strong> Documentación lista para que Hacienda te devuelva hasta el 60% de la inversión (máx. 5.000€).</span></li>
                 <li><span class="check">🚀</span> <span><strong>Análisis de Amortización:</strong> Te decimos en cuántos meses tu reforma se habrá pagado sola gracias al ahorro energético.</span></li>
@@ -106,11 +125,11 @@
 
     <footer>
         <p>© 2026 CERTILAB · SERVICIO NACIONAL ESPAÑA</p>
-        <div style="margin-top: 10px;"><a href="/legal.html" style="color:#aaa; text-decoration:none;">AVISO LEGAL</a> | <a href="/privacidad.html" style="color:#aaa; text-decoration:none;">PRIVACIDAD</a></div>
+        <div style="margin-top: 10px;"><a href="/legal.html" style="color:#aaa; text-decoration:none;">AVISO LEGAL</a> | <a href="/privacidad.html" style="color:#aaa; text-decoration:none;">PRIVACIDAD</a> | <a href="/cookies.html" style="color:#aaa; text-decoration:none;">COOKIES</a></div>
     </footer>
 
     <div id="cookie-banner">
-        <p style="font-size: 0.7rem;">Usamos cookies para mejorar tu experiencia. <button onclick="acceptCookies()" style="background:var(--text); color:white; border:none; padding:5px 15px; cursor:pointer;">ACEPTAR</button></p>
+        <p style="font-size: 0.7rem;">Usamos cookies para mejorar tu experiencia. <button onclick="acceptCookies()" style="background:var(--text); color:white; border:none; padding:5px 15px; cursor:pointer; margin-left:10px;">ACEPTAR</button></p>
     </div>
 
     <script>
