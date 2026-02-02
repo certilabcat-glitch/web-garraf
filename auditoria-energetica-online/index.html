@@ -2,186 +2,131 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>Certilab | Auditoría Energética Online 99,99€ Precio Cerrado</title>
-    <meta name="description" content="Ahorra 350€ en tu informe energético. Auditoría técnica profesional con precios CYPE y deducción IRPF. Todo incluido, sin sorpresas, entrega en 48h.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERTILAB | Auditoría Energética Online 99,99€</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Auditoría Energética Online Premium",
-      "image": "https://certilab.cat/logo.png",
-      "description": "Informe técnico profesional con simulación de ahorro y guía de deducción IRPF.",
-      "brand": { "@type": "Brand", "name": "Certilab" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "EUR",
-        "price": "99.99",
-        "valueAddedTaxIncluded": "true",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-
     <style>
         :root { 
             --bg-warm: #f2f0ed; --text: #2c2c2c; --gold: #a68b5b; 
-            --white: #ffffff; --accent: #e8e4df; --green-safe: #f0f7f4;
+            --white: #ffffff; --accent: #e8e4df;
         }
         
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { 
             margin: 0; font-family: 'Inter', sans-serif; 
             background-color: var(--bg-warm); color: var(--text); 
-            line-height: 1.6; -webkit-font-smoothing: antialiased;
+            line-height: 1.8; -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 92%; max-width: 600px; margin: 0 auto; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-        /* NAVEGACIÓN */
-        nav { padding: 15px 0; background: rgba(242, 240, 237, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 3px; text-decoration: none; color: var(--text); font-weight: 600; }
-        .tagline { font-size: 0.5rem; display: block; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+        /* NAVEGACIÓN PREMIUM */
+        nav { padding: 25px 0; background: rgba(242, 240, 237, 0.98); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 4px; color: var(--text); font-weight: 600; text-decoration: none; }
+        .tagline-sub { font-size: 0.55rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; display: block; }
 
-        /* HERO */
-        .hero { padding: 30px 0; text-align: center; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: 1.7rem; line-height: 1.2; margin-bottom: 10px; font-weight: 400; }
+        /* HERO SECCIÓN */
+        .hero { padding: 80px 0 60px 0; text-align: center; }
+        .hero span { color: var(--gold); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; font-weight: 600; display: block; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 0; line-height: 1.2; font-weight: 400; }
         
-        .badge-guarantee {
-            background: var(--green-safe); color: #2d5a27; padding: 8px 15px;
-            border-radius: 4px; font-size: 0.7rem; font-weight: 600;
-            display: inline-block; margin-bottom: 15px; border: 1px solid #d4e8df;
-            text-transform: uppercase; letter-spacing: 1px;
+        /* BLOQUE DE PRECIO CERRADO */
+        .price-section { margin: 40px 0; }
+        .price-tag { font-family: 'Cinzel'; font-size: 3rem; color: var(--gold); font-weight: 600; margin: 0; }
+        .price-info { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-top: -5px; }
+
+        /* GRILLA DE VALOR */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 60px 0; }
+        .service-box { background: var(--white); padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-bottom: 3px solid transparent; transition: 0.3s; }
+        .service-box:hover { border-bottom-color: var(--gold); }
+        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.1rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .service-box p { font-size: 0.85rem; color: #666; margin: 0; }
+
+        /* BOTÓN Y PAGOS */
+        .btn-luxury { 
+            background: var(--text); color: var(--white); padding: 22px 50px; 
+            text-decoration: none; text-transform: uppercase; letter-spacing: 3px; 
+            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 12px;
+            transition: 0.4s; border: 1px solid var(--text);
         }
+        .btn-luxury:hover { background: transparent; color: var(--text); }
+        .payments { margin-top: 20px; font-size: 0.65rem; letter-spacing: 1px; opacity: 0.6; font-weight: 600; }
 
-        /* COMPARATIVA */
-        .table-wrapper { width: 100%; margin: 20px 0; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        table { width: 100%; border-collapse: collapse; background: var(--white); }
-        th, td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; font-size: 0.8rem; }
-        th { background: #f8f8f8; font-family: 'Cinzel'; font-size: 0.65rem; letter-spacing: 1px; }
-        .feat { text-align: left; font-weight: 600; width: 40%; }
-        .new { background: rgba(166, 139, 91, 0.05); font-weight: 600; }
+        /* AUTORIDAD TÉCNICA */
+        .authority { padding: 60px 0; border-top: 1px solid var(--accent); text-align: center; }
+        .authority-name { font-family: 'Cinzel'; font-size: 1.3rem; margin-bottom: 5px; }
+        .authority-title { color: var(--gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
-        /* PRECIO DESTACADO */
-        .price-card {
-            background: var(--white); padding: 35px 20px; border-radius: 8px;
-            margin: 30px 0; border: 2px solid var(--gold); text-align: center;
+        footer { padding: 40px 0; text-align: center; font-size: 0.65rem; color: #aaa; border-top: 1px solid #eee; }
+        .footer-links a { color: #aaa; text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            .hero { padding: 50px 0; }
+            .hero h1 { font-size: 2rem; }
+            .price-tag { font-size: 2.5rem; }
         }
-        .price-card p { margin: 0; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; }
-        .price-card h2 { font-family: 'Cinzel'; font-size: 2.8rem; margin: 10px 0; color: var(--gold); font-weight: 600; }
-        .price-card span { font-size: 0.8rem; font-weight: 600; color: var(--text); display: block; }
-
-        /* LISTA INCLUYE */
-        .includes { background: var(--white); padding: 25px; border-radius: 8px; margin-bottom: 40px; }
-        .includes h3 { font-family: 'Cinzel'; font-size: 0.9rem; margin-top: 0; border-bottom: 1px solid var(--accent); padding-bottom: 10px; }
-        .includes ul { padding: 0; list-style: none; margin: 15px 0 0 0; }
-        .includes li { font-size: 0.85rem; color: #555; margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; }
-        .includes li::before { content: "✓"; color: var(--gold); font-weight: bold; }
-
-        /* CTA FIJO MÓVIL */
-        .cta-mobile { position: sticky; bottom: 20px; padding: 0 15px; z-index: 1000; }
-        .btn-whatsapp { 
-            background: var(--text); color: var(--white); padding: 20px; 
-            text-decoration: none; text-transform: uppercase; letter-spacing: 2px; 
-            font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; 
-            justify-content: center; gap: 10px; border-radius: 50px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.25); transition: 0.3s;
-        }
-        .btn-whatsapp:active { transform: scale(0.96); }
-
-        .payment-icons { text-align: center; margin-top: 15px; font-size: 0.55rem; letter-spacing: 1px; opacity: 0.7; font-weight: 600; }
-
-        /* FOOTER */
-        footer { padding: 40px 0 120px 0; text-align: center; border-top: 1px solid var(--accent); margin-top: 40px; }
-        .legal-links a { font-size: 0.65rem; color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; }
-        .arch-info { font-size: 0.7rem; color: #aaa; margin-top: 20px; letter-spacing: 1px; }
-
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="#" class="logo">CERTILAB<span class="tagline">Ingeniería Online</span></a>
-            <div style="font-size: 0.55rem; font-weight: 600; text-align: right; line-height: 1.2;">EVA GONZÁLEZ<br>COL. 9457 BCN</div>
+        <div class="container nav-flex">
+            <a href="/" class="logo">CERTILAB<span class="tagline-sub">Ingeniería Energética · Nacional</span></a>
+            <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; color: var(--gold);">COL. 9457 BCN</div>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <div class="badge-guarantee">✅ Precio Cerrado · Sin Sorpresas</div>
-            <h1>Optimización Energética Profesional</h1>
-            <p>Recupera tu inversión mediante el ahorro en facturas y la deducción fiscal del IRPF.</p>
+            <span>Servicio Técnico Premium</span>
+            <h1>¿Tu casa pierde calor o <br> tú estás perdiendo dinero?</h1>
+            
+            <div class="price-section">
+                <p class="price-tag">99,99€</p>
+                <p class="price-info">Precio Cerrado · IVA Incluido · Sin Sorpresas</p>
+            </div>
+
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20quiero%20la%20auditor%C3%ADa%20online%20de%2099,99%E2%82%AC%20con%20precio%20cerrado." class="btn-luxury">
+                SOLICITAR AUDITORÍA POR WHATSAPP
+            </a>
+            
+            <div class="payments">
+                BIZUM • TARJETA • TRANSFERENCIA
+            </div>
         </section>
 
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th class="feat">CONCEPTO</th>
-                        <th>OTROS</th>
-                        <th style="color: var(--gold);">CERTILAB</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="feat">Gestión IRPF</td>
-                        <td>Extra</td>
-                        <td class="new">Incluido</td>
-                    </tr>
-                    <tr>
-                        <td class="feat">IVA (21%)</td>
-                        <td>Aparte</td>
-                        <td class="new">Incluido</td>
-                    </tr>
-                    <tr>
-                        <td class="feat">Desplazamiento</td>
-                        <td>80€ - 120€</td>
-                        <td class="new">0€ (Digital)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <section class="services-grid">
+            <div class="service-box">
+                <h2>Informe de Ingeniería</h2>
+                <p>Simulación técnica con CE3X para identificar por dónde escapa el dinero en tu factura y cómo solucionarlo de forma real.</p>
+            </div>
+            <div class="service-box">
+                <h2>Presupuesto CYPE</h2>
+                <p>Análisis de costes reales de mercado. Sabrás exactamente cuánto deben costar tus reformas para evitar sobrecostes.</p>
+            </div>
+            <div class="service-box">
+                <h2>Deducción IRPF</h2>
+                <p>Documentación técnica certificada para que tu gestor pueda tramitar la devolución de hasta el 60% de tu inversión.</p>
+            </div>
+        </section>
 
-        <div class="price-card">
-            <p>Inversión Total Cerrada</p>
-            <h2>99,99€</h2>
-            <span>IVA INCLUIDO · FACTURA OFICIAL</span>
-        </div>
-
-        <div class="includes">
-            <h3>¿Qué recibes en 48h?</h3>
-            <ul>
-                <li><strong>Informe de Ingeniería:</strong> Simulación CE3X y diagnóstico de puntos críticos.</li>
-                <li><strong>Presupuesto CYPE:</strong> Precios reales de mercado para tus reformas (ventanas, SATE, etc).</li>
-                <li><strong>Anexo Fiscal:</strong> Justificación técnica para deducción del IRPF (hasta 60%).</li>
-                <li><strong>Soporte Directo:</strong> Resolución de dudas vía WhatsApp tras la entrega.</li>
-            </ul>
-        </div>
+        <section class="authority">
+            <div style="width: 60px; height: 60px; background: #fff; border: 1px solid var(--gold); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; font-family: 'Cinzel'; color: var(--gold);">EG</div>
+            <div class="authority-name">Eva González</div>
+            <div class="authority-title">Arquitecta Técnica Colegiada 9457</div>
+            <p style="font-size: 0.85rem; color: #777; max-width: 500px; margin: 15px auto;">Servicio de ingeniería profesional con validez legal en toda España. Especialista en eficiencia energética y gestión de activos.</p>
+        </section>
     </main>
 
-    <div class="cta-mobile">
-        <a href="https://wa.me/34608515922?text=Hola%20Eva,%20quiero%20la%20auditor%C3%ADa%20online%20de%2099,99%E2%82%AC%20con%20precio%20cerrado%20e%20IVA%20incluido." class="btn-whatsapp">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.886 9.886m8.415-18.3a11.311 11.311 0 00-7.991-3.309C6.145 2.196 1.005 7.336 1.003 13.632a11.303 11.303 0 001.539 5.766L0 24l4.802-1.259a11.32 11.32 0 005.462 1.41h.005c6.296 0 11.436-5.14 11.438-11.436a11.312 11.312 0 00-3.304-8.086"/></svg>
-            SOLICITAR POR WHATSAPP
-        </a>
-        <div class="payment-icons">
-            PAGO SEGURO: BIZUM • TARJETA • TRANSFERENCIA
-        </div>
-    </div>
-
     <footer>
-        <div class="legal-links">
+        <div class="footer-links" style="margin-bottom: 15px;">
             <a href="/legal.html">Aviso Legal</a>
             <a href="/privacidad.html">Privacidad</a>
+            <a href="/cookies.html">Cookies</a>
         </div>
-        <div class="arch-info">
-            © 2026 CERTILAB · SERVICIO TÉCNICO NACIONAL · ESPAÑA
-        </div>
+        <p>© 2026 CERTILAB · SERVICIO NACIONAL · ESPAÑA</p>
     </footer>
 
 </body>
