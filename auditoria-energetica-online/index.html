@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Certilab | Auditoría Energética Online | Deducción IRPF 5.000€</title>
-    <meta name="description" content="Recupera hasta 5.000€ de tu reforma vía IRPF. Auditoría técnica online por 99,99€ (IVA incl). Ingeniería de precisión con precios CYPE y simulación CE3X en 48h.">
-    <meta name="keywords" content="deducción irpf energética 2026, ahorro facturas luz, auditoría energética online, eva gonzalez arquitecta técnica, presupuesto reforma CYPE">
+    <title>Certilab | Ingeniería Energética | Reforma a Coste Cero</title>
+    <meta name="description" content="Recupera hasta 5.000€ de tu reforma vía IRPF. Auditoría técnica online por 99,99€ (IVA incl). Haz que tu reforma salga gratis con ahorro real y beneficios fiscales.">
     
-    <link rel="canonical" href="https://certilab.cat/" />
-    <link rel="alternate" hreflang="es" href="https://certilab.cat/" />
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <script type="application/ld+json">
@@ -19,7 +15,7 @@
       "@graph": [
         {
           "@type": "ProfessionalService",
-          "name": "Certilab - Eva González",
+          "name": "Certilab - Ingeniería Energética",
           "image": "https://certilab.cat/logo.png",
           "telephone": "+34608515922",
           "url": "https://certilab.cat",
@@ -28,7 +24,6 @@
         {
           "@type": "Product",
           "name": "Auditoría Energética Online Premium",
-          "description": "Informe técnico para ahorro energético y deducción fiscal IRPF hasta 5.000€.",
           "offers": {
             "@type": "Offer",
             "priceCurrency": "EUR",
@@ -41,32 +36,39 @@
     </script>
 
     <style>
-        :root { --bg: #f2f0ed; --text: #2c2c2c; --gold: #a68b5b; --white: #ffffff; --accent: #e8e4df; }
+        :root { --bg: #f2f0ed; --text: #2c2c2c; --gold: #a68b5b; --white: #ffffff; --accent: #e8e4df; --red-soft: #f9f4f4; }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         .container { width: 92%; max-width: 800px; margin: 0 auto; }
 
         /* NAV */
         nav { padding: 20px 0; background: rgba(242, 240, 237, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); backdrop-filter: blur(10px); }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 3px; color: var(--text); text-decoration: none; font-weight: 600; }
-        .col-tag { font-size: 0.55rem; color: var(--gold); font-weight: 600; text-align: right; line-height: 1.2; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo-group { text-decoration: none; display: block; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 4px; color: var(--text); font-weight: 600; display: block; line-height: 1; }
+        .sublogo { font-size: 0.55rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; display: block; margin-top: 5px; }
+        .col-tag { font-size: 0.55rem; color: #888; text-align: right; line-height: 1.3; font-weight: 500; }
 
         /* SECCIONES */
         .section { padding: 50px 0; }
         h1, h2, h3 { font-family: 'Cinzel', serif; font-weight: 400; margin: 0; }
         
-        /* 1. EL DOLOR */
+        /* 1. EL TRIPLE DOLOR */
         .hero { text-align: center; }
         .hero h1 { font-size: clamp(1.6rem, 5vw, 2.4rem); margin-bottom: 20px; color: #1a1a1a; line-height: 1.2; }
         .hero p { font-size: 1.05rem; color: #555; max-width: 650px; margin: 0 auto 30px; }
-        .pain-card { background: var(--white); padding: 30px; border-left: 4px solid var(--gold); margin: 40px 0; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 40px 0; }
+        .pain-card { background: var(--red-soft); padding: 25px; border-bottom: 3px solid #d9a3a3; text-align: left; }
+        .pain-card h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #a34a4a; margin-bottom: 10px; font-weight: 600; }
+        .pain-card p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
 
-        /* 2. EL BENEFICIO (GANCHO) */
+        /* 2. EL BENEFICIO (GANCHO 5000€) */
         .highlight-box { background: var(--text); color: var(--white); padding: 60px 30px; text-align: center; border-radius: 2px; }
         .highlight-box h2 { font-size: 2.2rem; color: var(--gold); margin-bottom: 15px; }
         .highlight-box p { font-size: 1.1rem; opacity: 0.9; margin: 0; }
 
-        /* 3. DESGLOSE TÉCNICO * 5000€ */
+        /* 3. DESGLOSE TÉCNICO */
         .tax-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 40px 0; }
         .tax-item { background: var(--white); padding: 25px 15px; text-align: center; border: 1px solid var(--accent); position: relative; }
         .tax-item span { font-size: 1.8rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 5px; }
@@ -90,41 +92,53 @@
         .btn-luxury:hover { background: transparent; color: var(--text); }
         .payments { margin-top: 20px; font-size: 0.55rem; letter-spacing: 1px; opacity: 0.7; font-weight: 600; }
 
-        /* FOOTER */
         footer { padding: 50px 0; text-align: center; font-size: 0.65rem; color: #aaa; border-top: 1px solid #eee; }
         .legal-links a { color: #888; text-decoration: none; margin: 0 12px; text-transform: uppercase; }
 
         @media (max-width: 600px) {
             .price-tag { font-size: 3.2rem; }
             .hero h1 { font-size: 1.8rem; }
-            .highlight-box h2 { font-size: 1.8rem; }
+            .highlight-box h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
-            <a href="/" class="logo">CERTILAB</a>
-            <div class="col-tag">EVA GONZÁLEZ<br>ARQUITECTA TÉCNICA COL. 9457</div>
+        <div class="container nav-flex">
+            <a href="/" class="logo-group">
+                <span class="logo">CERTILAB</span>
+                <span class="sublogo">Ingeniería Energética</span>
+            </a>
+            <div class="col-tag">EVA GONZÁLEZ<br>ARQ. TÉCNICA COL. 9457</div>
         </div>
     </nav>
 
     <main class="container">
         
         <section class="section hero">
-            <h1>¿Tu vivienda pierde calor o <br> tú estás perdiendo el tiempo?</h1>
-            <p>La mayoría de las reformas energéticas fracasan por falta de criterio técnico. Sin una auditoría previa, solo estás adivinando dónde invertir tu dinero.</p>
+            <h1>¿Tu casa pierde dinero o <br> tú estás perdiendo el tiempo?</h1>
+            <p>La inacción es el gasto más caro. Una vivienda ineficiente es una hucha rota que consume tu capital cada mes.</p>
             
-            <div class="pain-card">
-                <h3 style="font-family:'Cinzel'; font-size: 1rem; margin-top:0; color: var(--gold);">El riesgo de actuar sin datos</h3>
-                <p style="font-size: 0.85rem; margin-bottom:0;">Presupuestos inflados por proveedores y, lo más crítico: <strong>perder las deducciones fiscales de hasta 5.000 €</strong> por no presentar la documentación técnica correcta ante Hacienda.</p>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h3>Facturas Infladas</h3>
+                    <p>Pagas por energía que se escapa literalmente por tus paredes y ventanas.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>Devaluación Real</h3>
+                    <p>Una calificación energética baja (letra E, F o G) resta hasta un 15% del valor de venta de tu inmueble.</p>
+                </div>
+                <div class="pain-card">
+                    <h3>Ayudas Perdidas</h3>
+                    <p>Cada día que pasa pierdes la oportunidad de que el Estado pague tu reforma vía IRPF.</p>
+                </div>
             </div>
         </section>
 
         <section class="highlight-box">
-            <h2>Gana hasta 5.000 €</h2>
-            <p>Nuestra Auditoría Online es el documento oficial que necesitas para desbloquear el máximo beneficio fiscal del IRPF y un plan de ahorro real.</p>
+            <h2>Tu reforma puede salirte gratis</h2>
+            <p>Con la combinación de ahorro mensual y la deducción fiscal de hasta 5.000 €, la inversión se amortiza sola. Nuestra auditoría es la hoja de ruta para lograrlo.</p>
         </section>
 
         <section class="section">
@@ -148,16 +162,16 @@
                     <p>Rehabilitación energética integral del edificio.</p>
                 </div>
             </div>
-            <p style="font-size: 0.7rem; color: #999; text-align: center; font-style: italic;">* Cantidades máximas anuales según Real Decreto. Requiere informe técnico oficial antes y después de la obra.</p>
+            <p style="font-size: 0.7rem; color: #999; text-align: center; font-style: italic;">* Beneficio fiscal directo sobre tu declaración de la renta. Requiere informe técnico oficial firmado.</p>
         </section>
 
         <section class="price-card">
-            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Tu llave al ahorro y la deducción</p>
+            <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Invierte 99 € para ganar 5.000 €</p>
             <h2 class="price-tag">99,99€</h2>
             <span class="price-sub">PRECIO CERRADO · IVA INCLUIDO · FACTURA OFICIAL</span>
 
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20la%20Auditor%C3%ADa%20Online%20para%20gestionar%20mi%20deducci%C3%B3n%20y%20ahorro." class="btn-luxury">
-                INICIAR AUDITORÍA POR WHATSAPP
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20quiero%20hacer%20mi%20auditor%C3%ADa%20para%20que%20mi%20reforma%20salga%20gratis." class="btn-luxury">
+                SOLICITAR AUDITORÍA POR WHATSAPP
             </a>
             
             <div class="payments">
