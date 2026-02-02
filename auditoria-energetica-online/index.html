@@ -9,11 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap">
-    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="canonical" href="https://www.certilab.cat/auditoria-energetica-online/" />
     <link rel="alternate" hreflang="es" href="https://www.certilab.cat/auditoria-energetica-online/" />
@@ -48,18 +44,19 @@
     <style>
         :root { 
             --bg: #f2f0ed; 
-            --text: #111111; /* Más oscuro para contraste */
-            --gold: #70562d; /* Dorado mucho más oscuro para accesibilidad (Pass AA) */
+            --text: #111111; 
+            --gold: #70562d; 
             --white: #ffffff; 
             --accent: #d1cdc7; 
-            --red-strong: #8b0000; /* Rojo con mejor contraste */
-            --grey-text: #4a4a4a; /* Gris más oscuro para cumplir contraste 4.5:1 */
+            --red-strong: #8b0000; 
+            --grey-text: #4a4a4a; 
         }
         
+        /* Priorizar fuentes del sistema para el primer renderizado */
         * { box-sizing: border-box; }
         body { 
             margin: 0; 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; 
             background-color: var(--bg); 
             color: var(--text); 
             line-height: 1.6;
@@ -67,6 +64,7 @@
 
         .container { width: 92%; max-width: 800px; margin: 0 auto; }
 
+        /* HEADER & TOP BAR */
         .top-bar { background: var(--text); color: var(--white); padding: 12px 0; text-align: center; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; }
         .top-bar span { color: #f0c674; }
 
@@ -81,6 +79,7 @@
         .lang-selector a.active { border-bottom: 2px solid var(--gold); }
         .col-info { font-size: 0.75rem; color: var(--grey-text); font-weight: 700; text-align: right; }
 
+        /* HERO SECTION */
         .hero { text-align: center; padding: 50px 0; }
         h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 6vw, 2.5rem); margin-bottom: 15px; }
         
@@ -89,42 +88,47 @@
         .pain-card h2 { font-size: 0.95rem; text-transform: uppercase; color: var(--red-strong); margin-bottom: 10px; font-weight: 800; }
         .pain-card p { font-size: 0.95rem; color: var(--text); margin: 0; }
 
+        /* BENEFICIOS */
         .value-box { background: var(--white); border: 1px solid var(--accent); padding: 40px 25px; margin: 30px 0; }
         .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px; font-size: 1.3rem; color: var(--text); }
         .value-list { list-style: none; padding: 0; }
         .value-list li { margin-bottom: 25px; display: flex; gap: 15px; font-size: 1.05rem; align-items: flex-start; }
-        .value-list strong { color: var(--text); }
+        .value-list strong { color: var(--text); display: block; }
         .check { color: var(--gold); font-size: 1.3rem; font-weight: bold; }
 
+        /* PRECIO & CTA */
         .price-card { text-align: center; padding: 60px 20px; background: var(--text); color: var(--white); margin-top: 40px; }
         .price-tag { font-size: 4.5rem; color: #f0c674; font-family: 'Cinzel'; font-weight: 600; display: block; margin: 15px 0; }
         .btn-luxury { background: var(--gold); color: var(--white); padding: 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: 800; display: block; transition: 0.3s; }
+        .btn-luxury:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
+        /* LEGAL FOOTER */
         footer { padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--grey-text); border-top: 1px solid var(--accent); }
         footer a { color: var(--text); margin: 0 12px; text-decoration: underline; font-weight: 700; }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        ⚡ <span>SOLO 10 PLAZAS</span> POR SEMANA · ENTREGA EN <span>48H</span>
-    </div>
-
-    <nav>
-        <div class="container nav-flex">
-            <a href="/auditoria-energetica-online/index.html" class="logo-group">
-                <span class="logo">CERTILAB</span>
-                <span class="sublogo">Ingeniería Energética</span>
-            </a>
-            <div class="nav-right">
-                <div class="lang-selector">
-                    <a href="/auditoria-energetica-online/index.html" class="active">ES</a> | 
-                    <a href="/en/auditoria-energetica-online/index.html">EN</a>
-                </div>
-                <div class="col-info">EVA GONZÁLEZ · COL. 9457</div>
-            </div>
+    <header>
+        <div class="top-bar">
+            ⚡ <span>SOLO 10 PLAZAS</span> POR SEMANA · ENTREGA EN <span>48H</span>
         </div>
-    </nav>
+        <nav aria-label="Navegación principal">
+            <div class="container nav-flex">
+                <a href="/auditoria-energetica-online/index.html" class="logo-group">
+                    <span class="logo">CERTILAB</span>
+                    <span class="sublogo">Ingeniería Energética</span>
+                </a>
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="/auditoria-energetica-online/index.html" class="active">ES</a> | 
+                        <a href="/en/auditoria-energetica-online/index.html">EN</a>
+                    </div>
+                    <div class="col-info">EVA GONZÁLEZ · COL. 9457</div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main class="container">
         <section class="hero">
@@ -168,9 +172,7 @@
     <footer>
         <p>© 2026 CERTILAB · SERVICIO NACIONAL ESPAÑA</p>
         <div style="margin-top: 15px;">
-            <a href="/legal.html">AVISO LEGAL</a>
-            <a href="/privacidad.html">PRIVACIDAD</a>
-            <a href="/cookies.html">COOKIES</a>
+            <a href="/legal.html">AVISO LEGAL</a> | <a href="/privacidad.html">PRIVACIDAD</a> | <a href="/cookies.html">COOKIES</a>
         </div>
     </footer>
 
