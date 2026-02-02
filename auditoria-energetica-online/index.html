@@ -3,236 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certilab | Auditoría Energética Online 99,99€ Todo Incluido</title>
     
-    <title>Auditoría Energética Online | Deducción IRPF y Ahorro Real | CERTILAB</title>
-    <meta name="description" content="¿Tu vivienda pierde dinero? Resolvemos el ahorro de tu casa en toda España. Informe con precios CYPE, simulación CE3X y guía técnica para deducción del IRPF.">
-    <meta name="keywords" content="deduccion irpf mejora energetica, ahorrar en calefaccion, presupuesto reforma CYPE, subir letra certificado energetico, auditoria energetica online">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <link rel="canonical" href="https://certilab.cat/" />
-    <link rel="alternate" hreflang="es" href="https://certilab.cat/" />
-    <link rel="alternate" hreflang="en" href="https://certilab.cat/en/" />
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <meta property="og:title" content="Certilab | Auditoría Energética Online Premium">
-    <meta property="og:description" content="Recupera hasta el 60% de tu inversión y baja tus facturas con ingeniería de precisión.">
-    <meta property="og:url" content="https://certilab.cat">
-    <meta property="og:type" content="website">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "name": "Certilab - Eva González",
-          "image": "https://certilab.cat/logo.png",
-          "priceRange": "€€",
-          "telephone": "+34608515922",
-          "url": "https://certilab.cat",
-          "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Arquitecta Técnica Colegiada",
-            "recognizedBy": { "@type": "Organization", "name": "CAATEEB" }
-          }
-        },
-        {
-          "@type": "Product",
-          "name": "Auditoría Energética Online",
-          "offers": {
-            "@type": "Offer",
-            "priceCurrency": "EUR",
-            "price": "99.99"
-          }
-        }
-      ]
-    }
-    </script>
-
     <style>
         :root { 
-            --bg-warm: #f2f0ed; 
-            --text-main: #2c2c2c; 
-            --gold-muted: #a68b5b; 
-            --white-pure: #ffffff;
-            --accent-soft: #e8e4df;
-            --success: #4a7c59;
+            --bg-warm: #f2f0ed; --text-main: #2c2c2c; --gold: #a68b5b; 
+            --white: #ffffff; --accent: #e8e4df; --green-soft: #f0f7f4;
         }
-
+        
+        * { box-sizing: border-box; }
         body { 
             margin: 0; font-family: 'Inter', sans-serif; 
             background-color: var(--bg-warm); color: var(--text-main); 
-            line-height: 1.8; -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            line-height: 1.6; -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
+        .container { width: 92%; max-width: 800px; margin: 0 auto; }
 
-        /* NAVEGACIÓN */
-        nav { 
-            padding: 25px 0; background: rgba(242, 240, 237, 0.98); backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo-group { text-decoration: none; display: flex; flex-direction: column; gap: 4px; }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 4px; color: var(--text-main); font-weight: 600; line-height: 1; }
-        .tagline-sub { font-size: 0.55rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
-        
-        .lang-switcher a { text-decoration: none; color: #888; font-size: 0.7rem; font-weight: 600; padding: 8px 12px; transition: 0.3s; }
-        .lang-switcher a.active { color: var(--gold-muted); border: 1px solid var(--gold-muted); }
+        /* HEADER */
+        nav { padding: 15px 0; background: rgba(242, 240, 237, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.1rem; letter-spacing: 3px; text-decoration: none; color: var(--text-main); font-weight: 600; }
+        .tagline { font-size: 0.5rem; display: block; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
 
         /* HERO */
-        .hero { padding: 90px 0 60px 0; text-align: center; }
-        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 600; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 0; line-height: 1.2; font-weight: 400; }
-        .hero p { font-size: 1.1rem; max-width: 750px; margin: 25px auto; font-weight: 300; color: #555; }
+        .hero { padding: 30px 0; text-align: center; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 1.6rem; line-height: 1.2; margin-bottom: 10px; }
+        
+        /* SELLO PRECIO CERRADO */
+        .guarantee-badge {
+            background: var(--green-soft);
+            color: #2d5a27;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid #d4e8df;
+        }
 
-        /* GRILLA SERVICIOS */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .service-box { background: var(--white-pure); padding: 45px 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-bottom: 3px solid transparent; transition: 0.3s; }
-        .service-box:hover { border-bottom-color: var(--gold-muted); transform: translateY(-5px); }
-        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.2rem; margin-bottom: 20px; letter-spacing: 1px; }
+        /* TABLA COMPARATIVA */
+        .table-wrapper { width: 100%; overflow-x: auto; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        th, td { padding: 15px 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 0.85rem; }
+        th { background: #f8f8f8; font-family: 'Cinzel'; font-size: 0.65rem; letter-spacing: 1px; }
+        .feature { text-align: left; font-weight: 600; background: #fff; width: 40%; }
+        .new-way { background: rgba(166, 139, 91, 0.05); font-weight: 600; }
 
-        /* PROCESO PASO A PASO */
-        .process-section { padding: 80px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .process-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
-        .step { flex: 1; min-width: 200px; }
-        .step-num { font-family: 'Cinzel'; font-size: 2rem; color: var(--gold-muted); opacity: 0.5; margin-bottom: 10px; }
+        /* PRECIO FINAL DESTACADO */
+        .final-price-box {
+            text-align: center;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            border: 2px solid var(--gold);
+        }
+        .final-price-box h2 { font-family: 'Cinzel'; font-size: 2.2rem; margin: 0; color: var(--gold); }
+        .final-price-box p { margin: 5px 0 0 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #888; }
 
-        /* BOTÓN LUXURY */
+        /* BOTÓN WHATSAPP MÓVIL */
+        .cta-box { position: sticky; bottom: 20px; padding: 0 4%; z-index: 1000; }
         .btn-luxury { 
-            background: var(--text-main); color: var(--white-pure); padding: 22px 50px; 
-            text-decoration: none; text-transform: uppercase; letter-spacing: 3px; 
-            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 10px;
-            transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; 
+            background: var(--text-main); color: var(--white); padding: 18px; 
+            text-decoration: none; text-transform: uppercase; letter-spacing: 2px; 
+            font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; 
+            justify-content: center; gap: 10px; border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); transition: 0.3s;
         }
-        .btn-luxury:hover { background: transparent; color: var(--text-main); transform: translateY(-2px); }
 
-        /* FOOTER */
-        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; background: #f9f8f7; border-top: 1px solid #eee; }
-        .footer-nav { margin-bottom: 20px; }
-        .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
+        .payments { text-align: center; margin-top: 12px; font-size: 0.55rem; letter-spacing: 1px; opacity: 0.7; }
 
-        /* COOKIES */
-        #cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: var(--white-pure); padding: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.15); display: none; text-align: center; z-index: 2000; border: 1px solid var(--gold-muted); }
-
-        @media (max-width: 768px) {
-            .nav-flex { flex-direction: column; gap: 20px; }
-            .hero h1 { font-size: 2rem; }
-        }
+        footer { padding: 40px 0 100px 0; text-align: center; font-size: 0.6rem; color: #888; }
     </style>
 </head>
 <body>
 
-    <div style="background: var(--gold-muted); color: white; text-align: center; font-size: 0.65rem; padding: 7px 0; letter-spacing: 2px; font-weight: 600; text-transform: uppercase;">
-        Plazas Limitadas: Solo 10 auditorías semanales para garantizar entrega en 48h
-    </div>
-
     <nav>
-        <div class="container nav-flex">
-            <a href="/" class="logo-group">
-                <span class="logo">CERTILAB</span>
-                <span class="tagline-sub">Ingeniería Energética · Nacional</span>
-            </a>
-            <div class="lang-switcher">
-                <a href="/" class="active">ES</a>
-                <a href="/en/">EN</a>
-            </div>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="#" class="logo">CERTILAB<span class="tagline">Ingeniería Online</span></a>
+            <div style="font-size: 0.55rem; font-weight: 600; text-align: right;">EVA GONZÁLEZ<br>COL. 9457 BCN</div>
         </div>
     </nav>
 
-    <main>
-        <section class="container hero">
-            <span>Diagnóstico Técnico Avanzado</span>
-            <h1>¿Tu casa pierde energía o <br> tú estás perdiendo dinero?</h1>
-            <p>No realices ninguna reforma sin un análisis técnico neutral. Convertimos tu Certificado Energético en una hoja de ruta de ahorro real con presupuestos CYPE y optimización del IRPF.</p>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20necesito%20una%20Auditor%C3%ADa%20Energ%C3%A9tica%20Online.%20Me%20interesa%20el%20plan%20de%20ahorro%20y%20la%20deducci%C3%B3n%20del%20IRPF." rel="nofollow" class="btn-luxury" style="margin-top: 20px;">
-                SOLICITAR MI AUDITORÍA ONLINE
-            </a>
+    <main class="container">
+        <section class="hero">
+            <div class="guarantee-badge">✅ PRECIO CERRADO SIN SORPRESAS</div>
+            <h1>Auditoría Energética Profesional</h1>
+            <p style="font-size: 0.9rem;">Obtén tu informe de ahorro y deducción IRPF sin visitas y sin pagar de más.</p>
         </section>
 
-        <section class="container services-grid">
-            <div class="service-box">
-                <h2>Control de Inversión</h2>
-                <p>Usamos el <strong>Generador de Precios CYPE</strong> para determinar el coste real de obra. Evita presupuestos inflados en ventanas o aislamiento.</p>
-            </div>
-            <div class="service-box">
-                <h2>Ahorro Calculado</h2>
-                <p>Simulamos con <strong>CE3X</strong> qué mejora amortizarás antes. No inviertas a ciegas: conoce el retorno de tu inversión antes de empezar.</p>
-            </div>
-            <div class="service-box">
-                <h2>Defensa Fiscal</h2>
-                <p>Preparamos el informe técnico necesario para que tu asesor tramite la <strong>deducción del IRPF</strong> (hasta el 60%) por mejora de eficiencia.</p>
-            </div>
-        </section>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="feature">CONCEPTO</th>
+                        <th>OTROS</th>
+                        <th style="color: var(--gold);">CERTILAB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature">Honorarios</td>
+                        <td>350€</td>
+                        <td class="new-way">Incluido</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">Gestión IRPF</td>
+                        <td>+50€</td>
+                        <td class="new-way">Incluido</td>
+                    </tr>
+                    <tr>
+                        <td class="feature">IVA (21%)</td>
+                        <td>+84€</td>
+                        <td class="new-way">Incluido</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <section style="background: var(--accent-soft); padding: 80px 0;">
-            <div class="container">
-                <div style="text-align:center; margin-bottom: 50px;">
-                    <h2 style="font-family: 'Cinzel'; font-weight: 400;">¿Qué recibirás en 48 horas?</h2>
-                </div>
-                <div class="services-grid">
-                    <div style="background: #fff; padding: 30px; border-radius: 2px;">
-                        <h3 style="font-family: 'Cinzel'; font-size: 1rem; color: var(--gold-muted);">Informe Técnico (4 Pág.)</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Modelado térmico, precios CYPE detallados y comparativa de ahorro energético real.</p>
-                    </div>
-                    <div style="background: #fff; padding: 30px; border-radius: 2px;">
-                        <h3 style="font-family: 'Cinzel'; font-size: 1rem; color: var(--gold-muted);">Vídeo-Consulta Loom</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Vídeo personalizado de 5 min donde Eva González te explica los puntos clave de tu auditoría.</p>
-                    </div>
-                    <div style="background: #fff; padding: 30px; border-radius: 2px;">
-                        <h3 style="font-family: 'Cinzel'; font-size: 1rem; color: var(--gold-muted);">Anexo Fiscal IRPF</h3>
-                        <p style="font-size: 0.85rem; color: #666;">Justificación técnica de reducción de demanda para asegurar tu devolución de Hacienda.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="final-price-box">
+            <p>Precio Final Cerrado</p>
+            <h2>99,99€</h2>
+            <p>IVA INCLUIDO · FACTURA OFICIAL</p>
+        </div>
 
-        <section class="container process-section">
-            <h2 style="font-family: 'Cinzel'; font-weight: 400;">Proceso 100% Digital</h2>
-            <div class="process-grid">
-                <div class="step"><div class="step-num">01</div><p style="font-size: 0.85rem;">Contactas por WhatsApp</p></div>
-                <div class="step"><div class="step-num">02</div><p style="font-size: 0.85rem;">Envías Catastro/Certificado</p></div>
-                <div class="step"><div class="step-num">03</div><p style="font-size: 0.85rem;">Eva realiza la auditoría</p></div>
-                <div class="step"><div class="step-num">04</div><p style="font-size: 0.85rem;">Recibes el Pack Premium</p></div>
-            </div>
-        </section>
-
-        <section class="container" style="padding: 60px 0; border-top: 1px solid var(--accent-soft); text-align: center;">
-            <div style="width: 70px; height: 70px; background: #fff; border: 1px solid var(--gold-muted); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; font-family: 'Cinzel'; color: var(--gold-muted); font-weight: 600;">EG</div>
-            <h2 style="font-family: 'Cinzel'; font-size: 1.3rem; margin: 0;">Eva González</h2>
-            <p style="font-size: 0.7rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 10px;">Arquitecta Técnica Colegiada 9457</p>
-            <p style="font-size: 0.85rem; color: #777; max-width: 500px; margin: 0 auto;">Colegiada en el CAATEEB (Barcelona). Especialista en eficiencia energética y consultoría técnica de activos inmobiliarios para toda España.</p>
-        </section>
+        <div style="background: #fff; padding: 20px; border-radius: 8px; font-size: 0.85rem; color: #666;">
+            <strong>¿Qué incluye exactamente?</strong>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+                <li>Informe técnico firmado por Arquitecta Técnica.</li>
+                <li>Simulación de ahorro real en tus facturas.</li>
+                <li>Presupuesto de reforma con precios CYPE.</li>
+                <li>Documentación para deducción de impuestos.</li>
+            </ul>
+        </div>
     </main>
 
+    <div class="cta-box">
+        <a href="https://wa.me/34608515922?text=Hola%20Eva,%20quiero%20la%20auditor%C3%ADa%20online%20de%2099,99%E2%82%AC%20con%20precio%20cerrado." class="btn-luxury">
+            📩 SOLICITAR POR WHATSAPP
+        </a>
+        <div class="payments">
+            PAGA SEGURO: BIZUM • TARJETA • TRANSFERENCIA
+        </div>
+    </div>
+
     <footer>
-        <div class="container">
-            <div class="footer-nav">
-                <a href="/legal.html">Aviso Legal</a>
-                <a href="/privacidad.html">Privacidad</a>
-                <a href="/cookies.html">Cookies</a>
-            </div>
-            <p>© 2026 CERTILAB · EVA GONZÁLEZ · COLEGIADA 9457 BARCELONA</p>
+        <p>© 2026 CERTILAB · SERVICIO TÉCNICO NACIONAL</p>
+        <div style="margin-top: 10px; opacity: 0.5;">
+            <a href="/legal.html" style="color:#000; text-decoration:none;">Legal</a> | 
+            <a href="/privacidad.html" style="color:#000; text-decoration:none;">Privacidad</a>
         </div>
     </footer>
 
-    <div id="cookie-banner">
-        <p style="font-size: 0.8rem; color: #444; margin-bottom: 20px;">Utilizamos cookies técnicas para garantizar la seguridad de su consultoría online.</p>
-        <button class="btn-luxury" style="padding: 10px 20px; font-size: 0.7rem;" onclick="acceptCookies()">ACEPTAR</button>
-    </div>
-
-    <script>
-        function acceptCookies() {
-            localStorage.setItem('certilab_rgpd', 'true');
-            document.getElementById('cookie-banner').style.display = 'none';
-        }
-        window.onload = function() {
-            if (localStorage.getItem('certilab_rgpd') !== 'true') {
-                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1000);
-            }
-        }
-    </script>
 </body>
 </html>
