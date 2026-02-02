@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certilab | Ingeniería Energética | Auditoría Online 99,99€</title>
-    <meta name="description" content="Evita estafas en tu reforma. Auditoría técnica online para ahorrar energía y recuperar hasta 5.000€ de IRPF con Eva González, Arquitecta Técnica.">
+    <meta name="description" content="Evita estafas en tu reforma. Auditoría técnica online para ahorrar energía y recuperar hasta 5.000€ de IRPF con Eva González, Arquitecta Técnica Colegiada 9457.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,31 +17,6 @@
     <link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/auditoria-energetica-online/" />
     <link rel="alternate" hreflang="x-default" href="https://www.certilab.cat/auditoria-energetica-online/" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Auditoría Energética Online Certilab",
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Certilab",
-        "image": "https://www.certilab.cat/logo.png",
-        "telephone": "+34608515922",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Sitges",
-          "addressRegion": "Barcelona",
-          "addressCountry": "ES"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "99.99",
-        "priceCurrency": "EUR"
-      }
-    }
-    </script>
-
     <style>
         :root { 
             --bg: #f2f0ed; 
@@ -53,50 +28,71 @@
             --grey-text: #4a4a4a; 
         }
         
-        /* FUENTES DEL SISTEMA (Respaldo para evitar CLS y Reflow mientras carga la Google Font) */
         * { box-sizing: border-box; }
-        body { 
-            margin: 0; 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6;
-        }
+        body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
         .container { width: 92%; max-width: 800px; margin: 0 auto; }
 
+        /* CABECERA */
         .top-bar { background: var(--text); color: var(--white); padding: 12px 0; text-align: center; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; }
         .top-bar span { color: #f0c674; }
 
-        nav { padding: 15px 0; background: var(--bg); border-bottom: 1px solid var(--accent); }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo-group { text-decoration: none; color: var(--text); }
+        nav { padding: 20px 0; background: var(--bg); border-bottom: 1px solid var(--accent); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        
+        .logo-group { text-decoration: none; color: var(--text); flex: 1; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 2px; font-weight: 600; display: block; }
         .sublogo { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; font-weight: 700; display: block; }
         
-        .lang-selector { font-size: 0.9rem; font-weight: 700; }
-        .lang-selector a { color: var(--text); text-decoration: none; padding: 5px; border-bottom: 2px solid transparent; }
+        .nav-right { text-align: right; }
+        .lang-selector { font-size: 0.9rem; font-weight: 700; margin-bottom: 5px; }
+        .lang-selector a { color: var(--text); text-decoration: none; padding: 2px 5px; border-bottom: 2px solid transparent; }
         .lang-selector a.active { border-bottom: 2px solid var(--gold); }
-        .col-info { font-size: 0.75rem; color: var(--grey-text); font-weight: 700; text-align: right; }
 
-        .hero { text-align: center; padding: 50px 0; }
-        h1 { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 6vw, 2.5rem); margin-bottom: 15px; }
+        /* INFO COLEGIADO */
+        .col-info { 
+            font-size: 0.75rem; 
+            color: var(--grey-text); 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: right;
+        }
+
+        /* DISEÑO RESPONSIVE MÓVIL */
+        @media (max-width: 600px) {
+            .nav-flex { flex-direction: column; text-align: center; gap: 12px; }
+            .nav-right { text-align: center; width: 100%; order: 3; }
+            .logo-group { order: 1; margin-bottom: 5px; }
+            .col-info { 
+                order: 2; 
+                width: 100%; 
+                text-align: center; 
+                background: rgba(133, 106, 62, 0.08); /* Sutil toque de color */
+                padding: 10px;
+                border-radius: 4px;
+                font-size: 0.68rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* CUERPO DE PÁGINA */
+        .hero { text-align: center; padding: 40px 0; }
+        h1 { font-family: 'Cinzel', serif; font-size: clamp(1.7rem, 6vw, 2.5rem); margin-bottom: 15px; }
         
         .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin: 30px 0; }
-        .pain-card { background: #fff1f1; padding: 25px; border-left: 5px solid var(--red-strong); }
+        .pain-card { background: #fff1f1; padding: 25px; border-left: 5px solid var(--red-strong); text-align: left; }
         .pain-card h2 { font-size: 0.95rem; text-transform: uppercase; color: var(--red-strong); margin-bottom: 10px; font-weight: 800; }
-        .pain-card p { font-size: 0.95rem; color: var(--text); margin: 0; }
 
-        .value-box { background: var(--white); border: 1px solid var(--accent); padding: 40px 25px; margin: 30px 0; }
-        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px; font-size: 1.3rem; color: var(--text); }
+        .value-box { background: var(--white); border: 1px solid var(--accent); padding: 40px 25px; margin: 30px 0; text-align: left; }
+        .value-box h2 { font-family: 'Cinzel', serif; text-align: center; margin-bottom: 30px; font-size: 1.3rem; }
         .value-list { list-style: none; padding: 0; }
         .value-list li { margin-bottom: 25px; display: flex; gap: 15px; font-size: 1.05rem; align-items: flex-start; }
-        .value-list strong { color: var(--text); display: block; }
         .check { color: var(--gold); font-size: 1.3rem; font-weight: bold; }
 
         .price-card { text-align: center; padding: 60px 20px; background: var(--text); color: var(--white); margin-top: 40px; }
         .price-tag { font-size: 4.5rem; color: #f0c674; font-family: 'Cinzel'; font-weight: 600; display: block; margin: 15px 0; }
-        .btn-luxury { background: var(--gold); color: var(--white); padding: 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: 800; display: block; transition: 0.3s; }
+        .btn-luxury { background: var(--gold); color: var(--white); padding: 22px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; font-size: 1rem; font-weight: 800; display: block; }
 
         footer { padding: 40px 0; text-align: center; font-size: 0.85rem; color: var(--grey-text); border-top: 1px solid var(--accent); }
         footer a { color: var(--text); margin: 0 12px; text-decoration: underline; font-weight: 700; }
@@ -104,25 +100,30 @@
 </head>
 <body>
 
-    <div class="top-bar">
-        ⚡ <span>SOLO 10 PLAZAS</span> POR SEMANA · ENTREGA EN <span>48H</span>
-    </div>
-
-    <nav aria-label="Navegación principal">
-        <div class="container nav-flex">
-            <a href="/auditoria-energetica-online/index.html" class="logo-group">
-                <span class="logo">CERTILAB</span>
-                <span class="sublogo">Ingeniería Energética</span>
-            </a>
-            <div class="nav-right">
-                <div class="lang-selector">
-                    <a href="/auditoria-energetica-online/index.html" class="active">ES</a> | 
-                    <a href="/en/auditoria-energetica-online/index.html">EN</a>
-                </div>
-                <div class="col-info">EVA GONZÁLEZ · COL. 9457</div>
-            </div>
+    <header>
+        <div class="top-bar">
+            ⚡ <span>SOLO 10 PLAZAS</span> POR SEMANA · ENTREGA EN <span>48H</span>
         </div>
-    </nav>
+        <nav aria-label="Navegación de marca">
+            <div class="container nav-flex">
+                <a href="/auditoria-energetica-online/index.html" class="logo-group">
+                    <span class="logo">CERTILAB</span>
+                    <span class="sublogo">Ingeniería Energética</span>
+                </a>
+                
+                <div class="col-info">
+                    Eva González · Arquitecta Técnica Colegiada 9457
+                </div>
+
+                <div class="nav-right">
+                    <div class="lang-selector">
+                        <a href="/auditoria-energetica-online/index.html" class="active">ES</a> | 
+                        <a href="/en/auditoria-energetica-online/index.html">EN</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <main class="container">
         <section class="hero">
