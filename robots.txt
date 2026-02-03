@@ -9,3 +9,6 @@ Disallow: /fr/
 
 # Ruta correcta del Sitemap (Asegúrate de si usas www o no)
 Sitemap: https://www.certilab.cat/sitemap.xml
+
+# Enllaç directe al teu sitemap per accelerar l'indexació
+Sitemap: https://certilab.cat/cercador-certificats-energetics/sitemap.xml
