@@ -67,5 +67,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.certilab.cat/en/habitation-certificate-energy-report-olivella/"/>
     <priority>0.8</priority>
   </url>
+  
+  <url>
+    <loc>https://certilab.cat/cercador-certificats-energetics/</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
 </urlset>
