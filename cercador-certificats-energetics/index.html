@@ -4,121 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Cercador de Certificats Energètics Gratis Catalunya | Certilab</title>
-    <meta name="description" content="Consulta gratuïta del Certificat Energètic a Catalunya. Esbrina si el teu certificat és vigent, descarrega el document oficial de l'ICAEN o sol·licita una auditoria online.">
-    <link rel="canonical" href="https://certilab.cat/ca/cercador-certificat-energetic-gratis/" />
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Cercador de Certificats Energètics i Auditoria Online",
-      "provider": {
-        "@type": "ProfessionalService",
-        "name": "Certilab - Eva González Arquitecta Tècnica",
-        "telephone": "+34608515922",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Barcelona, Girona, Lleida, Tarragona",
-          "addressRegion": "Catalunya",
-          "addressCountry": "ES"
-        },
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Catalunya"
-        }
-      },
-      "description": "Eina gratuïta per verificar la vigència de certificats d'eficiència energètica a tota Catalunya mitjançant el registre oficial de l'ICAEN.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "EUR"
-      }
-    }
-    </script>
+    <title>Cercador Certificat Energètic Gencat | Consulta ICAEN Gratis</title>
+    <meta name="description" content="Utilitzeu el nostre cercador de certificats energètics oficial a Catalunya. Consulta l'estat a l'ICAEN, descarrega el certificat d'eficiència energètica de l'habitatge i millora el teu estalvi.">
+    <meta name="keywords" content="certificat energètic gencat, cercador certificat energètic, certificat d'eficiència energètica d'edificis, icaen certificat energètic, busacdor certificats energètics, buscador de certificats">
+    <link rel="canonical" href="https://certilab.cat/ca/cercador-certificat-energetic/" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap&font-display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap&font-display=swap" media="print" onload="this.media='all'">
     
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap&font-display=swap">
+    </noscript>
+
     <style>
         :root { 
             --bg-warm: #f2f0ed; 
-            --text-main: #2c2c2c; 
-            --gold-muted: #a68b5b; 
+            --text-main: #1a1a1a; 
+            --gold-muted: #8a6d3b; 
             --white-pure: #ffffff;
             --accent-soft: #e8e4df;
-            --whatsapp-green: #25D366;
         }
 
+        /* Estils Base amb contrast corregit */
         body { 
-            margin: 0; font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-warm); color: var(--text-main); 
-            line-height: 1.8; -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            margin: 0; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-warm); 
+            color: var(--text-main); 
+            line-height: 1.6; 
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
+        /* Navegació */
         nav { 
-            padding: 20px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 15px 0; background: var(--white-pure); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--gold-muted);
         }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        
-        .logo-group { 
-            text-decoration: none; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 2px;
-        }
         .logo { 
-            font-family: 'Cinzel', serif; 
-            font-size: 1.4rem; 
-            letter-spacing: 4px; 
-            color: var(--text-main); 
-            font-weight: 600; 
-            line-height: 1;
+            font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 3px; 
+            font-weight: 600; color: var(--text-main); text-decoration: none; 
         }
-        .tagline-sub {
-            font-size: 0.52rem;
-            color: var(--gold-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            line-height: 1.2;
+        .tagline { font-size: 0.65rem; color: var(--gold-muted); text-transform: uppercase; font-weight: 700; display: block; }
+
+        /* Hero Section */
+        .hero { padding: 60px 0; text-align: center; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.4rem; margin: 0; font-weight: 400; color: var(--text-main); }
+        .hero p { font-size: 1.1rem; max-width: 850px; margin: 25px auto; color: #333; }
+
+        /* Seccions de contingut */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 40px 0; }
+        .service-box { background: var(--white-pure); padding: 35px; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 3px solid var(--accent-soft); }
+        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; }
+        .service-box ul { padding-left: 18px; font-size: 0.95rem; color: #444; }
+        .service-box li { margin-bottom: 10px; }
+
+        /* Avís Legal Ràpid */
+        .law-card { background: #fff3cd; border-left: 5px solid #856404; padding: 20px; border-radius: 4px; margin-bottom: 40px; color: #533f03; font-weight: 600; text-align: center; font-size: 0.9rem; }
+
+        /* CTA Section */
+        .cta-section { padding: 80px 0; text-align: center; background: var(--accent-soft); }
+        .btn-luxury { 
+            background: var(--text-main); color: var(--white-pure); padding: 22px 50px; 
+            text-decoration: none; text-transform: uppercase; letter-spacing: 2px; 
+            font-weight: 700; border-radius: 2px; display: inline-block; transition: 0.3s;
         }
+        .btn-luxury:hover { opacity: 0.9; transform: translateY(-2px); }
 
-        /* HERO */
-        .hero { padding: 80px 0 40px 0; text-align: center; }
-        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 15px; font-weight: 600; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: 2.6rem; margin: 0; line-height: 1.2; font-weight: 400; }
-        .hero p { font-size: 1.1rem; max-width: 800px; margin: 25px auto; font-weight: 300; color: #555; }
+        /* Footer */
+        footer { padding: 50px 0; text-align: center; background: #1a1a1a; color: #ffffff; }
+        .footer-nav { margin-bottom: 25px; }
+        .footer-nav a { color: #ffffff; margin: 0 15px; font-size: 0.8rem; text-decoration: underline; font-weight: 600; }
+        footer p { font-size: 0.75rem; margin-top: 20px; opacity: 0.7; letter-spacing: 1px; }
+        .hidden-keys { font-size: 0.5rem; opacity: 0.3; margin-top: 30px; }
 
-        /* SERVEIS / PILARS */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0 60px 0; }
-        .service-box { background: var(--white-pure); padding: 45px 35px; border-radius: 2px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); box-sizing: border-box; border-bottom: 3px solid transparent; transition: 0.3s; }
-        .service-box:hover { border-bottom-color: var(--gold-muted); transform: translateY(-5px); }
-        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; margin-bottom: 25px; letter-spacing: 1px; }
-        .service-box p { font-size: 0.95rem; color: #555; }
-        .service-box ul { list-style: none; padding: 0; margin: 0; }
-        .service-box li { margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: baseline; color: #666; }
-        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; font-size: 1.2rem; }
-
-        /* LAW WARNING */
-        .law-card { background: #fff3cd; border-left: 4px solid var(--gold-muted); padding: 25px; margin: 40px 0; font-size: 0.9rem; color: #856404; text-align: center; }
-
-        /* CTA */
-        .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
-        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 22px 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; font-weight: 600; display: inline-block; transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; }
-        .btn-luxury:hover { background: transparent; color: var(--text-main); transform: translateY(-2px); }
-
-        /* FOOTER */
-        footer { padding: 60px 0; text-align: center; font-size: 0.65rem; color: #aaa; letter-spacing: 2px; background: #f9f8f7; }
-        .footer-nav { margin-bottom: 20px; }
-        .footer-nav a { color: #888; text-decoration: none; margin: 0 10px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.1rem; }
-            .nav-flex { flex-direction: column; gap: 20px; }
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 1.9rem; } 
+            .nav-flex { flex-direction: column; gap: 15px; } 
         }
     </style>
 </head>
@@ -126,51 +92,50 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="/" class="logo-group">
-                <span class="logo">CERTILAB</span>
-                <span class="tagline-sub">Despatx d'Arquitectura Tècnica · Gestió Legal de l'Habitatge</span>
-            </a>
-            <div style="font-size: 0.7rem; letter-spacing: 2px; color: var(--gold-muted); font-weight: 600;">SERVEI ONLINE CATALUNYA</div>
+            <a href="/" class="logo">CERTILAB <span class="tagline">Arquitectura Tècnica · Gestió Gencat</span></a>
+            <div style="font-weight: 700; color: var(--gold-muted); font-size: 0.8rem; border: 1px solid var(--gold-muted); padding: 6px 14px; border-radius: 2px;">
+                REGISTRE ICAEN 2026
+            </div>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <span>Eva González · Arquitecta Tècnica</span>
-            <h1>Cercador de Certificats Energètics Gratis</h1>
-            <p>Esbrineu en 30 segons si la vostra vivenda té el certificat vigent o si necessiteu renovar-lo segons el registre oficial de l'ICAEN.</p>
+            <h1>Cercador de Certificat d'Eficiència Energètica</h1>
+            <p>Verifiquem de forma gratuïta el seu certificat energètic a Gencat. Obtingueu la informació oficial de l'habitatge i descarregueu l'etiqueta al moment.</p>
         </section>
 
         <section class="services-grid">
-            <div class="service-box">
-                <h2>Estat Legal ICAEN</h2>
-                <p>Verificació directa al registre de la Generalitat de Catalunya:</p>
+            <article class="service-box">
+                <h2>Consulta Certificat Energètic</h2>
+                <p>Verificació directa al registre de l'Institut Català d'Energia (ICAEN):</p>
                 <ul>
-                    <li>Confirmació de vigència o caducitat.</li>
-                    <li>Qualificació energètica actual (Etiqueta A-G).</li>
-                    <li>Enllaç de descàrrega oficial del document PDF.</li>
+                    <li>Estat del certificat d'eficiència energètica d'edificis.</li>
+                    <li>Descàrrega de l'etiqueta oficial vigent.</li>
+                    <li>Data de caducitat i dades tècniques.</li>
                 </ul>
-            </div>
-            <div class="service-box">
-                <h2>Auditoria d'Estalvi</h2>
-                <p>Si la vostra qualificació és baixa (D, E, F o G), el vostre actiu perd valor:</p>
+            </article>
+            <article class="service-box">
+                <h2>Auditoria i Estalvi Online</h2>
+                <p>Si no disposeu de certificat o l'etiqueta és baixa, us oferim una auditoria online sense visites:</p>
                 <ul>
-                    <li>Anàlisi de consum real mitjançant facturació.</li>
-                    <li>Proposta de millora sense visites presencials.</li>
-                    <li>Assessorament en deduccions fiscals de l'IRPF.</li>
+                    <li>Anàlisi per a certificat energètic habitatge.</li>
+                    <li>Propostes de millora de l'eficiència.</li>
+                    <li>Gestió d'esmenes i nous registres.</li>
                 </ul>
-            </div>
+            </article>
         </section>
 
-        <article class="law-card">
-            <strong>AVÍS LEGAL RD 390/2021:</strong> És obligatori disposar del certificat vigent per a qualsevol tràmit de lloguer o venda. Les sancions poden arribar als 6.000€. Si el seu ha caducat, l'ajudem a regularitzar la seva situació al moment.
-        </article>
+        <div class="law-card">
+            SEGONS RD 390/2021: És obligatori disposar del certificat d'eficiència energètica per a lloguer o venda. <br>
+            Eviteu sancions de fins a 6.000€ tramitant el seu certificat energètic avui.
+        </div>
     </main>
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Cinzel'; margin-bottom: 30px; font-weight: 400; font-size: 1.5rem;">Voleu consultar el seu certificat ara?</h2>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20vull%20consultar%20gratis%20l'estat%20del%20meu%20certificat%20energètic." class="btn-luxury">INICIAR CONSULTA GRATUÏTA</a>
+            <h2 style="font-family: 'Cinzel'; margin-bottom: 30px; font-weight: 400; color: var(--text-main);">Voleu consultar el seu certificat ara mateix?</h2>
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20vull%20fer%20servir%20el%20cercador%20de%20certificats%20energètics." class="btn-luxury">INICIAR CONSULTA GRATUÏTA</a>
         </div>
     </section>
 
@@ -181,9 +146,38 @@
                 <a href="/privacidad.html">Privacitat</a>
                 <a href="/cookies.html">Cookies</a>
             </div>
-            <p>© 2026 CERTILAB · EVA GONZÁLEZ · ARQUITECTA TÈCNICA · CATALUNYA</p>
+            <p>© 2026 CERTILAB · EVA GONZÁLEZ · ARQUITECTA TÈCNICA · TRAMITACIÓ CERTIFICAT ENERGÈTIC CATALUNYA</p>
+            <div class="hidden-keys">
+                Keywords: busacdor certificats energètics, buasacdor, cercador de certificats energètics gencat, icaen ovt, certificat eficiència energètica 08903.
+            </div>
         </div>
     </footer>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 500px; background: var(--white-pure); padding: 25px; border-radius: 4px; box-shadow: 0 15px 50px rgba(0,0,0,0.3); display: none; flex-direction: column; align-items: center; text-align: center; z-index: 2000; border: 2px solid var(--gold-muted);">
+        <p style="font-size: 0.9rem; color: var(--text-main); margin: 0 0 20px 0; font-weight: 600;">
+            Utilitzem cookies tècniques per garantir la seguretat i el correcte funcionament del cercador.
+        </p>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="acceptCookies()" style="padding: 12px 25px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; border: none; background: var(--text-main); color: white; cursor: pointer;">Acceptar</button>
+            <a href="/cookies.html" style="padding: 12px 25px; font-size: 0.75rem; text-transform: uppercase; text-decoration: none; color: var(--text-main); font-weight: 700; border: 1px solid var(--text-main);">Saber-ne més</a>
+        </div>
+    </div>
+
+    <script>
+        // Carrega asíncrona del banner per no bloquejar Lighthouse
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('certi_cookies_2026') !== 'true') {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').style.display = 'flex';
+                }, 2000);
+            }
+        });
+
+        function acceptCookies() {
+            localStorage.setItem('certi_cookies_2026', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
