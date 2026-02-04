@@ -78,7 +78,13 @@
     <loc>https://certilab.cat/precio-certificado-energetico/</loc>
     <lastmod>2026-02-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://certilab.cat/ayudas-eficiencia-energetica-2026/index.html</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
 </urlset>
