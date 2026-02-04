@@ -5,96 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Certificado Energético Online | Auditoría Gratis y Precios 2026</title>
-    <meta name="description" content="Despacho de Arquitectura Técnica. Auditoría energética online gratuita en toda España. Consulta el precio de tu certificado de eficiencia y ahorra en tu vivienda.">
+    <meta name="description" content="Arquitectura Técnica especializada en eficiencia energética. Solicite su auditoría online gratuita y consulte precios de certificados en toda España.">
     <link rel="canonical" href="https://certilab.cat/">
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Certilab - Eva González Arquitecta Técnica",
-      "url": "https://certilab.cat",
-      "image": "https://certilab.cat/logo.png",
-      "telephone": "+34608515922",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "ES"
-      },
-      "description": "Expertos en eficiencia energética, certificados oficiales y auditorías online sin visita para toda España.",
-      "priceRange": "$$"
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://certilab.cat/#service",
+          "name": "Certilab - Eva González",
+          "url": "https://certilab.cat",
+          "image": "https://certilab.cat/logo.png",
+          "priceRange": "€0 - €300",
+          "telephone": "+34608515922",
+          "address": { "@type": "PostalAddress", "addressCountry": "ES" },
+          "knowsAbout": ["Eficiencia Energética", "Arquitectura Técnica", "Certificados Energéticos", "Deducciones IRPF"],
+          "areaServed": { "@type": "Country", "name": "España" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://certilab.cat/#person",
+          "name": "Eva González",
+          "jobTitle": "Arquitecta Técnica",
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "Colegiada 9457",
+            "credentialCategory": "Arquitectura Técnica"
+          }
+        }
+      ]
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" media="print" onload="this.media='all'">
+
     <style>
         :root { 
             --bg-warm: #f2f0ed; 
-            --text-main: #2c2c2c; 
-            --gold-muted: #a68b5b; 
+            --text-main: #1a1a1a; 
+            --gold-muted: #856a3e; 
             --white-pure: #ffffff;
-            --accent-soft: #e8e4df;
+            --accent-soft: #e2dfda;
+            --text-light: #454545;
         }
 
         body { 
             margin: 0; font-family: 'Inter', sans-serif; 
             background-color: var(--bg-warm); color: var(--text-main); 
-            line-height: 1.8; -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            line-height: 1.6; -webkit-font-smoothing: antialiased;
         }
 
-        .container { width: 90%; max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
-        /* HEADER PREMIUM SIN IDIOMAS */
+        /* HEADER */
         nav { 
-            padding: 30px 0; background: rgba(242, 240, 237, 0.98); backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 25px 0; background: var(--bg-warm);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
         }
-        .nav-flex { display: flex; justify-content: center; align-items: center; text-align: center; }
-        
-        .logo-group { text-decoration: none; display: flex; flex-direction: column; gap: 6px; }
-        .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; letter-spacing: 5px; color: var(--text-main); font-weight: 600; line-height: 1; }
-        .tagline-sub { font-size: 0.6rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; line-height: 1.2; }
+        .nav-flex { display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; letter-spacing: 5px; color: var(--text-main); text-decoration: none; font-weight: 600; }
+        .tagline-sub { font-size: 0.7rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-top: 5px; }
 
-        /* SECCIÓN HERO */
-        .hero { padding: 100px 0 50px 0; text-align: center; }
-        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.7rem; display: block; margin-bottom: 20px; font-weight: 600; }
-        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 3rem); margin: 0; line-height: 1.2; font-weight: 400; }
-        .hero p { font-size: 1.15rem; max-width: 800px; margin: 30px auto 0 auto; font-weight: 300; color: #555; }
+        /* HERO */
+        .hero { padding: 100px 0 60px 0; text-align: center; }
+        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; display: block; margin-bottom: 15px; font-weight: 700; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2rem, 5vw, 2.8rem); margin: 0; line-height: 1.2; }
+        .hero p { font-size: 1.15rem; max-width: 800px; margin: 30px auto; color: var(--text-light); font-weight: 300; }
 
-        /* CUADROS DE SERVICIO */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 50px 0 80px 0; }
-        .service-box { background: var(--white-pure); padding: 50px 40px; border-radius: 2px; box-shadow: 0 15px 45px rgba(0,0,0,0.03); box-sizing: border-box; border-bottom: 3px solid transparent; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .service-box:hover { border-bottom-color: var(--gold-muted); transform: translateY(-8px); }
-        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.3rem; margin-top: 0; margin-bottom: 30px; letter-spacing: 1px; }
-        .service-box ul { list-style: none; padding: 0; margin: 0; }
-        .service-box li { margin-bottom: 18px; font-size: 0.95rem; display: flex; align-items: baseline; color: #555; }
-        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 15px; font-size: 1.2rem; }
+        /* SERVICIOS */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 40px 0; }
+        .service-box { 
+            background: var(--white-pure); padding: 50px 40px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); border-bottom: 3px solid transparent; transition: 0.4s;
+        }
+        .service-box:hover { border-bottom-color: var(--gold-muted); transform: translateY(-5px); }
+        .service-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.3rem; margin-top: 0; margin-bottom: 25px; }
+        .service-box ul { list-style: none; padding: 0; }
+        .service-box li { margin-bottom: 15px; color: var(--text-light); display: flex; align-items: baseline; }
+        .service-box li::before { content: "•"; color: var(--gold-muted); margin-right: 12px; }
 
-        /* SECCIÓN PRECIO DESTACADO */
-        .price-highlight { padding: 80px 0; border-top: 1px solid var(--accent-soft); text-align: center; }
-        .price-highlight h3 { font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 15px; color: var(--gold-muted); }
-        .price-big { font-size: 4.5rem; font-weight: 200; color: var(--text-main); margin: 20px 0; font-family: 'Inter', sans-serif; letter-spacing: -2px; }
+        /* PRECIO */
+        .price-highlight { padding: 80px 0; text-align: center; background: var(--white-pure); border-top: 1px solid var(--accent-soft); }
+        .price-big { font-size: 4.5rem; font-weight: 200; color: var(--text-main); margin: 20px 0; font-family: 'Inter', sans-serif; }
 
-        /* SECCIÓN CONTACTO */
-        .cta-section { padding: 110px 0; text-align: center; background: var(--accent-soft); }
-        .btn-luxury { background: var(--text-main); color: var(--white-pure); padding: 24px 60px; text-decoration: none; text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; font-weight: 600; display: inline-block; transition: 0.4s; border: 1px solid var(--text-main); cursor: pointer; }
-        .btn-luxury:hover { background: transparent; color: var(--text-main); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        /* CTA */
+        .cta-section { padding: 100px 0; text-align: center; background: var(--accent-soft); }
+        .btn-luxury { 
+            background: var(--text-main); color: var(--white-pure); 
+            padding: 22px 60px; text-decoration: none; text-transform: uppercase; 
+            letter-spacing: 3px; font-weight: 600; font-size: 0.85rem; display: inline-block;
+            border: 1px solid var(--text-main); transition: 0.4s;
+        }
+        .btn-luxury:hover { background: transparent; color: var(--text-main); transform: translateY(-3px); }
 
-        /* FOOTER */
-        footer { padding: 70px 0; text-align: center; font-size: 0.7rem; color: #999; letter-spacing: 2px; background: #f9f8f7; }
-        .footer-nav { margin-bottom: 25px; }
-        .footer-nav a { color: #777; text-decoration: none; margin: 0 15px; text-transform: uppercase; transition: 0.3s; font-weight: 600; }
-        .footer-nav a:hover { color: var(--gold-muted); }
+        /* FOOTER ACCESIBLE */
+        footer { padding: 80px 0; text-align: center; background: #1a1a1a; color: #ffffff; }
+        .footer-nav { margin-bottom: 30px; }
+        .footer-nav a { color: #d1d1d1; text-decoration: none; margin: 0 15px; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        footer p { font-size: 0.65rem; letter-spacing: 2px; opacity: 0.6; margin-top: 25px; }
 
-        /* BANNER COOKIES */
-        #cookie-banner { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 450px; background: var(--white-pure); padding: 30px; border-radius: 2px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); display: none; flex-direction: column; align-items: center; text-align: center; z-index: 2000; border: 1px solid var(--gold-muted); }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .price-big { font-size: 3.5rem; }
-            .hero { padding: 60px 0; }
+        /* COOKIE BANNER */
+        #cookie-banner {
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 450px; background: var(--white-pure);
+            border: 1px solid var(--gold-muted); padding: 30px; z-index: 9999;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15); display: none; text-align: center;
         }
     </style>
 </head>
@@ -102,52 +124,50 @@
 
     <nav>
         <div class="container nav-flex">
-            <a href="/" class="logo-group">
-                <span class="logo">CERTILAB</span>
-                <span class="tagline-sub">Arquitectura Técnica · Gestión Energética Nacional</span>
-            </a>
+            <a href="/" class="logo">CERTILAB</a>
+            <span class="tagline-sub">Arquitectura Técnica · Gestión Energética Nacional</span>
         </div>
     </nav>
 
     <main class="container">
         <section class="hero">
-            <span>Gestión Profesional · Eva González</span>
-            <h1>Certificado Energético Online <br> y Auditoría Gratuita 2026</h1>
-            <p>Especialista en eficiencia energética para viviendas. Obtenga un estudio técnico sin coste y descubra cómo ahorrar en su factura cumpliendo con la normativa vigente.</p>
+            <span>Servicios de Autor · Eva González</span>
+            <h1>Certificado Energético y <br> Auditoría Online Gratuita</h1>
+            <p>Arquitecta Técnica colegiada. Descubra el ahorro potencial de su vivienda y cumpla con la normativa vigente mediante un estudio técnico especializado.</p>
         </section>
 
         <section class="services-grid">
             <div class="service-box">
                 <h2>Auditoría Online Gratis</h2>
                 <ul>
-                    <li>Análisis técnico remoto de su vivienda.</li>
-                    <li>Estimación precisa de su etiqueta energética.</li>
-                    <li>Cálculo de deducciones fiscales IRPF (hasta 60%).</li>
-                    <li>Informe de mejoras sin compromiso de contratación.</li>
+                    <li>Análisis técnico remoto de su inmueble.</li>
+                    <li>Estimación de calificación energética.</li>
+                    <li>Cálculo de deducciones fiscales IRPF.</li>
                 </ul>
             </div>
             <div class="service-box">
                 <h2>Certificado Oficial</h2>
                 <ul>
-                    <li>Registro oficial en todas las Comunidades Autónomas.</li>
-                    <li>Tramitación urgente para venta o alquiler.</li>
-                    <li>Presupuesto cerrado acorde a la normativa 2026.</li>
-                    <li>Asesoramiento directo por técnico colegiado.</li>
+                    <li>Registro oficial en todas las CCAA.</li>
+                    <li>Tramitación urgente para compraventa.</li>
+                    <li>Presupuesto cerrado según RD 390/2021.</li>
                 </ul>
             </div>
         </section>
     </main>
 
-    <section class="price-highlight container">
-        <h3>Su primera auditoría técnica</h3>
-        <div class="price-big">0€</div>
-        <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: #888; font-weight: 600;">Estudio de eficiencia · Toda España · Respuesta 24h</p>
+    <section class="price-highlight">
+        <div class="container">
+            <h3 style="font-family: 'Cinzel'; color: var(--gold-muted); letter-spacing: 2px;">Su primer informe técnico</h3>
+            <div class="price-big">0€</div>
+            <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; color: #777; font-weight: 600;">Estudio de eficiencia · Toda España · 24h</p>
+        </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2 style="font-family: 'Cinzel'; margin-bottom: 40px; font-weight: 400; font-size: 1.8rem; letter-spacing: 1px;">¿Desea conocer el potencial de su vivienda?</h2>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20solicito%20mi%20auditoría%20energética%20gratuita." class="btn-luxury">Solicitar Informe Gratuito</a>
+            <h2 style="font-family: 'Cinzel'; margin-bottom: 40px; font-weight: 400; font-size: 1.8rem;">¿Iniciamos su estudio de ahorro hoy?</h2>
+            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20solicito%20mi%20auditoría%20gratuita." class="btn-luxury">Solicitar Auditoría</a>
         </div>
     </section>
 
@@ -163,18 +183,20 @@
     </footer>
 
     <div id="cookie-banner">
-        <p style="font-size: 0.9rem; color: #555; margin-bottom: 25px; font-weight: 400;">Utilizamos cookies técnicas para garantizar la seguridad de su solicitud online.</p>
-        <button class="btn-luxury" style="padding: 12px 30px; font-size: 0.75rem;" onclick="acceptCookies()">Aceptar</button>
+        <h4 style="font-family: 'Cinzel'; color: var(--gold-muted); margin-top: 0;">Privacidad</h4>
+        <p style="font-size: 0.85rem; color: #555;">Utilizamos cookies técnicas para garantizar la seguridad de su gestión online.</p>
+        <button class="btn-luxury" style="padding: 12px 30px; font-size: 0.7rem;" onclick="acceptCookies()">Aceptar</button>
     </div>
 
     <script>
+        // Lógica de Cookies
         window.onload = function() {
-            if (localStorage.getItem('rgpd_consent_2026') !== 'true') {
-                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'flex'; }, 1000);
+            if (localStorage.getItem('certilab_cookies_2026') !== 'true') {
+                setTimeout(() => { document.getElementById('cookie-banner').style.display = 'block'; }, 1500);
             }
         }
         function acceptCookies() {
-            localStorage.setItem('rgpd_consent_2026', 'true');
+            localStorage.setItem('certilab_cookies_2026', 'true');
             document.getElementById('cookie-banner').style.display = 'none';
         }
     </script>
