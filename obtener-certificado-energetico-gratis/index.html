@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Obtener Certificado Energético Gratis | Auditoría Preliminar Online España 2026</title>
-    <meta name="description" content="Inicie su trámite sin coste en cualquier punto de España. Auditoría Energética Preliminar Gratuita online. Analice su ahorro y etiqueta antes del registro oficial.">
+    <title>Obtener Certificado Energético Gratis | Auditoría Preliminar Online 2026</title>
+    <meta name="description" content="Inicie su trámite sin coste en España. Auditoría Energética Preliminar Gratuita online. Analice su ahorro y etiqueta antes del registro oficial.">
     <link rel="canonical" href="https://certilab.cat/obtener-certificado-energetico-gratis/">
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -14,7 +14,7 @@
       "@context": "https://schema.org",
       "@type": "Service",
       "name": "Auditoría Energética Preliminar Gratuita España",
-      "description": "Análisis técnico digital previo a la certificación energética oficial en territorio español. Estimación de etiqueta y filtro de ayudas europeas.",
+      "description": "Análisis técnico digital previo a la certificación oficial. Estimación de etiqueta y filtro de ayudas europeas.",
       "provider": {
         "@type": "ProfessionalService",
         "name": "Certilab - Eva González",
@@ -38,11 +38,11 @@
     <style>
         :root { 
             --bg-warm: #f2f0ed; 
-            --text-main: #2c2c2c; 
-            --gold-muted: #a68b5b; 
+            --text-main: #1a1a1a; /* Texto más oscuro para contraste */
+            --gold-dark: #8a6d3b; /* Dorado oscurecido para accesibilidad */
             --white-pure: #ffffff;
-            --accent-soft: #e8e4df;
-            --wa-green: #25D366;
+            --accent-soft: #e2dfda;
+            --wa-green: #128C7E; /* Verde más oscuro para contraste sobre fondo claro */
         }
 
         body { 
@@ -54,104 +54,120 @@
         .container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
         nav { 
-            padding: 25px 0; background: rgba(242, 240, 237, 0.95); backdrop-filter: blur(10px); 
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding: 25px 0; background: rgba(242, 240, 237, 0.98); 
+            position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--accent-soft);
         }
         .nav-flex { display: flex; justify-content: center; align-items: center; }
         .logo-group { text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .logo { font-family: 'Cinzel', serif; font-size: 1.6rem; letter-spacing: 5px; color: var(--text-main); font-weight: 600; }
-        .tagline-sub { font-size: 0.55rem; color: var(--gold-muted); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-top: 5px; }
+        .tagline-sub { font-size: 0.65rem; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-top: 5px; }
         
         .hero { padding: 90px 0 50px 0; text-align: center; }
-        .hero span { color: var(--gold-muted); text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; margin-bottom: 20px; display: block; }
+        .hero span { color: var(--gold-dark); text-transform: uppercase; letter-spacing: 4px; font-size: 0.8rem; font-weight: 700; margin-bottom: 20px; display: block; }
         .hero h1 { font-family: 'Cinzel', serif; font-size: 2.8rem; margin: 0 auto; line-height: 1.2; font-weight: 400; max-width: 900px; }
-        .hero p { font-size: 1.15rem; max-width: 750px; margin: 30px auto 0; color: #555; font-weight: 300; }
+        .hero p { font-size: 1.15rem; max-width: 750px; margin: 30px auto 0; color: #333; font-weight: 400; }
 
-        .audit-box { background: var(--text-main); color: var(--white-pure); padding: 60px 40px; margin: 50px 0; border-radius: 2px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .audit-box h2 { font-family: 'Cinzel', serif; color: var(--gold-muted); margin-top: 0; font-size: 1.8rem; }
+        .audit-box { background: var(--text-main); color: var(--white-pure); padding: 60px 40px; margin: 50px 0; border-radius: 4px; text-align: center; }
+        .audit-box h2 { font-family: 'Cinzel', serif; color: #d4bc8e; margin-top: 0; font-size: 1.8rem; }
         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 40px 0; }
-        .card { background: var(--white-pure); padding: 45px; border-bottom: 3px solid transparent; transition: 0.4s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .card:hover { border-bottom-color: var(--gold-muted); transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .card h3 { font-family: 'Cinzel', serif; color: var(--gold-muted); font-size: 1.25rem; margin-top: 0; }
+        .card { background: var(--white-pure); padding: 45px; border-bottom: 4px solid transparent; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card:hover { border-bottom-color: var(--gold-dark); }
+        .card h3 { font-family: 'Cinzel', serif; color: var(--gold-dark); font-size: 1.25rem; margin-top: 0; }
 
         .btn-wa { 
             background: var(--wa-green); color: white; padding: 22px 50px; 
             text-decoration: none; display: inline-block; font-weight: 700; 
             letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;
-            transition: 0.3s; border-radius: 3px; border: 1px solid var(--wa-green);
+            border-radius: 4px; border: 2px solid var(--wa-green);
         }
-        .btn-wa:hover { background: transparent; color: var(--wa-green); }
+        .btn-wa:focus { outline: 3px solid var(--gold-dark); outline-offset: 4px; }
 
-        .legal-disclaimer { font-size: 0.75rem; color: #999; margin-top: 60px; text-align: justify; border-top: 1px solid var(--accent-soft); padding-top: 30px; line-height: 1.6; }
+        .legal-disclaimer { font-size: 0.85rem; color: #444; margin-top: 60px; text-align: justify; border-top: 1px solid var(--gold-dark); padding-top: 30px; }
 
-        footer { padding: 80px 0; text-align: center; font-size: 0.7rem; color: #aaa; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(0,0,0,0.03); }
+        footer { padding: 60px 0; text-align: center; font-size: 0.75rem; color: #555; background: #e8e6e3; }
+        .footer-links a { color: var(--text-main); text-decoration: underline; margin: 0 10px; font-weight: 600; }
+
+        /* COOKIE BANNER ACCESIBLE */
+        #cookie-banner {
+            position: fixed; bottom: 0; width: 100%; background: var(--text-main); color: white;
+            padding: 20px; z-index: 2000; display: none; justify-content: space-between; align-items: center;
+        }
+        .btn-cookie { background: var(--gold-dark); color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: 700; text-transform: uppercase; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.1rem; }
-            .audit-box { padding: 40px 20px; }
-            .logo { font-size: 1.3rem; }
+            #cookie-banner { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
+    <nav aria-label="Navegación principal">
         <div class="container nav-flex">
-            <a href="/" class="logo-group">
+            <a href="/" class="logo-group" aria-label="Ir a inicio Certilab">
                 <span class="logo">CERTILAB</span>
                 <span class="tagline-sub">Auditoría Energética · Consultoría Técnica Nacional</span>
             </a>
         </div>
     </nav>
 
-    <main class="container">
-        <section class="hero">
+    <main id="main-content" class="container">
+        <section class="hero" aria-labelledby="hero-title">
             <span>Certificación Oficial España 2026</span>
-            <h1>Certificado Energético Vivienda: <br> Auditoría Preliminar Gratuita</h1>
-            <p>
-                Analizamos la eficiencia de su inmueble en cualquier punto del país. Obtenga un <strong>diagnóstico técnico previo sin compromiso</strong> para maximizar el valor de su propiedad.
-            </p>
+            <h1 id="hero-title">Certificado Energético Vivienda: <br> Auditoría Preliminar Gratuita</h1>
+            <p>Analizamos la eficiencia de su inmueble en cualquier punto del país. Obtenga un diagnóstico técnico previo para maximizar su valor de mercado.</p>
         </section>
 
         <section class="audit-box">
             <h2>Gestión Digital de su Auditoría</h2>
-            <p style="opacity: 0.85; max-width: 750px; margin: 0 auto 40px; font-size: 1.1rem;">
-                No asuma una calificación baja por defecto. Nuestra auditoría online identifica mejoras estratégicas para su vivienda antes del registro definitivo.
+            <p style="margin-bottom: 40px; font-size: 1.1rem;">
+                Identificamos mejoras estratégicas antes del registro definitivo.
             </p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-bottom: 45px;">
-                <div style="border: 1px solid rgba(166, 139, 91, 0.4); padding: 18px 30px; font-size: 0.85rem; letter-spacing: 1px;">PRE-CALIFICACIÓN A-G</div>
-                <div style="border: 1px solid rgba(166, 139, 91, 0.4); padding: 18px 30px; font-size: 0.85rem; letter-spacing: 1px;">AYUDAS NEXT GENERATION</div>
-                <div style="border: 1px solid rgba(166, 139, 91, 0.4); padding: 18px 30px; font-size: 0.85rem; letter-spacing: 1px;">CUMPLIMIENTO AGENDA 2030</div>
-            </div>
-            <a href="https://wa.me/34608515922?text=Hola%20Eva,%20solicito%20la%20Auditoría%20Preliminar%20Gratuita%20para%20mi%20vivienda." class="btn-wa">OBTENER MI AUDITORÍA GRATIS</a>
+            <a href="https://wa.me/34608515922?text=Solicito%20Auditoría%20Preliminar%20Gratuita" class="btn-wa" aria-label="Solicitar auditoría gratuita por WhatsApp">OBTENER MI AUDITORÍA GRATIS</a>
         </section>
 
         <section class="grid">
-            <div class="card">
+            <article class="card">
                 <h3>Venta y Alquiler</h3>
-                <p>La normativa estatal exige la etiqueta energética desde el primer momento de la publicación. Evite sanciones administrativas y agilice sus trámites ante notario.</p>
-            </div>
-            <div class="card">
-                <h3>Validez de 10 Años</h3>
-                <p>Tras la auditoría y validación presencial, emitimos el Certificado de Eficiencia Energética oficial con validez legal en todo el territorio nacional por una década.</p>
-            </div>
-            <div class="card">
-                <h3>Ahorro Real</h3>
-                <p>Nuestra auditoría preliminar no solo es un trámite; es una herramienta para detectar pérdidas de energía y reducir sus facturas de suministros de forma drástica.</p>
-            </div>
+                <p>Cumpla la normativa estatal desde el primer anuncio. Evite sanciones administrativas de hasta 6.000€ en 2026.</p>
+            </article>
+            <article class="card">
+                <h3>Validez Oficial</h3>
+                <p>Emitimos el Certificado de Eficiencia Energética (CEE) oficial con validez legal por 10 años tras la validación presencial.</p>
+            </article>
         </section>
 
         <section class="legal-disclaimer">
-            <strong>Aviso de Servicio:</strong> La Auditoría Energética Preliminar Gratuita es un servicio de consultoría técnica online realizado por Certilab. Este análisis se basa en la normativa vigente en España y tiene como objetivo orientar al propietario sobre su eficiencia energética y posibles subvenciones europeas. Este documento es meramente informativo y preliminar. El Certificado de Eficiencia Energética (CEE) con validez legal para contratos requiere obligatoriamente una inspección física del inmueble y el registro en el organismo autonómico competente, sujeto a las tasas oficiales y honorarios profesionales correspondientes.
+            <strong>Aviso de Servicio:</strong> La Auditoría Energética Preliminar Gratuita es un servicio de consultoría técnica online realizado por Certilab (Eva González, Col. 9457). Este análisis se basa en datos facilitados y tiene carácter informativo previo. El Certificado Oficial requiere inspección física y abono de tasas oficiales según normativa vigente.
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2026 CERTILAB · EVA GONZÁLEZ · COLEGIADA 9457 · ARQUITECTURA TÉCNICA & GESTIÓN ENERGÉTICA</p>
+        <div class="container footer-links">
+            <p>© 2026 CERTILAB · EVA GONZÁLEZ · ARQUITECTA TÉCNICA</p>
+            <a href="/aviso-legal">Aviso Legal</a>
+            <a href="/politica-privacidad">Privacidad</a>
+            <a href="/cookies">Política de Cookies</a>
         </div>
     </footer>
+
+    <div id="cookie-banner" role="alert">
+        <p>Utilizamos cookies propias para mejorar su experiencia técnica. <a href="/cookies" style="color: #d4bc8e;">Más información</a></p>
+        <button class="btn-cookie" onclick="acceptCookies()" aria-label="Aceptar cookies">Aceptar</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('cookies-accepted')) {
+                document.getElementById('cookie-banner').style.display = 'flex';
+            }
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookies-accepted', 'true');
+            document.getElementById('cookie-banner').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
