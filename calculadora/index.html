@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Auditoría Energética Pro 2026</title>
+    <title>Calculadora Energética | Certilab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
@@ -11,8 +11,7 @@
         .step { display: none; }
         .step.active { display: block; animation: slideIn 0.3s ease-out; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
-        input[type="radio"]:checked + div { border-color: #2563eb; background-color: #eff6ff; }
-        input[type="checkbox"]:checked { background-color: #2563eb; border-color: #2563eb; }
+        input[type="radio"]:checked + div { border-color: #2563eb; background-color: #eff6ff; ring: 2px; ring-color: #2563eb; }
     </style>
 </head>
 <body class="bg-slate-50 min-h-screen">
@@ -22,13 +21,13 @@
         <header class="bg-slate-900 p-6 text-white shadow-lg sticky top-0 z-10">
             <div class="flex justify-between items-end mb-4">
                 <div>
-                    <h1 class="text-lg font-extrabold tracking-tight italic">ENGINEER<span class="text-blue-500 underline">AI</span></h1>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest">Auditoría Energética Online</p>
+                    <h1 class="text-xl font-extrabold tracking-tight">CERTI<span class="text-blue-500">LAB</span></h1>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Auditoría Energética Avanzada</p>
                 </div>
-                <span id="step-counter" class="text-xs font-bold bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full border border-blue-500/30">Paso 1/4</span>
+                <span id="step-counter" class="text-xs font-bold bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full border border-blue-500/30">Paso 1/5</span>
             </div>
             <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div id="progress-bar" class="bg-blue-500 h-full transition-all duration-500" style="width: 25%"></div>
+                <div id="progress-bar" class="bg-blue-500 h-full transition-all duration-500" style="width: 20%"></div>
             </div>
         </header>
 
@@ -36,107 +35,103 @@
             <form id="auditForm" class="h-full flex flex-col">
                 
                 <div class="step active" id="step1">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Ubicación exacta</h2>
-                    <p class="text-slate-500 mb-8 text-sm italic font-semibold">"Analizamos tu vivienda calle a calle"</p>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Localización</h2>
+                    <p class="text-slate-500 mb-6 text-sm">Necesaria para cruzar datos con la Sede Electrónica del Catastro.</p>
                     
-                    <div class="space-y-6">
-                        <div class="relative">
-                            <label class="text-[11px] font-bold text-slate-400 uppercase ml-1">Dirección de la vivienda</label>
-                            <input type="text" name="address" required placeholder="Calle, número, ciudad..." 
-                                   class="w-full p-4 mt-1 bg-white border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none transition-all shadow-sm">
-                            <div class="mt-4 p-4 bg-blue-50 rounded-2xl border border-blue-100">
-                                <p class="text-[11px] text-blue-800 leading-relaxed font-medium">
-                                    <strong>Nota Técnica:</strong> La dirección exacta es imprescindible para obtener los datos de la <strong>Sede Electrónica del Catastro</strong> (año de construcción y zona climática oficial CTE 2026).
-                                </p>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-2 block">Rol sobre la propiedad</label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <label class="relative">
-                                    <input type="radio" name="role" value="propietario" class="peer hidden" required>
-                                    <div class="p-4 border-2 border-slate-100 rounded-2xl text-center peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all">
-                                        <span class="text-2xl block mb-1">🏡</span>
-                                        <span class="text-xs font-bold text-slate-700">Propietario</span>
-                                    </div>
-                                </label>
-                                <label class="relative">
-                                    <input type="radio" name="role" value="inquilino" class="peer hidden">
-                                    <div class="p-4 border-2 border-slate-100 rounded-2xl text-center peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all">
-                                        <span class="text-2xl block mb-1">🔑</span>
-                                        <span class="text-xs font-bold text-slate-700">Inquilino</span>
-                                    </div>
-                                </label>
-                            </div>
+                    <div class="space-y-4">
+                        <input type="text" name="address" required placeholder="Calle, número, ciudad..." 
+                               class="w-full p-4 bg-white border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none shadow-sm transition-all">
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="relative">
+                                <input type="radio" name="role" value="propietario" class="peer hidden" required checked>
+                                <div class="p-4 border-2 border-slate-100 rounded-2xl text-center peer-checked:border-blue-600 peer-checked:bg-blue-50">
+                                    <span class="text-xl block mb-1">🏠</span>
+                                    <span class="text-xs font-bold">Propietario</span>
+                                </div>
+                            </label>
+                            <label class="relative">
+                                <input type="radio" name="role" value="inquilino" class="peer hidden">
+                                <div class="p-4 border-2 border-slate-100 rounded-2xl text-center peer-checked:border-blue-600 peer-checked:bg-blue-50">
+                                    <span class="text-xl block mb-1">🔑</span>
+                                    <span class="text-xs font-bold">Inquilino</span>
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="step" id="step2">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Estado de ventanas</h2>
-                    <p class="text-slate-500 mb-8 text-sm italic font-semibold italic font-semibold">"El mayor punto de fuga térmica"</p>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Ventanas</h2>
+                    <p class="text-slate-500 mb-6 text-sm">¿Cómo es el acristalamiento actual?</p>
                     <div class="space-y-3">
                         <label class="block relative">
                             <input type="radio" name="windows" value="simple" class="peer hidden" required>
-                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50">
-                                <span class="text-3xl mr-4">🪟</span>
-                                <div><p class="font-bold text-sm">Madera / Aluminio Simple</p></div>
+                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all">
+                                <span class="text-2xl mr-4">🪟</span>
+                                <span class="font-bold text-sm text-slate-700">Cristal Simple / Aluminio</span>
                             </div>
                         </label>
                         <label class="block relative">
                             <input type="radio" name="windows" value="climalit" class="peer hidden">
-                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50">
-                                <span class="text-3xl mr-4">🖼️</span>
-                                <div><p class="font-bold text-sm">Doble Cristal Antiguo</p></div>
+                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all">
+                                <span class="text-2xl mr-4">🖼️</span>
+                                <span class="font-bold text-sm text-slate-700">Doble Cristal (Antiguo)</span>
                             </div>
                         </label>
                         <label class="block relative">
                             <input type="radio" name="windows" value="pvc" class="peer hidden">
-                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50">
-                                <span class="text-3xl mr-4">🛡️</span>
-                                <div><p class="font-bold text-sm">PVC / Aluminio RPT</p></div>
+                            <div class="flex items-center p-4 border-2 border-slate-100 rounded-2xl peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all">
+                                <span class="text-2xl mr-4">🛡️</span>
+                                <span class="font-bold text-sm text-slate-700">PVC / Rotura Térmica</span>
                             </div>
                         </label>
                     </div>
                 </div>
 
                 <div class="step" id="step3">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Mejoras previas</h2>
-                    <p class="text-slate-500 mb-8 text-sm italic font-semibold">"Indica si has realizado obras antes"</p>
-                    <div class="space-y-4">
-                        <label class="flex items-center p-5 bg-white border-2 border-slate-100 rounded-2xl">
-                            <input type="checkbox" name="reforms" value="fachada" class="w-6 h-6 rounded text-blue-600">
-                            <span class="ml-4 font-bold text-sm text-slate-700 italic font-semibold">Fachada / Tejado aislado</span>
-                        </label>
-                        <label class="flex items-center p-5 bg-white border-2 border-slate-100 rounded-2xl">
-                            <input type="checkbox" name="reforms" value="caldera" class="w-6 h-6 rounded text-blue-600">
-                            <span class="ml-4 font-bold text-sm text-slate-700 italic font-semibold">Aerotermia / Calefacción</span>
-                        </label>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Calefacción</h2>
+                    <p class="text-slate-500 mb-6 text-sm">Fuente principal de calor en invierno.</p>
+                    <div class="space-y-3">
+                        <select name="heating" required class="w-full p-4 bg-white border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none">
+                            <option value="gas">Gas Natural</option>
+                            <option value="gasoil">Caldera de Gasoil</option>
+                            <option value="electrico">Radiadores Eléctricos</option>
+                            <option value="aerotermia">Aerotermia / Bomba de Calor</option>
+                        </select>
+                        <div class="p-4 bg-slate-100 rounded-2xl">
+                            <label class="text-[10px] font-bold text-slate-500 uppercase">Gasto mensual promedio (Invierno)</label>
+                            <input type="range" name="bill" min="50" max="500" step="50" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer mt-2" oninput="this.nextElementSibling.value = this.value + '€/mes'">
+                            <output class="text-sm font-bold text-blue-600">250€/mes</output>
+                        </div>
                     </div>
                 </div>
 
                 <div class="step" id="step4">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Generar Informe</h2>
-                    <p class="text-slate-500 mb-8 text-sm italic font-semibold">"Diagnóstico técnico personalizado vía IA"</p>
-                    
-                    <div class="space-y-6">
-                        <div class="relative">
-                            <label class="text-[11px] font-bold text-slate-400 uppercase ml-1">Email de recepción</label>
-                            <input type="email" name="email" required placeholder="ejemplo@email.com" 
-                                   class="w-full p-4 mt-1 bg-white border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none shadow-sm">
-                        </div>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">¿Has reformado?</h2>
+                    <p class="text-slate-500 mb-6 text-sm">Selecciona mejoras ya realizadas.</p>
+                    <div class="space-y-4">
+                        <label class="flex items-center p-4 bg-white border-2 border-slate-100 rounded-2xl">
+                            <input type="checkbox" name="reforms" value="fachada" class="w-5 h-5 text-blue-600">
+                            <span class="ml-4 font-bold text-sm text-slate-700">Fachada / Tejado Aislado</span>
+                        </label>
+                        <label class="flex items-center p-4 bg-white border-2 border-slate-100 rounded-2xl">
+                            <input type="checkbox" name="reforms" value="ninguna" class="w-5 h-5 text-blue-600">
+                            <span class="ml-4 font-bold text-sm text-slate-700">Vivienda en estado original</span>
+                        </label>
+                    </div>
+                </div>
 
-                        <div class="bg-slate-100 p-5 rounded-2xl border border-slate-200">
-                            <label class="flex items-start cursor-pointer">
-                                <div class="flex items-center h-5">
-                                    <input type="checkbox" name="privacy" required class="w-5 h-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
-                                </div>
-                                <div class="ml-3 text-[11px] leading-relaxed text-slate-500">
-                                    He leído y acepto la <a href="#" class="text-blue-600 underline font-bold">Política de Privacidad</a>. 
-                                    Consiento que mis datos sean procesados para la generación del informe energético y el envío de comunicaciones técnicas. 
-                                    <span class="block mt-1 italic font-semibold">Responsable: Tu Empresa SL. Finalidad: Auditoría online.</span>
-                                </div>
+                <div class="step" id="step5">
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Finalizar</h2>
+                    <p class="text-slate-500 mb-6 text-sm">Recibe el informe de Certilab en tu email.</p>
+                    <div class="space-y-4">
+                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full p-4 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none">
+                        
+                        <div class="bg-slate-100 p-4 rounded-2xl text-[10px] text-slate-500 leading-tight">
+                            <label class="flex items-start">
+                                <input type="checkbox" name="privacy" required class="mt-0.5 w-4 h-4 border-slate-300 rounded text-blue-600">
+                                <span class="ml-2">Acepto la <a href="#" class="underline">Política de Privacidad</a> de <strong>Certilab</strong>. Consiento el tratamiento de mis datos para la generación de la auditoría energética online y el envío del diagnóstico técnico.</span>
                             </label>
                         </div>
                     </div>
@@ -144,22 +139,22 @@
 
                 <div class="mt-auto py-6 flex gap-3">
                     <button type="button" id="prevBtn" class="hidden flex-1 py-4 font-bold text-slate-400 bg-slate-100 rounded-2xl transition-all">←</button>
-                    <button type="button" id="nextBtn" class="flex-[2] py-4 font-extrabold text-white bg-blue-600 rounded-2xl shadow-lg active:scale-[0.95] transition-all">Siguiente Paso</button>
-                    <button type="submit" id="submitBtn" class="hidden flex-[2] py-4 font-extrabold text-white bg-green-600 rounded-2xl shadow-lg active:scale-[0.95] transition-all text-center">SOLICITAR AUDITORÍA ✓</button>
+                    <button type="button" id="nextBtn" class="flex-[2] py-4 font-extrabold text-white bg-blue-600 rounded-2xl shadow-lg active:scale-95 transition-all">Siguiente</button>
+                    <button type="submit" id="submitBtn" class="hidden flex-[2] py-4 font-extrabold text-white bg-green-600 rounded-2xl shadow-lg active:scale-95 transition-all">OBTENER AHORRO ✓</button>
                 </div>
             </form>
 
             <div id="loader" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-10 text-center">
-                <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-6"></div>
-                <h3 class="text-xl font-extrabold text-slate-900 mb-2" id="loader-title">Conectando...</h3>
-                <p class="text-slate-500 text-sm italic font-semibold" id="loader-text">Consultando Sede Electrónica del Catastro...</p>
+                <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+                <h3 class="text-xl font-extrabold text-slate-900" id="loader-title">Analizando...</h3>
+                <p class="text-slate-400 text-sm" id="loader-text">Conectando con registros oficiales...</p>
             </div>
 
             <div id="success" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-10 text-center">
-                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6">✓</div>
-                <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic font-semibold">¡Petición Recibida!</h2>
-                <p class="text-slate-500 text-sm mb-8">El proceso de análisis térmico suele tardar unos 90 segundos. Revisa tu email.</p>
-                <button onclick="location.reload()" class="font-bold text-blue-600 underline italic font-semibold">Nueva Auditoría</button>
+                <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-4">✓</div>
+                <h2 class="text-2xl font-extrabold text-slate-900 mb-2">¡Petición Enviada!</h2>
+                <p class="text-slate-500 text-sm">Certilab está procesando tu informe. Revisa tu email en unos instantes.</p>
+                <button onclick="location.reload()" class="mt-6 font-bold text-blue-600 uppercase text-xs tracking-widest">Nueva Consulta</button>
             </div>
         </main>
     </div>
@@ -177,8 +172,7 @@
         const WEBHOOK_URL = 'TU_URL_DE_N8N_AQUÍ';
 
         nextBtn.addEventListener('click', () => {
-            // Validación básica antes de pasar paso
-            const inputs = steps[currentStep].querySelectorAll('input[required]');
+            const inputs = steps[currentStep].querySelectorAll('input[required], select[required]');
             let valid = true;
             inputs.forEach(i => { if(!i.checkValidity()) { i.reportValidity(); valid = false; }});
             
@@ -203,7 +197,7 @@
         function updateUI() {
             const progress = ((currentStep + 1) / steps.length) * 100;
             document.getElementById('progress-bar').style.width = `${progress}%`;
-            document.getElementById('step-counter').innerText = `Paso ${currentStep + 1}/4`;
+            document.getElementById('step-counter').innerText = `Paso ${currentStep + 1}/5`;
             prevBtn.classList.toggle('hidden', currentStep === 0);
             nextBtn.classList.toggle('hidden', currentStep === steps.length - 1);
             submitBtn.classList.toggle('hidden', currentStep !== steps.length - 1);
@@ -217,20 +211,11 @@
             const data = Object.fromEntries(formData.entries());
             data.reforms = formData.getAll('reforms');
 
-            const stepsMsgs = [
-                {t: "Catastro", d: "Localizando referencia catastral..."},
-                {t: "Termodinámica", d: "Calculando demanda de calefacción (kWh/m²)..."},
-                {t: "Finalizando", d: "Generando informe de alta autoridad..."}
-            ];
-            
+            const msgs = ["Identificando referencia catastral...", "Analizando zona climática...", "Estimando potencial de ahorro..."];
             let i = 0;
             const interval = setInterval(() => {
-                if(i < stepsMsgs.length) {
-                    document.getElementById('loader-title').innerText = stepsMsgs[i].t;
-                    document.getElementById('loader-text').innerText = stepsMsgs[i].d;
-                    i++;
-                }
-            }, 3000);
+                if(i < msgs.length) document.getElementById('loader-text').innerText = msgs[i++];
+            }, 2500);
 
             try {
                 await fetch(WEBHOOK_URL, {
@@ -242,7 +227,7 @@
                 loader.classList.add('hidden');
                 success.classList.remove('hidden');
             } catch (err) {
-                alert("Error de conexión. Revisa n8n.");
+                alert("Error de conexión con n8n.");
                 loader.classList.add('hidden');
             }
         });
