@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ahorro Energético 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4">
 
+    <div class="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full">
+        <div id="form-step">
+            <h1 class="text-2xl font-bold text-slate-800 mb-2">Calculadora de Ahorro</h1>
+            <p class="text-slate-500 mb-6 text-sm">Descubre cuánto pierde tu casa y cuánta subvención puedes recibir.</p>
+            
+            <form id="calc-form" class="space-y-4">
+                <input type="text" id="address" placeholder="Dirección completa" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                
+                <select id="year" class="w-full p-3 border rounded-lg outline-none">
+                    <option value="1970">Construida antes de 1980</option>
+                    <option value="1990">Construida 1980 - 2007</option>
+                    <option value="2010">Construida después de 2007</option>
+                </select>
+
+                <select id="windows" class="w-full p-3 border rounded-lg outline-none">
+                    <option value="simple">Ventanas cristal simple</option>
+                    <option value="doble">Doble cristal antiguo</option>
+                    <option value="pvc">PVC / Rotura térmica</option>
+                </select>
+
+                <input type="email" id="email" placeholder="Tu mejor email" required class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">
+                    Calcular Ahorro Gratis
+                </button>
+            </form>
+        </div>
+
+        <div id="loading" class="hidden text-center py-10">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-blue-600 font-medium" id="status-text">Conectando con el Catastro...</p>
+        </div>
+
+        <div id="success" class="hidden text-center py-10">
+            <div class="text-green-500 text-5xl mb-4">✓</div>
+            <h2 class="text-xl font-bold">¡Informe Enviado!</h2>
+            <p class="text-slate-600 mt-2 text-sm">Revisa tu email. Hemos generado tu diagnóstico preliminar.</p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('calc-form');
+        const WEBHOOK_URL = 'https://tu-n8n.easypanel.host/webhook/auditoria'; // CAMBIA ESTO
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('form-step').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+
+            const data = {
+                address: document.getElementById('address').value,
+                year: document.getElementById('year').value,
+                windows: document.getElementById('windows').value,
+                email: document.getElementById('email').value
+            };
+
+            // Simulación de pasos para aumentar valor percibido
+            const steps = ["Analizando muros...", "Calculando IRPF...", "Generando PDF..."];
+            let i = 0;
+            const timer = setInterval(() => {
+                if(i < steps.length) document.getElementById('status-text').innerText = steps[i++];
+            }, 1500);
+
+            try {
+                await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(data)
+                });
+                clearInterval(timer);
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('success').classList.remove('hidden');
+            } catch (err) {
+                alert("Error al conectar. Revisa tu n8n.");
+            }
+        });
+    </script>
+</body>
+</html>
