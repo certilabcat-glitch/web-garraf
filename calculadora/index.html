@@ -3,169 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Certilab | Auditoría Energética Online</title>
+    <title>Calculadora Certilab | Auditoría Técnica Online</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsz3YhXWvQLxgA_M-f98HwrbDuKHPWVOI&libraries=places"></script>
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
+        :root { 
+            --bg: #f2f0ed; 
+            --text: #1a1e26; 
+            --dark-elegant: #2c3544;
+            --gold: #7a633a; 
+            --white: #ffffff; 
+            --accent: #d1cdc7; 
+            --brown-elegant: #6d4c41;
+            --grey-text: #535b69; 
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); }
+        h1, h2, .logo { font-family: 'Cinzel', serif; }
+
         .step { display: none; }
-        .step.active { display: block; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
-        input[type="radio"]:checked + div { border-color: #2563eb; background-color: #eff6ff; ring: 2px; ring-color: #3b82f6; }
+        .step.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Estilo personalizado para Inputs */
+        .input-luxury {
+            width: 100%;
+            padding: 18px;
+            background: var(--white);
+            border: 1px solid var(--accent);
+            border-radius: 2px;
+            outline: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .input-luxury:focus { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+
+        /* Estilo Radio Buttons Elegantes */
+        .radio-card {
+            border: 1px solid var(--accent);
+            background: var(--white);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        input[type="radio"]:checked + .radio-card {
+            border-color: var(--gold);
+            background: rgba(122, 99, 58, 0.05);
+        }
+
+        /* Botones */
+        .btn-luxury {
+            background: var(--gold);
+            color: var(--white);
+            padding: 20px 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        .btn-luxury:hover { background: #5d4b2c; letter-spacing: 3px; }
+        .btn-secondary { color: var(--grey-text); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; font-weight: 700; }
+
+        .pac-container { border-radius: 0; border: 1px solid var(--accent); font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen">
+<body class="p-0 m-0">
 
-    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-white shadow-xl relative">
+    <div class="bg-[#2c3544] text-white py-3 text-center text-[10px] uppercase tracking-[2px] font-bold">
+        ⚡ Servicio Técnico Nacional · <span class="text-[#f0c674]">Entrega en 48h</span>
+    </div>
+
+    <nav class="border-bottom border-slate-200 py-6 bg-white">
+        <div class="max-w-xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="logo text-xl tracking-widest font-bold">CERTILAB</span>
+                <span class="text-[9px] text-[#7a633a] uppercase font-bold tracking-tighter">Ingeniería Energética</span>
+            </div>
+            <div class="text-[9px] text-right text-slate-400 font-bold uppercase tracking-widest">
+                Auditoría Técnica<br>Online 2026
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-xl mx-auto mt-8 px-6 pb-20">
         
-        <header class="bg-slate-900 p-6 text-white sticky top-0 z-20">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex flex-col">
-                    <span class="text-2xl font-black tracking-tighter uppercase leading-none text-blue-500">CERTI<span class="text-white italic">LAB</span></span>
-                    <span class="text-[8px] uppercase tracking-[0.3em] text-slate-400 font-bold mt-1">Ingeniería Energética 2026</span>
-                </div>
-                <div id="step-badge" class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-[10px] font-black text-blue-400 uppercase">Paso 1/6</div>
-            </div>
-            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                <div id="progress" class="bg-blue-500 h-full transition-all duration-500" style="width: 16%"></div>
-            </div>
-        </header>
+        <div class="w-full bg-slate-200 h-[2px] mb-12">
+            <div id="progress" class="bg-[#7a633a] h-full transition-all duration-700" style="width: 16%"></div>
+        </div>
 
-        <main class="flex-grow p-6">
-            <form id="auditForm" class="space-y-8">
+        <form id="auditForm" class="space-y-10">
+            
+            <div class="step active" id="step1">
+                <h2 class="text-xl mb-2">Localización del Activo</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Sincronización con la base de datos catastral para análisis térmico.</p>
                 
-                <div class="step active" id="step1">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Ubicación Finca</h2>
-                    <p class="text-slate-500 text-sm mb-6">Indique su dirección para conectar con la Sede del Catastro.</p>
+                <div class="space-y-4">
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Dirección Completa</label>
                     <input type="text" id="autocomplete" name="address" required placeholder="Calle, número, ciudad..." 
-                           class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm">
-                    <div class="mt-4 p-4 bg-blue-50 rounded-2xl border border-blue-100 text-[10px] text-blue-700 font-semibold leading-relaxed italic">
-                        Nota: Dato necesario para obtener el año de construcción y la zona climática oficial (CTE).
+                           class="input-luxury">
+                    <div class="p-6 bg-white border-l-2 border-[#7a633a] text-[11px] text-[#535b69] leading-relaxed">
+                        Este dato permite a nuestro despacho identificar la <strong>Zona Climática oficial</strong> y el año de construcción del inmueble.
                     </div>
                 </div>
-
-                <div class="step" id="step2">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Tipo de Vivienda</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Define la exposición térmica de tu hogar.</p>
-                    <div class="grid grid-cols-1 gap-3">
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="property_type" value="piso_intermedio" class="peer hidden" required>
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">🏢</span>
-                                <div>
-                                    <p class="text-sm font-bold text-slate-800 leading-none">Piso Intermedio</p>
-                                    <p class="text-[9px] text-slate-400 font-bold mt-1 uppercase italic">Protegido por vecinos</p>
-                                </div>
-                            </div>
-                        </label>
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="property_type" value="atico_unifamiliar" class="peer hidden">
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">🏠</span>
-                                <div>
-                                    <p class="text-sm font-bold text-slate-800 leading-none">Ático / Unifamiliar</p>
-                                    <p class="text-[9px] text-slate-400 font-bold mt-1 uppercase italic">Expuesto a cubierta</p>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="step" id="step3">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Su Perfil</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Personalizamos su estrategia de subvenciones.</p>
-                    <div class="grid grid-cols-1 gap-3">
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="profile" value="propietario" class="peer hidden" required>
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">👤</span>
-                                <span class="text-sm font-bold text-slate-800">Propietario Residente</span>
-                            </div>
-                        </label>
-                        <label class="relative cursor-pointer">
-                            <input type="radio" name="profile" value="inversor" class="peer hidden">
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">📈</span>
-                                <span class="text-sm font-bold text-slate-800">Inversor / Alquiler</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="step" id="step4">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Ventanas</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic italic font-semibold">¿Cómo es su acristalamiento actual?</p>
-                    <div class="space-y-3">
-                        <label class="block relative cursor-pointer">
-                            <input type="radio" name="windows" value="simple" class="peer hidden" required>
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">🪟</span>
-                                <span class="text-sm font-bold text-slate-700">Simple / Madera / Antiguo</span>
-                            </div>
-                        </label>
-                        <label class="block relative cursor-pointer">
-                            <input type="radio" name="windows" value="climalit" class="peer hidden">
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
-                                <span class="text-2xl">🖼️</span>
-                                <span class="text-sm font-bold text-slate-700">Doble Cristal / PVC</span>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="step" id="step5">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Energía</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Base de cálculo para el ahorro en €.</p>
-                    <div class="space-y-6">
-                        <select name="heating" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm appearance-none">
-                            <option value="gas">Gas Natural</option>
-                            <option value="gasoil">Caldera Gasoil</option>
-                            <option value="electrico">Radiadores Eléctricos</option>
-                            <option value="aerotermia">Aerotermia / Bomba Calor</option>
-                        </select>
-                        <div class="px-2">
-                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 italic">Gasto Mensual Estimado</label>
-                            <input type="range" name="bill" min="50" max="600" step="25" value="150" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600" oninput="this.nextElementSibling.innerText = this.value + '€/mes'">
-                            <p class="text-center text-blue-600 font-black text-2xl mt-2 italic italic font-semibold italic font-semibold">150€/mes</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step" id="step6">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Recibir Informe</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Certilab generará su Hoja de Ruta ahora.</p>
-                    <div class="space-y-4">
-                        <input type="email" name="email" required placeholder="su@email.com" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm">
-                        <label class="flex items-start gap-3 p-2 cursor-pointer">
-                            <input type="checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded border-slate-300 text-blue-600">
-                            <span class="text-[10px] text-slate-500 font-medium italic italic font-semibold">Acepto la Política de Privacidad de <strong>Certilab</strong>. Consiento el tratamiento de datos para mi auditoría energética online.</span>
-                        </label>
-                    </div>
-                </div>
-
-            </form>
-        </main>
-
-        <footer class="p-6 bg-white border-t border-slate-100 sticky bottom-0 z-30">
-            <div class="flex gap-3">
-                <button type="button" id="prevBtn" class="hidden px-6 py-4 bg-slate-100 text-slate-400 font-bold rounded-2xl">←</button>
-                <button type="button" id="nextBtn" class="flex-grow py-4 bg-blue-600 text-white font-black rounded-2xl shadow-xl shadow-blue-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Siguiente</button>
-                <button type="submit" form="auditForm" id="submitBtn" class="hidden flex-grow py-4 bg-green-600 text-white font-black rounded-2xl shadow-xl shadow-green-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Solicitar Auditoría ✓</button>
             </div>
-        </footer>
 
-        <div id="loader" class="hidden fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center p-12 text-center backdrop-blur-sm">
-            <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4 italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold"></div>
-            <h3 class="text-xl font-black text-slate-900 uppercase italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Iniciando Análisis...</h3>
-            <p class="text-slate-400 text-xs mt-1 font-bold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Calculando transmitancia térmica oficial...</p>
-        </div>
+            <div class="step" id="step2">
+                <h2 class="text-xl mb-2">Tipología Constructiva</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Determine la exposición de los cerramientos.</p>
+                <div class="grid grid-cols-1 gap-4">
+                    <label>
+                        <input type="radio" name="property_type" value="piso_intermedio" class="hidden peer" required>
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">🏢</span>
+                            <div>
+                                <p class="text-sm font-bold uppercase tracking-wide">Piso Intermedio</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase">Protegido por viviendas colindantes</p>
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="property_type" value="atico_unifamiliar" class="hidden peer">
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">🏠</span>
+                            <div>
+                                <p class="text-sm font-bold uppercase tracking-wide">Ático / Unifamiliar</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase">Exposición directa a cubierta</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
 
-        <div id="success" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-10 text-center">
-            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-6 shadow-inner italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">✓</div>
-            <h2 class="text-2xl font-black text-slate-900 italic font-semibold uppercase mb-2">¡Petición Enviada!</h2>
-            <p class="text-slate-500 text-sm font-medium italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Revisa tu email. Certilab ya está trabajando en tu Hoja de Ruta.</p>
-        </div>
+            <div class="step" id="step3">
+                <h2 class="text-xl mb-2">Relación con el Activo</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Esencial para el cálculo de deducciones fiscales IRPF.</p>
+                <div class="grid grid-cols-1 gap-4">
+                    <label>
+                        <input type="radio" name="profile" value="propietario" class="hidden peer" required>
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">👤</span>
+                            <span class="text-sm font-bold uppercase tracking-widest">Propietario / Inversor</span>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="profile" value="inquilino" class="hidden peer">
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">🔑</span>
+                            <span class="text-sm font-bold uppercase tracking-widest">Inquilino / Arrendatario</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="step" id="step4">
+                <h2 class="text-xl mb-2">Estado de Cerramientos</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Evaluación de la transmitancia térmica actual.</p>
+                <div class="grid grid-cols-1 gap-4">
+                    <label>
+                        <input type="radio" name="windows" value="simple" class="hidden peer" required>
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">🪟</span>
+                            <span class="text-sm font-bold uppercase tracking-widest">Cristal Simple / Madera / Aluminio</span>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="windows" value="climalit" class="hidden peer">
+                        <div class="radio-card peer-checked:border-[#7a633a]">
+                            <span class="text-xl">🖼️</span>
+                            <span class="text-sm font-bold uppercase tracking-widest">Doble Cristal / PVC / RPT</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="step" id="step5">
+                <h2 class="text-xl mb-2">Consumo Energético</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Análisis del gasto actual para cálculo de ROI.</p>
+                <div class="space-y-8">
+                    <select name="heating" required class="input-luxury appearance-none uppercase font-bold tracking-widest">
+                        <option value="gas">Gas Natural</option>
+                        <option value="gasoil">Gasoil</option>
+                        <option value="electrico">Sistemas Eléctricos</option>
+                        <option value="aerotermia">Aerotermia</option>
+                    </select>
+                    <div class="text-center">
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4">Inversión mensual en climatización</label>
+                        <input type="range" name="bill" min="50" max="600" step="25" value="150" 
+                               class="w-full h-[2px] bg-slate-200 appearance-none cursor-pointer accent-[#7a633a]"
+                               oninput="this.nextElementSibling.innerText = this.value + '€/MES'">
+                        <p class="text-[#7a633a] font-bold text-3xl mt-4">150€/MES</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step" id="step6">
+                <h2 class="text-xl mb-2">Finalizar Solicitud</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Nuestro despacho está trabajando en su informe técnico preliminar.</p>
+                <div class="space-y-6">
+                    <input type="email" name="email" required placeholder="correo@electronico.com" class="input-luxury">
+                    <label class="flex items-start gap-3 cursor-pointer">
+                        <input type="checkbox" name="privacy" required class="mt-1 accent-[#7a633a]">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter leading-relaxed">
+                            Acepto el tratamiento de mis datos para la elaboración de la auditoría técnica por parte de Certilab.
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-10 border-t border-slate-100">
+                <button type="button" id="prevBtn" class="btn-secondary opacity-0 pointer-events-none transition-all">Anterior</button>
+                <button type="button" id="nextBtn" class="btn-luxury">Continuar</button>
+                <button type="submit" id="submitBtn" class="hidden btn-luxury">Generar Informe</button>
+            </div>
+        </form>
+    </main>
+
+    <div id="loader" class="hidden fixed inset-0 bg-[#f2f0ed]/fb z-50 flex flex-col items-center justify-center text-center">
+        <div class="w-8 h-8 border-2 border-[#7a633a] border-t-transparent animate-spin mb-6"></div>
+        <h3 class="logo uppercase tracking-widest text-lg">Iniciando Análisis</h3>
+        <p class="text-[10px] text-[#7a633a] font-bold mt-2 uppercase tracking-widest">Calculando transmitancia térmica oficial...</p>
+    </div>
+
+    <div id="success" class="hidden fixed inset-0 bg-[#f2f0ed] z-50 flex flex-col items-center justify-center p-10 text-center">
+        <div class="logo text-4xl text-[#7a633a] mb-6">✓</div>
+        <h2 class="text-2xl mb-4">SOLICITUD RECIBIDA</h2>
+        <p class="text-sm text-[#535b69] max-w-sm mx-auto leading-relaxed">
+            El equipo técnico de <strong>Certilab</strong> ya está procesando sus datos para generar su <strong>Informe Energético Preliminar</strong>. 
+            Revise su bandeja de entrada en unos minutos.
+        </p>
+        <button onclick="location.reload()" class="mt-10 btn-secondary">Nueva Consulta</button>
     </div>
 
     <script>
@@ -180,65 +258,57 @@
         }
         window.onload = initAutocomplete;
 
-        // Lógica Navegación
-        const form = document.getElementById('auditForm');
+        // Lógica de pasos
         const steps = Array.from(document.querySelectorAll('.step'));
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
         const submitBtn = document.getElementById('submitBtn');
-        const loader = document.getElementById('loader');
-        const success = document.getElementById('success');
+        const progress = document.getElementById('progress');
         let currentStep = 0;
 
-        const WEBHOOK_URL = 'TU_URL_DE_N8N_AQUÍ';
+        function updateUI() {
+            steps.forEach((s, i) => s.classList.toggle('active', i === currentStep));
+            progress.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
+            
+            prevBtn.style.opacity = currentStep === 0 ? "0" : "1";
+            prevBtn.style.pointerEvents = currentStep === 0 ? "none" : "auto";
+            
+            if (currentStep === steps.length - 1) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+        }
 
         nextBtn.addEventListener('click', () => {
             const inputs = steps[currentStep].querySelectorAll('input[required], select[required]');
             let valid = true;
             inputs.forEach(i => { if(!i.checkValidity()) { i.reportValidity(); valid = false; }});
-            if (valid && currentStep < steps.length - 1) {
-                steps[currentStep].classList.remove('active');
-                currentStep++;
-                steps[currentStep].classList.add('active');
-                updateUI();
-                window.scrollTo(0,0);
-            }
+            if (valid) { currentStep++; updateUI(); }
         });
 
-        prevBtn.addEventListener('click', () => {
-            if (currentStep > 0) {
-                steps[currentStep].classList.remove('active');
-                currentStep--;
-                steps[currentStep].classList.add('active');
-                updateUI();
-            }
-        });
+        prevBtn.addEventListener('click', () => { currentStep--; updateUI(); });
 
-        function updateUI() {
-            const prog = ((currentStep + 1) / steps.length) * 100;
-            document.getElementById('progress').style.width = `${prog}%`;
-            document.getElementById('step-badge').innerText = `PASO ${currentStep + 1}/6`;
-            prevBtn.classList.toggle('hidden', currentStep === 0);
-            nextBtn.classList.toggle('hidden', currentStep === steps.length - 1);
-            submitBtn.classList.toggle('hidden', currentStep !== steps.length - 1);
-        }
-
-        form.addEventListener('submit', async (e) => {
+        document.getElementById('auditForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            loader.classList.remove('hidden');
-            const data = Object.fromEntries(new FormData(form).entries());
+            document.getElementById('loader').classList.remove('hidden');
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
 
             try {
-                await fetch(WEBHOOK_URL, {
+                await fetch('TU_URL_DE_N8N', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(data)
                 });
-                loader.classList.add('hidden');
-                success.classList.remove('hidden');
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('success').classList.remove('hidden');
             } catch (err) {
-                alert("Error de envío.");
-                loader.classList.add('hidden');
+                alert("Error técnico en el envío.");
+                document.getElementById('loader').classList.add('hidden');
             }
         });
     </script>
