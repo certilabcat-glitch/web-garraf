@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Calculadora Certilab | Auditoría Técnica Online</title>
+    <title>Certilab | Auditoría Técnica Online</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,6 @@
             --gold: #7a633a; 
             --white: #ffffff; 
             --accent: #d1cdc7; 
-            --brown-elegant: #6d4c41;
             --grey-text: #535b69; 
         }
 
@@ -31,7 +30,6 @@
         .step.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Estilo personalizado para Inputs */
         .input-luxury {
             width: 100%;
             padding: 18px;
@@ -44,7 +42,6 @@
         }
         .input-luxury:focus { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
 
-        /* Estilo Radio Buttons Elegantes */
         .radio-card {
             border: 1px solid var(--accent);
             background: var(--white);
@@ -61,7 +58,6 @@
             background: rgba(122, 99, 58, 0.05);
         }
 
-        /* Botones */
         .btn-luxury {
             background: var(--gold);
             color: var(--white);
@@ -72,56 +68,52 @@
             font-weight: 700;
             transition: 0.3s;
             border-radius: 2px;
+            border: none;
+            cursor: pointer;
         }
         .btn-luxury:hover { background: #5d4b2c; letter-spacing: 3px; }
-        .btn-secondary { color: var(--grey-text); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; font-weight: 700; }
+        .btn-secondary { color: var(--grey-text); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; font-weight: 700; background: none; border: none; cursor: pointer; }
 
-        .pac-container { border-radius: 0; border: 1px solid var(--accent); font-family: 'Inter', sans-serif; }
+        .pac-container { border-radius: 0; border: 1px solid var(--accent); font-family: 'Inter', sans-serif; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="p-0 m-0">
 
-    <div class="bg-[#2c3544] text-white py-3 text-center text-[10px] uppercase tracking-[2px] font-bold">
-        ⚡ Servicio Técnico Nacional · <span class="text-[#f0c674]">Entrega en 48h</span>
-    </div>
-
-    <nav class="border-bottom border-slate-200 py-6 bg-white">
+    <nav class="border-b border-slate-200 py-6 bg-white">
         <div class="max-w-xl mx-auto px-6 flex justify-between items-center">
             <div class="flex flex-col">
                 <span class="logo text-xl tracking-widest font-bold">CERTILAB</span>
                 <span class="text-[9px] text-[#7a633a] uppercase font-bold tracking-tighter">Ingeniería Energética</span>
             </div>
-            <div class="text-[9px] text-right text-slate-400 font-bold uppercase tracking-widest">
-                Auditoría Técnica<br>Online 2026
+            <div class="text-[9px] text-right text-slate-400 font-bold uppercase tracking-widest leading-tight">
+                Eva González<br>Arquitecta Técnica
             </div>
         </div>
     </nav>
 
-    <main class="max-w-xl mx-auto mt-8 px-6 pb-20">
+    <main class="max-w-xl mx-auto mt-12 px-6 pb-20">
         
         <div class="w-full bg-slate-200 h-[2px] mb-12">
-            <div id="progress" class="bg-[#7a633a] h-full transition-all duration-700" style="width: 16%"></div>
+            <div id="progress" class="bg-[#7a633a] h-full transition-all duration-700" style="width: 16.6%"></div>
         </div>
 
         <form id="auditForm" class="space-y-10">
             
             <div class="step active" id="step1">
                 <h2 class="text-xl mb-2">Localización del Activo</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Sincronización con la base de datos catastral para análisis térmico.</p>
-                
+                <p class="text-sm text-slate-500 mb-8 italic">Sincronización con la base de datos catastral para análisis técnico.</p>
                 <div class="space-y-4">
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Dirección Completa</label>
-                    <input type="text" id="autocomplete" name="address" required placeholder="Calle, número, ciudad..." 
-                           class="input-luxury">
+                    <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Dirección de la Vivienda</label>
+                    <input type="text" id="autocomplete" name="address" required placeholder="Calle, número, ciudad..." class="input-luxury">
                     <div class="p-6 bg-white border-l-2 border-[#7a633a] text-[11px] text-[#535b69] leading-relaxed">
-                        Este dato permite a nuestro despacho identificar la <strong>Zona Climática oficial</strong> y el año de construcción del inmueble.
+                        Este dato permite identificar la <strong>Zona Climática</strong> y la antigüedad del inmueble según la normativa del CTE.
                     </div>
                 </div>
             </div>
 
             <div class="step" id="step2">
                 <h2 class="text-xl mb-2">Tipología Constructiva</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Determine la exposición de los cerramientos.</p>
+                <p class="text-sm text-slate-500 mb-8 italic">Determine la exposición de los cerramientos exteriores.</p>
                 <div class="grid grid-cols-1 gap-4">
                     <label>
                         <input type="radio" name="property_type" value="piso_intermedio" class="hidden peer" required>
@@ -129,7 +121,7 @@
                             <span class="text-xl">🏢</span>
                             <div>
                                 <p class="text-sm font-bold uppercase tracking-wide">Piso Intermedio</p>
-                                <p class="text-[10px] text-slate-400 font-bold uppercase">Protegido por viviendas colindantes</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase">Protección térmica por viviendas colindantes</p>
                             </div>
                         </div>
                     </label>
@@ -138,8 +130,8 @@
                         <div class="radio-card peer-checked:border-[#7a633a]">
                             <span class="text-xl">🏠</span>
                             <div>
-                                <p class="text-sm font-bold uppercase tracking-wide">Ático / Unifamiliar</p>
-                                <p class="text-[10px] text-slate-400 font-bold uppercase">Exposición directa a cubierta</p>
+                                <p class="text-sm font-bold uppercase tracking-wide">Ático / Casa Unifamiliar</p>
+                                <p class="text-[10px] text-slate-400 font-bold uppercase">Exposición directa a cubierta / tejado</p>
                             </div>
                         </div>
                     </label>
@@ -147,8 +139,8 @@
             </div>
 
             <div class="step" id="step3">
-                <h2 class="text-xl mb-2">Relación con el Activo</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Esencial para el cálculo de deducciones fiscales IRPF.</p>
+                <h2 class="text-xl mb-2">Perfil del Solicitante</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Fundamental para el cálculo de deducciones fiscales IRPF.</p>
                 <div class="grid grid-cols-1 gap-4">
                     <label>
                         <input type="radio" name="profile" value="propietario" class="hidden peer" required>
@@ -169,7 +161,7 @@
 
             <div class="step" id="step4">
                 <h2 class="text-xl mb-2">Estado de Cerramientos</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Evaluación de la transmitancia térmica actual.</p>
+                <p class="text-sm text-slate-500 mb-8 italic">Evaluación de la transmitancia térmica de la envolvente.</p>
                 <div class="grid grid-cols-1 gap-4">
                     <label>
                         <input type="radio" name="windows" value="simple" class="hidden peer" required>
@@ -189,21 +181,25 @@
             </div>
 
             <div class="step" id="step5">
-                <h2 class="text-xl mb-2">Consumo Energético</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Análisis del gasto actual para cálculo de ROI.</p>
+                <h2 class="text-xl mb-2">Instalaciones Actuales</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">¿Qué sistema utiliza principalmente para climatizar su vivienda?</p>
                 <div class="space-y-8">
-                    <select name="heating" required class="input-luxury appearance-none uppercase font-bold tracking-widest">
-                        <option value="gas">Gas Natural</option>
-                        <option value="gasoil">Gasoil</option>
-                        <option value="electrico">Sistemas Eléctricos</option>
-                        <option value="aerotermia">Aerotermia</option>
-                    </select>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-2">Energía Principal</label>
+                        <select name="heating_system" required class="input-luxury appearance-none font-bold">
+                            <option value="gas_natural">Gas Natural (Caldera individual)</option>
+                            <option value="electrico">Electricidad (Bomba de calor o Radiadores)</option>
+                            <option value="gasoil_biomasa">Gasoil o Biomasa</option>
+                            <option value="comunitaria">Calefacción Central / Comunitaria</option>
+                        </select>
+                    </div>
                     <div class="text-center">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4">Inversión mensual en climatización</label>
-                        <input type="range" name="bill" min="50" max="600" step="25" value="150" 
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-4">Gasto medio mensual (Suministros)</label>
+                        <input type="range" name="energy_bill" min="40" max="500" step="10" value="120" 
                                class="w-full h-[2px] bg-slate-200 appearance-none cursor-pointer accent-[#7a633a]"
-                               oninput="this.nextElementSibling.innerText = this.value + '€/MES'">
-                        <p class="text-[#7a633a] font-bold text-3xl mt-4">150€/MES</p>
+                               oninput="this.nextElementSibling.innerText = this.value + '€ / MES'">
+                        <p class="text-[#7a633a] font-bold text-3xl mt-4 italic">120€ / MES</p>
+                        <p class="text-[10px] text-slate-400 uppercase mt-2 italic font-medium tracking-tight">Promedio estimado anual</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +212,7 @@
                     <label class="flex items-start gap-3 cursor-pointer">
                         <input type="checkbox" name="privacy" required class="mt-1 accent-[#7a633a]">
                         <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter leading-relaxed">
-                            Acepto el tratamiento de mis datos para la elaboración de la auditoría técnica por parte de Certilab.
+                            Acepto el tratamiento de datos para la elaboración de la auditoría técnica online por parte de Certilab.
                         </span>
                     </label>
                 </div>
@@ -230,24 +226,22 @@
         </form>
     </main>
 
-    <div id="loader" class="hidden fixed inset-0 bg-[#f2f0ed]/fb z-50 flex flex-col items-center justify-center text-center">
+    <div id="loader" class="hidden fixed inset-0 bg-[#f2f0ed] z-50 flex flex-col items-center justify-center text-center">
         <div class="w-8 h-8 border-2 border-[#7a633a] border-t-transparent animate-spin mb-6"></div>
         <h3 class="logo uppercase tracking-widest text-lg">Iniciando Análisis</h3>
         <p class="text-[10px] text-[#7a633a] font-bold mt-2 uppercase tracking-widest">Calculando transmitancia térmica oficial...</p>
     </div>
 
     <div id="success" class="hidden fixed inset-0 bg-[#f2f0ed] z-50 flex flex-col items-center justify-center p-10 text-center">
-        <div class="logo text-4xl text-[#7a633a] mb-6">✓</div>
-        <h2 class="text-2xl mb-4">SOLICITUD RECIBIDA</h2>
-        <p class="text-sm text-[#535b69] max-w-sm mx-auto leading-relaxed">
-            El equipo técnico de <strong>Certilab</strong> ya está procesando sus datos para generar su <strong>Informe Energético Preliminar</strong>. 
-            Revise su bandeja de entrada en unos minutos.
+        <div class="logo text-5xl text-[#7a633a] mb-6">✓</div>
+        <h2 class="text-2xl mb-4 tracking-tight">SOLICITUD RECIBIDA</h2>
+        <p class="text-sm text-[#535b69] max-w-xs mx-auto leading-relaxed italic">
+            El equipo técnico de <strong>Certilab</strong> ya está procesando sus datos para generar su <strong>Informe Energético Preliminar</strong>. Revise su email.
         </p>
-        <button onclick="location.reload()" class="mt-10 btn-secondary">Nueva Consulta</button>
+        <button onclick="location.reload()" class="mt-10 btn-secondary">Realizar nueva consulta</button>
     </div>
 
     <script>
-        // Google Autocomplete
         function initAutocomplete() {
             const input = document.getElementById('autocomplete');
             new google.maps.places.Autocomplete(input, {
@@ -258,7 +252,6 @@
         }
         window.onload = initAutocomplete;
 
-        // Lógica de pasos
         const steps = Array.from(document.querySelectorAll('.step'));
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
@@ -269,7 +262,6 @@
         function updateUI() {
             steps.forEach((s, i) => s.classList.toggle('active', i === currentStep));
             progress.style.width = `${((currentStep + 1) / steps.length) * 100}%`;
-            
             prevBtn.style.opacity = currentStep === 0 ? "0" : "1";
             prevBtn.style.pointerEvents = currentStep === 0 ? "none" : "auto";
             
@@ -294,9 +286,7 @@
         document.getElementById('auditForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             document.getElementById('loader').classList.remove('hidden');
-            
-            const formData = new FormData(e.target);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(new FormData(e.target).entries());
 
             try {
                 await fetch('TU_URL_DE_N8N', {
@@ -307,7 +297,7 @@
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('success').classList.remove('hidden');
             } catch (err) {
-                alert("Error técnico en el envío.");
+                alert("Error de conexión con el servidor técnico.");
                 document.getElementById('loader').classList.add('hidden');
             }
         });
