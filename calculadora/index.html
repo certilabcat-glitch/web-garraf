@@ -3,42 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Calculadora Certilab | Ingeniería Online</title>
+    <title>Certilab | Auditoría Energética Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    
     <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY_AQUI&libraries=places"></script>
-
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
         .step { display: none; }
         .step.active { display: block; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateX(15px); } to { opacity: 1; transform: translateX(0); } }
-        /* Estilo para el dropdown de Google para que pegue con Certilab */
-        .pac-container { 
-            border-radius: 1rem; 
-            margin-top: 5px; 
-            border: none; 
-            shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .pac-item { padding: 10px; cursor: pointer; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+        input[type="radio"]:checked + div { border-color: #2563eb; background-color: #eff6ff; ring: 2px; ring-color: #3b82f6; }
     </style>
 </head>
-<body class="bg-slate-100 min-h-screen">
+<body class="bg-slate-50 min-h-screen">
 
-    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-white shadow-2xl relative">
+    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-white shadow-xl relative">
         
         <header class="bg-slate-900 p-6 text-white sticky top-0 z-20">
             <div class="flex justify-between items-center mb-4">
                 <div class="flex flex-col">
-                    <span class="text-2xl font-extrabold tracking-tighter uppercase">CERTI<span class="text-blue-500 italic">LAB</span></span>
-                    <span class="text-[9px] uppercase tracking-[0.2em] text-slate-400 font-bold leading-none">Auditoría Técnica 2026</span>
+                    <span class="text-2xl font-black tracking-tighter uppercase leading-none text-blue-500">CERTI<span class="text-white italic">LAB</span></span>
+                    <span class="text-[8px] uppercase tracking-[0.3em] text-slate-400 font-bold mt-1">Ingeniería Energética 2026</span>
                 </div>
-                <div id="step-badge" class="px-3 py-1 bg-blue-600/20 border border-blue-500/40 rounded-full text-[10px] font-black text-blue-400">PASO 1/4</div>
+                <div id="step-badge" class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 rounded-full text-[10px] font-black text-blue-400 uppercase">Paso 1/6</div>
             </div>
-            <div class="w-full bg-slate-800 h-1 rounded-full">
-                <div id="progress" class="bg-blue-500 h-1 rounded-full transition-all duration-500" style="width: 25%"></div>
+            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                <div id="progress" class="bg-blue-500 h-full transition-all duration-500" style="width: 16%"></div>
             </div>
         </header>
 
@@ -46,78 +36,110 @@
             <form id="auditForm" class="space-y-8">
                 
                 <div class="step active" id="step1">
-                    <h2 class="text-2xl font-extrabold text-slate-900 leading-tight mb-2 italic">Ubicación Finca</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium leading-snug">Escriba su calle y seleccione la opción correcta para sincronizar con el Catastro.</p>
-                    
-                    <div class="space-y-4">
-                        <div class="relative">
-                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 italic">Dirección Oficial</label>
-                            <input type="text" id="autocomplete" name="address" required 
-                                   placeholder="Empiece a escribir su dirección..." 
-                                   class="w-full p-4 mt-1 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 focus:bg-white outline-none transition-all font-bold text-slate-700">
-                        </div>
-                        
-                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100 flex items-start gap-3">
-                            <span class="text-lg">🤖</span>
-                            <p class="text-[10px] text-blue-800 leading-relaxed font-semibold italic">
-                                <strong>Verificación IA:</strong> Al seleccionar la dirección, nuestro sistema identifica automáticamente su <strong>Zona Climática</strong> y la normativa térmica aplicable a su edificio.
-                            </p>
-                        </div>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Ubicación Finca</h2>
+                    <p class="text-slate-500 text-sm mb-6">Indique su dirección para conectar con la Sede del Catastro.</p>
+                    <input type="text" id="autocomplete" name="address" required placeholder="Calle, número, ciudad..." 
+                           class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm">
+                    <div class="mt-4 p-4 bg-blue-50 rounded-2xl border border-blue-100 text-[10px] text-blue-700 font-semibold leading-relaxed italic">
+                        Nota: Dato necesario para obtener el año de construcción y la zona climática oficial (CTE).
                     </div>
                 </div>
 
                 <div class="step" id="step2">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic">Aislamiento</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic">¿Qué tipo de cerramiento tiene?</p>
-                    <div class="space-y-3">
-                        <label class="block relative">
-                            <input type="radio" name="windows" value="simple" class="peer hidden" required>
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all cursor-pointer">
-                                <span class="text-2xl">🪟</span>
-                                <span class="text-sm font-bold text-slate-700">Cristal Simple / Madera</span>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Tipo de Vivienda</h2>
+                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Define la exposición térmica de tu hogar.</p>
+                    <div class="grid grid-cols-1 gap-3">
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="property_type" value="piso_intermedio" class="peer hidden" required>
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">🏢</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800 leading-none">Piso Intermedio</p>
+                                    <p class="text-[9px] text-slate-400 font-bold mt-1 uppercase italic">Protegido por vecinos</p>
+                                </div>
                             </div>
                         </label>
-                        <label class="block relative">
-                            <input type="radio" name="windows" value="climalit" class="peer hidden">
-                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all cursor-pointer">
-                                <span class="text-2xl">🖼️</span>
-                                <span class="text-sm font-bold text-slate-700">Doble Cristal Standard</span>
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="property_type" value="atico_unifamiliar" class="peer hidden">
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">🏠</span>
+                                <div>
+                                    <p class="text-sm font-bold text-slate-800 leading-none">Ático / Unifamiliar</p>
+                                    <p class="text-[9px] text-slate-400 font-bold mt-1 uppercase italic">Expuesto a cubierta</p>
+                                </div>
                             </div>
                         </label>
                     </div>
                 </div>
 
                 <div class="step" id="step3">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic">Consumo Real</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Indique su sistema y gasto actual.</p>
-                    <div class="space-y-6">
-                        <select name="heating" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700">
-                            <option value="gas">Gas Natural</option>
-                            <option value="gasoil">Gasoil</option>
-                            <option value="electrico">Eléctrico</option>
-                            <option value="aerotermia">Aerotermia</option>
-                        </select>
-                        <div class="px-2">
-                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4">Gasto Mensual (Invierno)</label>
-                            <input type="range" name="bill" min="50" max="600" step="25" value="150" 
-                                   class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-                                   oninput="this.nextElementSibling.innerText = this.value + '€/mes'">
-                            <p class="text-center text-blue-600 font-black text-2xl mt-2 italic">150€/mes</p>
-                        </div>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Su Perfil</h2>
+                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Personalizamos su estrategia de subvenciones.</p>
+                    <div class="grid grid-cols-1 gap-3">
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="profile" value="propietario" class="peer hidden" required>
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">👤</span>
+                                <span class="text-sm font-bold text-slate-800">Propietario Residente</span>
+                            </div>
+                        </label>
+                        <label class="relative cursor-pointer">
+                            <input type="radio" name="profile" value="inversor" class="peer hidden">
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">📈</span>
+                                <span class="text-sm font-bold text-slate-800">Inversor / Alquiler</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
 
                 <div class="step" id="step4">
-                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic">Finalizar Diagnóstico</h2>
-                    <p class="text-slate-500 text-sm mb-6 font-medium italic italic font-semibold italic">Reciba su informe Certilab en 2 minutos.</p>
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Ventanas</h2>
+                    <p class="text-slate-500 text-sm mb-6 font-medium italic italic font-semibold">¿Cómo es su acristalamiento actual?</p>
+                    <div class="space-y-3">
+                        <label class="block relative cursor-pointer">
+                            <input type="radio" name="windows" value="simple" class="peer hidden" required>
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">🪟</span>
+                                <span class="text-sm font-bold text-slate-700">Simple / Madera / Antiguo</span>
+                            </div>
+                        </label>
+                        <label class="block relative cursor-pointer">
+                            <input type="radio" name="windows" value="climalit" class="peer hidden">
+                            <div class="p-4 border-2 border-slate-100 rounded-2xl flex items-center gap-4 peer-checked:border-blue-600 transition-all shadow-sm">
+                                <span class="text-2xl">🖼️</span>
+                                <span class="text-sm font-bold text-slate-700">Doble Cristal / PVC</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="step" id="step5">
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Energía</h2>
+                    <p class="text-slate-500 text-sm mb-6 font-medium italic">Base de cálculo para el ahorro en €.</p>
+                    <div class="space-y-6">
+                        <select name="heating" required class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm appearance-none">
+                            <option value="gas">Gas Natural</option>
+                            <option value="gasoil">Caldera Gasoil</option>
+                            <option value="electrico">Radiadores Eléctricos</option>
+                            <option value="aerotermia">Aerotermia / Bomba Calor</option>
+                        </select>
+                        <div class="px-2">
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-4 italic">Gasto Mensual Estimado</label>
+                            <input type="range" name="bill" min="50" max="600" step="25" value="150" class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600" oninput="this.nextElementSibling.innerText = this.value + '€/mes'">
+                            <p class="text-center text-blue-600 font-black text-2xl mt-2 italic italic font-semibold italic font-semibold">150€/mes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" id="step6">
+                    <h2 class="text-2xl font-extrabold text-slate-900 mb-2 italic tracking-tighter">Recibir Informe</h2>
+                    <p class="text-slate-500 text-sm mb-6 font-medium italic italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Certilab generará su Hoja de Ruta ahora.</p>
                     <div class="space-y-4">
-                        <input type="email" name="email" required placeholder="tu@email.com" 
-                               class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold">
+                        <input type="email" name="email" required placeholder="su@email.com" class="w-full p-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:border-blue-500 outline-none font-bold text-slate-700 shadow-sm">
                         <label class="flex items-start gap-3 p-2 cursor-pointer">
-                            <input type="checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded text-blue-600">
-                            <span class="text-[10px] text-slate-500 font-medium italic font-semibold">
-                                Acepto la Política de Privacidad de <strong>Certilab</strong> para el procesamiento técnico de mi vivienda.
-                            </span>
+                            <input type="checkbox" name="privacy" required class="mt-1 w-5 h-5 rounded border-slate-300 text-blue-600">
+                            <span class="text-[10px] text-slate-500 font-medium italic italic font-semibold">Acepto la Política de Privacidad de <strong>Certilab</strong>. Consiento el tratamiento de datos para mi auditoría energética online.</span>
                         </label>
                     </div>
                 </div>
@@ -125,51 +147,40 @@
             </form>
         </main>
 
-        <footer class="p-6 bg-white border-t border-slate-100 sticky bottom-0">
+        <footer class="p-6 bg-white border-t border-slate-100 sticky bottom-0 z-30">
             <div class="flex gap-3">
                 <button type="button" id="prevBtn" class="hidden px-6 py-4 bg-slate-100 text-slate-400 font-bold rounded-2xl">←</button>
-                <button type="button" id="nextBtn" class="flex-grow py-4 bg-blue-600 text-white font-black rounded-2xl shadow-xl shadow-blue-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold">Siguiente</button>
-                <button type="submit" form="auditForm" id="submitBtn" class="hidden flex-grow py-4 bg-green-600 text-white font-black rounded-2xl shadow-xl shadow-green-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold">Generar Auditoría ✓</button>
+                <button type="button" id="nextBtn" class="flex-grow py-4 bg-blue-600 text-white font-black rounded-2xl shadow-xl shadow-blue-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Siguiente</button>
+                <button type="submit" form="auditForm" id="submitBtn" class="hidden flex-grow py-4 bg-green-600 text-white font-black rounded-2xl shadow-xl shadow-green-200 active:scale-95 transition-all uppercase tracking-widest text-xs italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Solicitar Auditoría ✓</button>
             </div>
         </footer>
 
-        <div id="loader" class="hidden fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center p-12 text-center">
-            <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
-            <h3 class="text-xl font-black text-slate-900 uppercase italic font-semibold" id="l-title">Procesando...</h3>
-            <p class="text-slate-400 text-xs mt-1 font-bold italic font-semibold italic font-semibold" id="l-text italic font-semibold">Cruzando datos con el Catastro...</p>
+        <div id="loader" class="hidden fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center p-12 text-center backdrop-blur-sm">
+            <div class="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4 italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold"></div>
+            <h3 class="text-xl font-black text-slate-900 uppercase italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Iniciando Análisis...</h3>
+            <p class="text-slate-400 text-xs mt-1 font-bold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Calculando transmitancia térmica oficial...</p>
         </div>
 
         <div id="success" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center p-10 text-center">
-            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-6 italic font-semibold">✓</div>
-            <h2 class="text-2xl font-black text-slate-900 italic font-semibold uppercase mb-2">¡Solicitud Enviada!</h2>
-            <p class="text-slate-500 text-sm italic font-semibold">Su informe Certilab está siendo redactado. Revise su bandeja de entrada.</p>
-            <button onclick="location.reload()" class="mt-8 text-[10px] font-black text-blue-600 uppercase tracking-widest italic font-semibold">Nueva Consulta</button>
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mb-6 shadow-inner italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">✓</div>
+            <h2 class="text-2xl font-black text-slate-900 italic font-semibold uppercase mb-2">¡Petición Enviada!</h2>
+            <p class="text-slate-500 text-sm font-medium italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold italic font-semibold">Revisa tu email. Certilab ya está trabajando en tu Hoja de Ruta.</p>
         </div>
-
     </div>
 
     <script>
-        // Lógica de Autocompletado de Google
+        // Google Autocomplete
         function initAutocomplete() {
             const input = document.getElementById('autocomplete');
-            const autocomplete = new google.maps.places.Autocomplete(input, {
+            new google.maps.places.Autocomplete(input, {
                 componentRestrictions: { country: "es" },
-                fields: ["address_components", "geometry", "formatted_address"],
+                fields: ["formatted_address"],
                 types: ["address"]
             });
-
-            autocomplete.addListener("place_changed", () => {
-                const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    window.alert("Por favor, seleccione una dirección de la lista desplegable.");
-                }
-            });
         }
-        
-        // Ejecutar initAutocomplete cuando cargue Google Maps
         window.onload = initAutocomplete;
 
-        // Navegación del Formulario
+        // Lógica Navegación
         const form = document.getElementById('auditForm');
         const steps = Array.from(document.querySelectorAll('.step'));
         const nextBtn = document.getElementById('nextBtn');
@@ -185,7 +196,6 @@
             const inputs = steps[currentStep].querySelectorAll('input[required], select[required]');
             let valid = true;
             inputs.forEach(i => { if(!i.checkValidity()) { i.reportValidity(); valid = false; }});
-            
             if (valid && currentStep < steps.length - 1) {
                 steps[currentStep].classList.remove('active');
                 currentStep++;
@@ -207,7 +217,7 @@
         function updateUI() {
             const prog = ((currentStep + 1) / steps.length) * 100;
             document.getElementById('progress').style.width = `${prog}%`;
-            document.getElementById('step-badge').innerText = `PASO ${currentStep + 1}/4`;
+            document.getElementById('step-badge').innerText = `PASO ${currentStep + 1}/6`;
             prevBtn.classList.toggle('hidden', currentStep === 0);
             nextBtn.classList.toggle('hidden', currentStep === steps.length - 1);
             submitBtn.classList.toggle('hidden', currentStep !== steps.length - 1);
@@ -216,9 +226,7 @@
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             loader.classList.remove('hidden');
-
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(new FormData(form).entries());
 
             try {
                 await fetch(WEBHOOK_URL, {
