@@ -19,9 +19,9 @@
         .step { display: none; }
         .step.active { display: block; animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-        .input-luxury { width: 100%; padding: 18px; background: var(--white); border: 1px solid var(--accent); border-radius: 2px; outline: none; transition: all 0.3s; font-size: 0.9rem; }
+        .input-luxury { width: 100%; padding: 18px; background: var(--white); border: 1px solid var(--accent); border-radius: 2px; outline: none; transition: all 0.3s; font-size: 0.85rem; }
         .input-luxury:focus { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
-        .radio-card { border: 1px solid var(--accent); background: var(--white); padding: 22px; cursor: pointer; transition: all 0.3s; border-radius: 2px; display: flex; align-items: center; gap: 15px; }
+        .radio-card { border: 1px solid var(--accent); background: var(--white); padding: 18px; cursor: pointer; transition: all 0.3s; border-radius: 2px; display: flex; align-items: center; gap: 12px; }
         input[type="radio"]:checked + .radio-card { border-color: var(--gold); background: rgba(122, 99, 58, 0.04); }
         .btn-luxury { background: var(--gold); color: var(--white); padding: 20px 45px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; font-weight: 700; cursor: pointer; border: none; }
         .btn-luxury:hover { background: #5d4b2c; letter-spacing: 3px; }
@@ -47,8 +47,6 @@
         </div>
 
         <form id="auditForm" class="space-y-10">
-            <input type="hidden" id="h_street" name="h_street">
-            <input type="hidden" id="h_number" name="h_number">
             <input type="hidden" id="h_city" name="h_city">
             <input type="hidden" id="h_province" name="h_province">
             <input type="hidden" id="h_zip" name="h_zip">
@@ -56,56 +54,91 @@
             <input type="hidden" id="h_lng" name="h_lng">
 
             <div class="step active" id="step1">
-                <h2 class="text-xl mb-2 uppercase">Localización del Activo</h2>
-                <p class="text-sm text-slate-500 mb-8 italic">Sincronización catastral automática.</p>
+                <h2 class="text-xl mb-2 uppercase">Localización</h2>
+                <p class="text-sm text-slate-500 mb-8 italic">Introduzca los datos para consulta en la Sede del Catastro.</p>
                 <div class="space-y-4">
-                    <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Dirección de la Vivienda</label>
-                    <input type="text" id="autocomplete" name="full_address" required placeholder="Escriba su dirección..." class="input-luxury">
-                    <div id="address_feedback" class="hidden p-4 bg-green-50 text-[10px] text-green-700 font-bold uppercase tracking-widest border border-green-100">
-                        ✓ Dirección verificada por satélite
+                    <div>
+                        <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Calle / Vía</label>
+                        <input type="text" id="autocomplete" name="h_street" required placeholder="Busque el nombre de la calle..." class="input-luxury">
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Nº</label>
+                            <input type="text" id="manual_number" name="h_number" required placeholder="Ej: 14" class="input-luxury">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Piso</label>
+                            <input type="text" name="h_floor" required placeholder="2º" class="input-luxury">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Puerta</label>
+                            <input type="text" name="h_door" required placeholder="A" class="input-luxury">
+                        </div>
+                    </div>
+                    <div id="address_feedback" class="hidden p-4 bg-slate-100 text-[10px] text-slate-600 font-bold uppercase border border-slate-200">
+                        ✓ Vía validada por satélite
                     </div>
                 </div>
             </div>
 
             <div class="step" id="step2">
-                <h2 class="text-xl mb-2 uppercase">Tipología Constructiva</h2>
-                <div class="grid grid-cols-1 gap-4">
-                    <label><input type="radio" name="property_type" value="piso_intermedio" class="hidden peer" required>
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🏢</span><div><p class="text-sm font-bold uppercase">Piso Intermedio</p></div></div></label>
-                    <label><input type="radio" name="property_type" value="atico_unifamiliar" class="hidden peer">
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🏠</span><div><p class="text-sm font-bold uppercase">Ático / Unifamiliar</p></div></div></label>
+                <h2 class="text-xl mb-2 uppercase">Situación Técnica</h2>
+                <div class="grid grid-cols-1 gap-3 mb-6">
+                    <label><input type="radio" name="property_type" value="piso" class="hidden peer" required checked>
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🏢</span><span class="text-xs font-bold uppercase">Bloque de Pisos</span></div></label>
+                    <label><input type="radio" name="property_type" value="unifamiliar" class="hidden peer">
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🏠</span><span class="text-xs font-bold uppercase">Unifamiliar / Adosado</span></div></label>
+                </div>
+                <div class="space-y-6 bg-white p-6 border border-slate-100">
+                    <div>
+                        <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-3">Nivel de Planta</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <label><input type="radio" name="floor_level" value="bajo" class="hidden peer"><div class="p-3 border border-slate-200 text-center peer-checked:border-[#7a633a] peer-checked:bg-slate-50 text-[10px] font-bold uppercase">Baja</div></label>
+                            <label><input type="radio" name="floor_level" value="intermedia" class="hidden peer" checked><div class="p-3 border border-slate-200 text-center peer-checked:border-[#7a633a] peer-checked:bg-slate-50 text-[10px] font-bold uppercase">Intermedia</div></label>
+                            <label><input type="radio" name="floor_level" value="atico" class="hidden peer"><div class="p-3 border border-slate-200 text-center peer-checked:border-[#7a633a] peer-checked:bg-slate-50 text-[10px] font-bold uppercase">Ático</div></label>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block mb-3">Orientación Principal</label>
+                        <select name="orientation" class="input-luxury !py-3 font-bold text-[10px] uppercase">
+                            <option value="sur">Sur (Soleado - Mayor eficiencia)</option>
+                            <option value="norte">Norte (Frío - Menor captación)</option>
+                            <option value="este_oeste">Este / Oeste (Mañana o Tarde)</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div class="step" id="step3">
                 <h2 class="text-xl mb-2 uppercase">Perfil Fiscal</h2>
-                <div class="grid grid-cols-1 gap-4">
+                <div class="grid grid-cols-1 gap-3">
                     <label><input type="radio" name="profile" value="propietario" class="hidden peer" required>
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>👤</span><span class="text-sm font-bold uppercase">Propietario</span></div></label>
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>👤</span><span class="text-sm font-bold uppercase">Propietario (Deducción IRPF)</span></div></label>
                     <label><input type="radio" name="profile" value="inquilino" class="hidden peer">
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🔑</span><span class="text-sm font-bold uppercase">Inquilino</span></div></label>
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🔑</span><span class="text-sm font-bold uppercase">Inquilino / Arrendatario</span></div></label>
                 </div>
             </div>
 
             <div class="step" id="step4">
                 <h2 class="text-xl mb-2 uppercase">Cerramientos</h2>
-                <div class="grid grid-cols-1 gap-4">
+                <div class="grid grid-cols-1 gap-3">
                     <label><input type="radio" name="windows" value="simple" class="hidden peer" required>
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🪟</span><span class="text-sm font-bold uppercase">Cristal Simple</span></div></label>
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🪟</span><span class="text-xs font-bold uppercase">Cristal Simple (Antiguo)</span></div></label>
                     <label><input type="radio" name="windows" value="climalit" class="hidden peer">
-                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🖼️</span><span class="text-sm font-bold uppercase">Doble Cristal / RPT</span></div></label>
+                        <div class="radio-card peer-checked:border-[#7a633a]"><span>🖼️</span><span class="text-xs font-bold uppercase">Doble Cristal / PVC / RPT</span></div></label>
                 </div>
             </div>
 
             <div class="step" id="step5">
                 <h2 class="text-xl mb-2 uppercase">Instalaciones</h2>
-                <div class="space-y-8">
+                <div class="space-y-6">
                     <select name="heating" required class="input-luxury font-bold uppercase">
-                        <option value="gas">Gas Natural</option>
-                        <option value="electrico">Electricidad</option>
+                        <option value="gas">Gas Natural (Individual)</option>
+                        <option value="electrico">Electricidad / Bomba Calor</option>
+                        <option value="comunitaria">Calefacción Comunitaria</option>
                         <option value="otros">Otros (Gasoil/Biomasa)</option>
                     </select>
-                    <div class="text-center bg-white p-8">
+                    <div class="text-center bg-white p-10 border border-slate-100">
                         <input type="range" name="bill" min="40" max="500" step="10" value="120" class="w-full accent-[#7a633a]" oninput="this.nextElementSibling.innerText = this.value + '€ / MES'">
                         <p class="text-[#7a633a] font-bold text-4xl mt-6 tracking-tighter">120€ / MES</p>
                     </div>
@@ -116,15 +149,18 @@
                 <h2 class="text-xl mb-2 uppercase">Finalizar</h2>
                 <div class="space-y-4">
                     <input type="email" name="email" required placeholder="Email" class="input-luxury">
-                    <input type="tel" name="whatsapp" required placeholder="WhatsApp (600 000 000)" pattern="[0-9]{9}" class="input-luxury">
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-[10px] font-bold">+34</span>
+                        <input type="tel" name="whatsapp" required placeholder="WhatsApp" pattern="[0-9]{9}" class="input-luxury pl-12">
+                    </div>
                     <label class="flex items-start gap-3 cursor-pointer pt-4">
                         <input type="checkbox" required class="mt-1 accent-[#7a633a]">
-                        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter leading-relaxed">Consiento el tratamiento de mis datos para la auditoría técnica por Certilab.</span>
+                        <span class="text-[10px] text-slate-500 uppercase font-bold tracking-tighter leading-relaxed">Acepto el contacto técnico por parte de Certilab.</span>
                     </label>
                 </div>
             </div>
 
-            <div class="flex items-center justify-between pt-12 border-t border-slate-200">
+            <div class="flex items-center justify-between pt-10 border-t border-slate-200">
                 <button type="button" id="prevBtn" class="btn-secondary opacity-0 pointer-events-none">Anterior</button>
                 <button type="button" id="nextBtn" class="btn-luxury">Continuar</button>
                 <button type="submit" id="submitBtn" class="hidden btn-luxury">Generar Informe ✓</button>
@@ -132,15 +168,15 @@
         </form>
     </main>
 
-    <div id="loader" class="hidden fixed inset-0 bg-[#f2f0ed]/95 z-50 flex flex-col items-center justify-center">
+    <div id="loader" class="hidden fixed inset-0 bg-[#f2f0ed]/95 z-50 flex flex-col items-center justify-center text-center">
         <div class="w-10 h-10 border border-[#7a633a] border-t-transparent animate-spin mb-8"></div>
-        <h3 class="logo uppercase tracking-[3px]">Iniciando Auditoría</h3>
+        <h3 class="logo uppercase tracking-[3px] text-sm">Calculando Demanda Térmica</h3>
     </div>
 
     <div id="success" class="hidden fixed inset-0 bg-[#f2f0ed] z-50 flex flex-col items-center justify-center p-12 text-center">
         <div class="logo text-6xl text-[#7a633a] mb-8">✓</div>
-        <h2 class="text-2xl mb-4 uppercase">Recibido</h2>
-        <p class="text-sm text-[#535b69] max-w-xs mx-auto italic">Certilab está procesando su informe técnico.</p>
+        <h2 class="text-2xl mb-4 uppercase tracking-tighter">Informe Solicitado</h2>
+        <p class="text-sm text-[#535b69] max-w-xs mx-auto italic leading-relaxed">Certilab está analizando los datos. Recibirá su auditoría preliminar vía WhatsApp o Email.</p>
     </div>
 
     <script>
@@ -148,7 +184,7 @@
             const input = document.getElementById('autocomplete');
             const autocomplete = new google.maps.places.Autocomplete(input, {
                 componentRestrictions: { country: "es" },
-                fields: ["address_components", "geometry", "formatted_address"],
+                fields: ["address_components", "geometry"],
                 types: ["address"]
             });
 
@@ -156,27 +192,23 @@
                 const place = autocomplete.getPlace();
                 if (!place.geometry) return;
 
-                // Coordenadas
-                document.getElementById('h_lat').value = place.geometry.location.lat();
-                document.getElementById('h_lng').value = place.geometry.location.lng();
-
-                // Desglose de dirección
-                let street = '', number = '', city = '', province = '', zip = '';
+                let street = '', city = '', province = '', zip = '';
                 place.address_components.forEach(c => {
                     const type = c.types[0];
                     if (type === 'route') street = c.long_name;
-                    if (type === 'street_number') number = c.long_name;
                     if (type === 'locality') city = c.long_name;
                     if (type === 'administrative_area_level_2') province = c.long_name;
                     if (type === 'postal_code') zip = c.long_name;
                 });
 
-                document.getElementById('h_street').value = street;
-                document.getElementById('h_number').value = number;
+                input.value = street; // Deja solo el nombre de la vía
                 document.getElementById('h_city').value = city;
                 document.getElementById('h_province').value = province;
                 document.getElementById('h_zip').value = zip;
-                
+                document.getElementById('h_lat').value = place.geometry.location.lat();
+                document.getElementById('h_lng').value = place.geometry.location.lng();
+
+                document.getElementById('manual_number').focus();
                 document.getElementById('address_feedback').classList.remove('hidden');
             });
         }
@@ -217,9 +249,8 @@
             e.preventDefault();
             document.getElementById('loader').classList.remove('hidden');
             const data = Object.fromEntries(new FormData(e.target).entries());
-
             try {
-                // REEMPLAZAR CON TU TEST URL DE n8n
+                // USA AQUÍ TU URL DE n8n
                 await fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook-test/auditoria-certilab', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -228,7 +259,7 @@
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('success').classList.remove('hidden');
             } catch (err) {
-                alert("Error de conexión con el servidor técnico.");
+                alert("Error técnico de envío.");
                 document.getElementById('loader').classList.add('hidden');
             }
         });
