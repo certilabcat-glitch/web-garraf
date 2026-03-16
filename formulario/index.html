@@ -34,7 +34,6 @@
         input:focus { border-color: var(--secondary); outline: none; }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .grid-3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; }
         
         .privacidad { font-size: 0.8rem; color: #64748b; margin: 20px 0; display: flex; align-items: flex-start; gap: 10px; }
         .privacidad input { width: auto; margin-top: 3px; }
@@ -111,12 +110,28 @@
             </select>
         </div>
 
-        <label>Climatización principal</label>
-        <select name="climatizacion">
-            <option value="gas">Gas Natural</option>
-            <option value="electrico">Eléctrico</option>
-            <option value="gasoil">Gasoil / Otros</option>
-        </select>
+        <div class="grid">
+            <div>
+                <label>Calefacción Principal</label>
+                <select name="calefaccion">
+                    <option value="gas_natural">Gas Natural (Caldera)</option>
+                    <option value="bomba_calor">Bomba de Calor / Splits</option>
+                    <option value="radiadores_electricos">Radiadores Eléctricos</option>
+                    <option value="gasoil_biomasa">Gasoil / Biomasa (Pellets)</option>
+                    <option value="aerotermia">Aerotermia</option>
+                    <option value="ninguna">Ninguna</option>
+                </select>
+            </div>
+            <div>
+                <label>Refrigeración (Aire Acond.)</label>
+                <select name="refrigeracion">
+                    <option value="no">No dispongo</option>
+                    <option value="splits">Sí, Splits</option>
+                    <option value="conductos">Sí, por Conductos</option>
+                    <option value="aerotermia">Sí, Aerotermia</option>
+                </select>
+            </div>
+        </div>
 
         <label>Gasto mensual luz/gas (€)</label>
         <input type="number" name="gasto_luz" placeholder="Media mensual">
@@ -165,7 +180,7 @@
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
             alert('✅ Solicitud recibida con éxito.');
             form.reset();
-            toggleLetra();
+            toggleLetra(); // Oculta la letra tras resetear
         } catch (error) {
             alert('❌ Error al enviar. Inténtelo de nuevo.');
         } finally {
