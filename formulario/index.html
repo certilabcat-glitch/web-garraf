@@ -50,7 +50,7 @@
     <div class="header">
         <span class="badge">ESTUDIO TÉCNICO SUBVENCIONADO</span>
         <h1>Diagnóstico Energético</h1>
-        <p class="subtitle">Análisis preliminar de ahorro y acceso a fondos NextGen.</p>
+        <p class="subtitle">Analice su potencial de ahorro con Certilab Consultoría.</p>
     </div>
 
     <form id="leadForm">
@@ -82,17 +82,7 @@
                     <option value="unifamiliar">Casa / Chalet</option>
                 </select>
             </div>
-            <div><label>Uso</label>
-                <select name="uso_vivienda" required>
-                    <option value="habitual">Vivienda Habitual</option>
-                    <option value="segunda_residencia">Segunda Residencia</option>
-                    <option value="alquiler">Alquiler</option>
-                </select>
-            </div>
-        </div>
-        <div class="grid">
             <div><label>Año Const.</label><input type="number" name="anio" placeholder="1985"></div>
-            <div><label>Superficie (m²)</label><input type="number" name="metros" placeholder="90"></div>
         </div>
         <div class="grid">
             <div><label>¿Reformas previas?</label>
@@ -113,75 +103,63 @@
         </div>
 
         <div class="section-title">3. Instalaciones y Energía</div>
-        <label>¿Certificado Energético (CEE)?</label>
-        <select id="tiene_cee" name="tiene_cee" onchange="toggleLetra()">
-            <option value="no">No lo tengo</option>
-            <option value="si">Sí, vigente</option>
-            <option value="caducado">Está caducado</option>
-        </select>
-        <div id="campo_letra" style="display: none;">
-            <label>Letra actual/antigua</label>
-            <select name="letra"><option value="desconocida">- Letra -</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option></select>
+        <div class="grid">
+            <div><label>Calefacción</label>
+                <select name="calefaccion">
+                    <option value="gas_natural">Gas Natural</option>
+                    <option value="bomba_calor">Bomba Calor</option>
+                    <option value="radiadores_el">Eléctrica</option>
+                    <option value="aerotermia">Aerotermia</option>
+                    <option value="ninguna">Ninguna</option>
+                </select>
+            </div>
+            <div><label>Gasto mensual (€)</label><input type="number" name="gasto_luz" placeholder="Total facturas" required></div>
         </div>
-        <div class="grid-3">
-            <div><label style="font-size: 0.7rem;">Calefacción</label>
-                <select name="calefaccion" style="font-size: 0.8rem; padding: 8px;">
-                    <option value="gas_natural">Gas</option><option value="bomba_calor">Bomba Calor</option><option value="radiadores_el">Eléctrica</option><option value="gasoil_bio">Gasoil/Bio</option><option value="aerotermia">Aerotermia</option><option value="ninguna">Ninguna</option>
-                </select>
-            </div>
-            <div><label style="font-size: 0.7rem;">Aire Acond.</label>
-                <select name="refrigeracion" style="font-size: 0.8rem; padding: 8px;">
-                    <option value="no">No</option><option value="splits">Splits</option><option value="conductos">Conductos</option>
-                </select>
-            </div>
-            <div><label style="font-size: 0.7rem;">Agua Caliente</label>
-                <select name="acs" style="font-size: 0.8rem; padding: 8px;">
-                    <option value="mixta">Caldera Mixta</option><option value="termo_el">Termo Eléc.</option><option value="calentador_gas">Calentador Gas</option><option value="aerotermia">Aerotermia</option>
-                </select>
-            </div>
-        </div>
-        <label>Gasto total mensual facturas (€)</label><input type="number" name="gasto_luz" required>
 
         <div class="privacidad">
             <input type="checkbox" id="rgpd" required>
-            <label for="rgpd">He leído y acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a>.</label>
+            <label for="rgpd">Acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a>.</label>
         </div>
         <div class="capa-legal">
-            • <b>Responsable:</b> Eva Gonzalez (Arq. Técnica) - Certilab Consultoría Energética<br>
-            • <b>Derechos:</b> Puede suprimir sus datos escribiendo a info@certilab.cat.
+            • <b>Responsable:</b> Eva Gonzalez (Arq. Técnica) - Certilab<br>
+            • <b>Email:</b> info@certilab.cat | <b>Colegiado:</b> 9457 (Cateeb)
         </div>
         <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO GRATUITO</button>
     </form>
-    <div class="footer"><p>Ingeniería exclusiva para Cataluña. Técnico colegiado nº 9457.</p></div>
+    <div class="footer"><p>Servicio técnico profesional para Cataluña.</p></div>
 </div>
 
 <script>
-    function toggleLetra() {
-        const val = document.getElementById('tiene_cee').value;
-        document.getElementById('campo_letra').style.display = (val === 'si' || val === 'caducado') ? 'block' : 'none';
-    }
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btnEnviar');
-        btn.innerText = 'Enviando...'; btn.disabled = true;
+        btn.innerText = 'Enviando...';
+        btn.disabled = true;
+
         const data = Object.fromEntries(new FormData(form).entries());
         
-        // --- SUSTITUYE POR TU URL DE n8n ---
-        const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook-test/registro-certilab';
+        // --- SUSTITUYE ESTA URL POR TU WEBHOOK DE n8n ---
+        const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
 
         try {
-            await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            // Enviamos los datos a n8n
+            await fetch(WEBHOOK_URL, { 
+                method: 'POST', 
+                mode: 'no-cors', // Evita bloqueos de seguridad del navegador
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify(data) 
+            });
             
-            // DISPARAR EVENTO LEAD PARA EL PÍXEL 1271893388238243
+            // Registramos el evento Lead en Facebook
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead');
             }
             
-            alert('✅ Recibido. Eva de Certilab revisará su caso en breve.');
-            form.reset(); toggleLetra();
+            alert('✅ ¡Solicitud enviada con éxito! Eva Gonzalez de Certilab revisará sus datos en breve.');
+            form.reset();
         } catch (error) { 
-            alert('❌ Error al enviar. Revise su conexión.'); 
+            alert('❌ Hubo un problema al enviar. Por favor, contacte con info@certilab.cat'); 
         } finally { 
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO'; 
             btn.disabled = false; 
