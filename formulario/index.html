@@ -1,6 +1,81 @@
-<div class="section-title">2. Datos del Inmueble</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoría Energética Profesional | Cataluña</title>
+    
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'TU_ID_DE_PIXEL_AQUI'); 
+        fbq('track', 'PageView');
+    </script>
+    <style>
+        :root { --primary: #002b5b; --secondary: #27ae60; --bg: #f8fafc; --text: #334155; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); display: flex; justify-content: center; padding: 20px; color: var(--text); line-height: 1.5; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 600px; border-top: 8px solid var(--primary); }
+        
+        .header { text-align: center; margin-bottom: 30px; }
+        .badge { background: #e8f5e9; color: #2e7d32; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 10px; border: 1px solid #c8e6c9; }
+        h1 { color: var(--primary); margin: 0; font-size: 1.6rem; letter-spacing: -0.5px; }
+        
+        .section-title { font-size: 0.8rem; font-weight: bold; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; margin: 25px 0 15px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
+        
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: var(--primary); }
+        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; transition: 0.3s; }
+        input:focus, select:focus { border-color: var(--secondary); outline: none; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+        
+        /* Adaptación a móviles para que no se vea apretado */
+        @media (max-width: 500px) {
+            .grid, .grid-3 { grid-template-columns: 1fr; gap: 5px; }
+            .container { padding: 25px; }
+        }
+        
+        .privacidad { font-size: 0.8rem; color: #64748b; margin: 20px 0; display: flex; align-items: flex-start; gap: 10px; }
+        .privacidad input { width: auto; margin-top: 3px; }
+        .capa-legal { font-size: 0.65rem; color: #64748b; margin-top: 10px; margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 6px; line-height: 1.5; }
+
+        button { width: 100%; padding: 16px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
+        button:hover { background-color: #001f42; transform: translateY(-1px); }
+        button:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+
+        .footer { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 30px; border-top: 1px solid #f1f5f9; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="badge">ESTUDIO TÉCNICO SUBVENCIONADO</span>
+        <h1>Diagnóstico Energético Preliminar</h1>
+    </div>
+
+    <form id="leadForm">
+        <div class="section-title">1. Datos de Contacto</div>
+        <div class="grid">
+            <div>
+                <label>Nombre y Apellidos</label>
+                <input type="text" name="nombre" placeholder="Nombre completo" required>
+            </div>
+            <div>
+                <label>WhatsApp Móvil</label>
+                <input type="tel" name="whatsapp" placeholder="600 000 000" required>
+            </div>
+        </div>
+
+        <div class="section-title">2. Características del Inmueble</div>
         <label>Calle y Número</label>
-        <input type="text" name="calle" placeholder="Carrer de la Marina, 123" required>
+        <input type="text" name="calle" placeholder="Ej: Carrer de la Marina, 123" required>
         
         <div class="grid">
             <div>
@@ -30,7 +105,7 @@
             </div>
             <div>
                 <label>Uso de la vivienda</label>
-                <select name="uso_vivienda">
+                <select name="uso_vivienda" required>
                     <option value="habitual">Vivienda Habitual</option>
                     <option value="segunda_residencia">Segunda Residencia</option>
                     <option value="alquiler">Está alquilada</option>
@@ -41,17 +116,135 @@
         <div class="grid">
             <div>
                 <label>Año Const. (aprox)</label>
-                <input type="number" name="anio" placeholder="1985">
+                <input type="number" name="anio" placeholder="Ej: 1985">
             </div>
             <div>
-                <label>Metros (m²)</label>
-                <input type="number" name="metros" placeholder="90">
+                <label>Superficie (m²)</label>
+                <input type="number" name="metros" placeholder="Ej: 90">
             </div>
         </div>
         
-        <label>¿Ha cambiado las ventanas o aislado hace poco?</label>
+        <label>¿Ha mejorado el aislamiento recientemente?</label>
         <select name="reformas_previas">
             <option value="no">No, está de origen</option>
             <option value="si_ventanas">Sí, he cambiado ventanas</option>
             <option value="si_aislamiento">Sí, ventanas y paredes/techo</option>
         </select>
+
+        <div class="section-title">3. Instalaciones y Energía</div>
+        <label>¿Dispone de Certificado Energético (CEE)?</label>
+        <select id="tiene_cee" name="tiene_cee" onchange="toggleLetra()">
+            <option value="no">No lo tengo</option>
+            <option value="si">Sí, está vigente</option>
+            <option value="caducado">Está caducado</option>
+        </select>
+
+        <div id="campo_letra" style="display: none;">
+            <label>Calificación (Letra actual o antigua)</label>
+            <select name="letra">
+                <option value="">- Seleccione Letra -</option>
+                <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+                <option value="D">D</option><option value="E">E</option><option value="F">F</option>
+                <option value="G">G</option>
+            </select>
+        </div>
+
+        <div class="grid-3">
+            <div>
+                <label style="font-size: 0.75rem;">Calefacción</label>
+                <select name="calefaccion" style="font-size: 0.85rem; padding: 10px;">
+                    <option value="gas_natural">Gas Natural</option>
+                    <option value="bomba_calor">Bomba Calor</option>
+                    <option value="radiadores_electricos">Eléctrica</option>
+                    <option value="gasoil_biomasa">Gasoil/Biomasa</option>
+                    <option value="aerotermia">Aerotermia</option>
+                    <option value="ninguna">Ninguna</option>
+                </select>
+            </div>
+            <div>
+                <label style="font-size: 0.75rem;">Aire Acond.</label>
+                <select name="refrigeracion" style="font-size: 0.85rem; padding: 10px;">
+                    <option value="no">No</option>
+                    <option value="splits">Splits</option>
+                    <option value="conductos">Conductos</option>
+                    <option value="aerotermia">Aerotermia</option>
+                </select>
+            </div>
+            <div>
+                <label style="font-size: 0.75rem;">Agua Caliente (ACS)</label>
+                <select name="acs" style="font-size: 0.85rem; padding: 10px;">
+                    <option value="caldera_mixta">Misma Caldera</option>
+                    <option value="termo_electrico">Termo Eléctrico</option>
+                    <option value="calentador_gas">Calentador Gas</option>
+                    <option value="aerotermia">Aerotermia</option>
+                </select>
+            </div>
+        </div>
+
+        <label>Gasto total mensual luz/gas (€)</label>
+        <input type="number" name="gasto_luz" placeholder="Media mensual de facturas">
+
+        <div class="privacidad">
+            <input type="checkbox" id="rgpd" required>
+            <label for="rgpd">
+                He leído y acepto la <a href="TU_URL_DE_POLITICA_DE_PRIVACIDAD" target="_blank" style="color: var(--primary); text-decoration: underline;">Política de Privacidad</a>.
+            </label>
+        </div>
+
+        <div class="capa-legal">
+            <b>Información sobre Protección de Datos:</b><br>
+            • <b>Responsable:</b> [Tu Nombre/Empresa]<br>
+            • <b>Finalidad:</b> Realizar el diagnóstico técnico preliminar y envío de presupuesto.<br>
+            • <b>Derechos:</b> Puede acceder, rectificar y suprimir sus datos escribiendo a [Tu Email de Contacto].
+        </div>
+
+        <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO GRATUITO</button>
+    </form>
+
+    <div class="footer">
+        <p>Servicio exclusivo para Cataluña. Un técnico colegiado analizará su caso.</p>
+    </div>
+</div>
+
+<script>
+    function toggleLetra() {
+        const val = document.getElementById('tiene_cee').value;
+        const mostrar = (val === 'si' || val === 'caducado');
+        document.getElementById('campo_letra').style.display = mostrar ? 'block' : 'none';
+    }
+
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btnEnviar');
+        btn.innerText = 'Enviando Informe al Técnico...';
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // --- PEGA AQUÍ TU URL DE n8n ---
+        const WEBHOOK_URL = 'TU_URL_DE_N8N_AQUI';
+
+        try {
+            await fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            
+            if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+            
+            alert('✅ Solicitud recibida con éxito. Un técnico revisará sus datos en breve.');
+            form.reset();
+            toggleLetra(); // Oculta la letra tras resetear
+        } catch (error) {
+            alert('❌ Error de conexión al enviar. Inténtelo de nuevo.');
+        } finally {
+            btn.innerText = 'SOLICITAR ESTUDIO GRATUITO';
+            btn.disabled = false;
+        }
+    });
+</script>
+</body>
+</html>
