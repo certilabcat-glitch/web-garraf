@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoría Energética Profesional | Cataluña</title>
+    <title>Diagnóstico Energético Preliminar | Certilab</title>
     
     <script>
         !function(f,b,e,v,n,t,s)
@@ -25,29 +25,29 @@
         .header { text-align: center; margin-bottom: 30px; }
         .badge { background: #e8f5e9; color: #2e7d32; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 10px; border: 1px solid #c8e6c9; }
         h1 { color: var(--primary); margin: 0; font-size: 1.6rem; letter-spacing: -0.5px; }
+        p.subtitle { color: #64748b; font-size: 0.95rem; margin-top: 10px; }
         
         .section-title { font-size: 0.8rem; font-weight: bold; color: var(--secondary); text-transform: uppercase; letter-spacing: 1px; margin: 25px 0 15px 0; border-bottom: 1px solid #e2e8f0; padding-bottom: 5px; }
         
         label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: var(--primary); }
-        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; transition: 0.3s; }
-        input:focus, select:focus { border-color: var(--secondary); outline: none; }
+        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; transition: 0.3s; background-color: #fff; }
+        input:focus, select:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1); }
         
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px; }
         
-        /* Adaptación a móviles para que no se vea apretado */
         @media (max-width: 500px) {
             .grid, .grid-3 { grid-template-columns: 1fr; gap: 5px; }
             .container { padding: 25px; }
         }
         
         .privacidad { font-size: 0.8rem; color: #64748b; margin: 20px 0; display: flex; align-items: flex-start; gap: 10px; }
-        .privacidad input { width: auto; margin-top: 3px; }
+        .privacidad input { width: auto; margin-top: 3px; cursor: pointer; }
         .capa-legal { font-size: 0.65rem; color: #64748b; margin-top: 10px; margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 6px; line-height: 1.5; }
 
         button { width: 100%; padding: 16px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         button:hover { background-color: #001f42; transform: translateY(-1px); }
-        button:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+        button:disabled { background-color: #cbd5e1; cursor: not-allowed; transform: none; }
 
         .footer { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 30px; border-top: 1px solid #f1f5f9; padding-top: 20px; }
     </style>
@@ -56,8 +56,9 @@
 
 <div class="container">
     <div class="header">
-        <span class="badge">ESTUDIO DE VIABILIDAD TÉCNICA</span>
-        <h1>Diagnóstico Energético Preliminar</h1>
+        <span class="badge">ESTUDIO TÉCNICO SUBVENCIONADO</span>
+        <h1>Diagnóstico Energético</h1>
+        <p class="subtitle">Complete los datos para calcular su potencial de ahorro y acceso a subvenciones NextGen.</p>
     </div>
 
     <form id="leadForm">
@@ -65,7 +66,7 @@
         <div class="grid">
             <div>
                 <label>Nombre y Apellidos</label>
-                <input type="text" name="nombre" placeholder="Nombre completo" required>
+                <input type="text" name="nombre" placeholder="Ej: Jordi Garcia" required>
             </div>
             <div>
                 <label>WhatsApp Móvil</label>
@@ -75,7 +76,7 @@
 
         <div class="section-title">2. Características del Inmueble</div>
         <label>Calle y Número</label>
-        <input type="text" name="calle" placeholder="Ej: Carrer de la Marina, 123" required>
+        <input type="text" name="calle" placeholder="Carrer de la Marina, 123" required>
         
         <div class="grid">
             <div>
@@ -108,7 +109,7 @@
                 <select name="uso_vivienda" required>
                     <option value="habitual">Vivienda Habitual</option>
                     <option value="segunda_residencia">Segunda Residencia</option>
-                    <option value="alquiler">Está alquilada</option>
+                    <option value="alquiler">Está alquilada a terceros</option>
                 </select>
             </div>
         </div>
@@ -124,14 +125,28 @@
             </div>
         </div>
         
-        <label>¿Ha mejorado el aislamiento recientemente?</label>
-        <select name="reformas_previas">
-            <option value="no">No, está de origen</option>
-            <option value="si_ventanas">Sí, he cambiado ventanas</option>
-            <option value="si_aislamiento">Sí, ventanas y paredes/techo</option>
-        </select>
+        <div class="grid">
+            <div>
+                <label>¿Ha mejorado el aislamiento?</label>
+                <select name="reformas_previas">
+                    <option value="no">No, todo de origen</option>
+                    <option value="si_ventanas">Sí, solo cambié ventanas</option>
+                    <option value="si_aislamiento">Sí, ventanas y fachadas</option>
+                </select>
+            </div>
+            <div>
+                <label>Tipo de ventanas actuales</label>
+                <select name="tipo_ventanas" required>
+                    <option value="madera_simple">Madera (Cristal simple)</option>
+                    <option value="aluminio_simple">Aluminio antiguo (Cristal simple)</option>
+                    <option value="aluminio_doble">Aluminio (Cristal doble)</option>
+                    <option value="pvc_doble">PVC / RPT (Cristal doble/Climalit)</option>
+                </select>
+            </div>
+        </div>
 
         <div class="section-title">3. Instalaciones y Energía</div>
+        
         <label>¿Dispone de Certificado Energético (CEE)?</label>
         <select id="tiene_cee" name="tiene_cee" onchange="toggleLetra()">
             <option value="no">No lo tengo</option>
@@ -142,10 +157,14 @@
         <div id="campo_letra" style="display: none;">
             <label>Calificación (Letra actual o antigua)</label>
             <select name="letra">
-                <option value="">- Seleccione Letra -</option>
-                <option value="A">A</option><option value="B">B</option><option value="C">C</option>
-                <option value="D">D</option><option value="E">E</option><option value="F">F</option>
-                <option value="G">G</option>
+                <option value="desconocida">- Seleccione Letra -</option>
+                <option value="A">Letra A</option>
+                <option value="B">Letra B</option>
+                <option value="C">Letra C</option>
+                <option value="D">Letra D</option>
+                <option value="E">Letra E</option>
+                <option value="F">Letra F</option>
+                <option value="G">Letra G</option>
             </select>
         </div>
 
@@ -182,7 +201,7 @@
         </div>
 
         <label>Gasto total mensual luz/gas (€)</label>
-        <input type="number" name="gasto_luz" placeholder="Media mensual de facturas">
+        <input type="number" name="gasto_luz" placeholder="Media mensual de sus facturas" required>
 
         <div class="privacidad">
             <input type="checkbox" id="rgpd" required>
@@ -192,17 +211,17 @@
         </div>
 
         <div class="capa-legal">
-            <b>Información sobre Protección de Datos:</b><br>
-            • <b>Responsable:</b> [Tu Nombre/Empresa]<br>
-            • <b>Finalidad:</b> Realizar el diagnóstico técnico preliminar y envío de presupuesto.<br>
-            • <b>Derechos:</b> Puede acceder, rectificar y suprimir sus datos escribiendo a [Tu Email de Contacto].
+            <b>Información básica sobre Protección de Datos:</b><br>
+            • <b>Responsable:</b> Eva Gonzalez (Arquitecta Técnica) - Certilab Consultoría Energética<br>
+            • <b>Finalidad:</b> Realización de diagnóstico técnico preliminar y contacto profesional.<br>
+            • <b>Derechos:</b> Puede acceder, rectificar y suprimir sus datos escribiendo a info@certilab.cat.
         </div>
 
         <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO GRATUITO</button>
     </form>
 
     <div class="footer">
-        <p>Servicio exclusivo para Cataluña. Un técnico colegiado analizará su caso.</p>
+        <p>Servicio de ingeniería y consultoría exclusiva para inmuebles en Cataluña. <br>Técnico responsable colegiado.</p>
     </div>
 </div>
 
@@ -223,7 +242,7 @@
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
-        // --- PEGA AQUÍ TU URL DE n8n ---
+        // --- IMPORTANTE: PEGA AQUÍ TU URL DE n8n ---
         const WEBHOOK_URL = 'TU_URL_DE_N8N_AQUI';
 
         try {
@@ -235,11 +254,11 @@
             
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
             
-            alert('✅ Solicitud recibida con éxito. Un técnico revisará sus datos en breve.');
+            alert('✅ Solicitud recibida con éxito. Eva o un técnico de Certilab revisará sus datos en breve.');
             form.reset();
-            toggleLetra(); // Oculta la letra tras resetear
+            toggleLetra();
         } catch (error) {
-            alert('❌ Error de conexión al enviar. Inténtelo de nuevo.');
+            alert('❌ Error de conexión al enviar. Inténtelo de nuevo o contacte a info@certilab.cat.');
         } finally {
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO';
             btn.disabled = false;
