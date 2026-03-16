@@ -37,6 +37,7 @@
         
         .privacidad { font-size: 0.8rem; color: #64748b; margin: 20px 0; display: flex; align-items: flex-start; gap: 10px; }
         .privacidad input { width: auto; margin-top: 3px; }
+        .capa-legal { font-size: 0.65rem; color: #64748b; margin-top: 10px; margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 6px; line-height: 1.5; }
 
         button { width: 100%; padding: 16px; background-color: var(--primary); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         button:hover { background-color: #001f42; transform: translateY(-1px); }
@@ -117,7 +118,7 @@
                     <option value="gas_natural">Gas Natural (Caldera)</option>
                     <option value="bomba_calor">Bomba de Calor / Splits</option>
                     <option value="radiadores_electricos">Radiadores Eléctricos</option>
-                    <option value="gasoil_biomasa">Gasoil / Biomasa (Pellets)</option>
+                    <option value="gasoil_biomasa">Gasoil / Biomasa</option>
                     <option value="aerotermia">Aerotermia</option>
                     <option value="ninguna">Ninguna</option>
                 </select>
@@ -139,8 +140,15 @@
         <div class="privacidad">
             <input type="checkbox" id="rgpd" required>
             <label for="rgpd">
-                Acepto la <b>política de privacidad</b>. Los datos se tratarán para el diagnóstico técnico preliminar y envío del presupuesto.
+                He leído y acepto la <a href="TU_URL_DE_POLITICA_DE_PRIVACIDAD" target="_blank" style="color: var(--primary); text-decoration: underline;">Política de Privacidad</a>.
             </label>
+        </div>
+
+        <div class="capa-legal">
+            <b>Información sobre Protección de Datos:</b><br>
+            • <b>Responsable:</b> [Tu Nombre/Empresa]<br>
+            • <b>Finalidad:</b> Realizar el diagnóstico técnico preliminar y envío de presupuesto.<br>
+            • <b>Derechos:</b> Puede acceder, rectificar y suprimir sus datos escribiendo a [Tu Email de Contacto].
         </div>
 
         <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO GRATUITO</button>
@@ -162,7 +170,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btnEnviar');
-        btn.innerText = 'Enviando...';
+        btn.innerText = 'Enviando Informe al Técnico...';
         btn.disabled = true;
 
         const formData = new FormData(form);
@@ -178,11 +186,11 @@
                 body: JSON.stringify(data)
             });
             if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-            alert('✅ Solicitud recibida con éxito.');
+            alert('✅ Solicitud recibida con éxito. Un técnico revisará sus datos en breve.');
             form.reset();
             toggleLetra(); // Oculta la letra tras resetear
         } catch (error) {
-            alert('❌ Error al enviar. Inténtelo de nuevo.');
+            alert('❌ Error de conexión al enviar. Inténtelo de nuevo.');
         } finally {
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO';
             btn.disabled = false;
