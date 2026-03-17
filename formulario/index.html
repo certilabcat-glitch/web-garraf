@@ -50,7 +50,7 @@
     <div class="header">
         <span class="badge">ESTUDIO TÉCNICO SUBVENCIONADO</span>
         <h1>Diagnóstico Energético</h1>
-        <p class="subtitle">Analice su potencial de ahorro con Certilab Consultoría.</p>
+        <p class="subtitle">Análisis preliminar de ahorro y acceso a fondos NextGen.</p>
     </div>
 
     <form id="leadForm">
@@ -73,6 +73,7 @@
                 </select>
             </div>
         </div>
+
         <div class="grid">
             <div><label>Tipo de Vivienda</label>
                 <select name="tipo_vivienda" required>
@@ -82,8 +83,20 @@
                     <option value="unifamiliar">Casa / Chalet</option>
                 </select>
             </div>
+            <div><label>Uso</label>
+                <select name="uso" required>
+                    <option value="habitual">Vivienda Habitual</option>
+                    <option value="segunda_residencia">Segunda Residencia</option>
+                    <option value="alquiler">Alquiler</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div><label>Superficie (m²)</label><input type="number" name="superficie" placeholder="90" required></div>
             <div><label>Año Const.</label><input type="number" name="anio" placeholder="1985"></div>
         </div>
+
         <div class="grid">
             <div><label>¿Reformas previas?</label>
                 <select name="reformas_previas">
@@ -102,7 +115,24 @@
             </div>
         </div>
 
-        <div class="section-title">3. Instalaciones y Climatización</div>
+        <div class="section-title">3. Instalaciones y Energía</div>
+        <div class="grid">
+            <div><label>¿Dispone de CEE?</label>
+                <select id="tiene_cee" name="tiene_cee" onchange="toggleLetra()" required>
+                    <option value="no">No lo tengo</option>
+                    <option value="si">Sí, vigente</option>
+                    <option value="caducado">Está caducado</option>
+                </select>
+            </div>
+            <div id="campo_letra" style="display: none;"><label>Letra actual</label>
+                <select name="letra">
+                    <option value="desconocida">- Letra -</option>
+                    <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+                    <option value="D">D</option><option value="E">E</option><option value="F">F</option><option value="G">G</option>
+                </select>
+            </div>
+        </div>
+
         <div class="grid">
             <div><label>Calefacción</label>
                 <select name="calefaccion">
@@ -117,11 +147,12 @@
             <div><label>Aire Acondicionado</label>
                 <select name="aire_acondicionado">
                     <option value="no">No dispone</option>
-                    <option value="si_splits">Sí, por Splits</option>
-                    <option value="si_conductos">Sí, por Conductos</option>
+                    <option value="splits">Splits</option>
+                    <option value="conductos">Conductos</option>
                 </select>
             </div>
         </div>
+
         <div class="grid">
             <div><label>Agua Caliente (ACS)</label>
                 <select name="agua_caliente">
@@ -131,7 +162,7 @@
                     <option value="aerotermia">Aerotermia</option>
                 </select>
             </div>
-            <div><label>Gasto mensual (€)</label><input type="number" name="gasto_luz" placeholder="Total facturas" required></div>
+            <div><label>Gasto mensual (€)</label><input type="number" name="gasto_luz" placeholder="Facturas" required></div>
         </div>
 
         <div class="privacidad">
@@ -144,10 +175,15 @@
         </div>
         <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO GRATUITO</button>
     </form>
-    <div class="footer"><p>Servicio técnico profesional para Cataluña.</p></div>
+    <div class="footer"><p>Ingeniería para Cataluña. Técnico nº 9457.</p></div>
 </div>
 
 <script>
+    function toggleLetra() {
+        const val = document.getElementById('tiene_cee').value;
+        document.getElementById('campo_letra').style.display = (val === 'si' || val === 'caducado') ? 'block' : 'none';
+    }
+
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -166,14 +202,13 @@
                 body: JSON.stringify(data) 
             });
             
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
-            }
+            if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             
-            alert('✅ ¡Solicitud enviada con éxito! Eva de Certilab revisará sus datos en breve.');
+            alert('✅ ¡Solicitud enviada! Eva de Certilab revisará sus datos pronto.');
             form.reset();
+            toggleLetra();
         } catch (error) { 
-            alert('❌ Hubo un problema al enviar. Contacte con info@certilab.cat'); 
+            alert('❌ Error al enviar. Intente contactar por email.'); 
         } finally { 
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO'; 
             btn.disabled = false; 
