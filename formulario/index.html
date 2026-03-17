@@ -42,6 +42,7 @@
         button:hover { background-color: #001f42; transform: translateY(-1px); }
         button:disabled { background-color: #cbd5e1; cursor: not-allowed; }
         .footer { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 30px; border-top: 1px solid #f1f5f9; padding-top: 20px; }
+        .opcional { font-weight: normal; color: #94a3b8; font-size: 0.75rem; }
     </style>
 </head>
 <body>
@@ -56,15 +57,19 @@
     <form id="leadForm">
         <div class="section-title">1. Datos de Contacto</div>
         <div class="grid">
-            <div><label>Nombre y Apellidos</label><input type="text" name="nombre" placeholder="Ej: Jordi Garcia" required></div>
-            <div><label>WhatsApp Móvil</label><input type="tel" name="whatsapp" placeholder="600 000 000" required></div>
+            <div><label>Nombre y Apellidos *</label><input type="text" name="nombre" placeholder="Ej: Jordi Garcia" required minlength="3"></div>
+            <div><label>WhatsApp Móvil *</label><input type="tel" name="whatsapp" pattern="[0-9]{9,15}" placeholder="600000000" required title="Introduce un teléfono válido"></div>
         </div>
+        <label>Email <span class="opcional">(Opcional, pero recomendado para el informe)</span></label>
+        <input type="email" name="email" placeholder="correo@ejemplo.com">
 
         <div class="section-title">2. Características del Inmueble</div>
-        <label>Calle y Número</label><input type="text" name="calle" placeholder="Carrer de la Marina, 123" required>
+        <label>Calle, Número y Planta *</label>
+        <input type="text" name="calle" placeholder="Carrer de la Marina, 123, 2º 1ª" required minlength="10" title="Por favor, introduce la dirección completa para el diagnóstico técnico.">
+        
         <div class="grid">
-            <div><label>Código Postal</label><input type="text" name="cp" placeholder="08001" required></div>
-            <div><label>Provincia</label>
+            <div><label>Código Postal *</label><input type="text" name="cp" pattern="[0-9]{5}" placeholder="08001" required title="Código postal de 5 dígitos"></div>
+            <div><label>Provincia *</label>
                 <select name="provincia" required>
                     <option value="Barcelona">Barcelona</option>
                     <option value="Girona">Girona</option>
@@ -75,7 +80,7 @@
         </div>
 
         <div class="grid">
-            <div><label>Tipo de Vivienda</label>
+            <div><label>Tipo de Vivienda *</label>
                 <select name="tipo_vivienda" required>
                     <option value="piso_intermedio">Piso intermedio</option>
                     <option value="atico">Ático / Última planta</option>
@@ -83,7 +88,7 @@
                     <option value="unifamiliar">Casa / Chalet</option>
                 </select>
             </div>
-            <div><label>Uso</label>
+            <div><label>Uso *</label>
                 <select name="uso" required>
                     <option value="habitual">Vivienda Habitual</option>
                     <option value="segunda_residencia">Segunda Residencia</option>
@@ -93,19 +98,19 @@
         </div>
 
         <div class="grid">
-            <div><label>Superficie (m²)</label><input type="number" name="superficie" placeholder="90" required></div>
-            <div><label>Año Const.</label><input type="number" name="anio" placeholder="1985"></div>
+            <div><label>Superficie (m²) *</label><input type="number" name="superficie" min="10" max="999" placeholder="90" required></div>
+            <div><label>Año Const. *</label><input type="number" name="anio" min="1800" max="2026" placeholder="1985" required></div>
         </div>
 
         <div class="grid">
-            <div><label>¿Reformas previas?</label>
-                <select name="reformas_previas">
+            <div><label>¿Reformas previas? *</label>
+                <select name="reformas_previas" required>
                     <option value="no">No, de origen</option>
                     <option value="si_ventanas">Solo ventanas</option>
                     <option value="si_aislamiento">Ventanas y fachadas</option>
                 </select>
             </div>
-            <div><label>Tipo de ventanas</label>
+            <div><label>Tipo de ventanas *</label>
                 <select name="tipo_ventanas" required>
                     <option value="madera_simple">Madera (Simple)</option>
                     <option value="aluminio_simple">Aluminio (Simple)</option>
@@ -117,7 +122,7 @@
 
         <div class="section-title">3. Instalaciones y Energía</div>
         <div class="grid">
-            <div><label>¿Dispone de CEE?</label>
+            <div><label>¿Dispone de CEE? *</label>
                 <select id="tiene_cee" name="tiene_cee" onchange="toggleLetra()" required>
                     <option value="no">No lo tengo</option>
                     <option value="si">Sí, vigente</option>
@@ -134,8 +139,8 @@
         </div>
 
         <div class="grid">
-            <div><label>Calefacción</label>
-                <select name="calefaccion">
+            <div><label>Calefacción *</label>
+                <select name="calefaccion" required>
                     <option value="gas_natural">Gas Natural</option>
                     <option value="bomba_calor">Bomba Calor</option>
                     <option value="radiadores_el">Eléctrica</option>
@@ -144,8 +149,8 @@
                     <option value="ninguna">Ninguna</option>
                 </select>
             </div>
-            <div><label>Aire Acondicionado</label>
-                <select name="aire_acondicionado">
+            <div><label>Aire Acondicionado *</label>
+                <select name="aire_acondicionado" required>
                     <option value="no">No dispone</option>
                     <option value="splits">Splits</option>
                     <option value="conductos">Conductos</option>
@@ -154,15 +159,15 @@
         </div>
 
         <div class="grid">
-            <div><label>Agua Caliente (ACS)</label>
-                <select name="agua_caliente">
+            <div><label>Agua Caliente (ACS) *</label>
+                <select name="agua_caliente" required>
                     <option value="caldera_mixta">Caldera Mixta</option>
                     <option value="termo_electrico">Termo Eléctrico</option>
                     <option value="calentador_gas">Calentador Gas</option>
                     <option value="aerotermia">Aerotermia</option>
                 </select>
             </div>
-            <div><label>Gasto mensual (€)</label><input type="number" name="gasto_luz" placeholder="Facturas" required></div>
+            <div><label>Gasto mensual promedio (€) *</label><input type="number" name="gasto_luz" min="0" max="2500" placeholder="120" required></div>
         </div>
 
         <div class="privacidad">
@@ -188,7 +193,7 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btnEnviar');
-        btn.innerText = 'Enviando...';
+        btn.innerText = 'Verificando datos...';
         btn.disabled = true;
 
         const data = Object.fromEntries(new FormData(form).entries());
@@ -204,11 +209,11 @@
             
             if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             
-            alert('✅ ¡Solicitud enviada! Eva de Certilab revisará sus datos pronto.');
+            alert('✅ ¡Datos recibidos con éxito! Eva de Certilab realizará su diagnóstico técnico preliminar en las próximas 24-48h.');
             form.reset();
             toggleLetra();
         } catch (error) { 
-            alert('❌ Error al enviar. Intente contactar por email.'); 
+            alert('❌ Error al enviar. Por favor, compruebe su conexión o escriba a info@certilab.cat'); 
         } finally { 
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO'; 
             btn.disabled = false; 
