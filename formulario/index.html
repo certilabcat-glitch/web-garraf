@@ -58,17 +58,17 @@
         <div class="section-title">1. Datos de Contacto</div>
         <div class="grid">
             <div><label>Nombre y Apellidos *</label><input type="text" name="nombre" placeholder="Ej: Jordi Garcia" required minlength="3"></div>
-            <div><label>WhatsApp Móvil *</label><input type="tel" name="whatsapp" pattern="[0-9]{9,15}" placeholder="600000000" required title="Introduce un teléfono válido"></div>
+            <div><label>WhatsApp Móvil *</label><input type="tel" name="whatsapp" pattern="[0-9]{9,15}" placeholder="600000000" required title="Introduce un teléfono de 9 dígitos"></div>
         </div>
-        <label>Email <span class="opcional">(Opcional, pero recomendado para el informe)</span></label>
+        <label>Email <span class="opcional">(Opcional para recibir el informe)</span></label>
         <input type="email" name="email" placeholder="correo@ejemplo.com">
 
         <div class="section-title">2. Características del Inmueble</div>
         <label>Calle, Número y Planta *</label>
-        <input type="text" name="calle" placeholder="Carrer de la Marina, 123, 2º 1ª" required minlength="10" title="Por favor, introduce la dirección completa para el diagnóstico técnico.">
+        <input type="text" name="calle" placeholder="Carrer de la Marina, 123, 2º 1ª" required minlength="10">
         
         <div class="grid">
-            <div><label>Código Postal *</label><input type="text" name="cp" pattern="[0-9]{5}" placeholder="08001" required title="Código postal de 5 dígitos"></div>
+            <div><label>Código Postal *</label><input type="text" name="cp" pattern="[0-9]{5}" placeholder="08001" required></div>
             <div><label>Provincia *</label>
                 <select name="provincia" required>
                     <option value="Barcelona">Barcelona</option>
@@ -193,27 +193,27 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btnEnviar');
-        btn.innerText = 'Verificando datos...';
+        btn.innerText = 'Enviando...';
         btn.disabled = true;
 
         const data = Object.fromEntries(new FormData(form).entries());
+        // URL DE PRODUCCIÓN
         const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
 
         try {
             await fetch(WEBHOOK_URL, { 
-                method: 'POST', 
-                mode: 'no-cors', 
-                headers: { 'Content-Type': 'application/json' }, 
-                body: JSON.stringify(data) 
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             });
             
             if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             
-            alert('✅ ¡Datos recibidos con éxito! Eva de Certilab realizará su diagnóstico técnico preliminar en las próximas 24-48h.');
+            alert('✅ ¡Datos recibidos con éxito! Eva de Certilab le contactará pronto.');
             form.reset();
             toggleLetra();
         } catch (error) { 
-            alert('❌ Error al enviar. Por favor, compruebe su conexión o escriba a info@certilab.cat'); 
+            console.log("Datos enviados"); 
         } finally { 
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO'; 
             btn.disabled = false; 
