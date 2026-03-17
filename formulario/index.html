@@ -20,6 +20,7 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
     /></noscript>
+
     <style>
         :root { --primary: #002b5b; --secondary: #27ae60; --bg: #f8fafc; --text: #334155; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); display: flex; justify-content: center; padding: 20px; color: var(--text); line-height: 1.5; }
@@ -33,8 +34,7 @@
         input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; transition: 0.3s; background-color: #fff; }
         input:focus, select:focus { border-color: var(--secondary); outline: none; box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1); }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 15px; }
-        @media (max-width: 500px) { .grid, .grid-3 { grid-template-columns: 1fr; gap: 5px; } .container { padding: 25px; } }
+        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; gap: 5px; } .container { padding: 25px; } }
         .privacidad { font-size: 0.8rem; color: #64748b; margin: 20px 0; display: flex; align-items: flex-start; gap: 10px; }
         .privacidad input { width: auto; margin-top: 3px; cursor: pointer; }
         .capa-legal { font-size: 0.65rem; color: #64748b; margin-top: 10px; margin-bottom: 20px; padding: 15px; background-color: #f1f5f9; border-radius: 6px; line-height: 1.5; }
@@ -102,15 +102,33 @@
             </div>
         </div>
 
-        <div class="section-title">3. Instalaciones y Energía</div>
+        <div class="section-title">3. Instalaciones y Climatización</div>
         <div class="grid">
             <div><label>Calefacción</label>
                 <select name="calefaccion">
                     <option value="gas_natural">Gas Natural</option>
                     <option value="bomba_calor">Bomba Calor</option>
                     <option value="radiadores_el">Eléctrica</option>
+                    <option value="gasoil">Gasoil/Bio</option>
                     <option value="aerotermia">Aerotermia</option>
                     <option value="ninguna">Ninguna</option>
+                </select>
+            </div>
+            <div><label>Aire Acondicionado</label>
+                <select name="aire_acondicionado">
+                    <option value="no">No dispone</option>
+                    <option value="si_splits">Sí, por Splits</option>
+                    <option value="si_conductos">Sí, por Conductos</option>
+                </select>
+            </div>
+        </div>
+        <div class="grid">
+            <div><label>Agua Caliente (ACS)</label>
+                <select name="agua_caliente">
+                    <option value="caldera_mixta">Caldera Mixta</option>
+                    <option value="termo_electrico">Termo Eléctrico</option>
+                    <option value="calentador_gas">Calentador Gas</option>
+                    <option value="aerotermia">Aerotermia</option>
                 </select>
             </div>
             <div><label>Gasto mensual (€)</label><input type="number" name="gasto_luz" placeholder="Total facturas" required></div>
@@ -138,28 +156,24 @@
         btn.disabled = true;
 
         const data = Object.fromEntries(new FormData(form).entries());
-        
-        // --- SUSTITUYE ESTA URL POR TU WEBHOOK DE n8n ---
         const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
 
         try {
-            // Enviamos los datos a n8n
             await fetch(WEBHOOK_URL, { 
                 method: 'POST', 
-                mode: 'no-cors', // Evita bloqueos de seguridad del navegador
+                mode: 'no-cors', 
                 headers: { 'Content-Type': 'application/json' }, 
                 body: JSON.stringify(data) 
             });
             
-            // Registramos el evento Lead en Facebook
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead');
             }
             
-            alert('✅ ¡Solicitud enviada con éxito! Eva Gonzalez de Certilab revisará sus datos en breve.');
+            alert('✅ ¡Solicitud enviada con éxito! Eva de Certilab revisará sus datos en breve.');
             form.reset();
         } catch (error) { 
-            alert('❌ Hubo un problema al enviar. Por favor, contacte con info@certilab.cat'); 
+            alert('❌ Hubo un problema al enviar. Contacte con info@certilab.cat'); 
         } finally { 
             btn.innerText = 'SOLICITAR ESTUDIO GRATUITO'; 
             btn.disabled = false; 
