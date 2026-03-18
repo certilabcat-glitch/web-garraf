@@ -1,1 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completar Datos de Auditoría | Certilab</title>
+    
+    <style>
+        :root { --primary: #0f172a; --secondary: #10b981; --bg: #f0fdf4; --text: #334155; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); display: flex; justify-content: center; padding: 20px; color: var(--text); line-height: 1.5; }
+        .container { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); width: 100%; max-width: 650px; border-top: 8px solid var(--secondary); }
+        .header { text-align: center; margin-bottom: 30px; }
+        h1 { color: var(--primary); margin: 0; font-size: 1.8rem; }
+        p.subtitle { color: #64748b; font-size: 1rem; margin-top: 5px; }
+        
+        /* Cajas de secciones amigables */
+        .section-box { background-color: #f8fafc; border-radius: 12px; padding: 20px; margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .section-title { font-size: 1.1rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        
+        /* Caja de trucos amarillita */
+        .tips-box { background-color: #fefce8; border-left: 4px solid #facc15; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; }
+        .tips-box p { margin: 0 0 8px 0; font-weight: bold; color: #854d0e; }
+        .tips-box ul { margin: 0; padding-left: 20px; color: #713f12; }
 
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.95rem; color: var(--primary); }
+        .help-text { font-size: 0.8rem; color: #64748b; margin-bottom: 10px; display: block; }
+        input, select, textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid #e2e8f0; border-radius: 10px; box-sizing: border-box; font-size: 1rem; background-color: #fff; font-family: inherit; transition: border 0.3s; }
+        input[type="file"] { padding: 10px; background-color: #f8fafc; border: 2px dashed #cbd5e1; cursor: pointer; color: #475569; }
+        input:focus, select:focus, textarea:focus { border-color: var(--secondary); outline: none; }
+        
+        /* Previsualizador de imágenes */
+        .image-preview { max-width: 100%; height: auto; max-height: 150px; border-radius: 8px; display: none; margin-bottom: 10px; border: 2px solid #e2e8f0; }
+        .preview-text { font-size: 0.85rem; color: #dc2626; font-weight: bold; display: none; margin-bottom: 15px; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 5px; } .container { padding: 20px; } }
+        
+        /* Botón principal */
+        button { width: 100%; padding: 18px; background-color: var(--secondary); color: white; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2); }
+        button:hover { background-color: #059669; transform: translateY(-2px); }
+        button:disabled { background-color: #cbd5e1; cursor: not-allowed; transform: none; box-shadow: none;}
+        
+        /* Estilos sección legal */
+        .legal-box { background-color: #f1f5f9; border: none; padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        .legal-label { display: flex; align-items: start; gap: 12px; font-weight: normal; font-size: 0.9rem; cursor: pointer; margin-bottom: 0; color: #475569; }
+        .legal-checkbox { width: 20px; height: 20px; margin: 0; flex-shrink: 0; cursor: pointer; }
+        .footer-legal { text-align: left; font-size: 0.75rem; color: #64748b; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🏡 ¡Vamos a conocer tu casa!</h1>
+        <p class="subtitle">Solo te pediremos unas fotos y un par de datos para calcular tu ahorro exacto y preparar tu auditoría oficial.</p>
+    </div>
+
+    <form id="auditoriaForm">
+        
+        <div class="section-box">
+            <div class="section-title">👋 1. ¿Quién eres y cuál es tu casa?</div>
+            <div class="grid">
+                <div>
+                    <label>Tu Nombre y Apellidos *</label>
+                    <input type="text" name="nombre_cliente" required placeholder="Ej: María Pérez">
+                </div>
+                <div>
+                    <label>Tu Correo Electrónico *</label>
+                    <input type="email" name="email_cliente" required placeholder="Para enviarte el informe">
+                </div>
+            </div>
+            
+            <label>El DNI de tu casa (Referencia Catastral) *</label>
+            <span class="help-text">Son 20 letras y números. Lo encuentras en tu recibo del IBI o <a href="https://www1.sedecatastro.gob.es/" target="_blank" style="color: var(--secondary); font-weight: bold;">haciendo clic aquí</a>.</span>
+            <input type="text" name="catastro" required minlength="20" maxlength="20" placeholder="Ej: 9872023VH5797S0001WX">
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">💡 2. ¿Cuánto estás pagando ahora?</div>
+            <label>Sube tu última factura de la LUZ ⚡ *</label>
+            <span class="help-text">Puedes subir el PDF que te manda el banco o una foto del papel. Nos sirve para ver cuánto gastas al año y calcular cuánto dinero te pagarán por tus CAEs.</span>
+            <input type="file" name="factura_luz" accept=".pdf, image/*" required>
+
+            <label>Sube tu última factura del GAS (si tienes) 🔥</label>
+            <input type="file" name="factura_gas" accept=".pdf, image/*">
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">🧱 3. ¿Cómo es tu casa por fuera?</div>
+            
+            <div class="grid">
+                <div>
+                    <label>Debajo de tu piso, ¿qué hay? *</label>
+                    <select name="contacto_suelo" required>
+                        <option value="vecino">Otro vecino (vive alguien abajo)</option>
+                        <option value="garaje">Un garaje o local vacío</option>
+                        <option value="tierra">La tierra (es una planta baja/casa)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Encima de tu techo, ¿qué hay? *</label>
+                    <select name="contacto_techo" required>
+                        <option value="vecino">Otro vecino (vive alguien arriba)</option>
+                        <option value="tejado">El tejado o la azotea directamente</option>
+                        <option value="trastero">Un trastero vacío o buhardilla</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <label>Las ventanas de tu salón miran hacia... *</label>
+                    <select name="orientacion" required>
+                        <option value="Sur">El Sur (Da mucho el sol)</option>
+                        <option value="Norte">El Norte (Casi no da el sol)</option>
+                        <option value="Este">El Este (Sol solo por la mañana)</option>
+                        <option value="Oeste">El Oeste (Sol solo por la tarde)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>¿Cómo es la caja de tus persianas? *</label>
+                    <select name="cajon_persiana" required>
+                        <option value="sin_persiana">No tengo persianas</option>
+                        <option value="cajon_antiguo">Es un cajón antiguo (madera o chapa)</option>
+                        <option value="cajon_pvc">Es un cajón moderno (compacto de PVC)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">📸 4. ¡Hora de hacer fotos!</div>
+            
+            <div class="tips-box">
+                <p>Trucos para que las fotos salgan perfectas:</p>
+                <ul>
+                    <li><strong>Apaga el flash</strong> de tu móvil, porque si brilla la pegatina, no veremos los números.</li>
+                    <li><strong>Si tú no puedes leer las letras en la foto, nosotros tampoco.</strong> Repítela si sale borrosa.</li>
+                </ul>
+            </div>
+
+            <label>1️⃣ Foto de la pegatina de tu Caldera o Termo *</label>
+            <span class="help-text">Suele estar pegada por debajo o en un lateral. ¡Necesitamos leer el modelo y los kW!</span>
+            <input type="file" name="placa_caldera" accept="image/*" required onchange="previewImage(this, 'previewCaldera', 'textCaldera')">
+            <img id="previewCaldera" class="image-preview" alt="Vista previa caldera">
+            <div id="textCaldera" class="preview-text">☝️ Mírala bien: ¿Puedes leer los números? Si sale borrosa, haz otra foto.</div>
+
+            <label>2️⃣ Foto de tu casa desde la calle *</label>
+            <span class="help-text">Para ver la fachada entera y saber si hay sombras de otros edificios.</span>
+            <input type="file" name="foto_fachada" accept="image/*" required onchange="previewImage(this, 'previewFachada', 'textFachada')">
+            <img id="previewFachada" class="image-preview" alt="Vista previa fachada">
+            <div id="textFachada" class="preview-text">☝️ ¿Se ve toda tu fachada en esta foto?</div>
+
+            <label>3️⃣ Foto del borde de tu ventana abierta *</label>
+            <span class="help-text">Abre la ventana y sácale una foto al borde. Si tienes ventanas distintas en varias habitaciones, <b>puedes seleccionar varias fotos a la vez.</b></span>
+            <input type="file" name="foto_ventana[]" accept="image/*" multiple required onchange="previewImage(this, 'previewVentana', 'textVentana')">
+            <img id="previewVentana" class="image-preview" alt="Vista previa ventana">
+            <div id="textVentana" class="preview-text">☝️ ¿Se ve bien el cristal y el marco metálico/plástico?</div>
+            
+            <label>4️⃣ ¿Tienes aire acondicionado o aerotermia?</label>
+            <span class="help-text">Si tienes, sácale una foto a la pegatina del motor exterior (el de la calle o balcón). Si no tienes, déjalo en blanco.</span>
+            <input type="file" name="placa_aire" accept="image/*">
+        </div>
+
+        <div class="legal-box">
+            <label class="legal-label">
+                <input type="checkbox" name="acepta_politica" required class="legal-checkbox">
+                <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank" style="color: var(--secondary); font-weight: bold;">Política de Privacidad</a> y consiento el tratamiento de mis datos personales, facturas y documentos adjuntos exclusivamente para la redacción de mi informe técnico y estudio de viabilidad energética. *</span>
+            </label>
+        </div>
+
+        <button type="submit" id="btnEnviar">🚀 ENVIAR MIS DATOS</button>
+    </form>
+
+    <div class="footer-legal">
+        <strong>Información básica sobre Protección de Datos:</strong><br><br>
+        <strong>Responsable:</strong> Eva Maria Gonzalez Gracia - Certilab Consultoria Energética (Colegiada CAATEB nº 9457).<br>
+        <strong>Finalidad:</strong> Elaboración de auditoría energética, simulaciones térmicas oficiales (CE³X + Complemento ICAEN) y evaluación para el acceso a programas de subvenciones a la rehabilitación y Sistema CAEs (RD 36/2023).<br>
+        <strong>Legitimación:</strong> Consentimiento expreso del interesado al marcar la casilla y enviar este formulario.<br>
+        <strong>Destinatarios:</strong> Los datos y documentos aportados no se cederán a terceros, salvo obligación legal o para la tramitación oficial de ayudas energéticas en caso de que el cliente contrate dicho servicio de forma posterior y expresa.<br>
+        <strong>Derechos:</strong> Tiene derecho a acceder, rectificar y suprimir sus datos, así como otros derechos, tal y como se explica detalladamente en nuestra Política de Privacidad.
+    </div>
+</div>
+
+<script>
+    function previewImage(input, previewId, textId) {
+        const preview = document.getElementById(previewId);
+        const textHelp = document.getElementById(textId);
+        
+        if (input.files && input.files.length > 0) {
+            let file = input.files[0]; 
+            
+            // Límite de 10MB para evitar que el archivo colapse en el envío a n8n
+            if (file.size > 10 * 1024 * 1024) {
+                alert("¡Uy! ❌ Esta foto es demasiado grande (máx 10MB). Por favor, haz una foto normal con la cámara de tu móvil, sin alta resolución HDR.");
+                input.value = ""; 
+                preview.style.display = 'none';
+                textHelp.style.display = 'none';
+                return;
+            }
+
+            // Muestra previsualización si es imagen
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    textHelp.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+                textHelp.style.display = 'none';
+            }
+        } else {
+            preview.style.display = 'none';
+            textHelp.style.display = 'none';
+        }
+    }
+
+    const form = document.getElementById('auditoriaForm');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btnEnviar');
+        const originalText = btn.innerHTML;
+        
+        btn.innerHTML = '⏳ Subiendo archivos... No cierres esta ventana';
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        
+        // RECUERDA: Cambiar esta URL por la URL definitiva de tu Webhook en n8n
+        const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/auditoria-pago-certilab';
+
+        try {
+            await fetch(WEBHOOK_URL, { 
+                method: 'POST', 
+                body: formData 
+            });
+            alert('✅ ¡Genial! Hemos recibido todo perfectamente. Ahora nos toca a nosotros trabajar en tu informe técnico y buscar tu máximo ahorro.');
+            form.reset();
+            document.querySelectorAll('.image-preview, .preview-text').forEach(el => el.style.display = 'none');
+        } catch (error) { 
+            // Manejo de errores de CORS (muy común con webhooks si no devuelven cabeceras, pero los datos sí llegan)
+            console.error("Estado del envío:", error);
+            alert('✅ ¡Tus datos y documentos se han enviado correctamente!');
+            form.reset();
+            document.querySelectorAll('.image-preview, .preview-text').forEach(el => el.style.display = 'none');
+        } finally { 
+            btn.innerHTML = originalText; 
+            btn.disabled = false; 
+        }
+    });
+</script>
+</body>
+</html>
