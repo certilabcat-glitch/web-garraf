@@ -6,13 +6,12 @@
     <title>Auditoría Técnica Oficial | Certilab</title>
     
     <style>
-        /* Paleta de colores elegante y corporativa */
         :root { 
-            --primary: #1e293b; /* Azul marino/pizarra oscuro */
-            --secondary: #0f172a; /* Casi negro para textos principales */
-            --accent: #2563eb; /* Azul corporativo para botones y focos */
+            --primary: #1e293b; 
+            --secondary: #0f172a; 
+            --accent: #2563eb; 
             --accent-hover: #1d4ed8; 
-            --bg: #f8fafc; /* Fondo gris muy claro y limpio */
+            --bg: #f8fafc; 
             --surface: #ffffff;
             --border: #e2e8f0;
             --text-muted: #64748b;
@@ -35,227 +34,49 @@
             border-radius: 12px; 
             box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
             width: 100%; 
-            max-width: 750px; 
+            max-width: 800px; 
             border-top: 6px solid var(--accent); 
         }
 
-        .header { 
-            text-align: center; 
-            margin-bottom: 40px; 
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo-text {
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        h1 { 
-            color: var(--primary); 
-            margin: 0; 
-            font-size: 1.9rem; 
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        p.subtitle { 
-            color: var(--text-muted); 
-            font-size: 1.05rem; 
-            margin-top: 10px; 
-        }
+        .header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+        .logo-text { font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 10px; display: block; }
+        h1 { color: var(--primary); margin: 0; font-size: 1.9rem; font-weight: 800; letter-spacing: -0.5px; }
+        p.subtitle { color: var(--text-muted); font-size: 1.05rem; margin-top: 10px; }
         
-        .section-box { 
-            margin-bottom: 35px; 
-        }
-
-        .section-title { 
-            font-size: 1.15rem; 
-            font-weight: 700; 
-            color: var(--primary); 
-            margin-bottom: 20px; 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-        }
-
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 24px;
-            background-color: var(--accent);
-            border-radius: 4px;
-        }
+        .section-box { margin-bottom: 40px; }
+        .section-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 25px; display: flex; align-items: center; gap: 10px; background-color: #f1f5f9; padding: 10px 15px; border-radius: 6px; border-left: 4px solid var(--accent); }
         
-        .info-box { 
-            background-color: #f0fdf4; 
-            border: 1px solid #bbf7d0; 
-            padding: 15px 20px; 
-            border-radius: 8px; 
-            margin-bottom: 25px; 
-            font-size: 0.9rem; 
-            color: #166534;
-        }
-
+        .info-box { background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9rem; color: #166534; }
         .info-box strong { color: #14532d; }
+        .alert-box { background-color: #eff6ff; border: 1px solid #bfdbfe; padding: 15px 20px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9rem; color: #1e40af; }
 
-        label { 
-            display: block; 
-            margin-bottom: 6px; 
-            font-weight: 600; 
-            font-size: 0.95rem; 
-            color: var(--primary); 
-        }
-
-        .help-text { 
-            font-size: 0.85rem; 
-            color: var(--text-muted); 
-            margin-bottom: 12px; 
-            display: block; 
-        }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.95rem; color: var(--primary); }
+        .help-text { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; display: block; line-height: 1.4;}
 
         input[type="text"], input[type="email"], select, textarea { 
-            width: 100%; 
-            padding: 14px 16px; 
-            margin-bottom: 20px; 
-            border: 1px solid var(--border); 
-            border-radius: 8px; 
-            box-sizing: border-box; 
-            font-size: 1rem; 
-            background-color: #fdfdfd; 
-            font-family: inherit; 
-            transition: all 0.2s ease; 
-            color: var(--secondary);
+            width: 100%; padding: 14px 16px; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 8px; box-sizing: border-box; font-size: 0.95rem; background-color: #fdfdfd; font-family: inherit; transition: all 0.2s ease; color: var(--secondary);
         }
 
         input[type="file"] { 
-            width: 100%;
-            padding: 12px; 
-            background-color: #f8fafc; 
-            border: 1px dashed #cbd5e1; 
-            border-radius: 8px;
-            cursor: pointer; 
-            color: var(--text-muted); 
-            margin-bottom: 20px;
-            box-sizing: border-box;
+            width: 100%; padding: 12px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; cursor: pointer; color: var(--text-muted); margin-bottom: 20px; box-sizing: border-box; font-size: 0.9rem;
         }
 
-        input:focus, select:focus, textarea:focus { 
-            border-color: var(--accent); 
-            outline: none; 
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); 
-            background-color: #fff;
-        }
+        input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); background-color: #fff; }
         
-        .image-preview { 
-            max-width: 100%; 
-            height: auto; 
-            max-height: 180px; 
-            border-radius: 8px; 
-            display: none; 
-            margin-top: -10px;
-            margin-bottom: 20px; 
-            border: 1px solid var(--border); 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+        .image-preview { max-width: 100%; height: auto; max-height: 200px; border-radius: 8px; display: none; margin-top: -10px; margin-bottom: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .preview-text { font-size: 0.85rem; color: #b91c1c; font-weight: 600; display: none; margin-bottom: 20px; background: #fef2f2; padding: 10px; border-radius: 6px; border: 1px solid #fecaca; }
 
-        .preview-text { 
-            font-size: 0.85rem; 
-            color: #b91c1c; 
-            font-weight: 600; 
-            display: none; 
-            margin-bottom: 20px; 
-            background: #fef2f2;
-            padding: 10px;
-            border-radius: 6px;
-            border: 1px solid #fecaca;
-        }
-
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 20px; 
-        }
-
-        @media (max-width: 650px) { 
-            .grid { grid-template-columns: 1fr; gap: 0; } 
-            .container { padding: 30px 20px; } 
-        }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 650px) { .grid { grid-template-columns: 1fr; gap: 0; } .container { padding: 30px 20px; } }
         
-        button { 
-            width: 100%; 
-            padding: 18px; 
-            background-color: var(--accent); 
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
-            font-size: 1.15rem; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            margin-top: 20px; 
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); 
-            letter-spacing: 0.5px;
-        }
-
-        button:hover { 
-            background-color: var(--accent-hover); 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3); 
-        }
-
-        button:disabled { 
-            background-color: #94a3b8; 
-            cursor: not-allowed; 
-            transform: none; 
-            box-shadow: none;
-        }
+        button { width: 100%; padding: 18px; background-color: var(--accent); color: white; border: none; border-radius: 8px; font-size: 1.15rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin-top: 10px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2); letter-spacing: 0.5px; }
+        button:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3); }
+        button:disabled { background-color: #94a3b8; cursor: not-allowed; transform: none; box-shadow: none; }
         
-        .legal-box { 
-            background-color: #f1f5f9; 
-            border: 1px solid var(--border); 
-            padding: 20px; 
-            border-radius: 8px; 
-            margin-bottom: 20px; 
-        }
-
-        .legal-label { 
-            display: flex; 
-            align-items: flex-start; 
-            gap: 15px; 
-            font-weight: 400; 
-            font-size: 0.9rem; 
-            cursor: pointer; 
-            margin-bottom: 0; 
-            color: var(--text-muted); 
-            line-height: 1.5;
-        }
-
-        .legal-checkbox { 
-            width: 22px; 
-            height: 22px; 
-            margin: 2px 0 0 0; 
-            flex-shrink: 0; 
-            cursor: pointer; 
-            accent-color: var(--accent);
-        }
-
-        .footer-legal { 
-            text-align: justify; 
-            font-size: 0.75rem; 
-            color: #94a3b8; 
-            margin-top: 40px; 
-            border-top: 1px solid var(--border); 
-            padding-top: 25px; 
-            line-height: 1.6; 
-        }
-
+        .legal-box { background-color: #f1f5f9; border: 1px solid var(--border); padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .legal-label { display: flex; align-items: flex-start; gap: 15px; font-weight: 400; font-size: 0.9rem; cursor: pointer; margin-bottom: 0; color: var(--text-muted); line-height: 1.5; }
+        .legal-checkbox { width: 22px; height: 22px; margin: 2px 0 0 0; flex-shrink: 0; cursor: pointer; accent-color: var(--accent); }
+        .footer-legal { text-align: justify; font-size: 0.75rem; color: #94a3b8; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 25px; line-height: 1.6; }
         a { color: var(--accent); text-decoration: none; font-weight: 600;}
         a:hover { text-decoration: underline; }
     </style>
@@ -266,13 +87,13 @@
     <div class="header">
         <span class="logo-text">Certilab · Consultoría Técnica</span>
         <h1>Expediente de Auditoría Oficial</h1>
-        <p class="subtitle">Complete la información técnica requerida para el cálculo oficial en CE³X y el estudio de viabilidad de subvenciones.</p>
+        <p class="subtitle">Aporte la información técnica solicitada. Estos datos tienen carácter de declaración jurada para el cálculo normativo en CE³X (Ministerio de Transición Ecológica).</p>
     </div>
 
     <form id="auditoriaForm">
         
         <div class="section-box">
-            <div class="section-title">1. Identificación del Titular y el Inmueble</div>
+            <div class="section-title">1. Identificación y Antecedentes</div>
             <div class="grid">
                 <div>
                     <label>Nombre y Apellidos *</label>
@@ -280,43 +101,54 @@
                 </div>
                 <div>
                     <label>Correo Electrónico *</label>
-                    <input type="email" name="email_cliente" required placeholder="Para recepción del informe">
+                    <input type="email" name="email_cliente" required placeholder="Donde recibirá la guía técnica">
                 </div>
             </div>
             
             <label>Referencia Catastral (20 caracteres) *</label>
-            <span class="help-text">Imprescindible para extraer la geometría oficial, el año de construcción y la zona climática. Puede consultarla en la <a href="https://www1.sedecatastro.gob.es/" target="_blank">Sede del Catastro</a>.</span>
+            <span class="help-text">Imprescindible para extraer la geometría oficial, el año de construcción y la zona climática exacta.</span>
             <input type="text" name="catastro" required minlength="20" maxlength="20" placeholder="Ej: 9872023VH5797S0001WX">
+
+            <div class="alert-box">
+                <strong>¿Dispone ya de un Certificado Energético anterior? (Opcional)</strong><br>
+                <span style="font-size: 0.85rem;">Si tiene un certificado realizado en los últimos años, adjúntelo (preferiblemente el archivo XML o el PDF). Esto acelerará el modelado de su vivienda.</span>
+                <input type="file" name="cee_previo" accept=".pdf, .xml" style="margin-top: 10px; margin-bottom: 0;">
+            </div>
         </div>
 
         <div class="section-box">
-            <div class="section-title">2. Análisis Económico y Energético</div>
-            <label>Factura de suministro eléctrico (Luz) *</label>
-            <span class="help-text">Adjunte un PDF o fotografía legible. Requerido para analizar su tarifa actual, calcular el retorno de inversión (ROI) y estimar su monetización en CAEs.</span>
-            <input type="file" name="factura_luz" accept=".pdf, image/*" required>
-
-            <label>Factura de suministro de Gas / Gasoil (Opcional)</label>
-            <span class="help-text">Adjunte solo si dispone de este suministro en la vivienda.</span>
-            <input type="file" name="factura_gas" accept=".pdf, image/*">
+            <div class="section-title">2. Consumos y Facturación</div>
+            <div class="grid">
+                <div>
+                    <label>Factura de suministro eléctrico (Luz) *</label>
+                    <span class="help-text">Para calcular el retorno económico y la monetización en CAEs.</span>
+                    <input type="file" name="factura_luz" accept=".pdf, image/*" required>
+                </div>
+                <div>
+                    <label>Factura de suministro de Gas/Gasoil</label>
+                    <span class="help-text">Adjunte solo si dispone de este suministro. (Opcional)</span>
+                    <input type="file" name="factura_gas" accept=".pdf, image/*">
+                </div>
+            </div>
         </div>
 
         <div class="section-box">
-            <div class="section-title">3. Parámetros de la Envolvente Térmica</div>
+            <div class="section-title">3. Geometría y Cerramientos Opacos</div>
             
             <div class="grid">
                 <div>
                     <label>Cerramiento Inferior (Suelo) *</label>
                     <select name="contacto_suelo" required>
-                        <option value="" disabled selected>Seleccione una opción...</option>
+                        <option value="" disabled selected>Seleccione...</option>
                         <option value="vecino">Forjado sobre otro espacio habitado (Vecino)</option>
-                        <option value="garaje">Forjado sobre espacio no habitable (Garaje / Trastero)</option>
-                        <option value="tierra">Forjado en contacto con el terreno (Planta baja)</option>
+                        <option value="garaje">Forjado sobre espacio no habitable (Garaje / Local frío)</option>
+                        <option value="tierra">Suelo en contacto con el terreno (Planta baja)</option>
                     </select>
                 </div>
                 <div>
                     <label>Cerramiento Superior (Techo) *</label>
                     <select name="contacto_techo" required>
-                        <option value="" disabled selected>Seleccione una opción...</option>
+                        <option value="" disabled selected>Seleccione...</option>
                         <option value="vecino">Forjado bajo otro espacio habitado (Vecino)</option>
                         <option value="tejado">Cubierta directamente en contacto con el exterior</option>
                         <option value="trastero">Forjado bajo espacio bajo cubierta no habitable</option>
@@ -356,44 +188,26 @@
                     </select>
                 </div>
                 <div>
-                    <label>Tipo de cajón de persiana *</label>
-                    <select name="cajon_persiana" required>
-                        <option value="sin_persiana">Inexistente / Sin persianas</option>
-                        <option value="cajon_antiguo">Cajón tradicional (madera/chapa sin aislamiento)</option>
-                        <option value="cajon_pvc">Cajón compacto integrado (PVC/Aislado)</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="grid">
-                <div>
                     <label>Altura libre de la vivienda *</label>
                     <select name="altura_techos" required>
-                        <option value="normal">Estándar (aprox. 2,50 m)</option>
+                        <option value="normal">Estándar (aprox. 2,50 m a 2,70 m)</option>
                         <option value="altos">Techos altos (aprox. 3,00 m o superior)</option>
                         <option value="bajos">Techos bajos o abuhardillados (inferior a 2,40 m)</option>
                     </select>
                 </div>
+            </div>
+
+            <div class="grid">
                 <div>
                     <label>Patio interior *</label>
                     <select name="patio_luces" required>
-                        <option value="no">No, todas las ventanas dan al exterior</option>
+                        <option value="no">No, todas las ventanas dan a la calle/exterior</option>
                         <option value="si">Sí, existen ventanas volcadas a un patio de luces</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="grid">
-                <div>
-                    <label>Protección solar (Toldos) *</label>
-                    <select name="toldos" required>
-                        <option value="no">No dispone de toldos</option>
-                        <option value="si">Sí, dispone de toldos en fachadas soleadas</option>
                     </select>
                 </div>
                 <div>
                     <label>Espacios exteriores *</label>
-                    <span class="help-text" style="margin-top:-5px;">Viabilidad técnica de futuras máquinas (Aerotermia)</span>
+                    <span class="help-text" style="margin-top:-5px;">Viabilidad técnica para ubicar futuras máquinas (Aerotermia)</span>
                     <select name="espacio_exterior" required>
                         <option value="si_amplio">Dispone de terraza, balcón amplio o azotea accesible</option>
                         <option value="no">No dispone de espacio exterior privativo</option>
@@ -403,7 +217,51 @@
         </div>
 
         <div class="section-box">
-            <div class="section-title">4. Instalaciones Térmicas (HE2 / HE4)</div>
+            <div class="section-title">4. Análisis de Huecos (Ventanas)</div>
+            
+            <div class="grid">
+                <div>
+                    <label>Composición del Vidrio principal *</label>
+                    <select name="tipo_vidrio" required>
+                        <option value="" disabled selected>Seleccione cristal...</option>
+                        <option value="simple">Cristal Simple (1 solo vidrio)</option>
+                        <option value="doble_estandar">Cristal Doble Estándar (Cámara de aire)</option>
+                        <option value="doble_bajo_emisivo">Cristal Doble Tratado (Bajo emisivo / Control solar)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Material del Marco principal *</label>
+                    <select name="tipo_marco" required>
+                        <option value="" disabled selected>Seleccione marco...</option>
+                        <option value="madera">Madera</option>
+                        <option value="aluminio_sin_rpt">Aluminio antiguo (Sin Rotura de Puente Térmico)</option>
+                        <option value="aluminio_con_rpt">Aluminio moderno (Con Rotura de Puente Térmico)</option>
+                        <option value="pvc">PVC</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div>
+                    <label>Tipo de cajón de persiana *</label>
+                    <select name="cajon_persiana" required>
+                        <option value="sin_persiana">Inexistente / Sin persianas</option>
+                        <option value="cajon_antiguo">Cajón tradicional (madera o chapa sin aislar)</option>
+                        <option value="cajon_pvc">Cajón compacto integrado (PVC/Aislado)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Protección solar (Toldos) *</label>
+                    <select name="toldos" required>
+                        <option value="no">No dispone de toldos en ventanas</option>
+                        <option value="si">Sí, dispone de toldos abatibles en fachadas soleadas</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-box">
+            <div class="section-title">5. Instalaciones Térmicas (HE2 / HE4)</div>
             
             <div class="grid">
                 <div>
@@ -411,33 +269,33 @@
                     <select name="sistema_emision" required>
                         <option value="" disabled selected>Seleccione sistema...</option>
                         <option value="radiadores_agua">Radiadores de agua (Caldera/Aerotermia)</option>
-                        <option value="radiadores_electricos">Radiadores o emisores eléctricos (Efecto Joule)</option>
+                        <option value="radiadores_electricos">Radiadores o emisores eléctricos fijos</option>
                         <option value="suelo_radiante">Suelo radiante</option>
-                        <option value="conductos_aire">Bomba de calor por conductos centralizados</option>
-                        <option value="splits_pared">Bomba de calor mural (Splits independientes)</option>
-                        <option value="sin_calefaccion">Carece de sistema de calefacción fijo</option>
+                        <option value="splits_pared">Bomba de calor (Splits en pared)</option>
+                        <option value="conductos_aire">Bomba de calor (Conductos en falso techo)</option>
+                        <option value="sin_calefaccion">Carece de calefacción fija</option>
                     </select>
                 </div>
                 <div>
-                    <label>Cobertura del Aire Acondicionado *</label>
-                    <select name="cobertura_aire" required>
-                        <option value="no_tengo">Carece de sistema de refrigeración</option>
-                        <option value="solo_salon">Cobertura parcial (Split solo en salón)</option>
-                        <option value="varias_habitaciones">Cobertura media (Salón y dormitorios principales)</option>
-                        <option value="centralizado">Cobertura total (Conductos en toda la vivienda)</option>
+                    <label>Producción de Agua Caliente (ACS) *</label>
+                    <select name="sistema_acs" required>
+                        <option value="" disabled selected>Seleccione sistema...</option>
+                        <option value="misma_caldera">Misma caldera que la calefacción (Mixta)</option>
+                        <option value="termo_electrico">Termo eléctrico de acumulación</option>
+                        <option value="calentador_gas">Calentador de gas independiente</option>
+                        <option value="aerotermia">Aerotermia / Bomba de calor</option>
                     </select>
                 </div>
             </div>
 
             <div class="grid">
                 <div>
-                    <label>Producción de Agua Caliente (ACS) *</label>
-                    <select name="sistema_acs" required>
-                        <option value="" disabled selected>Seleccione sistema...</option>
-                        <option value="misma_caldera">Mismo equipo generador que la calefacción (Mixto)</option>
-                        <option value="termo_electrico">Termo eléctrico de acumulación</option>
-                        <option value="calentador_gas">Calentador de gas independiente (Solo ACS)</option>
-                        <option value="aerotermia">Bomba de calor / Aerotermia</option>
+                    <label>Cobertura del Aire Acondicionado *</label>
+                    <select name="cobertura_aire" required>
+                        <option value="no_tengo">Carece de sistema de refrigeración</option>
+                        <option value="solo_salon">Cobertura parcial (Split solo en salón)</option>
+                        <option value="varias_habitaciones">Cobertura media (Salón y dormitorios)</option>
+                        <option value="centralizado">Cobertura total (Conductos en toda la vivienda)</option>
                     </select>
                 </div>
                 <div>
@@ -452,69 +310,74 @@
         </div>
 
         <div class="section-box">
-            <div class="section-title">5. Documentación Técnica y Fotográfica</div>
+            <div class="section-title">6. Documentación Fotográfica de Peritaje</div>
             
             <div class="info-box">
-                <strong>Instrucciones para validez oficial:</strong>
+                <strong>Instrucciones para la validez del cálculo:</strong>
                 <ul style="margin: 5px 0 0 0; padding-left: 20px;">
-                    <li>No utilice flash sobre etiquetas metálicas.</li>
-                    <li>Verifique la nitidez de la imagen antes de continuar.</li>
+                    <li>Asegúrese de que las placas técnicas y etiquetas sean <strong>legibles</strong> (no use flash directo sobre metal).</li>
                     <li>Límite de tamaño por archivo: 10 MB.</li>
                 </ul>
             </div>
 
-            <label>Etiqueta técnica del Generador Térmico (Caldera/Termo) *</label>
-            <span class="help-text">Requerido para cálculo analítico de rendimiento (kW). Si su calefacción es <strong>comunitaria</strong>, adjunte una imagen con el contacto del Administrador. Si posee <strong>termo eléctrico</strong>, asegúrese de que se visualiza el volumen en Litros.</span>
-            <input type="file" name="placa_caldera" accept="image/*" required onchange="previewImage(this, 'previewCaldera', 'textCaldera')">
-            <img id="previewCaldera" class="image-preview" alt="Previsualización">
-            <div id="textCaldera" class="preview-text">⚠ Verificación: ¿Son legibles los datos de potencia o capacidad? Si no, repita la captura.</div>
-
-            <label>Perspectiva de Fachada Principal *</label>
-            <span class="help-text">Captura general desde el exterior para el análisis de sombras y obstáculos remotos.</span>
+            <label>1. Perspectiva de la Fachada Exterior *</label>
+            <span class="help-text">Una foto tomada desde la calle o patio, mostrando el bloque. Necesaria para analizar patrones de sombra y obstáculos remotos.</span>
             <input type="file" name="foto_fachada" accept="image/*" required onchange="previewImage(this, 'previewFachada', 'textFachada')">
             <img id="previewFachada" class="image-preview" alt="Previsualización">
-            <div id="textFachada" class="preview-text">⚠ Verificación: ¿Se aprecia el contexto exterior de la fachada?</div>
+            <div id="textFachada" class="preview-text">⚠ Verificación: ¿Se aprecia el contexto exterior del edificio?</div>
 
-            <label>Detalle de Cerramientos (Ventanas) *</label>
-            <span class="help-text">Abra la ventana y capture el perfil. Hágalo <strong>ligeramente de lado</strong> para que nuestros técnicos puedan evaluar la profundidad del muro exterior (Retranqueo). <em>Puede seleccionar múltiples archivos si existen distintas carpinterías.</em></span>
-            <input type="file" name="foto_ventana[]" accept="image/*" multiple required onchange="previewImage(this, 'previewVentana', 'textVentana')">
-            <img id="previewVentana" class="image-preview" alt="Previsualización">
-            <div id="textVentana" class="preview-text">⚠ Verificación: ¿Se visualiza el espesor del marco, el tipo de acristalamiento y la profundidad del muro?</div>
-            
-            <label>Etiqueta técnica de Refrigeración (Opcional)</label>
-            <span class="help-text">Captura de la placa de características de la unidad exterior (Condensadora), si dispone de ella.</span>
-            <input type="file" name="placa_aire" accept="image/*">
+            <label>2. Etiqueta técnica del Generador (Caldera / Termo) *</label>
+            <span class="help-text">Foto de la pegatina técnica del aparato. Imprescindible para introducir la Potencia (kW) o Capacidad (Litros). Si es comunitaria, suba foto de los radiadores.</span>
+            <input type="file" name="placa_caldera" accept="image/*" required onchange="previewImage(this, 'previewCaldera', 'textCaldera')">
+            <img id="previewCaldera" class="image-preview" alt="Previsualización">
+            <div id="textCaldera" class="preview-text">⚠ Verificación: ¿Son legibles los números y datos técnicos?</div>
+
+            <label>3. Etiqueta técnica de Refrigeración (Aire Acondicionado)</label>
+            <span class="help-text">Foto de la pegatina de la máquina exterior (condensadora). (Opcional, solo si dispone de aire acondicionado).</span>
+            <input type="file" name="placa_aire" accept="image/*" onchange="previewImage(this, 'previewAire', 'textAire')">
+            <img id="previewAire" class="image-preview" alt="Previsualización">
+            <div id="textAire" class="preview-text">⚠ Verificación: ¿Se leen los datos de potencia frigorífica?</div>
+
+            <label>4. Foto de la Ventana (Perspectiva General Frontal) *</label>
+            <span class="help-text">Tome una foto de la ventana cerrada desde dentro de la habitación para evaluar la proporción de vidrio frente a marco y la caja de persiana.</span>
+            <input type="file" name="foto_ventana_general" accept="image/*" required onchange="previewImage(this, 'previewVentGen', 'textVentGen')">
+            <img id="previewVentGen" class="image-preview" alt="Previsualización">
+            <div id="textVentGen" class="preview-text">⚠ Verificación: ¿Se ve la ventana completa en su conjunto?</div>
+
+            <label>5. Foto del detalle del Marco (Ventana abierta) *</label>
+            <span class="help-text">Abra la hoja de la ventana y haga una foto de perfil, enfocando el canto de la hoja y el marco. Nos permite medir el espesor y detectar cámara de aire o Rotura de Puente Térmico.</span>
+            <input type="file" name="foto_ventana_marco" accept="image/*" required onchange="previewImage(this, 'previewVentMar', 'textVentMar')">
+            <img id="previewVentMar" class="image-preview" alt="Previsualización">
+            <div id="textVentMar" class="preview-text">⚠ Verificación: ¿Se aprecia el espesor del marco y las capas del cristal?</div>
         </div>
 
         <div class="section-box">
-            <div class="section-title">6. Reformas Singulares y Aislamiento (Opcional)</div>
-            <label>Historial de rehabilitaciones</label>
-            <span class="help-text">Indique si el edificio ha sido sometido a una rehabilitación integral en los últimos 20 años o si usted ha ejecutado obras de aislamiento oculto (ej. insuflado en cámaras, trasdosados con lana de roca). Déjelo en blanco si no aplica.</span>
-            <textarea name="reformas_ocultas" rows="3" placeholder="Describa brevemente intervenciones térmicas previas..."></textarea>
+            <div class="section-title">7. Reformas Singulares y Aislamiento (Opcional)</div>
+            <label>Historial de rehabilitaciones ocultas</label>
+            <span class="help-text">Indique si en el pasado usted o la comunidad ejecutaron obras de aislamiento no visibles (ej. inyección de celulosa en cámaras, trasdosados interiores con lana de roca, techos falsos aislados). Déjelo en blanco si no aplica.</span>
+            <textarea name="reformas_ocultas" rows="3" placeholder="Describa brevemente las intervenciones térmicas previas si las hubiese..."></textarea>
         </div>
 
         <div class="legal-box">
             <label class="legal-label">
                 <input type="checkbox" name="acepta_politica" required class="legal-checkbox">
-                <span>Declaro que la información proporcionada es veraz. He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a> y autorizo expresamente el tratamiento de mis datos de carácter personal y de la documentación adjunta, con el fin exclusivo de ejecutar la Auditoría Técnica Energética solicitada. *</span>
+                <span>Declaro bajo mi responsabilidad que la información proporcionada es fiel a la realidad del inmueble. He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a> y autorizo expresamente el tratamiento de mis datos y de la documentación adjunta, con el fin exclusivo de ejecutar la Auditoría Técnica Energética solicitada. *</span>
             </label>
         </div>
 
-        <button type="submit" id="btnEnviar">TRAMITAR EXPEDIENTE TÉCNICO</button>
+        <button type="submit" id="btnEnviar">ENVIAR Y TRAMITAR EXPEDIENTE</button>
     </form>
 
     <div class="footer-legal">
         <strong>Información básica sobre Protección de Datos (RGPD):</strong><br><br>
         <strong>Responsable:</strong> Eva Maria Gonzalez Gracia - Certilab Consultoría Energética (Arquitecta Técnica Colegiada CAATEB nº 9457).<br>
-        <strong>Finalidad:</strong> Elaboración de auditoría técnica, simulaciones de demanda energética oficiales (Procedimiento CE³X y complemento autonómico ICAEN), análisis de viabilidad para programas de subvenciones (NextGen / PREE 5000) y cuantificación del Sistema de Certificados de Ahorro Energético (CAEs según RD 36/2023).<br>
-        <strong>Legitimación:</strong> Ejecución de un contrato de prestación de servicios y consentimiento expreso del interesado.<br>
-        <strong>Destinatarios:</strong> Los datos no serán cedidos a terceros, salvo obligación legal o mandato expreso posterior para la tramitación administrativa ante organismos oficiales correspondientes.<br>
-        <strong>Derechos:</strong> Podrá ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad a través de los canales indicados en nuestra Política de Privacidad completa.
+        <strong>Finalidad:</strong> Elaboración de auditoría técnica, simulaciones de demanda energética oficiales (Procedimiento CE³X y complemento autonómico ICAEN), análisis de viabilidad para programas de subvenciones (NextGen / PREE 5000) y cuantificación del Sistema de Certificados de Ahorro Energético (CAEs).<br>
+        <strong>Destinatarios:</strong> Los datos y fotografías no serán cedidos a terceros comerciales, utilizándose estrictamente para el modelado técnico.
     </div>
 </div>
 
 <script>
-    // Validación de tamaño y previsualización
+    // Función de previsualización y validación de peso (10MB)
     function previewImage(input, previewId, textId) {
         const preview = document.getElementById(previewId);
         const textHelp = document.getElementById(textId);
@@ -522,9 +385,9 @@
         if (input.files && input.files.length > 0) {
             let file = input.files[0]; 
             
-            // Seguridad: Límite de 10MB
+            // Límite de 10 MB
             if (file.size > 10 * 1024 * 1024) {
-                alert("Atención: El archivo seleccionado excede el límite permitido de 10 MB. Por favor, comprima la imagen o reduzca la resolución de su cámara.");
+                alert("Atención: El archivo seleccionado excede el límite permitido de 10 MB. Por favor, reduzca la resolución de su cámara o comprima el archivo.");
                 input.value = ""; 
                 preview.style.display = 'none';
                 textHelp.style.display = 'none';
@@ -540,6 +403,7 @@
                 }
                 reader.readAsDataURL(file);
             } else {
+                // Si es un PDF u otro archivo no-imagen, ocultamos preview visual
                 preview.style.display = 'none';
                 textHelp.style.display = 'none';
             }
@@ -549,20 +413,20 @@
         }
     }
 
-    // Procesamiento y envío vía Webhook n8n
+    // Lógica de Envío a Webhook (n8n)
     const form = document.getElementById('auditoriaForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = document.getElementById('btnEnviar');
         const originalText = btn.innerHTML;
         
-        btn.innerHTML = 'PROCESANDO EXPEDIENTE... NO CIERRE LA VENTANA';
-        btn.style.backgroundColor = '#1e293b'; // Cambio a color oscuro mientras carga
+        btn.innerHTML = 'PROCESANDO EXPEDIENTE Y ARCHIVOS...';
+        btn.style.backgroundColor = '#1e293b'; 
         btn.disabled = true;
 
         const formData = new FormData(form);
         
-        // SUSTITUIR POR LA URL DE PRODUCCIÓN DE N8N
+        // URL DE PRODUCCIÓN DE N8N PARA LA FASE 2
         const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/auditoria-pago-certilab';
 
         try {
@@ -570,13 +434,12 @@
                 method: 'POST', 
                 body: formData 
             });
-            alert('✅ Expediente técnico recibido correctamente. Nuestro equipo colegiado comenzará la auditoría térmica y contactaremos con usted a la mayor brevedad.');
+            alert('✅ Expediente técnico y archivos recibidos correctamente. Comenzaremos el modelado en CE³X y le contactaremos a la mayor brevedad.');
             form.reset();
             document.querySelectorAll('.image-preview, .preview-text').forEach(el => el.style.display = 'none');
         } catch (error) { 
-            // Bloque Catch para errores CORS si el webhook no responde cabeceras de éxito, pero recibe los datos
             console.error("Estado de conexión Webhook:", error);
-            alert('✅ Expediente técnico recibido correctamente.');
+            alert('✅ Expediente recibido correctamente.');
             form.reset();
             document.querySelectorAll('.image-preview, .preview-text').forEach(el => el.style.display = 'none');
         } finally { 
