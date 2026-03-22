@@ -15,7 +15,7 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // TU PÍXEL ID REAL (MANTENIDO DEL TUYO)
+    // TU PÍXEL ID REAL
     fbq('init', '1271893388238243'); 
     fbq('track', 'PageView');
     </script>
@@ -174,7 +174,7 @@
         </div>
 
         <label>Código Postal *</label>
-        <input type="text" name="cp" pattern="[0-9]{5}" placeholder="Ej: 08015" required title="Introduce un código postal válido de 5 dígitos">
+        <input type="text" name="cp" id="cpInput" pattern="^(08|8|17|25|43)[0-9]{3}$" placeholder="Ej: 08015" required title="Introduce un código postal válido de Cataluña (08, 17, 25 o 43)">
 
         <div class="section-title">2. Perfil Energético Actual</div>
         <div class="grid">
@@ -201,7 +201,7 @@
         </div>
 
         <label>Gasto energético medio mensual (€) *</label>
-        <input type="number" name="gasto_luz" min="0" max="2500" placeholder="Ej: 120 (Suma aproximada de Luz + Gas)" required>
+        <input type="number" name="gasto_luz" min="0" max="2500" placeholder="Ej: 120 (Suma aprox. Luz + Gas)" required>
 
         <div class="section-title">3. Datos de Contacto</div>
         <div class="grid">
@@ -236,6 +236,17 @@
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
+        // --- EL PORTERO: VALIDACIÓN ESTRICTA DEL CP DE CATALUÑA ---
+        const cpValue = document.getElementById('cpInput').value.trim();
+        const cpRegex = /^(08|8|17|25|43)[0-9]{3}$/;
+        
+        if (!cpRegex.test(cpValue)) {
+            alert("⚠️ Lo sentimos, actualmente Certilab solo presta servicio en el territorio de Cataluña.\n\nPor favor, introduzca un código postal válido de la región (Barcelona, Girona, Lleida o Tarragona).");
+            return; // Corta la ejecución y no envía nada a n8n
+        }
+        // -----------------------------------------------------------
+
         const btn = document.getElementById('btnEnviar');
         const originalText = btn.innerHTML;
         
@@ -244,7 +255,7 @@
 
         const data = Object.fromEntries(new FormData(form).entries());
         
-        // URL DE TU WEBHOOK EN N8N (Fase 1 / Captación)
+        // URL DE TU WEBHOOK EN N8N
         const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
 
         try {
@@ -254,7 +265,6 @@
                 body: JSON.stringify(data)
             });
             
-            // DISPARO DEL EVENTO META PIXEL (LEAD)
             if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             
             alert('✅ ¡Datos recibidos con éxito! Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.');
