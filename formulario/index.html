@@ -82,7 +82,7 @@
 
         label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
         
-        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], select { 
+        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], select { 
             width: 100%; 
             padding: 12px 14px; 
             margin-bottom: 15px; 
@@ -139,18 +139,29 @@
 
     <form id="leadForm">
         
-        <div class="section-title">1. Datos del Inmueble</div>
+        <div class="section-title">1. Relación y Datos del Inmueble</div>
         <div class="grid">
+            <div>
+                <label>Tu relación con el inmueble *</label>
+                <select name="perfil" id="perfilSelect" required>
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="propietario">Soy el propietario / Vendedor</option>
+                    <option value="comprador">Estoy pensando en comprarlo</option>
+                </select>
+            </div>
             <div>
                 <label>Tipo de Vivienda *</label>
                 <select name="tipo_vivienda" required>
                     <option value="" disabled selected>Seleccione...</option>
-                    <option value="piso_intermedio">Piso intermedio (vecinos arriba y abajo)</option>
+                    <option value="piso_intermedio">Piso intermedio (vecinos arriba/abajo)</option>
                     <option value="atico">Ático / Última planta</option>
                     <option value="bajo">Planta Baja</option>
                     <option value="unifamiliar">Casa / Chalet Unifamiliar</option>
                 </select>
             </div>
+        </div>
+
+        <div class="grid">
             <div>
                 <label>Uso principal *</label>
                 <select name="uso" required>
@@ -158,6 +169,15 @@
                     <option value="habitual">Vivienda Habitual</option>
                     <option value="segunda_residencia">Segunda Residencia</option>
                     <option value="alquiler">Para Alquilar / Vender</option>
+                </select>
+            </div>
+            <div>
+                <label>Estado de actualización *</label>
+                <select name="estado_reforma" required>
+                    <option value="" disabled selected>Seleccione...</option>
+                    <option value="origen">De origen (nunca reformada)</option>
+                    <option value="parcial">Reforma parcial (ej. solo ventanas)</option>
+                    <option value="integral">Reforma íntegra (hace menos de 10 años)</option>
                 </select>
             </div>
         </div>
@@ -175,6 +195,12 @@
 
         <label>Código Postal *</label>
         <input type="text" name="cp" id="cpInput" pattern="^(08|8|17|25|43)[0-9]{3}$" placeholder="Ej: 08015" required title="Introduce un código postal válido de Cataluña (08, 17, 25 o 43)">
+
+        <div id="divEnlace" style="display: none; background-color: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #3b82f6;">
+            <label style="color: #1e3a8a;">Enlace del anuncio (Idealista, Fotocasa...)</label>
+            <span style="font-size: 0.8em; color: #3b82f6; display: block; margin-bottom: 8px;">Recomendado: Pegue aquí el link para buscar "vicios ocultos" antes de comprar.</span>
+            <input type="url" name="enlace_inmueble" placeholder="https://www.idealista.com/inmueble/..." style="margin-bottom: 0;">
+        </div>
 
         <div class="section-title">2. Perfil Energético Actual</div>
         <div class="grid">
@@ -199,6 +225,15 @@
                 </select>
             </div>
         </div>
+
+        <label>Principal problema térmico percibido *</label>
+        <select name="problema_termico" required>
+            <option value="" disabled selected>Seleccione...</option>
+            <option value="frio">Pérdida de calor en invierno (Facturas altas)</option>
+            <option value="calor">Exceso de calor en verano (Efecto horno)</option>
+            <option value="humedades">Humedades o condensación en ventanas</option>
+            <option value="normativa">Ninguno, solo anticiparme a la Normativa 2030</option>
+        </select>
 
         <label>Gasto energético medio mensual (€) *</label>
         <input type="number" name="gasto_luz" min="0" max="2500" placeholder="Ej: 120 (Suma aprox. Luz + Gas)" required>
@@ -233,6 +268,16 @@
 </div>
 
 <script>
+    // Mostrar campo de enlace solo si es Comprador
+    document.getElementById('perfilSelect').addEventListener('change', function() {
+        const divEnlace = document.getElementById('divEnlace');
+        if (this.value === 'comprador') {
+            divEnlace.style.display = 'block';
+        } else {
+            divEnlace.style.display = 'none';
+        }
+    });
+
     const form = document.getElementById('leadForm');
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -269,12 +314,14 @@
             
             alert('✅ ¡Datos recibidos con éxito! Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.');
             form.reset();
+            document.getElementById('divEnlace').style.display = 'none'; // Resetea el campo oculto
             
         } catch (error) { 
             if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
             console.log("Datos enviados"); 
             alert('✅ Solicitud enviada correctamente.');
             form.reset();
+            document.getElementById('divEnlace').style.display = 'none'; // Resetea el campo oculto
         } finally { 
             btn.innerHTML = originalText; 
             btn.disabled = false; 
