@@ -52,77 +52,71 @@
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
         header { padding: 80px 0 50px; text-align: center; }
         .logo {
-            font-family: 'Crimson Pro', serif; font-size: 1.1rem; font-weight: 300;
-            letter-spacing: 0.12em; text-transform: uppercase; color: var(--gris); margin-bottom: 6px;
+            font-family: 'Crimson Pro', serif; font-size: 1.2rem; font-weight: 300;
+            letter-spacing: 0.15em; text-transform: uppercase; color: var(--noir); margin-bottom: 6px;
         }
-        .tagline { font-size: 0.75rem; color: var(--gris-clair); letter-spacing: 0.05em; }
-        .hero { text-align: center; padding: 40px 0 80px; max-width: 650px; margin: 0 auto; }
+        .hero { text-align: center; padding: 20px 0 60px; max-width: 700px; margin: 0 auto; }
         h1 {
-            font-family: 'Crimson Pro', serif; font-size: 2.6rem; font-weight: 400;
-            line-height: 1.3; margin-bottom: 20px; color: var(--noir); letter-spacing: -0.01em;
+            font-family: 'Crimson Pro', serif; font-size: 2.8rem; font-weight: 400;
+            line-height: 1.2; margin-bottom: 24px; color: var(--noir);
         }
-        .subtitle { font-size: 1rem; color: var(--gris); margin-bottom: 28px; font-weight: 300; line-height: 1.6; }
-        .badge {
-            display: inline-block; padding: 6px 18px; background: var(--creme);
-            border-radius: 100px; font-size: 0.85rem; color: var(--terre);
-            border: 1px solid rgba(139, 115, 85, 0.12); font-weight: 400;
-        }
-        .calculator-phase { max-width: 600px; margin: 0 auto 100px; }
+        .subtitle { font-size: 1.1rem; color: var(--gris); margin-bottom: 30px; }
+        
+        /* CALCULADORA */
+        .calculator-phase { max-width: 600px; margin: 0 auto 80px; }
         .calc-card {
             background: var(--creme); padding: 40px;
-            border: 1px solid rgba(139, 115, 85, 0.08); margin-bottom: 40px;
+            border: 1px solid rgba(139, 115, 85, 0.1); border-radius: 2px;
         }
-        .calc-title { font-family: 'Crimson Pro', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 28px; text-align: center; }
-        .field { margin-bottom: 24px; }
-        label { display: block; margin-bottom: 10px; font-size: 0.92rem; color: var(--noir); font-weight: 400; }
+        .field { margin-bottom: 25px; }
+        label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; }
         input, select {
             width: 100%; padding: 12px 0; background: transparent; border: none;
-            border-bottom: 1px solid var(--gris-clair); color: var(--noir);
-            font-size: 0.95rem; font-family: 'Inter', sans-serif; transition: border 0.3s; font-weight: 300;
+            border-bottom: 1px solid var(--gris-clair); font-size: 1rem; transition: 0.3s;
         }
-        input:focus, select:focus { outline: none; border-bottom-color: var(--terre); }
-        .hint { font-size: 0.78rem; color: var(--gris); margin-top: 6px; font-weight: 300; }
+        input:focus { outline: none; border-bottom-color: var(--terre); }
+        
+        /* RESULTADOS */
         .results-display {
-            background: white; padding: 32px; border: 1px solid rgba(139, 115, 85, 0.08);
-            text-align: center; margin-top: 32px; display: none;
+            display: none; background: white; padding: 40px; border: 1px solid #eee;
+            text-align: center; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
-        .big-number { font-family: 'Crimson Pro', serif; font-size: 3.5rem; font-weight: 300; color: var(--terre); line-height: 1; margin-bottom: 8px; }
-        .big-label { font-size: 0.8rem; color: var(--gris); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .big-number { font-family: 'Crimson Pro', serif; font-size: 3.5rem; color: var(--terre); }
+        
+        /* ETIQUETA ENERGÉTICA */
+        .energy-label-box {
+            margin: 25px auto; padding: 20px; border: 1px dashed var(--gris-clair);
+            max-width: 280px; background: #fafafa;
+        }
+        .letter-tag {
+            display: inline-block; padding: 10px 30px; font-weight: 900;
+            font-size: 2.5rem; color: white; border-radius: 4px; margin: 10px 0;
+        }
+        
+        /* DISCLAIMER COMERCIAL */
+        .disclaimer-box {
+            font-size: 0.85rem; color: var(--gris); line-height: 1.6;
+            margin: 25px 0; padding: 20px; background: var(--creme);
+            border-radius: 4px; text-align: left; border-left: 3px solid var(--terre);
+        }
+
         .metric-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-            margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(139, 115, 85, 0.12);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;
+            margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee;
         }
-        .metric-value { font-family: 'Crimson Pro', serif; font-size: 1.3rem; color: var(--noir); display: block; margin-bottom: 4px; }
-        .metric-label { font-size: 0.75rem; color: var(--gris); text-transform: uppercase; letter-spacing: 0.05em; }
+        .metric-value { font-weight: 600; font-size: 1.2rem; display: block; }
+        .metric-label { font-size: 0.7rem; text-transform: uppercase; color: var(--gris-clair); }
+
         .btn {
-            padding: 16px 32px; border: none; font-size: 0.95rem; cursor: pointer;
-            transition: all 0.25s; font-family: 'Inter', sans-serif; font-weight: 500; width: 100%; margin-top: 24px;
+            padding: 18px 30px; border: none; font-size: 1rem; cursor: pointer;
+            font-weight: 600; width: 100%; transition: 0.3s;
         }
-        .btn-primary { background: var(--noir); color: var(--blanc); }
-        .btn-primary:hover { background: var(--gris); }
+        .btn-primary { background: var(--noir); color: white; }
+        .btn-primary:hover { background: #333; }
+
         .form-phase { display: none; max-width: 700px; margin: 0 auto 100px; }
         .form-phase.active { display: block; }
-        .section-header { font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 400; margin: 40px 0 28px; color: var(--noir); }
-        .section-divider { height: 1px; background: var(--gris-clair); margin: 32px 0; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .info-box {
-            background: #eff6ff; padding: 16px; border-radius: 4px; margin: 20px 0;
-            border-left: 3px solid var(--accent); font-size: 0.88rem; color: #1e3a8a; display: none;
-        }
-        .info-box.active { display: block; }
-        .legal-label { display: flex; align-items: flex-start; gap: 12px; font-size: 0.8rem; color: var(--gris); margin-top: 24px; cursor: pointer; }
-        .legal-checkbox { width: 18px; height: 18px; margin: 2px 0 0 0; flex-shrink: 0; accent-color: var(--terre); }
-        .legal-info { font-size: 0.7rem; color: var(--gris); margin-top: 12px; padding: 12px; background: var(--creme); border-radius: 4px; line-height: 1.5; }
-        .success-screen { display: none; text-align: center; padding: 80px 40px; max-width: 600px; margin: 0 auto; }
-        .success-screen.active { display: block; }
-        .check-icon {
-            width: 60px; height: 60px; border: 1.5px solid var(--vert); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-size: 1.8rem; color: var(--vert);
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            .grid, .metric-grid { grid-template-columns: 1fr; }
-        }
+        
         .lang-content { display: none; }
         .lang-content.active { display: inline; }
     </style>
@@ -138,53 +132,41 @@
     <div class="container">
         <header>
             <div class="logo">Certilab</div>
-            <div class="tagline">
-                <span class="lang-content active" data-lang="ca">Consultoria Tècnica · Arquitectura</span>
-                <span class="lang-content" data-lang="es">Consultoría Técnica · Arquitectura</span>
-            </div>
+            <p class="tagline">
+                <span class="lang-content active" data-lang="ca">Consultoria Tècnica · Arquitectura Tècnica Col·legiada</span>
+                <span class="lang-content" data-lang="es">Consultoría Técnica · Arquitectura Técnica Colegiada</span>
+            </p>
         </header>
 
         <section class="hero">
             <h1>
-                <span class="lang-content active" data-lang="ca">Quant pots estalviar a la teva llar?</span>
-                <span class="lang-content" data-lang="es">¿Cuánto puedes ahorrar en tu hogar?</span>
+                <span class="lang-content active" data-lang="ca">Del càlcul a la realitat: El seu estalvi energètic</span>
+                <span class="lang-content" data-lang="es">Del cálculo a la realidad: Su ahorro energético</span>
             </h1>
             <p class="subtitle">
-                <span class="lang-content active" data-lang="ca">Anàlisi preliminar gratuïta per avaluar el potencial d'estalvi del teu immoble i l'accés a subvencions NextGen</span>
-                <span class="lang-content" data-lang="es">Análisis preliminar gratuito para evaluar el potencial de ahorro de tu inmueble y el acceso a subvenciones NextGen</span>
+                <span class="lang-content active" data-lang="ca">Descobreixi el potencial d'estalvi de la seva llar i accedeixi a subvencions oficials amb un pre-diagnòstic gratuït.</span>
+                <span class="lang-content" data-lang="es">Descubra el potencial de ahorro de su hogar y acceda a subvenciones oficiales con un pre-diagnóstico gratuito.</span>
             </p>
-            <div class="badge">
-                <span class="lang-content active" data-lang="ca">Estudi professional gratuït</span>
-                <span class="lang-content" data-lang="es">Estudio profesional gratuito</span>
-            </div>
         </section>
 
         <div class="calculator-phase" id="phase1">
             <div class="calc-card">
-                <h2 class="calc-title">
-                    <span class="lang-content active" data-lang="ca">Calculadora ràpida d'estalvi</span>
-                    <span class="lang-content" data-lang="es">Calculadora rápida de ahorro</span>
-                </h2>
-                
                 <form id="quickCalc">
                     <div class="field">
                         <label><span class="lang-content active" data-lang="ca">Superfície útil (m²)</span><span class="lang-content" data-lang="es">Superficie útil (m²)</span></label>
-                        <input type="number" id="superficie" min="50" max="500" placeholder="80" required>
+                        <input type="number" id="superficie" placeholder="Ex: 85" required>
                     </div>
-
                     <div class="field">
                         <label><span class="lang-content active" data-lang="ca">Any de construcció</span><span class="lang-content" data-lang="es">Año de construcción</span></label>
-                        <input type="number" id="anio" min="1800" max="2026" placeholder="1985" required>
+                        <input type="number" id="anio" placeholder="Ex: 1980" required>
                     </div>
-
                     <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Despesa energètica mensual (€)</span><span class="lang-content" data-lang="es">Gasto energético mensual (€)</span></label>
-                        <input type="number" id="gasto" min="30" max="2500" placeholder="120" required>
+                        <label><span class="lang-content active" data-lang="ca">Despesa mensual llum/gas (€)</span><span class="lang-content" data-lang="es">Gasto mensual luz/gas (€)</span></label>
+                        <input type="number" id="gasto" placeholder="Ex: 150" required>
                     </div>
-
                     <button type="button" class="btn btn-primary" onclick="calculateSavings()">
-                        <span class="lang-content active" data-lang="ca">Calcular estalvi potencial</span>
-                        <span class="lang-content" data-lang="es">Calcular ahorro potencial</span>
+                        <span class="lang-content active" data-lang="ca">CALCULAR ESTALVI POTENCIAL</span>
+                        <span class="lang-content" data-lang="es">CALCULAR AHORRO POTENCIAL</span>
                     </button>
                 </form>
             </div>
@@ -196,112 +178,64 @@
                     <span class="lang-content" data-lang="es">Ahorro anual estimado</span>
                 </div>
 
+                <div class="energy-label-box">
+                    <span style="font-size: 0.75rem; font-weight: 600; color: var(--gris);">
+                        <span class="lang-content active" data-lang="ca">QUALIFICACIÓ ESTIMADA ACTUAL</span>
+                        <span class="lang-content" data-lang="es">CALIFICACIÓN ESTIMADA ACTUAL</span>
+                    </span>
+                    <div class="letter-tag" id="letterBox">—</div>
+                    <p style="font-size: 0.7rem; color: var(--gris-clair);">*Basat en normativa d'edificació per any</p>
+                </div>
+
+                <div class="disclaimer-box">
+                    <strong>
+                        <span class="lang-content active" data-lang="ca">La precisió és diners.</span>
+                        <span class="lang-content" data-lang="es">La precisión es dinero.</span>
+                    </strong><br>
+                    <span class="lang-content active" data-lang="ca">Aquestes xifres confirmen un potencial d'estalvi extraordinari. Però en rehabilitació, una dada mal calculada pot suposar la pèrdua d'una subvenció. El següent pas és el nostre <strong>Estudi de Contrast Certilab</strong> per confirmar l'estalvi real i correcte.</span>
+                    <span class="lang-content" data-lang="es">Estas cifras confirman un potencial de ahorro extraordinario. Pero en rehabilitación, un dato mal calculado puede suponer la pérdida de una subvención. El siguiente paso es nuestro <strong>Estudio de Contraste Certilab</strong> para confirmar el ahorro real y correcto.</span>
+                </div>
+
                 <div class="metric-grid">
-                    <div class="metric">
-                        <span class="metric-value" id="savingsPercent">—</span>
-                        <span class="metric-label"><span class="lang-content active" data-lang="ca">Reducció</span><span class="lang-content" data-lang="es">Reducción</span></span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value" id="co2Reduction">—</span>
-                        <span class="metric-label">CO₂/any</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value" id="roiPeriod">—</span>
-                        <span class="metric-label">ROI</span>
-                    </div>
+                    <div class="metric"><span class="metric-value" id="savingsPercent">—</span><span class="metric-label">Reducció</span></div>
+                    <div class="metric"><span class="metric-value" id="co2Reduction">—</span><span class="metric-label">CO₂/any</span></div>
+                    <div class="metric"><span class="metric-value" id="roiPeriod">—</span><span class="metric-label">Retorn</span></div>
                 </div>
 
                 <button type="button" class="btn btn-primary" onclick="goToForm()">
-                    <span class="lang-content active" data-lang="ca">✓ Vull el meu informe detallat gratuït</span>
-                    <span class="lang-content" data-lang="es">✓ Quiero mi informe detallado gratuito</span>
+                    <span class="lang-content active" data-lang="ca">SOL·LICITAR AUDITORIA DE CONTRAST GRATUÏTA</span>
+                    <span class="lang-content" data-lang="es">SOLICITAR AUDITORÍA DE CONTRASTE GRATUITA</span>
                 </button>
             </div>
         </div>
 
         <div class="form-phase" id="phase2">
-            <h2 class="section-header">
-                <span class="lang-content active" data-lang="ca">Completa les teves dades per rebre l'estudi</span>
-                <span class="lang-content" data-lang="es">Completa tus datos para recibir el estudio</span>
-            </h2>
-
             <form id="detailedForm">
                 <div class="field">
-                    <label><span class="lang-content active" data-lang="ca">La teva relació amb l'immoble</span><span class="lang-content" data-lang="es">Tu relación con el inmueble</span></label>
-                    <select name="perfil" id="perfilSelect" required>
-                        <option value="">Selecciona...</option>
-                        <option value="propietario" data-ca="Sóc el propietari" data-es="Soy el propietario">Sóc el propietari</option>
-                        <option value="comprador" data-ca="Estic pensant comprar-lo" data-es="Estoy pensando en comprarlo">Estic pensant comprar-lo</option>
-                        <option value="comunidad" data-ca="Admin. comunitat" data-es="Admin. comunidad">Admin. comunitat</option>
-                    </select>
+                    <label>WhatsApp</label>
+                    <input type="tel" name="whatsapp" placeholder="Ex: 600000000" required>
                 </div>
-
-                <div class="info-box" id="compradorInfo">
-                    <label><span class="lang-content active" data-lang="ca">Enllaç de l'anunci</span><span class="lang-content" data-lang="es">Enlace del anuncio</span></label>
-                    <input type="url" name="enlace_inmueble" placeholder="https://www.idealista.com/...">
-                </div>
-
-                <div class="grid">
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Codi Postal (Catalunya)</span><span class="lang-content" data-lang="es">Código Postal (Cataluña)</span></label>
-                        <input type="text" name="cp" id="cpInput" placeholder="08015" required>
-                    </div>
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Tipus d'habitatge</span><span class="lang-content" data-lang="es">Tipo de vivienda</span></label>
-                        <select name="tipo_vivienda" required>
-                            <option value="">Selecciona...</option>
-                            <option value="piso" data-ca="Pis" data-es="Piso">Pis</option>
-                            <option value="unifamiliar" data-ca="Casa" data-es="Casa">Casa</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid">
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Problema tèrmic</span><span class="lang-content" data-lang="es">Problema térmico</span></label>
-                        <select name="problema_termico" required>
-                            <option value="">Selecciona...</option>
-                            <option value="frio" data-ca="Fred a l'hivern" data-es="Frío en invierno">Fred a l'hivern</option>
-                            <option value="humedades" data-ca="Humitats" data-es="Humedades">Humitats</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Urgència</span><span class="lang-content" data-lang="es">Urgencia</span></label>
-                        <select name="urgencia" required>
-                            <option value="">Selecciona...</option>
-                            <option value="inmediato" data-ca="Immediat" data-es="Inmediato">Immediat</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid">
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">Nom</span><span class="lang-content" data-lang="es">Nombre</span></label>
-                        <input type="text" name="nombre" required>
-                    </div>
-                    <div class="field">
-                        <label><span class="lang-content active" data-lang="ca">WhatsApp</span><span class="lang-content" data-lang="es">WhatsApp</span></label>
-                        <input type="tel" name="whatsapp" required>
-                    </div>
-                </div>
-
                 <div class="field">
-                    <label><span class="lang-content active" data-lang="ca">Email</span><span class="lang-content" data-lang="es">Email</span></label>
-                    <input type="email" name="email" required>
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="correu@exemple.com" required>
                 </div>
-
-                <label class="legal-label">
-                    <input type="checkbox" required class="legal-checkbox">
-                    <span><span class="lang-content active" data-lang="ca">Accepto la política de privacitat</span><span class="lang-content" data-lang="es">Acepto la política de privacidad</span></span>
-                </label>
-
-                <button type="submit" class="btn btn-primary" id="btnEnviar">SOL·LICITAR</button>
+                <div class="field">
+                    <label><span class="lang-content active" data-lang="ca">Nom Complet</span><span class="lang-content" data-lang="es">Nombre Completo</span></label>
+                    <input type="text" name="nombre" required>
+                </div>
+                <div class="field">
+                    <label><span class="lang-content active" data-lang="ca">Codi Postal (Catalunya)</span><span class="lang-content" data-lang="es">Código Postal (Cataluña)</span></label>
+                    <input type="text" name="cp" id="cpInput" placeholder="08000" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" id="btnEnviar">ENVIAR I REBRE ESTUDI</button>
             </form>
         </div>
 
         <div class="success-screen" id="successScreen">
             <div class="check-icon">✓</div>
-            <h2 class="success-title"><span class="lang-content active" data-lang="ca">Rebut!</span><span class="lang-content" data-lang="es">¡Recibido!</span></h2>
-            <p class="success-text"><span class="lang-content active" data-lang="ca">Rebràs l'estudi en breu.</span><span class="lang-content" data-lang="es">Recibirás el estudio en breve.</span></p>
+            <h2><span class="lang-content active" data-lang="ca">Sol·licitud Rebuda</span><span class="lang-content" data-lang="es">Solicitud Recibida</span></h2>
+            <p><span class="lang-content active" data-lang="ca">Eva María contactarà amb vostè en breu amb el seu informe.</span><span class="lang-content" data-lang="es">Eva María contactará con usted en breve con su informe.</span></p>
         </div>
     </div>
 
@@ -313,35 +247,32 @@
             currentLang = lang;
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
             document.querySelectorAll('.lang-content').forEach(el => el.classList.toggle('active', el.dataset.lang === lang));
-            document.querySelectorAll('select option').forEach(opt => { if (opt.dataset[lang]) opt.textContent = opt.dataset[lang]; });
         }
 
-        document.getElementById('perfilSelect').addEventListener('change', function() {
-            document.getElementById('compradorInfo').style.display = this.value === 'comprador' ? 'block' : 'none';
-        });
-
         function calculateSavings() {
-            const superficie = parseFloat(document.getElementById('superficie').value);
+            const sup = parseFloat(document.getElementById('superficie').value);
             const anio = parseFloat(document.getElementById('anio').value);
             const gasto = parseFloat(document.getElementById('gasto').value);
 
-            if (!superficie || !anio || !gasto) {
-                alert(currentLang === 'ca' ? 'Falten dades' : 'Faltan datos');
-                return;
-            }
+            if (!sup || !anio || !gasto) return alert('Falten dades');
 
-            calcData = { superficie, anio, gasto };
+            // Letra y Color
+            let letra = 'G'; let color = '#e31d1a';
+            if (anio >= 2020) { letra = 'B'; color = '#4bb543'; }
+            else if (anio >= 2014) { letra = 'C'; color = '#8ec63f'; }
+            else if (anio >= 2008) { letra = 'D'; color = '#f8ef1a'; }
+            else if (anio >= 1995) { letra = 'E'; color = '#f7941d'; }
+            else if (anio >= 1980) { letra = 'F'; color = '#f26522'; }
 
-            // Lógica de cálculo simplificada
-            const ahorroAnual = Math.round(gasto * 12 * 0.45);
-            const porcentaje = 45;
-            const co2 = Math.round(superficie * 12);
-            const roi = 6.5;
+            const ahorro = Math.round(gasto * 12 * 0.42);
+            calcData = { sup, anio, gasto, letra };
 
-            document.getElementById('savingsAmount').textContent = ahorroAnual + '€';
-            document.getElementById('savingsPercent').textContent = porcentaje + '%';
-            document.getElementById('co2Reduction').textContent = co2 + ' kg';
-            document.getElementById('roiPeriod').textContent = roi + ' anys';
+            document.getElementById('savingsAmount').textContent = ahorro + '€';
+            document.getElementById('letterBox').textContent = letra;
+            document.getElementById('letterBox').style.backgroundColor = color;
+            document.getElementById('savingsPercent').textContent = '42%';
+            document.getElementById('co2Reduction').textContent = Math.round(sup * 14) + 'kg';
+            document.getElementById('roiPeriod').textContent = (anio < 1980 ? '4.5' : '7.2') + ' anys';
 
             document.getElementById('results').style.display = 'block';
             document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
@@ -350,17 +281,15 @@
         function goToForm() {
             document.getElementById('phase1').style.display = 'none';
             document.getElementById('phase2').classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0 });
         }
 
         document.getElementById('detailedForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
-            btn.disabled = true;
-            btn.textContent = '...';
+            btn.disabled = true; btn.textContent = '...';
 
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(new FormData(this));
             Object.assign(data, calcData, { idioma: currentLang });
 
             try {
@@ -371,9 +300,8 @@
                 });
                 document.getElementById('phase2').style.display = 'none';
                 document.getElementById('successScreen').classList.add('active');
-            } catch (e) {
-                alert('Error en l\'enviament');
-            } finally {
+            } catch (err) {
+                alert('Error en enviament');
                 btn.disabled = false;
             }
         });
