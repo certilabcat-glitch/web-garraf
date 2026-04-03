@@ -26,44 +26,50 @@
             --blanc: #FAFAF8; --creme: #F5F3EF; --terre: #8B7355;
             --accent: #2563eb; --vert: #7A8F7E;
         }
-        body {
-            font-family: 'Inter', sans-serif; background: var(--blanc);
-            color: var(--noir); line-height: 1.7; font-weight: 300;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--blanc); color: var(--noir); line-height: 1.7; font-weight: 300; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
         header { padding: 60px 0 30px; text-align: center; }
-        .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .logo { font-family: 'Crimson Pro', serif; font-size: 1.2rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400; }
         
-        /* Fases */
+        /* Selector de Idioma */
+        .lang-selector { position: fixed; top: 20px; right: 20px; display: flex; gap: 8px; z-index: 1000; background: white; padding: 6px; border-radius: 100px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .lang-btn { padding: 6px 14px; border: 1px solid var(--gris-clair); background: transparent; border-radius: 100px; font-size: 0.8rem; cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--gris); }
+        .lang-btn.active { background: var(--noir); color: white; border-color: var(--noir); }
+
+        /* Fases y Visibilidad */
         .calculator-phase { max-width: 600px; margin: 0 auto 50px; display: block; }
         .form-phase { display: none; max-width: 600px; margin: 0 auto 100px; }
-        .success-screen { display: none; text-align: center; padding: 80px 40px; } /* CRÍTICO: display none */
-
+        .success-screen { display: none; text-align: center; padding: 80px 40px; }
+        .results-display { display: none; padding: 30px; background: white; border: 1px solid #eee; text-align: center; margin-top: 20px; }
+        
+        /* Estética */
         .calc-card { background: var(--creme); padding: 40px; border: 1px solid rgba(139,115,85,0.1); }
         .field { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: 500; }
-        input { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid var(--gris-clair); background: transparent; }
-        
-        /* Resultados ocultos inicialmente */
-        .results-display { display: none; padding: 30px; background: white; border: 1px solid #eee; text-align: center; margin-top: 20px; }
-        
+        input { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid var(--gris-clair); background: transparent; font-size: 1rem; }
         .letter-tag { display: inline-block; padding: 10px 30px; font-weight: 900; font-size: 2.5rem; color: white; border-radius: 4px; margin: 15px 0; }
-        .disclaimer-box { font-size: 0.85rem; color: var(--gris); padding: 20px; background: var(--creme); border-left: 3px solid var(--terre); text-align: left; margin: 20px 0; }
-
-        .btn { padding: 18px; border: none; font-weight: 600; width: 100%; cursor: pointer; margin-top: 15px; transition: 0.3s; }
+        .disclaimer-box { font-size: 0.85rem; color: var(--gris); padding: 20px; background: var(--creme); border-left: 3px solid var(--terre); text-align: left; margin: 20px 0; line-height: 1.5; }
+        .btn { padding: 18px; border: none; font-weight: 600; width: 100%; cursor: pointer; margin-top: 15px; transition: 0.3s; font-family: 'Inter', sans-serif; }
         .btn-primary { background: var(--noir); color: white; }
         .btn-primary:hover { background: #333; }
         
+        /* Control de Idioma en el Texto */
         .lang-content { display: none; }
         .lang-content.active { display: inline; }
         .check-icon { font-size: 3rem; color: var(--vert); margin-bottom: 20px; }
     </style>
 </head>
 <body>
+
+    <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLanguage('ca')" id="btn-ca">CAT</button>
+        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ESP</button>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">Certilab</div>
-            <p style="font-size: 0.8rem; color: var(--gris);">
+            <p style="font-size: 0.8rem; color: var(--gris); letter-spacing: 0.05em;">
                 <span class="lang-content active" data-lang="ca">Arquitectura Tècnica Col·legiada</span>
                 <span class="lang-content" data-lang="es">Arquitectura Técnica Colegiada</span>
             </p>
@@ -72,43 +78,74 @@
         <div id="phase1" class="calculator-phase">
             <div class="calc-card">
                 <div class="field">
-                    <label>Superfície (m²)</label>
+                    <label>
+                        <span class="lang-content active" data-lang="ca">Superfície útil (m²)</span>
+                        <span class="lang-content" data-lang="es">Superficie útil (m²)</span>
+                    </label>
                     <input type="number" id="superficie" placeholder="85">
                 </div>
                 <div class="field">
-                    <label>Any construcció</label>
+                    <label>
+                        <span class="lang-content active" data-lang="ca">Any de construcció</span>
+                        <span class="lang-content" data-lang="es">Año de construcción</span>
+                    </label>
                     <input type="number" id="anio" placeholder="1980">
                 </div>
                 <div class="field">
-                    <label>Despesa mensual (€)</label>
+                    <label>
+                        <span class="lang-content active" data-lang="ca">Despesa mensual llum/gas (€)</span>
+                        <span class="lang-content" data-lang="es">Gasto mensual luz/gas (€)</span>
+                    </label>
                     <input type="number" id="gasto" placeholder="150">
                 </div>
-                <button class="btn btn-primary" onclick="ejecutarCalculo()">CALCULAR ESTALVI</button>
+                <button class="btn btn-primary" onclick="ejecutarCalculo()">
+                    <span class="lang-content active" data-lang="ca">CALCULAR ESTALVI</span>
+                    <span class="lang-content" data-lang="es">CALCULAR AHORRO</span>
+                </button>
             </div>
 
             <div id="results" class="results-display">
                 <h2 id="savingsAmount" style="font-size: 3rem; color: var(--terre);">0€</h2>
-                <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em;">Estalvi anual estimat</p>
+                <p style="text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.1em; font-weight: 600;">
+                    <span class="lang-content active" data-lang="ca">Estalvi anual estimat</span>
+                    <span class="lang-content" data-lang="es">Ahorro anual estimado</span>
+                </p>
                 
                 <div class="energy-label-box" style="margin-top: 20px;">
-                    <p style="font-size: 0.75rem; font-weight: 600;">QUALIFICACIÓ ESTIMADA</p>
+                    <p style="font-size: 0.75rem; font-weight: 600;">
+                        <span class="lang-content active" data-lang="ca">QUALIFICACIÓ ESTIMADA</span>
+                        <span class="lang-content" data-lang="es">CALIFICACIÓN ESTIMADA</span>
+                    </p>
                     <div id="letterBox" class="letter-tag">—</div>
                 </div>
 
                 <div class="disclaimer-box">
-                    <strong>La precisió és diners.</strong><br>
-                    Aquestes xifres són una estimació. Per garantir l'estalvi real i no perdre subvencions, cal un <strong>Estudi de Contrast Certilab</strong> professional.
+                    <strong>
+                        <span class="lang-content active" data-lang="ca">La precisió és diners.</span>
+                        <span class="lang-content" data-lang="es">La precisión es dinero.</span>
+                    </strong><br>
+                    <span class="lang-content active" data-lang="ca">Aquestes xifres són una estimació. Per garantir l'estalvi real i no perdre subvencions, cal un <strong>Estudi de Contrast Certilab</strong> professional.</span>
+                    <span class="lang-content" data-lang="es">Estas cifras son una estimación. Para garantizar el ahorro real y no perder subvenciones, es necesario un <strong>Estudio de Contraste Certilab</strong> profesional.</span>
                 </div>
 
-                <button class="btn btn-primary" onclick="mostrarFormulario()">SOL·LICITAR AUDITORIA GRATUÏTA</button>
+                <button class="btn btn-primary" onclick="mostrarFormulario()">
+                    <span class="lang-content active" data-lang="ca">SOL·LICITAR AUDITORIA GRATUÏTA</span>
+                    <span class="lang-content" data-lang="es">SOLICITAR AUDITORÍA GRATUITA</span>
+                </button>
             </div>
         </div>
 
         <div id="phase2" class="form-phase">
-            <h2 style="margin-bottom: 20px;">Dades de contacte</h2>
+            <h2 style="margin-bottom: 20px; font-family: 'Crimson Pro', serif;">
+                <span class="lang-content active" data-lang="ca">Dades de contacte</span>
+                <span class="lang-content" data-lang="es">Datos de contacto</span>
+            </h2>
             <form id="detailedForm">
                 <div class="field">
-                    <label>Nom i Cognoms</label>
+                    <label>
+                        <span class="lang-content active" data-lang="ca">Nom i Cognoms</span>
+                        <span class="lang-content" data-lang="es">Nombre y Apellidos</span>
+                    </label>
                     <input type="text" name="nombre" required>
                 </div>
                 <div class="field">
@@ -120,31 +157,58 @@
                     <input type="email" name="email" required>
                 </div>
                 <div class="field">
-                    <label>Codi Postal</label>
+                    <label>
+                        <span class="lang-content active" data-lang="ca">Codi Postal</span>
+                        <span class="lang-content" data-lang="es">Código Postal</span>
+                    </label>
                     <input type="text" name="cp" required>
                 </div>
-                <button type="submit" class="btn btn-primary" id="btnEnviar">ENVIAR I REBRE ESTUDI</button>
+                <button type="submit" class="btn btn-primary" id="btnEnviar">
+                    <span class="lang-content active" data-lang="ca">ENVIAR I REBRE ESTUDI</span>
+                    <span class="lang-content" data-lang="es">ENVIAR Y RECIBIR ESTUDIO</span>
+                </button>
             </form>
         </div>
 
         <div id="successScreen" class="success-screen">
             <div class="check-icon">✓</div>
-            <h2>Sol·licitud Rebuda</h2>
-            <p>Eva María contactarà amb vostè en breu amb el seu informe detallat.</p>
+            <h2>
+                <span class="lang-content active" data-lang="ca">Sol·licitud Rebuda</span>
+                <span class="lang-content" data-lang="es">Solicitud Recibida</span>
+            </h2>
+            <p>
+                <span class="lang-content active" data-lang="ca">Eva María contactarà amb vostè en breu amb el seu informe detallat.</span>
+                <span class="lang-content" data-lang="es">Eva María contactará con usted en breve con su informe detallado.</span>
+            </p>
         </div>
     </div>
 
     <script>
         let datosCalculadora = {};
+        let currentLang = 'ca';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            // Cambiar botones activos
+            document.getElementById('btn-ca').classList.toggle('active', lang === 'ca');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            
+            // Cambiar textos visibles
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-lang') === lang);
+            });
+        }
 
         function ejecutarCalculo() {
             const sup = document.getElementById('superficie').value;
             const anio = document.getElementById('anio').value;
             const gasto = document.getElementById('gasto').value;
 
-            if(!sup || !anio || !gasto) return alert("Falten dades");
+            if(!sup || !anio || !gasto) {
+                alert(currentLang === 'ca' ? "Falten dades" : "Faltan datos");
+                return;
+            }
 
-            // Lógica de letra y color
             let letra = 'G'; let color = '#e31d1a';
             if (anio >= 2020) { letra = 'B'; color = '#4bb543'; }
             else if (anio >= 2014) { letra = 'C'; color = '#8ec63f'; }
@@ -155,7 +219,6 @@
             const ahorro = Math.round(gasto * 12 * 0.42);
             datosCalculadora = { sup, anio, gasto, letra };
 
-            // Mostrar resultados
             document.getElementById('savingsAmount').innerText = ahorro + '€';
             document.getElementById('letterBox').innerText = letra;
             document.getElementById('letterBox').style.backgroundColor = color;
@@ -173,27 +236,23 @@
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
             btn.disabled = true;
-            btn.innerText = 'Enviant...';
+            btn.innerText = currentLang === 'ca' ? 'Enviant...' : 'Enviando...';
 
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
-            Object.assign(data, datosCalculadora);
+            Object.assign(data, datosCalculadora, { idioma: currentLang });
 
             try {
-                // CAMBIAR POR TU URL DE PRODUCCIÓN DE N8N
                 await fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
-                
-                // OCULTAR FORMULARIO Y MOSTRAR ÉXITO
                 document.getElementById('phase2').style.display = 'none';
                 document.getElementById('successScreen').style.display = 'block';
             } catch (err) {
-                alert("Error en l'enviament. Per favor, ho intenta de nou.");
+                alert("Error");
                 btn.disabled = false;
-                btn.innerText = 'ENVIAR I REBRE ESTUDI';
             }
         });
     </script>
