@@ -950,6 +950,14 @@
             if (calcData.superficie) document.querySelector('[name="superficie"]').value = calcData.superficie;
             if (calcData.anio) document.querySelector('[name="anio"]').value = calcData.anio;
             if (calcData.gasto) document.querySelector('[name="gasto_luz"]').value = calcData.gasto;
+            
+            // Facebook Pixel - Usuari interessat en rebre informe
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Formulario Detallado',
+                    content_category: 'Auditoria Energetica'
+                });
+            }
         }
 
         // FASE 2: Envío formulario
@@ -1014,17 +1022,52 @@
                     body: JSON.stringify(data)
                 });
                 
+                // Facebook Pixel - Event estàndard Lead
                 if (typeof fbq !== 'undefined') { 
                     fbq('track', 'Lead', {
                         content_name: 'Formulario Completo',
-                        status: data.leadQuality
-                    }); 
+                        status: data.leadQuality,
+                        value: score,
+                        currency: 'EUR'
+                    });
+                    
+                    // Events personalitzats per qualitat
+                    if (data.leadQuality === 'HOT') {
+                        fbq('trackCustom', 'LeadHOT', {
+                            score: score,
+                            perfil: data.perfil,
+                            presupuesto: data.presupuesto,
+                            urgencia: data.urgencia
+                        });
+                    } else if (data.leadQuality === 'WARM') {
+                        fbq('trackCustom', 'LeadWARM', {
+                            score: score,
+                            perfil: data.perfil,
+                            presupuesto: data.presupuesto
+                        });
+                    } else if (data.leadQuality === 'COLD') {
+                        fbq('trackCustom', 'LeadCOLD', {
+                            score: score,
+                            perfil: data.perfil
+                        });
+                    }
                 }
                 
                 showSuccess(data.email);
                 
             } catch (error) { 
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+                // Fallback - envia events encara que falli el webhook
+                if (typeof fbq !== 'undefined') { 
+                    fbq('track', 'Lead');
+                    
+                    if (data.leadQuality === 'HOT') {
+                        fbq('trackCustom', 'LeadHOT', { score: score });
+                    } else if (data.leadQuality === 'WARM') {
+                        fbq('trackCustom', 'LeadWARM', { score: score });
+                    } else if (data.leadQuality === 'COLD') {
+                        fbq('trackCustom', 'LeadCOLD', { score: score });
+                    }
+                }
                 console.log("Datos enviados"); 
                 showSuccess(data.email);
             } finally { 
