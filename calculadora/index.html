@@ -560,7 +560,23 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary" onclick="goToForm()">
+                <button type="button" class="btn btn-primary" onclick="function goToForm() {
+    // 1. Cambiamos de fase visualmente
+    document.getElementById('phase1').style.display = 'none';
+    document.getElementById('phase2').classList.add('active');
+    
+    // 2. Inyectamos los datos guardados en la calculadora hacia el formulario
+    // Asegúrate de que los IDs de destino (superficie_f2, anio_f2) existan en tu Paso 2
+    if (calcData.sup) {
+        document.getElementById('superficie_f2').value = calcData.sup;
+    }
+    if (calcData.anio) {
+        document.getElementById('anio_f2').value = calcData.anio;
+    }
+    
+    // 3. Subimos al inicio de la página para que el cliente vea el formulario desde arriba
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}()">
                     <span class="lang-content active" data-lang="ca">✓ Vull el meu informe gratuït</span>
                     <span class="lang-content" data-lang="es">✓ Quiero mi informe gratuito</span>
                 </button>
