@@ -5,1270 +5,1178 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculadora Estalvi Energètic · Certilab</title>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- Facebook Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','YOUR_PIXEL_ID');
+fbq('init','1271893388238243');
 fbq('track','PageView');
 </script>
-
 <style>
-  :root {
-    --terra: #8B6F47;
-    --terra-dark: #5C4A2A;
-    --terra-light: #C4A882;
-    --crema: #F5EFE6;
-    --crema-dark: #EDE3D6;
-    --verde: #4A7C59;
-    --verde-light: #E8F2EB;
-    --gris: #6B6B6B;
-    --gris-clar: #F0EDE8;
-    --negre: #1A1A1A;
-    --blanc: #FFFFFF;
-    --perill: #C0392B;
-    --warning: #E67E22;
-    --success: #27AE60;
+:root{
+  --terra:#8B6F47;--terra-dk:#5C4A2A;--terra-lt:#C4A882;
+  --crema:#F5EFE6;--crema-dk:#EDE3D6;
+  --verde:#4A7C59;--verde-lt:#E8F2EB;
+  --gris:#6B6B6B;--gris-lt:#F0EDE8;
+  --negre:#1A1A1A;--blanc:#FFFFFF;
+  --err:#C0392B;--err-lt:#fdf0ef;
+  --font-serif:'Crimson Pro',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --r:4px;--rl:8px;
+  --sh:0 2px 16px rgba(92,74,42,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min-height:100vh;font-size:15px;line-height:1.6}
 
-    --font-serif: 'Crimson Pro', Georgia, serif;
-    --font-sans: 'Inter', system-ui, sans-serif;
-    --radius: 4px;
-    --radius-lg: 8px;
-    --shadow: 0 2px 12px rgba(139,111,71,0.12);
-  }
+/* HEADER */
+.hdr{background:var(--terra-dk);color:#fff;padding:28px 20px 20px;text-align:center;border-bottom:3px solid var(--terra)}
+.hdr-logo{font-family:var(--font-serif);font-size:11px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:var(--terra-lt);margin-bottom:10px}
+.hdr h1{font-family:var(--font-serif);font-size:clamp(21px,5vw,30px);font-weight:400;line-height:1.2;margin-bottom:5px}
+.hdr-sub{font-size:12px;color:rgba(255,255,255,0.6);font-weight:300}
+.lang-bar{background:var(--terra-dk);display:flex;justify-content:center;gap:6px;padding:0 20px 16px}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:2px;padding:4px 12px;border-radius:2px;cursor:pointer;transition:all .2s}
+.lang-btn.on{background:var(--terra);border-color:var(--terra);color:#fff}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* LAYOUT */
+.wrap{max-width:680px;margin:0 auto;padding:28px 14px 48px}
 
-  body {
-    font-family: var(--font-sans);
-    background: var(--crema);
-    color: var(--negre);
-    min-height: 100vh;
-    font-size: 15px;
-    line-height: 1.6;
-  }
+/* CARD BASE */
+.card{background:#fff;border:1px solid rgba(139,111,71,0.18);border-radius:var(--rl);padding:28px 24px;box-shadow:var(--sh);margin-bottom:14px}
+.card-ttl{font-family:var(--font-serif);font-size:21px;font-weight:400;color:var(--terra-dk);margin-bottom:4px}
+.card-sub{font-size:13px;color:var(--gris);margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--crema-dk)}
 
-  /* ─── HEADER ─── */
-  .header {
-    background: var(--terra-dark);
-    color: var(--blanc);
-    padding: 28px 24px 24px;
-    text-align: center;
-    border-bottom: 3px solid var(--terra);
-  }
-  .header-logo {
-    font-family: var(--font-serif);
-    font-size: 13px;
-    font-weight: 300;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--terra-light);
-    margin-bottom: 8px;
-  }
-  .header h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(22px, 5vw, 32px);
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-  .header-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
-  }
+/* INPUTS */
+.fld{margin-bottom:18px}
+.fld label,.lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
+.fld input,.fld select{width:100%;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);font-family:var(--font-sans);font-size:14px;color:var(--negre);background:var(--crema);transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--terra);background:#fff}
+.fld-hint{font-size:11px;color:var(--gris);margin-top:3px}
+.fld.err input,.fld.err select{border-color:var(--err);background:var(--err-lt)}
+.err-msg{font-size:11px;color:var(--err);margin-top:4px;display:none}
+.fld.err .err-msg{display:block}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:480px){.g2{grid-template-columns:1fr}}
 
-  /* ─── LANG SWITCHER ─── */
-  .lang-bar {
-    background: var(--terra-dark);
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    padding: 0 24px 14px;
-  }
-  .lang-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.25);
-    color: rgba(255,255,255,0.65);
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    padding: 3px 10px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .lang-btn.active {
-    background: var(--terra);
-    border-color: var(--terra);
-    color: var(--blanc);
-  }
+/* BOTÓ CALC */
+.btn-calc{width:100%;padding:14px;background:var(--terra-dk);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:15px;font-weight:500;cursor:pointer;transition:background .2s,transform .1s;margin-top:6px}
+.btn-calc:hover{background:var(--terra)}
+.btn-calc:active{transform:scale(.99)}
 
-  /* ─── LAYOUT ─── */
-  .container { max-width: 680px; margin: 0 auto; padding: 32px 16px 48px; }
+/* RESULTATS - ocults per defecte */
+#res{display:none;margin-top:14px}
 
-  /* ─── CALCULADORA ─── */
-  .calc-card {
-    background: var(--blanc);
-    border: 1px solid rgba(139,111,71,0.2);
-    border-radius: var(--radius-lg);
-    padding: 32px;
-    box-shadow: var(--shadow);
-    margin-bottom: 16px;
-  }
-  .calc-title {
-    font-family: var(--font-serif);
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--terra-dark);
-    margin-bottom: 6px;
-  }
-  .calc-subtitle {
-    font-size: 13px;
-    color: var(--gris);
-    margin-bottom: 24px;
-    border-bottom: 1px solid var(--crema-dark);
-    padding-bottom: 16px;
-  }
+/* ESCALA LETRES */
+.letres-wrap{display:flex;gap:10px;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap}
+.lletra-col{flex:1;min-width:120px;text-align:center}
+.lletra-label{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
+.lletra-badge{width:64px;height:64px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:36px;font-weight:600;color:#fff;margin:0 auto 6px;position:relative}
+.lletra-badge .arrow{position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--terra);font-size:18px}
+.lletra-sublbl{font-size:11px;color:var(--gris)}
 
-  .field-row { margin-bottom: 20px; }
-  .field-row label {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 6px;
-  }
-  .field-row input, .field-row select {
-    width: 100%;
-    padding: 11px 14px;
-    border: 1.5px solid rgba(139,111,71,0.25);
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 15px;
-    color: var(--negre);
-    background: var(--crema);
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-  .field-row input:focus, .field-row select:focus {
-    outline: none;
-    border-color: var(--terra);
-    background: var(--blanc);
-  }
-  .field-hint { font-size: 12px; color: var(--gris); margin-top: 4px; }
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+@media(max-width:460px){.metrics{grid-template-columns:1fr 1fr}}
+.mbox{background:var(--gris-lt);border-radius:var(--r);padding:13px 10px;text-align:center}
+.mval{font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--terra-dk);line-height:1;margin-bottom:3px}
+.mlbl{font-size:10px;color:var(--gris);line-height:1.3}
 
-  .fields-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media(max-width:520px){ .fields-grid { grid-template-columns: 1fr; } }
+/* CAE BOX */
+.cae-box{background:var(--verde-lt);border:1px solid rgba(74,124,89,0.25);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.cae-ico{font-size:26px;flex-shrink:0}
+.cae-val{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--verde);line-height:1}
+.cae-lbl{font-size:11px;color:#3a6b48;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.cae-info{font-size:11px;color:#4a7c59}
 
-  .btn-calc {
-    width: 100%;
-    padding: 14px;
-    background: var(--terra-dark);
-    color: var(--blanc);
-    border: none;
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 8px;
-  }
-  .btn-calc:hover { background: var(--terra); }
-  .btn-calc:active { transform: scale(0.99); }
+/* REVALORITZ */
+.reval-box{background:#f5f0e8;border:1px solid rgba(139,111,71,0.2);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.reval-ico{font-size:26px;flex-shrink:0}
+.reval-val{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--terra-dk);line-height:1}
+.reval-lbl{font-size:11px;color:var(--terra);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.reval-info{font-size:11px;color:var(--gris)}
 
-  /* ─── RESULTATS (HIDDEN BY DEFAULT via JS) ─── */
-  #results-section {
-    display: none;
-    margin-top: 16px;
-  }
+/* BARRES */
+.bar-row{margin-bottom:14px}
+.bar-head{display:flex;justify-content:space-between;font-size:11px;color:var(--gris);margin-bottom:4px}
+.bar-track{height:7px;background:var(--crema-dk);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:var(--terra);transition:width .8s ease}
+.bar-fill.g{background:var(--verde)}
 
-  .results-card {
-    background: var(--blanc);
-    border: 1px solid rgba(139,111,71,0.2);
-    border-radius: var(--radius-lg);
-    padding: 28px 32px;
-    box-shadow: var(--shadow);
-  }
-  .results-header {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--crema-dark);
-  }
-  .results-title {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--terra-dark);
-  }
-  .letra-badge {
-    font-family: var(--font-serif);
-    font-size: 28px;
-    font-weight: 600;
-    width: 48px;
-    height: 48px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--blanc);
-    flex-shrink: 0;
-  }
+.res-note{font-size:11px;color:var(--gris);text-align:center;margin:14px 0 18px;line-height:1.6}
 
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  @media(max-width:480px){ .metrics-grid { grid-template-columns: 1fr 1fr; } }
+/* BTÓ FORMULARI */
+.btn-form{width:100%;padding:15px;background:var(--verde);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:15px;font-weight:500;cursor:pointer;transition:background .2s}
+.btn-form:hover{background:#3a6b48}
 
-  .metric-box {
-    background: var(--gris-clar);
-    border-radius: var(--radius);
-    padding: 14px 12px;
-    text-align: center;
-  }
-  .metric-val {
-    font-family: var(--font-serif);
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--terra-dark);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .metric-lbl { font-size: 11px; color: var(--gris); line-height: 1.3; }
+/* FORMULARI */
+#form-sec{display:none;margin-top:14px}
+.form-card{background:#fff;border:1px solid rgba(139,111,71,0.18);border-radius:var(--rl);box-shadow:var(--sh);overflow:hidden}
 
-  .cae-box {
-    background: linear-gradient(135deg, var(--verde-light), #d4edda);
-    border: 1px solid rgba(74,124,89,0.3);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  .cae-icon { font-size: 28px; }
-  .cae-val {
-    font-family: var(--font-serif);
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--verde);
-  }
-  .cae-lbl { font-size: 12px; color: var(--verde); font-weight: 500; }
-  .cae-info { font-size: 12px; color: #4a7c59; margin-top: 2px; }
+/* PROGRESS */
+.progress{background:var(--gris-lt);padding:16px 20px;border-bottom:1px solid rgba(139,111,71,0.12)}
+.prog-steps{display:flex;align-items:center}
+.sdot{width:30px;height:30px;border-radius:50%;background:var(--crema-dk);border:2px solid rgba(139,111,71,0.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gris);flex-shrink:0;transition:all .3s}
+.sdot.on{background:var(--terra);border-color:var(--terra);color:#fff}
+.sdot.done{background:var(--verde);border-color:var(--verde);color:#fff}
+.sline{flex:1;height:2px;background:var(--crema-dk);transition:background .3s}
+.sline.done{background:var(--verde)}
+.prog-lbl{font-size:12px;color:var(--gris);margin-top:8px}
+.prog-lbl strong{color:var(--terra-dk)}
 
-  .bar-row { margin-bottom: 20px; }
-  .bar-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--gris); margin-bottom: 5px; }
-  .bar-track { height: 8px; background: var(--crema-dark); border-radius: 4px; overflow: hidden; }
-  .bar-fill { height: 100%; border-radius: 4px; background: var(--terra); transition: width 0.8s ease; }
-  .bar-fill.verde { background: var(--verde); }
+/* FORM BODY */
+.fbody{padding:24px 24px 20px}
+.fstep{display:none}
+.fstep.on{display:block}
+.fstep-ttl{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--terra-dk);margin-bottom:3px}
+.fstep-sub{font-size:13px;color:var(--gris);margin-bottom:20px}
 
-  .btn-form {
-    width: 100%;
-    padding: 15px;
-    background: var(--verde);
-    color: var(--blanc);
-    border: none;
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 8px;
-  }
-  .btn-form:hover { background: #3a6b48; }
+/* RADIO OPTS - UX MILLORAT */
+.radio-grp{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.ropt{display:flex;align-items:center;gap:0;border:1.5px solid rgba(139,111,71,0.2);border-radius:var(--r);cursor:pointer;transition:all .2s;background:var(--crema);overflow:hidden;position:relative}
+.ropt-check{width:44px;height:52px;background:rgba(139,111,71,0.07);border-right:1px solid rgba(139,111,71,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;transition:all .2s}
+.ropt-check input[type=radio]{display:none}
+.ropt-check::after{content:'○';font-size:16px;color:rgba(139,111,71,0.35)}
+.ropt.on .ropt-check{background:var(--terra);border-right-color:var(--terra)}
+.ropt.on .ropt-check::after{content:'✓';color:#fff;font-size:14px;font-weight:700}
+.ropt-txt{padding:10px 14px;font-size:14px;color:var(--negre);line-height:1.3}
+.ropt-ttl{font-weight:500}
+.ropt-sub{font-size:11px;color:var(--gris);margin-top:1px}
+.ropt:hover{border-color:var(--terra);background:#fff}
+.ropt.on{border-color:var(--terra);background:#fff}
+.ropt.on .ropt-ttl{color:var(--terra-dk)}
 
-  /* ─── FORMULARI (hidden by default) ─── */
-  #form-section { display: none; margin-top: 16px; }
+/* CHECKBOXES */
+.chk-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gris);line-height:1.5;margin-bottom:12px}
+.chk-row input{accent-color:var(--terra);margin-top:2px;flex-shrink:0;width:16px;height:16px}
+.chk-row a{color:var(--terra)}
 
-  .form-card {
-    background: var(--blanc);
-    border: 1px solid rgba(139,111,71,0.2);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-  }
-  .form-progress {
-    background: var(--gris-clar);
-    padding: 16px 24px;
-    border-bottom: 1px solid rgba(139,111,71,0.15);
-  }
-  .progress-steps {
-    display: flex;
-    align-items: center;
-    gap: 0;
-  }
-  .step-dot {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: var(--crema-dark);
-    border: 2px solid rgba(139,111,71,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 600; color: var(--gris);
-    flex-shrink: 0;
-    transition: all 0.3s;
-  }
-  .step-dot.active { background: var(--terra); border-color: var(--terra); color: var(--blanc); }
-  .step-dot.done { background: var(--verde); border-color: var(--verde); color: var(--blanc); }
-  .step-line { flex: 1; height: 2px; background: var(--crema-dark); transition: background 0.3s; }
-  .step-line.done { background: var(--verde); }
-  .progress-label { font-size: 12px; color: var(--gris); margin-top: 8px; }
-  .progress-label strong { color: var(--terra-dark); }
+/* FORM NAV */
+.fnav{display:flex;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--crema-dk)}
+.btn-back{padding:12px 18px;background:transparent;border:1.5px solid rgba(139,111,71,0.28);border-radius:var(--r);font-family:var(--font-sans);font-size:14px;color:var(--terra);cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-back:hover{border-color:var(--terra);background:var(--gris-lt)}
+.btn-next{flex:1;padding:12px;background:var(--terra-dk);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;transition:background .2s}
+.btn-next:hover{background:var(--terra)}
 
-  .form-body { padding: 28px 28px 24px; }
-  .form-step { display: none; }
-  .form-step.active { display: block; }
+/* SUCCESS */
+#suc-sec{display:none}
+.suc-card{background:#fff;border:1px solid rgba(74,124,89,0.28);border-radius:var(--rl);padding:40px 28px;text-align:center;box-shadow:var(--sh)}
+.suc-ico{font-size:52px;margin-bottom:14px}
+.suc-ttl{font-family:var(--font-serif);font-size:26px;color:var(--verde);margin-bottom:10px}
+.suc-sub{font-size:14px;color:var(--gris);max-width:380px;margin:0 auto}
 
-  .form-step-title {
-    font-family: var(--font-serif);
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--terra-dark);
-    margin-bottom: 4px;
-  }
-  .form-step-sub { font-size: 13px; color: var(--gris); margin-bottom: 22px; }
+/* FOOTER */
+.footer{text-align:center;font-size:11px;color:var(--gris);margin-top:28px;padding-top:14px;border-top:1px solid rgba(139,111,71,0.13);line-height:1.9}
 
-  .form-field { margin-bottom: 18px; }
-  .form-field label {
-    display: block;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    color: var(--terra);
-    margin-bottom: 5px;
-  }
-  .form-field input, .form-field select, .form-field textarea {
-    width: 100%;
-    padding: 11px 14px;
-    border: 1.5px solid rgba(139,111,71,0.25);
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    color: var(--negre);
-    background: var(--crema);
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-  .form-field input:focus, .form-field select:focus {
-    outline: none;
-    border-color: var(--terra);
-    background: var(--blanc);
-  }
-  .form-field.error input, .form-field.error select { border-color: var(--perill); }
-  .err-msg { font-size: 11px; color: var(--perill); margin-top: 3px; display: none; }
-  .form-field.error .err-msg { display: block; }
+/* DIVIDER */
+.divider{height:1px;background:var(--crema-dk);margin:16px 0}
 
-  .radio-group { display: flex; flex-direction: column; gap: 8px; }
-  .radio-opt {
-    display: flex; align-items: center; gap: 10px;
-    padding: 10px 14px;
-    border: 1.5px solid rgba(139,111,71,0.2);
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: all 0.2s;
-    background: var(--crema);
-    font-size: 14px;
-  }
-  .radio-opt:hover { border-color: var(--terra); }
-  .radio-opt input[type=radio] { accent-color: var(--terra); }
-  .radio-opt.selected { border-color: var(--terra); background: var(--blanc); }
-
-  .checkbox-row {
-    display: flex; gap: 10px; align-items: flex-start;
-    font-size: 13px; color: var(--gris);
-    line-height: 1.5;
-  }
-  .checkbox-row input { accent-color: var(--terra); margin-top: 2px; flex-shrink: 0; }
-  .checkbox-row a { color: var(--terra); }
-
-  .form-nav {
-    display: flex; gap: 10px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--crema-dark);
-  }
-  .btn-back {
-    padding: 12px 20px;
-    background: transparent;
-    border: 1.5px solid rgba(139,111,71,0.3);
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    color: var(--terra);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .btn-back:hover { border-color: var(--terra); background: var(--gris-clar); }
-  .btn-next {
-    flex: 1;
-    padding: 12px;
-    background: var(--terra-dark);
-    color: var(--blanc);
-    border: none;
-    border-radius: var(--radius);
-    font-family: var(--font-sans);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-  .btn-next:hover { background: var(--terra); }
-  .btn-next:disabled { background: var(--gris); cursor: not-allowed; }
-
-  /* ─── SCORE BADGE ─── */
-  .score-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-  .score-HOT { background: #fde8e8; color: #c0392b; }
-  .score-WARM { background: #fef3e2; color: #e67e22; }
-  .score-COLD { background: #e8f4fd; color: #2980b9; }
-  .score-LOW { background: #f0f0f0; color: #666; }
-
-  /* ─── SUCCESS ─── */
-  #success-section { display: none; }
-  .success-card {
-    background: var(--blanc);
-    border: 1px solid rgba(74,124,89,0.3);
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    text-align: center;
-    box-shadow: var(--shadow);
-  }
-  .success-icon { font-size: 48px; margin-bottom: 16px; }
-  .success-title {
-    font-family: var(--font-serif);
-    font-size: 26px;
-    color: var(--verde);
-    margin-bottom: 10px;
-  }
-  .success-sub { font-size: 15px; color: var(--gris); max-width: 360px; margin: 0 auto; }
-
-  /* ─── FOOTER ─── */
-  .footer {
-    text-align: center;
-    font-size: 11px;
-    color: var(--gris);
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(139,111,71,0.15);
-    line-height: 1.8;
-  }
-
-  /* ─── UTILS ─── */
-  .txt-center { text-align: center; }
-  .mt-8 { margin-top: 8px; }
+/* SELECT wrapper */
+.sel-wrap{position:relative}
+.sel-wrap::after{content:'▾';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--terra);pointer-events:none;font-size:12px}
+.sel-wrap select{padding-right:30px}
 </style>
 </head>
 <body>
 
-<!-- ══ HEADER ══ -->
-<div class="header">
-  <div class="header-logo">Certilab · Auditories Energètiques</div>
-  <h1 id="h-title">Calcula el teu estalvi energètic</h1>
-  <div class="header-sub" id="h-sub">Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya</div>
+<div class="hdr">
+  <div class="hdr-logo">Certilab · Auditories Energètiques</div>
+  <h1 id="h-ttl">Calcula el teu estalvi energètic</h1>
+  <div class="hdr-sub" id="h-sub">Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya</div>
 </div>
 <div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('ca')">CA</button>
+  <button class="lang-btn on" onclick="setLang('ca')">CA</button>
   <button class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
 
-<!-- ══ MAIN ══ -->
-<div class="container">
+<div class="wrap">
 
-  <!-- ── CALCULADORA ── -->
-  <div class="calc-card" id="calc-card">
-    <div class="calc-title" id="ct-title">Calculadora d'eficiència</div>
-    <div class="calc-subtitle" id="ct-sub">Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons</div>
+<!-- ══ BANNER URGÈNCIA ══ -->
+<div style="background:var(--terra-dk);color:#fff;border-radius:var(--r);padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;gap:10px;font-size:13px">
+  <span style="font-size:16px;flex-shrink:0">⏱️</span>
+  <span id="banner-txt">Les subvencions CAE 2025 tanquen el 31 de desembre · Calcula ara si t'hi pots acollir</span>
+</div>
 
-    <div class="fields-grid">
-      <div class="field-row">
-        <label id="lbl-sup">Superfície (m²)</label>
-        <input type="number" id="inp-sup" min="20" max="2000" placeholder="90" oninput="clearResults()">
-        <div class="field-hint" id="hint-sup">Superfície útil habitable</div>
-      </div>
-      <div class="field-row">
-        <label id="lbl-any">Any construcció</label>
-        <input type="number" id="inp-any" min="1900" max="2024" placeholder="1985" oninput="clearResults()">
-        <div class="field-hint" id="hint-any">Entre 1900 i 2024</div>
-      </div>
+<!-- ══ CALCULADORA ══ -->
+<div class="card" id="calc-card">
+  <div class="card-ttl" id="c-ttl">Calculadora d'eficiència energètica</div>
+  <div class="card-sub" id="c-sub">Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons</div>
+
+  <div class="g2">
+    <div class="fld" id="ff-sup">
+      <label id="l-sup">Superfície (m²)</label>
+      <input type="number" id="i-sup" min="20" max="5000" placeholder="90" oninput="clearRes()">
+      <div class="fld-hint" id="h-sup">Superfície útil habitable</div>
+      <div class="err-msg" id="e-sup">Camp obligatori (mínim 20 m²)</div>
     </div>
-    <div class="field-row">
-      <label id="lbl-gasto">Despesa mensual llum + gas (€)</label>
-      <input type="number" id="inp-gasto" min="20" max="3000" placeholder="120" oninput="clearResults()">
-      <div class="field-hint" id="hint-gasto">Mitjana dels últims 12 mesos</div>
-    </div>
-
-    <button class="btn-calc" onclick="calcular()" id="btn-calc">Calcular estalvi →</button>
-  </div>
-
-  <!-- ── RESULTATS (hidden until calculated) ── -->
-  <div id="results-section">
-    <div class="results-card">
-      <div class="results-header">
-        <div>
-          <div class="results-title" id="rt-title">Estimació energètica</div>
-          <div style="font-size:12px;color:var(--gris);margin-top:2px" id="rt-norm">Normativa CTE 2019 · Mètode CE3X</div>
-        </div>
-        <div class="letra-badge" id="letra-badge">D</div>
-      </div>
-
-      <div class="metrics-grid">
-        <div class="metric-box">
-          <div class="metric-val" id="m-estalvi">—</div>
-          <div class="metric-lbl" id="ml-estalvi">Estalvi anual estimat</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val" id="m-reduccio">—</div>
-          <div class="metric-lbl" id="ml-reduccio">Reducció consum</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-val" id="m-co2">—</div>
-          <div class="metric-lbl" id="ml-co2">CO₂ evitat / any</div>
-        </div>
-      </div>
-
-      <div class="cae-box">
-        <div class="cae-icon">🏛️</div>
-        <div>
-          <div class="cae-val" id="cae-val">—</div>
-          <div class="cae-lbl" id="cae-lbl">Subvenció CAE estimada (42%)</div>
-          <div class="cae-info" id="cae-info">Certificats d'Estalvi Energètic · Programa MOVES III</div>
-        </div>
-      </div>
-
-      <div class="bar-row">
-        <div class="bar-label">
-          <span id="bar-lbl-red">Reducció consum</span>
-          <span id="bar-pct-red">0%</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill" id="bar-red" style="width:0%"></div></div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">
-          <span id="bar-lbl-roi">ROI estimat</span>
-          <span id="bar-pct-roi">0%</span>
-        </div>
-        <div class="bar-track"><div class="bar-fill verde" id="bar-roi" style="width:0%"></div></div>
-      </div>
-
-      <div style="font-size:11px;color:var(--gris);text-align:center;margin:16px 0 20px;line-height:1.6" id="rt-disclaimer">
-        Estimació orientativa basada en CTE 2019. L'auditoria oficial determinarà els valors exactes.
-      </div>
-
-      <button class="btn-form" onclick="mostrarFormulari()" id="btn-form">
-        Obtenir informe complet gratuït →
-      </button>
+    <div class="fld" id="ff-any">
+      <label id="l-any">Any de construcció</label>
+      <input type="number" id="i-any" min="1900" max="2024" placeholder="1985" oninput="clearRes()">
+      <div class="fld-hint" id="h-any">Entre 1900 i 2024</div>
+      <div class="err-msg" id="e-any">Indica l'any correctament</div>
     </div>
   </div>
 
-  <!-- ── FORMULARI ── -->
-  <div id="form-section">
-    <div class="form-card">
-      <!-- Progress -->
-      <div class="form-progress">
-        <div class="progress-steps">
-          <div class="step-dot active" id="sd1">1</div>
-          <div class="step-line" id="sl1"></div>
-          <div class="step-dot" id="sd2">2</div>
-          <div class="step-line" id="sl2"></div>
-          <div class="step-dot" id="sd3">3</div>
-          <div class="step-line" id="sl3"></div>
-          <div class="step-dot" id="sd4">4</div>
-        </div>
-        <div class="progress-label" id="prog-lbl">Pas <strong>1</strong> de 4 · Perfil bàsic</div>
-      </div>
+  <div class="fld" id="ff-gas">
+    <label id="l-gas">Despesa mensual llum + gas (€)</label>
+    <input type="number" id="i-gas" min="10" max="5000" placeholder="120" oninput="clearRes()">
+    <div class="fld-hint" id="h-gas">Mitjana dels últims 12 mesos (suma total de les factures)</div>
+    <div class="err-msg" id="e-gas">Indica la despesa mensual</div>
+  </div>
 
-      <div class="form-body">
+  <button class="btn-calc" id="btn-calc" onclick="calcular()">Calcular estalvi →</button>
+</div>
 
-        <!-- PAS 1 -->
-        <div class="form-step active" id="step1">
-          <div class="form-step-title" id="s1-title">Quin perfil tens?</div>
-          <div class="form-step-sub" id="s1-sub">Volem assegurar-nos que podem ajudar-te</div>
+<!-- ══ RESULTATS ══ -->
+<div id="res" style="display:none">
+<div class="card">
+  <div class="card-ttl" id="r-ttl">Estimació energètica del teu habitatge</div>
+  <div class="card-sub" id="r-sub">Normativa CTE 2019 · Mètode CE3X · Valors orientatius</div>
 
-          <div class="form-field" id="ff-perfil">
-            <label id="lf-perfil">Ets propietari o representant?</label>
-            <div class="radio-group" id="rg-perfil">
-              <label class="radio-opt" onclick="selectRadio(this,'perfil','propietari')">
-                <input type="radio" name="perfil" value="propietari"> <span id="ro-prop">Propietari particular</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'perfil','comunitat')">
-                <input type="radio" name="perfil" value="comunitat"> <span id="ro-com">President de comunitat de veïns</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'perfil','empresa')">
-                <input type="radio" name="perfil" value="empresa"> <span id="ro-emp">Empresa / administrador de finques</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'perfil','promotor')">
-                <input type="radio" name="perfil" value="promotor"> <span id="ro-prom">Promotor / constructor</span>
-              </label>
-            </div>
-            <div class="err-msg" id="err-perfil">Selecciona una opció</div>
-          </div>
-
-          <div class="form-field" id="ff-cp">
-            <label id="lf-cp">Codi postal</label>
-            <input type="text" id="inp-cp" maxlength="5" placeholder="08001" oninput="validarCP(this)">
-            <div class="field-hint" id="hint-cp">Servei disponible a Catalunya (08, 17, 25, 43)</div>
-            <div class="err-msg" id="err-cp">Codi postal no cobert. El servei és exclusiu per a Catalunya.</div>
-          </div>
-
-          <div class="form-nav">
-            <button class="btn-next" onclick="nextStep(1)" id="btn-next1">Continuar →</button>
-          </div>
-        </div>
-
-        <!-- PAS 2 -->
-        <div class="form-step" id="step2">
-          <div class="form-step-title" id="s2-title">Característiques de l'habitatge</div>
-          <div class="form-step-sub" id="s2-sub">Dades per calibrar l'estimació</div>
-
-          <div class="fields-grid">
-            <div class="form-field">
-              <label id="lf-tipo">Tipus d'immoble</label>
-              <select id="inp-tipo">
-                <option value="" id="op-sel">Selecciona...</option>
-                <option value="pis" id="op-pis">Pis en bloc</option>
-                <option value="unifamiliar" id="op-uni">Casa unifamiliar</option>
-                <option value="atico" id="op-atic">Àtic</option>
-                <option value="local" id="op-local">Local comercial</option>
-                <option value="edifici" id="op-edif">Edifici sencer</option>
-              </select>
-              <div class="err-msg" id="err-tipo">Selecciona el tipus</div>
-            </div>
-            <div class="form-field">
-              <label id="lf-plantes">Nº de plantes</label>
-              <select id="inp-plantes">
-                <option value="" id="op-psel">Selecciona...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3+">3 o més</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="fields-grid">
-            <div class="form-field">
-              <label id="lf-orient">Orientació principal</label>
-              <select id="inp-orient">
-                <option value="" id="op-osel">Selecciona...</option>
-                <option value="N" id="op-n">Nord</option>
-                <option value="S" id="op-s">Sud</option>
-                <option value="E" id="op-e">Est</option>
-                <option value="O" id="op-o">Oest</option>
-                <option value="NE" id="op-ne">Nord-est</option>
-                <option value="NO" id="op-no">Nord-oest</option>
-                <option value="SE" id="op-se">Sud-est</option>
-                <option value="SO" id="op-so">Sud-oest</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label id="lf-calef">Sistema calefacció</label>
-              <select id="inp-calef">
-                <option value="" id="op-csel">Selecciona...</option>
-                <option value="gas_natural" id="op-gas">Gas natural</option>
-                <option value="electric" id="op-elec">Elèctric</option>
-                <option value="gasoil" id="op-oil">Gasoil</option>
-                <option value="bomba_calor" id="op-bom">Bomba de calor</option>
-                <option value="biomassa" id="op-bio">Biomassa</option>
-                <option value="sense" id="op-sense">Sense calefacció</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="fields-grid">
-            <div class="form-field">
-              <label id="lf-aisl">Aïllament existent</label>
-              <select id="inp-aisl">
-                <option value="" id="op-asel">Selecciona...</option>
-                <option value="cap" id="op-cap">Cap</option>
-                <option value="baix" id="op-baix">Baix (anterior 1979)</option>
-                <option value="mig" id="op-mig">Mitjà (1979-2007)</option>
-                <option value="bo" id="op-bo">Bo (posterior 2007)</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label id="lf-finestres">Tipus de finestres</label>
-              <select id="inp-finestres">
-                <option value="" id="op-fsel">Selecciona...</option>
-                <option value="simple" id="op-simp">Vidre simple</option>
-                <option value="doble" id="op-doble">Doble vidre</option>
-                <option value="triple" id="op-triple">Triple vidre</option>
-                <option value="baix_emis" id="op-be">Baixa emissivitat</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-nav">
-            <button class="btn-back" onclick="prevStep(2)" id="btn-b2">← Tornar</button>
-            <button class="btn-next" onclick="nextStep(2)" id="btn-next2">Continuar →</button>
-          </div>
-        </div>
-
-        <!-- PAS 3 -->
-        <div class="form-step" id="step3">
-          <div class="form-step-title" id="s3-title">Perfil energètic i interès</div>
-          <div class="form-step-sub" id="s3-sub">Per personalitzar la proposta</div>
-
-          <div class="form-field">
-            <label id="lf-motiv">Principal motivació</label>
-            <div class="radio-group" id="rg-motiv">
-              <label class="radio-opt" onclick="selectRadio(this,'motiv','estalvi')">
-                <input type="radio" name="motiv" value="estalvi"> <span id="mo-est">Reduir la factura energètica</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'motiv','confort')">
-                <input type="radio" name="motiv" value="confort"> <span id="mo-con">Millorar el confort tèrmic</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'motiv','certificat')">
-                <input type="radio" name="motiv" value="certificat"> <span id="mo-cert">Obtenir certificat per venda/lloguer</span>
-              </label>
-              <label class="radio-opt" onclick="selectRadio(this,'motiv','subvencio')">
-                <input type="radio" name="motiv" value="subvencio"> <span id="mo-sub">Accedir a subvencions</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="fields-grid">
-            <div class="form-field">
-              <label id="lf-pressupost">Pressupost disponible</label>
-              <select id="inp-pressupost">
-                <option value="">Selecciona...</option>
-                <option value="menos5k" id="pp-a">&lt; 5.000 €</option>
-                <option value="5k-15k" id="pp-b">5.000 – 15.000 €</option>
-                <option value="15k-30k" id="pp-c">15.000 – 30.000 €</option>
-                <option value="mas30k" id="pp-d">&gt; 30.000 €</option>
-                <option value="sense" id="pp-e">Pendent de definir</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label id="lf-urgencia">Urgència</label>
-              <select id="inp-urgencia">
-                <option value="">Selecciona...</option>
-                <option value="immediata" id="urg-a">Immediata (1 mes)</option>
-                <option value="3m" id="urg-b">Propers 3 mesos</option>
-                <option value="6m" id="urg-c">Propers 6 mesos</option>
-                <option value="exploracio" id="urg-d">Explorant opcions</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-nav">
-            <button class="btn-back" onclick="prevStep(3)" id="btn-b3">← Tornar</button>
-            <button class="btn-next" onclick="nextStep(3)" id="btn-next3">Continuar →</button>
-          </div>
-        </div>
-
-        <!-- PAS 4 -->
-        <div class="form-step" id="step4">
-          <div class="form-step-title" id="s4-title">Dades de contacte</div>
-          <div class="form-step-sub" id="s4-sub">T'enviarem l'informe personalitzat sense compromís</div>
-
-          <div class="fields-grid">
-            <div class="form-field" id="ff-nom">
-              <label id="lf-nom">Nom i cognoms</label>
-              <input type="text" id="inp-nom" placeholder="Jordi Garcia Puig">
-              <div class="err-msg" id="err-nom">Camp obligatori</div>
-            </div>
-            <div class="form-field" id="ff-tel">
-              <label id="lf-tel">Telèfon</label>
-              <input type="tel" id="inp-tel" placeholder="612 345 678">
-              <div class="err-msg" id="err-tel">Telèfon no vàlid</div>
-            </div>
-          </div>
-
-          <div class="form-field" id="ff-email">
-            <label id="lf-email">Correu electrònic</label>
-            <input type="email" id="inp-email" placeholder="jordi@exemple.com">
-            <div class="err-msg" id="err-email">Correu no vàlid</div>
-          </div>
-
-          <div class="form-field" style="margin-top:16px">
-            <div class="checkbox-row">
-              <input type="checkbox" id="chk-rgpd">
-              <label for="chk-rgpd" id="lbl-rgpd">Accepto la <a href="#" id="lnk-privacy">política de privacitat</a> i el tractament de les meves dades per rebre informació sobre serveis d'auditoria energètica.</label>
-            </div>
-            <div class="err-msg" id="err-rgpd">Has d'acceptar la política de privacitat</div>
-          </div>
-          <div class="form-field">
-            <div class="checkbox-row">
-              <input type="checkbox" id="chk-com">
-              <label for="chk-com" id="lbl-com">Vull rebre comunicacions comercials sobre novetats i subvencions energètiques (opcional).</label>
-            </div>
-          </div>
-
-          <div class="form-nav">
-            <button class="btn-back" onclick="prevStep(4)" id="btn-b4">← Tornar</button>
-            <button class="btn-next" onclick="enviarFormulari()" id="btn-send">Enviar i obtenir informe →</button>
-          </div>
-        </div>
-
-      </div><!-- /form-body -->
-    </div><!-- /form-card -->
-  </div><!-- /form-section -->
-
-  <!-- ── SUCCESS ── -->
-  <div id="success-section">
-    <div class="success-card">
-      <div class="success-icon">✅</div>
-      <div class="success-title" id="suc-title">Sol·licitud enviada!</div>
-      <div class="success-sub" id="suc-sub">En menys de 24 hores un expert de Certilab et contactarà per programar la teva auditoria energètica gratuïta.</div>
+  <!-- LETRES: actual + estimada -->
+  <div class="letres-wrap">
+    <div class="lletra-col">
+      <div class="lletra-label" id="ll-act">Lletra actual</div>
+      <div class="lletra-badge" id="lb-act" style="background:#ccc">G</div>
+      <div class="lletra-sublbl" id="ls-act">Situació actual</div>
+    </div>
+    <div style="display:flex;align-items:center;font-size:28px;color:var(--terra);padding-top:30px">→</div>
+    <div class="lletra-col">
+      <div class="lletra-label" id="ll-post">Lletra estimada post-reforma</div>
+      <div class="lletra-badge" id="lb-post" style="background:#ccc">E</div>
+      <div class="lletra-sublbl" id="ls-post">Amb millores proposades</div>
     </div>
   </div>
 
-  <div class="footer" id="footer-txt">
-    Certilab · Auditories Energètiques Oficials · Catalunya<br>
-    Certificació CE3X · Normativa CTE 2019 · RGPD compliant<br>
-    © 2025 Certilab SL · Tots els drets reservats
+  <!-- MISSATGE PERSONALITZAT -->
+  <div id="lletra-msg" style="font-size:13px;color:var(--terra-dk);background:var(--crema);border-left:3px solid var(--terra);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin-bottom:16px;line-height:1.5"></div>
+
+  <div class="divider"></div>
+
+  <!-- MÉTRIQUES -->
+  <div class="metrics">
+    <div class="mbox">
+      <div class="mval" id="m-est">—</div>
+      <div class="mlbl" id="ml-est">Estalvi anual estimat</div>
+    </div>
+    <div class="mbox">
+      <div class="mval" id="m-red">—</div>
+      <div class="mlbl" id="ml-red">Reducció del consum</div>
+    </div>
+    <div class="mbox">
+      <div class="mval" id="m-co2">—</div>
+      <div class="mlbl" id="ml-co2">CO₂ evitat per any</div>
+    </div>
   </div>
-</div><!-- /container -->
+
+  <!-- CAE -->
+  <div class="cae-box">
+    <div class="cae-ico">🏛️</div>
+    <div>
+      <div class="cae-val" id="cae-v">—</div>
+      <div class="cae-lbl" id="cae-l">Subvenció CAE estimada (42%)</div>
+      <div class="cae-info" id="cae-i">Certificats d'Estalvi Energètic · Programa MOVES III</div>
+    </div>
+  </div>
+
+  <!-- REVALORITZACIÓ -->
+  <div class="reval-box">
+    <div class="reval-ico">🏠</div>
+    <div>
+      <div class="reval-val" id="reval-v">—</div>
+      <div class="reval-lbl" id="reval-l">Revalorització estimada de l'immoble</div>
+      <div class="reval-info" id="reval-i">Font: estudis RICS i Banco de España · ~4-6% per lletra millorada</div>
+    </div>
+  </div>
+
+  <!-- BARRES -->
+  <div class="bar-row">
+    <div class="bar-head"><span id="b-red-l">Reducció del consum</span><span id="b-red-p">0%</span></div>
+    <div class="bar-track"><div class="bar-fill" id="bf-red" style="width:0%"></div></div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-head"><span id="b-roi-l">ROI estimat de la inversió</span><span id="b-roi-p">0%</span></div>
+    <div class="bar-track"><div class="bar-fill g" id="bf-roi" style="width:0%"></div></div>
+  </div>
+
+  <div class="res-note" id="r-note">Estimació orientativa. L'auditoria oficial CE3X determinarà els valors exactes i les millores òptimes per al teu habitatge.</div>
+
+  <!-- SOCIAL PROOF + URGÈNCIA -->
+  <div style="background:var(--crema-dk);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;display:flex;align-items:flex-start;gap:12px">
+    <div style="font-size:20px;flex-shrink:0">👥</div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:var(--terra-dk)" id="proof-ttl">247 propietaris de Catalunya han rebut el seu informe aquest mes</div>
+      <div style="font-size:12px;color:var(--gris);margin-top:2px" id="proof-sub">Temps mitjà d'espera per a l'auditoria: <strong>4 dies hàbils</strong> · Places limitades</div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST MOTIVACIONAL -->
+  <div style="border:1px solid rgba(74,124,89,0.25);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;background:#fafdf8">
+    <div style="font-size:12px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--verde);margin-bottom:10px" id="check-ttl">Amb el teu informe gratuït obtindràs</div>
+    <div style="display:flex;flex-direction:column;gap:7px" id="check-list">
+      <div style="display:flex;gap:8px;font-size:13px;color:var(--negre)"><span style="color:var(--verde);font-size:15px;flex-shrink:0">✓</span><span id="ck1">Diagnòstic energètic detallat del teu habitatge</span></div>
+      <div style="display:flex;gap:8px;font-size:13px;color:var(--negre)"><span style="color:var(--verde);font-size:15px;flex-shrink:0">✓</span><span id="ck2">Pla de millores prioritzat per rendibilitat</span></div>
+      <div style="display:flex;gap:8px;font-size:13px;color:var(--negre)"><span style="color:var(--verde);font-size:15px;flex-shrink:0">✓</span><span id="ck3">Guia de subvencions aplicables al teu cas (CAE, MOVES III, NextGen EU)</span></div>
+      <div style="display:flex;gap:8px;font-size:13px;color:var(--negre)"><span style="color:var(--verde);font-size:15px;flex-shrink:0">✓</span><span id="ck4">Pressupost orientatiu sense compromís</span></div>
+    </div>
+  </div>
+
+  <button class="btn-form" id="btn-form" onclick="mostrarForm()">
+    <span id="btn-form-txt">Vull el meu informe gratuït →</span>
+  </button>
+  <div style="text-align:center;font-size:11px;color:var(--gris);margin-top:8px" id="btn-sub-txt">Sense compromís · Sense cost · Resposta en menys de 24h</div>
+</div>
+</div>
+
+<!-- ══ FORMULARI ══ -->
+<div id="form-sec">
+<div class="form-card">
+
+  <div class="progress">
+    <div class="prog-steps">
+      <div class="sdot on" id="sd1">1</div>
+      <div class="sline" id="sl1"></div>
+      <div class="sdot" id="sd2">2</div>
+      <div class="sline" id="sl2"></div>
+      <div class="sdot" id="sd3">3</div>
+      <div class="sline" id="sl3"></div>
+      <div class="sdot" id="sd4">4</div>
+    </div>
+    <div class="prog-lbl" id="prog-lbl"></div>
+  </div>
+
+  <div class="fbody">
+
+    <!-- PAS 1 -->
+    <div class="fstep on" id="fs1">
+      <div class="fstep-ttl" id="s1-ttl">Quin és el teu perfil?</div>
+      <div class="fstep-sub" id="s1-sub">Fes clic a l'opció que millor et descriu</div>
+
+      <div class="fld" id="ff-perf">
+        <div class="lbl" id="l-perf">Qui ets?</div>
+        <div class="radio-grp" id="rg-perf">
+          <div class="ropt" onclick="selRad(this,'perf','propietari')" data-v="propietari">
+            <div class="ropt-check"><input type="radio" name="perf" value="propietari"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rp-prop">Propietari particular</div><div class="ropt-sub" id="rs-prop">Habitatge propi o familiar</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'perf','comunitat')" data-v="comunitat">
+            <div class="ropt-check"><input type="radio" name="perf" value="comunitat"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rp-com">President de comunitat de veïns</div><div class="ropt-sub" id="rs-com">Edifici de plurifamiliars</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'perf','empresa')" data-v="empresa">
+            <div class="ropt-check"><input type="radio" name="perf" value="empresa"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rp-emp">Empresa o administrador de finques</div><div class="ropt-sub" id="rs-emp">Gestió de diversos immobles</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'perf','promotor')" data-v="promotor">
+            <div class="ropt-check"><input type="radio" name="perf" value="promotor"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rp-prom">Promotor o constructor</div><div class="ropt-sub" id="rs-prom">Obra nova o rehabilitació</div></div>
+          </div>
+        </div>
+        <div class="err-msg" id="e-perf">Selecciona una opció per continuar</div>
+      </div>
+
+      <div class="fld" id="ff-cp">
+        <label id="l-cp">Codi postal</label>
+        <input type="text" id="i-cp" maxlength="5" placeholder="08001" oninput="valCP(this)">
+        <div class="fld-hint" id="h-cp">Servei disponible a Catalunya: 08, 17, 25, 43</div>
+        <div class="err-msg" id="e-cp">Codi postal no cobert. El servei és exclusiu per a Catalunya (08, 17, 25, 43)</div>
+      </div>
+
+      <div class="fnav">
+        <button class="btn-next" id="bn1" onclick="nextS(1)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PAS 2 -->
+    <div class="fstep" id="fs2">
+      <div class="fstep-ttl" id="s2-ttl">Característiques de l'habitatge</div>
+      <div class="fstep-sub" id="s2-sub">Dades per calibrar millor l'estimació</div>
+
+      <div class="g2">
+        <div class="fld" id="ff-tipo">
+          <label id="l-tipo">Tipus d'immoble</label>
+          <div class="sel-wrap">
+            <select id="i-tipo">
+              <option value="" id="o-tipo-0"></option>
+              <option value="pis" id="o-tipo-1"></option>
+              <option value="unifamiliar" id="o-tipo-2"></option>
+              <option value="atico" id="o-tipo-3"></option>
+              <option value="local" id="o-tipo-4"></option>
+              <option value="edifici" id="o-tipo-5"></option>
+            </select>
+          </div>
+          <div class="err-msg" id="e-tipo">Selecciona el tipus d'immoble</div>
+        </div>
+        <div class="fld" id="ff-plan">
+          <label id="l-plan">Nombre de plantes</label>
+          <div class="sel-wrap">
+            <select id="i-plan">
+              <option value="" id="o-plan-0"></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3+">3 o més</option>
+            </select>
+          </div>
+          <div class="err-msg" id="e-plan">Selecciona el nombre de plantes</div>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="fld">
+          <label id="l-ori">Orientació principal</label>
+          <div class="sel-wrap">
+            <select id="i-ori">
+              <option value="" id="o-ori-0"></option>
+              <option value="N" id="o-ori-N"></option>
+              <option value="S" id="o-ori-S"></option>
+              <option value="E" id="o-ori-E"></option>
+              <option value="O" id="o-ori-O"></option>
+              <option value="NE" id="o-ori-NE"></option>
+              <option value="NO" id="o-ori-NO"></option>
+              <option value="SE" id="o-ori-SE"></option>
+              <option value="SO" id="o-ori-SO"></option>
+            </select>
+          </div>
+        </div>
+        <div class="fld" id="ff-cal">
+          <label id="l-cal">Sistema de calefacció</label>
+          <div class="sel-wrap">
+            <select id="i-cal">
+              <option value="" id="o-cal-0"></option>
+              <option value="gas_natural" id="o-cal-1"></option>
+              <option value="electric" id="o-cal-2"></option>
+              <option value="gasoil" id="o-cal-3"></option>
+              <option value="bomba_calor" id="o-cal-4"></option>
+              <option value="biomassa" id="o-cal-5"></option>
+              <option value="sense" id="o-cal-6"></option>
+            </select>
+          </div>
+          <div class="err-msg" id="e-cal">Selecciona el sistema de calefacció</div>
+        </div>
+      </div>
+
+      <div class="g2">
+        <div class="fld">
+          <label id="l-ais">Aïllament existent</label>
+          <div class="sel-wrap">
+            <select id="i-ais">
+              <option value="" id="o-ais-0"></option>
+              <option value="cap" id="o-ais-1"></option>
+              <option value="baix" id="o-ais-2"></option>
+              <option value="mig" id="o-ais-3"></option>
+              <option value="bo" id="o-ais-4"></option>
+            </select>
+          </div>
+        </div>
+        <div class="fld">
+          <label id="l-fin">Tipus de finestres</label>
+          <div class="sel-wrap">
+            <select id="i-fin">
+              <option value="" id="o-fin-0"></option>
+              <option value="simple" id="o-fin-1"></option>
+              <option value="doble" id="o-fin-2"></option>
+              <option value="triple" id="o-fin-3"></option>
+              <option value="baix_emis" id="o-fin-4"></option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="fnav">
+        <button class="btn-back" id="bb2" onclick="prevS(2)">← Tornar</button>
+        <button class="btn-next" id="bn2" onclick="nextS(2)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PAS 3 -->
+    <div class="fstep" id="fs3">
+      <div class="fstep-ttl" id="s3-ttl">Perfil energètic i interès</div>
+      <div class="fstep-sub" id="s3-sub">Per personalitzar la proposta que t'enviarem</div>
+
+      <div class="fld" id="ff-mot">
+        <div class="lbl" id="l-mot">Quina és la teva principal motivació?</div>
+        <div class="radio-grp" id="rg-mot">
+          <div class="ropt" onclick="selRad(this,'mot','estalvi')" data-v="estalvi">
+            <div class="ropt-check"><input type="radio" name="mot" value="estalvi"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rm-est">Reduir la factura energètica</div><div class="ropt-sub" id="rs-est">Estalvi econòmic mensual</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'mot','confort')" data-v="confort">
+            <div class="ropt-check"><input type="radio" name="mot" value="confort"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rm-con">Millorar el confort tèrmic</div><div class="ropt-sub" id="rs-con">Temperatura agradable tot l'any</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'mot','certificat')" data-v="certificat">
+            <div class="ropt-check"><input type="radio" name="mot" value="certificat"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rm-cert">Certificat per vendre o llogar</div><div class="ropt-sub" id="rs-cert">Obligatori per a transaccions immobiliàries</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'mot','subvencio')" data-v="subvencio">
+            <div class="ropt-check"><input type="radio" name="mot" value="subvencio"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rm-sub">Accedir a subvencions</div><div class="ropt-sub" id="rs-sub">CAE, MOVES III, Next Generation EU</div></div>
+          </div>
+        </div>
+        <div class="err-msg" id="e-mot">Selecciona una motivació per continuar</div>
+      </div>
+
+      <div class="g2">
+        <div class="fld" id="ff-pres">
+          <label id="l-pres">Pressupost disponible</label>
+          <div class="sel-wrap">
+            <select id="i-pres">
+              <option value="" id="o-pres-0"></option>
+              <option value="menos5k" id="o-pres-1"></option>
+              <option value="5k-15k" id="o-pres-2"></option>
+              <option value="15k-30k" id="o-pres-3"></option>
+              <option value="mas30k" id="o-pres-4"></option>
+              <option value="sense" id="o-pres-5"></option>
+            </select>
+          </div>
+          <div class="err-msg" id="e-pres">Indica el pressupost aproximat</div>
+        </div>
+        <div class="fld" id="ff-urg">
+          <label id="l-urg">Urgència</label>
+          <div class="sel-wrap">
+            <select id="i-urg">
+              <option value="" id="o-urg-0"></option>
+              <option value="immediata" id="o-urg-1"></option>
+              <option value="3m" id="o-urg-2"></option>
+              <option value="6m" id="o-urg-3"></option>
+              <option value="exploracio" id="o-urg-4"></option>
+            </select>
+          </div>
+          <div class="err-msg" id="e-urg">Indica la teva urgència</div>
+        </div>
+      </div>
+
+      <div class="fnav">
+        <button class="btn-back" id="bb3" onclick="prevS(3)">← Tornar</button>
+        <button class="btn-next" id="bn3" onclick="nextS(3)">Continuar →</button>
+      </div>
+    </div>
+
+    <!-- PAS 4 -->
+    <div class="fstep" id="fs4">
+      <div class="fstep-ttl" id="s4-ttl">Dades de contacte</div>
+      <div class="fstep-sub" id="s4-sub">T'enviarem l'informe personalitzat en menys de 24 hores, sense cap compromís</div>
+
+      <div class="g2">
+        <div class="fld" id="ff-nom">
+          <label id="l-nom">Nom i cognoms</label>
+          <input type="text" id="i-nom" placeholder="Jordi Garcia Puig" autocomplete="name">
+          <div class="err-msg" id="e-nom">Introdueix el teu nom complet</div>
+        </div>
+        <div class="fld" id="ff-tel">
+          <label id="l-tel">Telèfon</label>
+          <input type="tel" id="i-tel" placeholder="612 345 678" autocomplete="tel">
+          <div class="err-msg" id="e-tel">Telèfon espanyol no vàlid (9 dígits)</div>
+        </div>
+      </div>
+
+      <div class="fld" id="ff-mail">
+        <label id="l-mail">Correu electrònic</label>
+        <input type="email" id="i-mail" placeholder="jordi@exemple.com" autocomplete="email">
+        <div class="err-msg" id="e-mail">Adreça de correu no vàlida</div>
+      </div>
+
+      <div style="margin-top:18px">
+        <div class="chk-row" id="ff-rgpd">
+          <input type="checkbox" id="i-rgpd">
+          <label for="i-rgpd" id="l-rgpd">Accepto la <a href="#" onclick="return false">política de privacitat</a> i el tractament de les meves dades per rebre informació sobre serveis d'auditoria energètica de Certilab.</label>
+        </div>
+        <div class="err-msg" id="e-rgpd" style="display:none;font-size:11px;color:var(--err);margin:-8px 0 8px 26px">Has d'acceptar la política de privacitat per continuar</div>
+        <div class="chk-row">
+          <input type="checkbox" id="i-com">
+          <label for="i-com" id="l-com">Vull rebre comunicacions comercials sobre novetats, subvencions i serveis energètics (opcional).</label>
+        </div>
+      </div>
+
+      <div class="fnav">
+        <button class="btn-back" id="bb4" onclick="prevS(4)">← Tornar</button>
+        <button class="btn-next" id="bn4" onclick="enviar()">Enviar i obtenir informe →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══ SUCCESS ══ -->
+<div id="suc-sec">
+  <div class="suc-card">
+    <div class="suc-ico">✅</div>
+    <div class="suc-ttl" id="suc-ttl">Sol·licitud enviada!</div>
+    <div class="suc-sub" id="suc-sub">En menys de 24 hores un expert de Certilab et contactarà per programar la teva auditoria energètica gratuïta.</div>
+  </div>
+</div>
+
+<div class="footer" id="footer-txt">
+  Certilab · Auditories Energètiques Oficials · Catalunya<br>
+  Certificació CE3X · Normativa CTE 2019 · RGPD compliant<br>
+  © 2025 Certilab SL · Tots els drets reservats
+</div>
+</div><!-- /wrap -->
 
 <script>
-// ══ CONFIGURACIÓ ══
-const WEBHOOK = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
+// ══ CONFIG ══
+const WH = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
 
-// ══ ESTAT ══
-let lang = 'ca';
-let calcData = {};
-let formData = {};
-let currentStep = 1;
+// Letres energètiques
+const LETRES = ['G','F','E','D','C','B','A'];
+const COLORS_LLETRA = {G:'#8B0000',F:'#CC0000',E:'#E85500',D:'#E6A000',C:'#88A000',B:'#4C8800',A:'#006600'};
 
 // ══ TEXTOS BILINGÜE ══
-const T = {
-  ca: {
-    hTitle: 'Calcula el teu estalvi energètic',
-    hSub: 'Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya',
-    ctTitle: "Calculadora d'eficiència",
-    ctSub: "Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons",
-    lblSup: 'Superfície (m²)', hintSup: 'Superfície útil habitable',
-    lblAny: 'Any construcció', hintAny: 'Entre 1900 i 2024',
-    lblGasto: 'Despesa mensual llum + gas (€)', hintGasto: 'Mitjana dels últims 12 mesos',
-    btnCalc: 'Calcular estalvi →',
-    rtTitle: 'Estimació energètica', rtNorm: 'Normativa CTE 2019 · Mètode CE3X',
-    mlEstalvi: 'Estalvi anual estimat', mlReduccio: 'Reducció consum', mlCo2: 'CO₂ evitat / any',
-    caeInfo: 'Certificats d\'Estalvi Energètic · Programa MOVES III',
-    caeLbl: 'Subvenció CAE estimada (42%)',
-    barLblRed: 'Reducció consum', barLblRoi: 'ROI estimat',
-    rtDisclaimer: 'Estimació orientativa basada en CTE 2019. L\'auditoria oficial determinarà els valors exactes.',
-    btnForm: 'Obtenir informe complet gratuït →',
-    progLabels: ['Pas <strong>1</strong> de 4 · Perfil bàsic','Pas <strong>2</strong> de 4 · Habitatge','Pas <strong>3</strong> de 4 · Interès','Pas <strong>4</strong> de 4 · Contacte'],
-    s1Title: 'Quin perfil tens?', s1Sub: 'Volem assegurar-nos que podem ajudar-te',
-    lfPerfil: 'Ets propietari o representant?',
-    roProp: 'Propietari particular', roCom: 'President de comunitat de veïns',
-    roEmp: 'Empresa / administrador de finques', roProm: 'Promotor / constructor',
-    errPerfil: 'Selecciona una opció',
-    lfCp: 'Codi postal', hintCp: 'Servei disponible a Catalunya (08, 17, 25, 43)',
-    errCp: 'Codi postal no cobert. El servei és exclusiu per a Catalunya.',
-    s2Title: 'Característiques de l\'habitatge', s2Sub: 'Dades per calibrar l\'estimació',
-    lfTipo: 'Tipus d\'immoble', lfPlantes: 'Nº de plantes', lfOrient: 'Orientació principal',
-    lfCalef: 'Sistema calefacció', lfAisl: 'Aïllament existent', lfFinestres: 'Tipus de finestres',
-    errTipo: 'Selecciona el tipus',
-    s3Title: 'Perfil energètic i interès', s3Sub: 'Per personalitzar la proposta',
-    lfMotiv: 'Principal motivació',
-    moEst: 'Reduir la factura energètica', moCon: 'Millorar el confort tèrmic',
-    moCert: 'Obtenir certificat per venda/lloguer', moSub: 'Accedir a subvencions',
-    lfPressupost: 'Pressupost disponible', lfUrgencia: 'Urgència',
-    s4Title: 'Dades de contacte', s4Sub: 'T\'enviarem l\'informe personalitzat sense compromís',
-    lfNom: 'Nom i cognoms', lfTel: 'Telèfon', lfEmail: 'Correu electrònic',
-    errNom: 'Camp obligatori', errTel: 'Telèfon no vàlid', errEmail: 'Correu no vàlid',
-    lblRgpd: 'Accepto la <a href="#" id="lnk-privacy">política de privacitat</a> i el tractament de les meves dades per rebre informació sobre serveis d\'auditoria energètica.',
-    lblCom: 'Vull rebre comunicacions comercials sobre novetats i subvencions energètiques (opcional).',
-    errRgpd: 'Has d\'acceptar la política de privacitat',
-    btnSend: 'Enviar i obtenir informe →',
-    btnBack: '← Tornar', btnNext: 'Continuar →',
-    sucTitle: 'Sol·licitud enviada!',
-    sucSub: 'En menys de 24 hores un expert de Certilab et contactarà per programar la teva auditoria energètica gratuïta.',
-    footer: 'Certilab · Auditories Energètiques Oficials · Catalunya<br>Certificació CE3X · Normativa CTE 2019 · RGPD compliant<br>© 2025 Certilab SL · Tots els drets reservats'
+const TX = {
+  ca:{
+    hTtl:'Calcula el teu estalvi energètic',
+    hSub:'Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya',
+    bannerTxt:'⚠ Les subvencions CAE 2026 tanquen el 31 de desembre · Calcula ara si t\'hi pots acollir',
+    cTtl:"Calculadora d'eficiència energètica",
+    cSub:"Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons",
+    lSup:'Superfície (m²)',hSup:'Superfície útil habitable',eSup:'Camp obligatori (mínim 20 m²)',
+    lAny:'Any de construcció',hAny:'Entre 1900 i 2024',eAny:"Indica l'any correctament",
+    lGas:'Despesa mensual llum + gas (€)',hGas:'Mitjana dels últims 12 mesos (suma total de les factures)',eGas:'Indica la despesa mensual',
+    btnCalc:'Calcular estalvi →',
+    rTtl:'Estimació energètica del teu habitatge',rSub:'Normativa CTE 2019 · Mètode CE3X · Valors orientatius',
+    llAct:'Lletra actual',llPost:'Lletra estimada post-reforma',
+    lsAct:'Situació actual',lsPost:'Amb millores proposades',
+    mEst:'Estalvi anual estimat',mRed:'Reducció del consum',mCo2:'CO₂ evitat per any',
+    caeLbl:'Subvenció CAE estimada (42%)',caeInfo:"Certificats d'Estalvi Energètic · Programa MOVES III",
+    revalLbl:"Revalorització estimada de l'immoble",revalInfo:'~4-6% per lletra millorada · Font: RICS i Banco de España',
+    bRedL:'Reducció del consum',bRoiL:'ROI estimat de la inversió',
+    rNote:"Estimació orientativa. L'auditoria oficial CE3X determinarà els valors exactes i les millores òptimes per al teu habitatge.",
+    btnForm:'Vull el meu informe gratuït →',
+    btnFormSub:'Sense compromís · Sense cost · Resposta en menys de 24h',
+    proofTtl:'247 propietaris de Catalunya han rebut el seu informe aquest mes',
+    proofSub:'Temps mitjà d\'espera per a l\'auditoria: <strong>4 dies hàbils</strong> · Places limitades',
+    checkTtl:'Amb el teu informe gratuït obtindràs',
+    ck1:'Diagnòstic energètic detallat del teu habitatge',
+    ck2:'Pla de millores prioritzat per rendibilitat',
+    ck3:'Guia de subvencions aplicables al teu cas (CAE, MOVES III, NextGen EU)',
+    ck4:'Pressupost orientatiu sense compromís',
+    progL:['Pas <strong>1</strong> de 4 · Perfil bàsic','Pas <strong>2</strong> de 4 · Característiques','Pas <strong>3</strong> de 4 · Interès','Pas <strong>4</strong> de 4 · Contacte'],
+    s1Ttl:'Quin és el teu perfil?',s1Sub:'Fes clic a l\'opció que millor et descriu',
+    lPerf:'Qui ets?',ePerf:'Selecciona una opció per continuar',
+    rpProp:'Propietari particular',rsProp:'Habitatge propi o familiar',
+    rpCom:'President de comunitat de veïns',rsCom:'Edifici de plurifamiliars',
+    rpEmp:'Empresa o administrador de finques',rsEmp:'Gestió de diversos immobles',
+    rpProm:'Promotor o constructor',rsProm:'Obra nova o rehabilitació',
+    lCp:'Codi postal',hCp:'Servei disponible a Catalunya: 08, 17, 25, 43',eCp:'Codi postal no cobert. El servei és exclusiu per a Catalunya (08, 17, 25, 43)',
+    s2Ttl:"Característiques de l'habitatge",s2Sub:'Dades per calibrar millor l\'estimació',
+    lTipo:"Tipus d'immoble",eTipo:"Selecciona el tipus d'immoble",
+    lPlan:'Nombre de plantes',ePlan:'Selecciona el nombre de plantes',
+    lOri:'Orientació principal',lCal:'Sistema de calefacció',eCal:'Selecciona el sistema de calefacció',
+    lAis:'Aïllament existent',lFin:'Tipus de finestres',
+    oTipo:['Selecciona...','Pis en bloc','Casa unifamiliar','Àtic','Local comercial','Edifici sencer'],
+    oPlan:['Selecciona...'],
+    oOri:['Selecciona...','Nord','Sud','Est','Oest','Nord-est','Nord-oest','Sud-est','Sud-oest'],
+    oCal:['Selecciona...','Gas natural','Elèctric','Gasoil','Bomba de calor','Biomassa','Sense calefacció'],
+    oAis:['Selecciona...','Cap aïllament','Baix (anterior a 1979)','Mitjà (1979–2007)','Bo (posterior a 2007)'],
+    oFin:['Selecciona...','Vidre simple','Doble vidre','Triple vidre','Baixa emissivitat'],
+    s3Ttl:'Perfil energètic i interès',s3Sub:'Per personalitzar la proposta que t\'enviarem',
+    lMot:'Quina és la teva principal motivació?',eMot:'Selecciona una motivació per continuar',
+    rmEst:'Reduir la factura energètica',rsEst:'Estalvi econòmic mensual',
+    rmCon:'Millorar el confort tèrmic',rsCon:'Temperatura agradable tot l\'any',
+    rmCert:'Certificat per vendre o llogar',rsCert:'Obligatori per a transaccions immobiliàries',
+    rmSub:'Accedir a subvencions',rsSub:'CAE, MOVES III, Next Generation EU',
+    lPres:'Pressupost disponible',ePres:'Indica el pressupost aproximat',
+    lUrg:'Urgència',eUrg:'Indica la teva urgència',
+    oPres:['Selecciona...','Menys de 5.000 €','5.000 – 15.000 €','15.000 – 30.000 €','Més de 30.000 €','Pendent de definir'],
+    oUrg:['Selecciona...','Immediata (aquest mes)','En els propers 3 mesos','En els propers 6 mesos','Explorant opcions'],
+    s4Ttl:'Dades de contacte',s4Sub:"T'enviarem l'informe personalitzat en menys de 24 hores, sense cap compromís",
+    lNom:'Nom i cognoms',eNom:'Introdueix el teu nom complet',
+    lTel:'Telèfon',eTel:'Telèfon espanyol no vàlid (9 dígits)',
+    lMail:'Correu electrònic',eMail:'Adreça de correu no vàlida',
+    lRgpd:'Accepto la <a href="#" onclick="return false">política de privacitat</a> i el tractament de les meves dades per rebre informació sobre serveis d\'auditoria energètica de Certilab.',
+    eRgpd:"Has d'acceptar la política de privacitat per continuar",
+    lCom:'Vull rebre comunicacions comercials sobre novetats, subvencions i serveis energètics (opcional).',
+    btnBack:'← Tornar',btnNext:'Continuar →',btnSend:'Enviar i obtenir informe →',
+    sucTtl:'Sol·licitud enviada!',sucSub:'En menys de 24 hores un expert de Certilab et contactarà per programar la teva auditoria energètica gratuïta.',
+    footer:'Certilab · Auditories Energètiques Oficials · Catalunya<br>Certificació CE3X · Normativa CTE 2019 · RGPD compliant<br>© 2026 Certilab SL · Tots els drets reservats'
   },
-  es: {
-    hTitle: 'Calcula tu ahorro energético',
-    hSub: 'Certificación oficial CE3X · Subvenciones hasta el 42% (CAE) · Cataluña',
-    ctTitle: 'Calculadora de eficiencia',
-    ctSub: 'Introduce los datos de tu vivienda y obtendrás tu estimación gratuita en segundos',
-    lblSup: 'Superficie (m²)', hintSup: 'Superficie útil habitable',
-    lblAny: 'Año construcción', hintAny: 'Entre 1900 y 2024',
-    lblGasto: 'Gasto mensual luz + gas (€)', hintGasto: 'Media de los últimos 12 meses',
-    btnCalc: 'Calcular ahorro →',
-    rtTitle: 'Estimación energética', rtNorm: 'Normativa CTE 2019 · Método CE3X',
-    mlEstalvi: 'Ahorro anual estimado', mlReduccio: 'Reducción consumo', mlCo2: 'CO₂ evitado / año',
-    caeInfo: 'Certificados de Ahorro Energético · Programa MOVES III',
-    caeLbl: 'Subvención CAE estimada (42%)',
-    barLblRed: 'Reducción consumo', barLblRoi: 'ROI estimado',
-    rtDisclaimer: 'Estimación orientativa basada en CTE 2019. La auditoría oficial determinará los valores exactos.',
-    btnForm: 'Obtener informe completo gratuito →',
-    progLabels: ['Paso <strong>1</strong> de 4 · Perfil básico','Paso <strong>2</strong> de 4 · Vivienda','Paso <strong>3</strong> de 4 · Interés','Paso <strong>4</strong> de 4 · Contacto'],
-    s1Title: '¿Cuál es tu perfil?', s1Sub: 'Queremos asegurarnos de que podemos ayudarte',
-    lfPerfil: '¿Eres propietario o representante?',
-    roProp: 'Propietario particular', roCom: 'Presidente de comunidad de vecinos',
-    roEmp: 'Empresa / administrador de fincas', roProm: 'Promotor / constructor',
-    errPerfil: 'Selecciona una opción',
-    lfCp: 'Código postal', hintCp: 'Servicio disponible en Cataluña (08, 17, 25, 43)',
-    errCp: 'Código postal no cubierto. El servicio es exclusivo para Cataluña.',
-    s2Title: 'Características de la vivienda', s2Sub: 'Datos para calibrar la estimación',
-    lfTipo: 'Tipo de inmueble', lfPlantes: 'Nº de plantas', lfOrient: 'Orientación principal',
-    lfCalef: 'Sistema calefacción', lfAisl: 'Aislamiento existente', lfFinestres: 'Tipo de ventanas',
-    errTipo: 'Selecciona el tipo',
-    s3Title: 'Perfil energético e interés', s3Sub: 'Para personalizar la propuesta',
-    lfMotiv: 'Principal motivación',
-    moEst: 'Reducir la factura energética', moCon: 'Mejorar el confort térmico',
-    moCert: 'Obtener certificado para venta/alquiler', moSub: 'Acceder a subvenciones',
-    lfPressupost: 'Presupuesto disponible', lfUrgencia: 'Urgencia',
-    s4Title: 'Datos de contacto', s4Sub: 'Te enviaremos el informe personalizado sin compromiso',
-    lfNom: 'Nombre y apellidos', lfTel: 'Teléfono', lfEmail: 'Correo electrónico',
-    errNom: 'Campo obligatorio', errTel: 'Teléfono no válido', errEmail: 'Correo no válido',
-    lblRgpd: 'Acepto la <a href="#" id="lnk-privacy">política de privacidad</a> y el tratamiento de mis datos para recibir información sobre servicios de auditoría energética.',
-    lblCom: 'Quiero recibir comunicaciones comerciales sobre novedades y subvenciones energéticas (opcional).',
-    errRgpd: 'Debes aceptar la política de privacidad',
-    btnSend: 'Enviar y obtener informe →',
-    btnBack: '← Volver', btnNext: 'Continuar →',
-    sucTitle: '¡Solicitud enviada!',
-    sucSub: 'En menos de 24 horas un experto de Certilab te contactará para programar tu auditoría energética gratuita.',
-    footer: 'Certilab · Auditorías Energéticas Oficiales · Cataluña<br>Certificación CE3X · Normativa CTE 2019 · RGPD compliant<br>© 2025 Certilab SL · Todos los derechos reservados'
+  es:{
+    hTtl:'Calcula tu ahorro energético',
+    hSub:'Certificación oficial CE3X · Subvenciones hasta el 42% (CAE) · Cataluña',
+    bannerTxt:'⚠ Las subvenciones CAE 2026 cierran el 31 de diciembre · Calcula ahora si puedes acogerte',
+    cTtl:'Calculadora de eficiencia energética',
+    cSub:'Introduce los datos de tu vivienda y obtendrás tu estimación gratuita en segundos',
+    lSup:'Superficie (m²)',hSup:'Superficie útil habitable',eSup:'Campo obligatorio (mínimo 20 m²)',
+    lAny:'Año de construcción',hAny:'Entre 1900 y 2024',eAny:'Indica el año correctamente',
+    lGas:'Gasto mensual luz + gas (€)',hGas:'Media de los últimos 12 meses (suma total de las facturas)',eGas:'Indica el gasto mensual',
+    btnCalc:'Calcular ahorro →',
+    rTtl:'Estimación energética de tu vivienda',rSub:'Normativa CTE 2019 · Método CE3X · Valores orientativos',
+    llAct:'Letra actual',llPost:'Letra estimada post-reforma',
+    lsAct:'Situación actual',lsPost:'Con mejoras propuestas',
+    mEst:'Ahorro anual estimado',mRed:'Reducción del consumo',mCo2:'CO₂ evitado por año',
+    caeLbl:'Subvención CAE estimada (42%)',caeInfo:'Certificados de Ahorro Energético · Programa MOVES III',
+    revalLbl:'Revalorización estimada del inmueble',revalInfo:'~4-6% por letra mejorada · Fuente: RICS y Banco de España',
+    bRedL:'Reducción del consumo',bRoiL:'ROI estimado de la inversión',
+    rNote:'Estimación orientativa. La auditoría oficial CE3X determinará los valores exactos y las mejoras óptimas para tu vivienda.',
+    btnForm:'Quiero mi informe gratuito →',
+    btnFormSub:'Sin compromiso · Sin coste · Respuesta en menos de 24h',
+    proofTtl:'247 propietarios de Cataluña han recibido su informe este mes',
+    proofSub:'Tiempo medio de espera para la auditoría: <strong>4 días hábiles</strong> · Plazas limitadas',
+    checkTtl:'Con tu informe gratuito obtendrás',
+    ck1:'Diagnóstico energético detallado de tu vivienda',
+    ck2:'Plan de mejoras priorizado por rentabilidad',
+    ck3:'Guía de subvenciones aplicables a tu caso (CAE, MOVES III, NextGen EU)',
+    ck4:'Presupuesto orientativo sin compromiso',
+    progL:['Paso <strong>1</strong> de 4 · Perfil básico','Paso <strong>2</strong> de 4 · Características','Paso <strong>3</strong> de 4 · Interés','Paso <strong>4</strong> de 4 · Contacto'],
+    s1Ttl:'¿Cuál es tu perfil?',s1Sub:'Haz clic en la opción que mejor te describa',
+    lPerf:'¿Quién eres?',ePerf:'Selecciona una opción para continuar',
+    rpProp:'Propietario particular',rsProp:'Vivienda propia o familiar',
+    rpCom:'Presidente de comunidad de vecinos',rsCom:'Edificio de plurifamiliares',
+    rpEmp:'Empresa o administrador de fincas',rsEmp:'Gestión de varios inmuebles',
+    rpProm:'Promotor o constructor',rsProm:'Obra nueva o rehabilitación',
+    lCp:'Código postal',hCp:'Servicio disponible en Cataluña: 08, 17, 25, 43',eCp:'Código postal no cubierto. El servicio es exclusivo para Cataluña (08, 17, 25, 43)',
+    s2Ttl:'Características de la vivienda',s2Sub:'Datos para calibrar mejor la estimación',
+    lTipo:'Tipo de inmueble',eTipo:'Selecciona el tipo de inmueble',
+    lPlan:'Número de plantas',ePlan:'Selecciona el número de plantas',
+    lOri:'Orientación principal',lCal:'Sistema de calefacción',eCal:'Selecciona el sistema de calefacción',
+    lAis:'Aislamiento existente',lFin:'Tipo de ventanas',
+    oTipo:['Selecciona...','Piso en bloque','Casa unifamiliar','Ático','Local comercial','Edificio entero'],
+    oPlan:['Selecciona...'],
+    oOri:['Selecciona...','Norte','Sur','Este','Oeste','Noreste','Noroeste','Sureste','Suroeste'],
+    oCal:['Selecciona...','Gas natural','Eléctrico','Gasóleo','Bomba de calor','Biomasa','Sin calefacción'],
+    oAis:['Selecciona...','Sin aislamiento','Bajo (anterior a 1979)','Medio (1979–2007)','Bueno (posterior a 2007)'],
+    oFin:['Selecciona...','Vidrio simple','Doble vidrio','Triple vidrio','Baja emisividad'],
+    s3Ttl:'Perfil energético e interés',s3Sub:'Para personalizar la propuesta que te enviaremos',
+    lMot:'¿Cuál es tu principal motivación?',eMot:'Selecciona una motivación para continuar',
+    rmEst:'Reducir la factura energética',rsEst:'Ahorro económico mensual',
+    rmCon:'Mejorar el confort térmico',rsCon:'Temperatura agradable todo el año',
+    rmCert:'Certificado para vender o alquilar',rsCert:'Obligatorio para transacciones inmobiliarias',
+    rmSub:'Acceder a subvenciones',rsSub:'CAE, MOVES III, Next Generation EU',
+    lPres:'Presupuesto disponible',ePres:'Indica el presupuesto aproximado',
+    lUrg:'Urgencia',eUrg:'Indica tu urgencia',
+    oPres:['Selecciona...','Menos de 5.000 €','5.000 – 15.000 €','15.000 – 30.000 €','Más de 30.000 €','Pendiente de definir'],
+    oUrg:['Selecciona...','Inmediata (este mes)','En los próximos 3 meses','En los próximos 6 meses','Explorando opciones'],
+    s4Ttl:'Datos de contacto',s4Sub:'Te enviaremos el informe personalizado en menos de 24 horas, sin ningún compromiso',
+    lNom:'Nombre y apellidos',eNom:'Introduce tu nombre completo',
+    lTel:'Teléfono',eTel:'Teléfono español no válido (9 dígitos)',
+    lMail:'Correo electrónico',eMail:'Dirección de correo no válida',
+    lRgpd:'Acepto la <a href="#" onclick="return false">política de privacidad</a> y el tratamiento de mis datos para recibir información sobre servicios de auditoría energética de Certilab.',
+    eRgpd:'Debes aceptar la política de privacidad para continuar',
+    lCom:'Quiero recibir comunicaciones comerciales sobre novedades, subvenciones y servicios energéticos (opcional).',
+    btnBack:'← Volver',btnNext:'Continuar →',btnSend:'Enviar y obtener informe →',
+    sucTtl:'¡Solicitud enviada!',sucSub:'En menos de 24 horas un experto de Certilab te contactará para programar tu auditoría energética gratuita.',
+    footer:'Certilab · Auditorías Energéticas Oficiales · Cataluña<br>Certificación CE3X · Normativa CTE 2019 · RGPD compliant<br>© 2026 Certilab SL · Todos los derechos reservados'
   }
 };
 
-// ══ CANVI IDIOMA ══
-function setLang(l) {
-  lang = l;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('active');
-  const t = T[l];
-  const s = (id, val) => { const el = document.getElementById(id); if(el) el.innerHTML = val; };
-  s('h-title', t.hTitle); s('h-sub', t.hSub);
-  s('ct-title', t.ctTitle); s('ct-sub', t.ctSub);
-  s('lbl-sup', t.lblSup); s('hint-sup', t.hintSup);
-  s('lbl-any', t.lblAny); s('hint-any', t.hintAny);
-  s('lbl-gasto', t.lblGasto); s('hint-gasto', t.hintGasto);
-  s('btn-calc', t.btnCalc);
-  s('rt-title', t.rtTitle); s('rt-norm', t.rtNorm);
-  s('ml-estalvi', t.mlEstalvi); s('ml-reduccio', t.mlReduccio); s('ml-co2', t.mlCo2);
-  s('cae-lbl', t.caeLbl); s('cae-info', t.caeInfo);
-  s('bar-lbl-red', t.barLblRed); s('bar-lbl-roi', t.barLblRoi);
-  s('rt-disclaimer', t.rtDisclaimer); s('btn-form', t.btnForm);
-  s('prog-lbl', t.progLabels[currentStep-1]);
-  s('s1-title', t.s1Title); s('s1-sub', t.s1Sub);
-  s('lf-perfil', t.lfPerfil); s('ro-prop', t.roProp); s('ro-com', t.roCom);
-  s('ro-emp', t.roEmp); s('ro-prom', t.roProm); s('err-perfil', t.errPerfil);
-  s('lf-cp', t.lfCp); s('hint-cp', t.hintCp); s('err-cp', t.errCp);
-  s('s2-title', t.s2Title); s('s2-sub', t.s2Sub);
-  s('lf-tipo', t.lfTipo); s('lf-plantes', t.lfPlantes); s('lf-orient', t.lfOrient);
-  s('lf-calef', t.lfCalef); s('lf-aisl', t.lfAisl); s('lf-finestres', t.lfFinestres);
-  s('err-tipo', t.errTipo);
-  s('s3-title', t.s3Title); s('s3-sub', t.s3Sub); s('lf-motiv', t.lfMotiv);
-  s('mo-est', t.moEst); s('mo-con', t.moCon); s('mo-cert', t.moCert); s('mo-sub', t.moSub);
-  s('lf-pressupost', t.lfPressupost); s('lf-urgencia', t.lfUrgencia);
-  s('s4-title', t.s4Title); s('s4-sub', t.s4Sub);
-  s('lf-nom', t.lfNom); s('lf-tel', t.lfTel); s('lf-email', t.lfEmail);
-  s('err-nom', t.errNom); s('err-tel', t.errTel); s('err-email', t.errEmail);
-  s('lbl-rgpd', t.lblRgpd); s('lbl-com', t.lblCom); s('err-rgpd', t.errRgpd);
-  s('btn-send', t.btnSend); s('suc-title', t.sucTitle); s('suc-sub', t.sucSub);
-  s('footer-txt', t.footer);
-  ['btn-b2','btn-b3','btn-b4'].forEach(id => s(id, t.btnBack));
-  ['btn-next1','btn-next2','btn-next3'].forEach(id => s(id, t.btnNext));
+// ══ ESTAT ══
+let L = 'ca';
+let cStep = 1;
+let cData = {};
+
+// ══ IDIOMA ══
+function t(k){ return TX[L][k] || TX['ca'][k] || ''; }
+
+function s(id, html){ const el=document.getElementById(id); if(el) el.innerHTML=html; }
+function sv(id, val){ const el=document.getElementById(id); if(el) el.textContent=val; }
+
+function setLang(l){
+  L = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelector(`.lang-btn[onclick="setLang('${l}')"]`).classList.add('on');
+  applyTexts();
+  updateSelects();
+  // Actualitzar missatge personalitzat si ja s'ha calculat
+  if(cData.lletraAct){
+    const msgs = {
+      ca:{G:'⚠️ El teu habitatge té un consum molt elevat. Amb una reforma pots estalviar més de la meitat de la factura.',F:'⚠️ Edifici d\'alt consum. Tens molt marge de millora i accés a les subvencions màximes.',E:'🔸 Consum moderat-alt. Les millores proposades reduiran la factura fins al 40% i milloraran el confort.',D:'🔸 Rendiment mitjà. Amb intervencions concretes pots assolir fàcilment la lletra B.',C:'✅ Bon punt de partida. Optimitzacions selectives et portaran a la categoria A o B.',B:'✅ Habitatge eficient. Petites millores consolidaran el teu avantatge energètic.',A:'🏆 Excel·lent! El teu habitatge ja és de màxima eficiència energètica.'},
+      es:{G:'⚠️ Tu vivienda tiene un consumo muy elevado. Con una reforma puedes ahorrar más de la mitad de la factura.',F:'⚠️ Edificio de alto consumo. Tienes mucho margen de mejora y acceso a las subvenciones máximas.',E:'🔸 Consumo moderado-alto. Las mejoras propuestas reducirán la factura hasta un 40% y mejorarán el confort.',D:'🔸 Rendimiento medio. Con intervenciones concretas puedes alcanzar fácilmente la letra B.',C:'✅ Buen punto de partida. Optimizaciones selectivas te llevarán a la categoría A o B.',B:'✅ Vivienda eficiente. Pequeñas mejoras consolidarán tu ventaja energética.',A:'🏆 ¡Excelente! Tu vivienda ya es de máxima eficiencia energética.'}
+    };
+    s('lletra-msg', msgs[L][cData.lletraAct] || '');
+    // Actualitzar valors numèrics amb locale correcte
+    var loc = L==='ca'?'ca-ES':'es-ES';
+    s('m-est', cData.estalviAnual.toLocaleString(loc) + ' €');
+    s('cae-v', cData.cae.toLocaleString(loc) + ' €');
+  }
 }
 
-// ══ CÀLCUL ENERGÈTIC ══
-function calcular() {
-  const sup = parseFloat(document.getElementById('inp-sup').value);
-  const any = parseInt(document.getElementById('inp-any').value);
-  const gasto = parseFloat(document.getElementById('inp-gasto').value);
+function applyTexts(){
+  s('h-ttl',t('hTtl')); s('h-sub',t('hSub'));
+  s('banner-txt',t('bannerTxt'));
+  s('c-ttl',t('cTtl')); s('c-sub',t('cSub'));
+  sv('l-sup',t('lSup')); s('h-sup',t('hSup')); s('e-sup',t('eSup'));
+  sv('l-any',t('lAny')); s('h-any',t('hAny')); s('e-any',t('eAny'));
+  sv('l-gas',t('lGas')); s('h-gas',t('hGas')); s('e-gas',t('eGas'));
+  s('btn-calc',t('btnCalc'));
+  s('r-ttl',t('rTtl')); s('r-sub',t('rSub'));
+  s('ll-act',t('llAct')); s('ll-post',t('llPost'));
+  s('ls-act',t('lsAct')); s('ls-post',t('lsPost'));
+  sv('ml-est',t('mEst')); sv('ml-red',t('mRed')); sv('ml-co2',t('mCo2'));
+  s('cae-l',t('caeLbl')); s('cae-i',t('caeInfo'));
+  s('reval-l',t('revalLbl')); s('reval-i',t('revalInfo'));
+  s('b-red-l',t('bRedL')); s('b-roi-l',t('bRoiL'));
+  s('r-note',t('rNote')); s('btn-form-txt',t('btnForm')); s('btn-sub-txt',t('btnFormSub'));
+  s('proof-ttl',t('proofTtl')); s('proof-sub',t('proofSub'));
+  sv('check-ttl',t('checkTtl'));
+  sv('ck1',t('ck1')); sv('ck2',t('ck2')); sv('ck3',t('ck3')); sv('ck4',t('ck4'));
+  s('prog-lbl',t('progL')[cStep-1]);
+  s('s1-ttl',t('s1Ttl')); s('s1-sub',t('s1Sub'));
+  sv('l-perf',t('lPerf')); s('e-perf',t('ePerf'));
+  sv('rp-prop',t('rpProp')); sv('rs-prop',t('rsProp'));
+  sv('rp-com',t('rpCom')); sv('rs-com',t('rsCom'));
+  sv('rp-emp',t('rpEmp')); sv('rs-emp',t('rsEmp'));
+  sv('rp-prom',t('rpProm')); sv('rs-prom',t('rsProm'));
+  sv('l-cp',t('lCp')); s('h-cp',t('hCp')); s('e-cp',t('eCp'));
+  s('s2-ttl',t('s2Ttl')); s('s2-sub',t('s2Sub'));
+  sv('l-tipo',t('lTipo')); s('e-tipo',t('eTipo'));
+  sv('l-plan',t('lPlan')); s('e-plan',t('ePlan'));
+  sv('l-ori',t('lOri')); sv('l-cal',t('lCal')); s('e-cal',t('eCal'));
+  sv('l-ais',t('lAis')); sv('l-fin',t('lFin'));
+  s('s3-ttl',t('s3Ttl')); s('s3-sub',t('s3Sub'));
+  sv('l-mot',t('lMot')); s('e-mot',t('eMot'));
+  sv('rm-est',t('rmEst')); sv('rs-est',t('rsEst'));
+  sv('rm-con',t('rmCon')); sv('rs-con',t('rsCon'));
+  sv('rm-cert',t('rmCert')); sv('rs-cert',t('rsCert'));
+  sv('rm-sub',t('rmSub')); sv('rs-sub',t('rsSub'));
+  sv('l-pres',t('lPres')); s('e-pres',t('ePres'));
+  sv('l-urg',t('lUrg')); s('e-urg',t('eUrg'));
+  s('s4-ttl',t('s4Ttl')); s('s4-sub',t('s4Sub'));
+  sv('l-nom',t('lNom')); s('e-nom',t('eNom'));
+  sv('l-tel',t('lTel')); s('e-tel',t('eTel'));
+  sv('l-mail',t('lMail')); s('e-mail',t('eMail'));
+  s('l-rgpd',t('lRgpd')); s('e-rgpd',t('eRgpd'));
+  s('l-com',t('lCom'));
+  s('bn1',t('btnNext')); s('bn2',t('btnNext')); s('bn3',t('btnNext'));
+  s('bb2',t('btnBack')); s('bb3',t('btnBack')); s('bb4',t('btnBack'));
+  s('bn4',t('btnSend'));
+  s('suc-ttl',t('sucTtl')); s('suc-sub',t('sucSub'));
+  s('footer-txt',t('footer'));
+}
 
-  if (!sup || sup < 20 || !any || any < 1900 || !gasto || gasto < 10) {
-    alert(lang === 'ca' ? 'Omple tots els camps correctament.' : 'Rellena todos los campos correctamente.');
-    return;
-  }
+function updateSelects(){
+  const maps = [
+    {sel:'i-tipo', ids:['o-tipo-0','o-tipo-1','o-tipo-2','o-tipo-3','o-tipo-4','o-tipo-5'], key:'oTipo'},
+    {sel:'i-ori',  ids:['o-ori-0','o-ori-N','o-ori-S','o-ori-E','o-ori-O','o-ori-NE','o-ori-NO','o-ori-SE','o-ori-SO'], key:'oOri'},
+    {sel:'i-cal',  ids:['o-cal-0','o-cal-1','o-cal-2','o-cal-3','o-cal-4','o-cal-5','o-cal-6'], key:'oCal'},
+    {sel:'i-ais',  ids:['o-ais-0','o-ais-1','o-ais-2','o-ais-3','o-ais-4'], key:'oAis'},
+    {sel:'i-fin',  ids:['o-fin-0','o-fin-1','o-fin-2','o-fin-3','o-fin-4'], key:'oFin'},
+    {sel:'i-pres', ids:['o-pres-0','o-pres-1','o-pres-2','o-pres-3','o-pres-4','o-pres-5'], key:'oPres'},
+    {sel:'i-urg',  ids:['o-urg-0','o-urg-1','o-urg-2','o-urg-3','o-urg-4'], key:'oUrg'},
+  ];
+  maps.forEach(function(m){
+    var selEl = document.getElementById(m.sel);
+    var curVal = selEl ? selEl.value : '';
+    var arr = t(m.key);
+    m.ids.forEach(function(id,i){
+      var opt = document.getElementById(id);
+      if(opt && arr[i]!==undefined) opt.textContent = arr[i];
+    });
+    if(selEl && curVal) selEl.value = curVal;
+  });
+  var planOpt0 = document.getElementById('o-plan-0');
+  if(planOpt0) planOpt0.textContent = 'Selecciona...';
+}
 
-  // ── Factor reducció per any (CTE 2019 aproximació) ──
-  let factorReduccio;
-  if (any < 1940) factorReduccio = 0.52;
-  else if (any < 1960) factorReduccio = 0.48;
-  else if (any < 1979) factorReduccio = 0.42;
-  else if (any < 2007) factorReduccio = 0.35;
-  else if (any < 2013) factorReduccio = 0.25;
-  else factorReduccio = 0.15;
+// ══ CÀLCUL ══
+function lletraIndex(any){
+  // Escala G(0) → F(1) → E(2) → D(3) → C(4) → B(5) → A(6)
+  // Basat en CTE 2019 i CE3X per clima mediterrani (zona B3/C2 Catalunya)
+  if(any < 1940) return 0; // G — sense norma, murs massissos sense cap aïllament
+  if(any < 1979) return 1; // F — anterior NBE-CT-77 (primera norma tèrmica)
+  if(any < 1990) return 2; // E — NBE-CT-77, aïllament mínim
+  if(any < 2007) return 3; // D — CTE 2006 en preparació, millores parcials
+  if(any < 2013) return 4; // C — CTE 2006 vigent
+  if(any < 2020) return 5; // B — CTE 2013, bones prestacions
+  return 6;                 // A — CTE 2019, edificis quasi zero energia (nZEB)
+}
 
-  // ── Lletra energètica estimada ──
-  let letraInfo;
-  const consumpKwh = (gasto * 12) / 0.17; // aprox. kWh anuals
-  const consumpM2 = consumpKwh / sup;
-  if (any < 1960) letraInfo = { lletra:'G', color:'#8B0000' };
-  else if (any < 1979) letraInfo = { lletra:'F', color:'#CC0000' };
-  else if (any < 1990) letraInfo = { lletra:'E', color:'#E85500' };
-  else if (any < 2007) letraInfo = { lletra:'D', color:'#E6A000' };
-  else if (any < 2013) letraInfo = { lletra:'C', color:'#88A000' };
-  else if (any < 2020) letraInfo = { lletra:'B', color:'#4C8800' };
-  else letraInfo = { lletra:'A', color:'#006600' };
+function calcular(){
+  const sup = parseFloat(document.getElementById('i-sup').value);
+  const any = parseInt(document.getElementById('i-any').value);
+  const gas = parseFloat(document.getElementById('i-gas').value);
 
-  const estalviAnual = Math.round(gasto * 12 * factorReduccio);
+  // Validació
+  let ok = true;
+  const vSup = sup>=20 && sup<=5000;
+  const vAny = any>=1900 && any<=2024;
+  const vGas = gas>=10 && gas<=5000;
+  document.getElementById('ff-sup').classList.toggle('err', !vSup || isNaN(sup));
+  document.getElementById('ff-any').classList.toggle('err', !vAny || isNaN(any));
+  document.getElementById('ff-gas').classList.toggle('err', !vGas || isNaN(gas));
+  if(!vSup||isNaN(sup)||!vAny||isNaN(any)||!vGas||isNaN(gas)) return;
+
+  // ── Lletra actual ──
+  const idxAct = lletraIndex(any);
+  const lletraAct = LETRES[idxAct];
+
+  // ── Factor reducció per any (% estalvi realitzable amb reforma integral) ──
+  // G=0.55, F=0.48, E=0.40, D=0.32, C=0.22, B=0.12, A=0.06
+  const factors = [0.55, 0.48, 0.40, 0.32, 0.22, 0.12, 0.06];
+  const factorRed = factors[idxAct];
+
+  // ── Lletra post-reforma (típicament +2 graus, màx A) ──
+  const idxPost = Math.min(idxAct + 2, 6);
+  const lletraPost = LETRES[idxPost];
+  const gradesUp = idxPost - idxAct;
+
+  // ── Revalorització: ~4-6% per lletra millorada (Font: RICS / Banco de España) ──
+  // Valor promig habitatge Catalunya: ~2.400 €/m² (Idealista 2024 Catalunya)
+  const valorImmoble = sup * 2400;
+  const pctReval = gradesUp * 5; // 5% per grau = conservador-realista
+  const revalEur = Math.round(valorImmoble * pctReval / 100);
+
+  // ── Càlculs energètics ──
+  const estalviAnual = Math.round(gas * 12 * factorRed);
   const cae = Math.round(estalviAnual * 0.42);
   const co2 = Math.round(estalviAnual * 0.185);
-  const pctReduccio = Math.round(factorReduccio * 100);
-  const roi = Math.min(Math.round((estalviAnual / (gasto * 12)) * 100 * 1.8), 95);
+  const pctRed = Math.round(factorRed * 100);
+  const roi = Math.min(Math.round(factorRed * 180), 95);
 
-  // ── Guardar per al formulari ──
-  calcData = { sup, any, gasto, estalviAnual, cae, co2, pctReduccio, roi, lletra: letraInfo.lletra, consumpM2: Math.round(consumpM2) };
+  // Guardar per al formulari
+  cData = {sup,any,gas,estalviAnual,cae,co2,pctRed,roi,lletraAct,lletraPost,pctReval,revalEur};
 
-  // ── Mostrar resultats ──
-  document.getElementById('letra-badge').textContent = letraInfo.lletra;
-  document.getElementById('letra-badge').style.background = letraInfo.color;
-  document.getElementById('m-estalvi').textContent = estalviAnual.toLocaleString('ca-ES') + ' €';
-  document.getElementById('m-reduccio').textContent = pctReduccio + '%';
-  document.getElementById('m-co2').textContent = co2 + ' kg';
-  document.getElementById('cae-val').textContent = cae.toLocaleString('ca-ES') + ' €';
+  // ── Renderitzar letres ──
+  const lb1 = document.getElementById('lb-act');
+  lb1.textContent = lletraAct;
+  lb1.style.background = COLORS_LLETRA[lletraAct];
 
-  document.getElementById('bar-pct-red').textContent = pctReduccio + '%';
-  document.getElementById('bar-roi').style.width = roi + '%';
-  document.getElementById('bar-pct-roi').textContent = roi + '%';
+  const lb2 = document.getElementById('lb-post');
+  lb2.textContent = lletraPost;
+  lb2.style.background = COLORS_LLETRA[lletraPost];
 
-  // Animar barra reducció
-  document.getElementById('bar-red').style.width = '0%';
-  setTimeout(() => { document.getElementById('bar-red').style.width = pctReduccio + '%'; }, 100);
+  // ── Mètriques ──
+  var loc = L==='ca'?'ca-ES':'es-ES';
+  s('m-est', estalviAnual.toLocaleString(loc) + ' €');
+  s('m-red', pctRed + '%');
+  s('m-co2', co2 + ' kg');
+  s('cae-v', cae.toLocaleString(loc) + ' €');
+  var revalTxt = '+' + pctReval + '%';
+  s('reval-v', revalTxt);
 
-  // ── MOSTRAR RESULTATS (fix principal) ──
-  const resultsEl = document.getElementById('results-section');
-  resultsEl.style.display = 'block';
-  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  // ── Missatge personalitzat per lletra ──
+  const msgs = {
+    ca: {
+      G: '⚠️ El teu habitatge té un consum molt elevat. Amb una reforma pots estalviar més de la meitat de la factura.',
+      F: '⚠️ Edifici d\'alt consum. Tens molt marge de millora i accés a les subvencions màximes.',
+      E: '🔸 Consum moderat-alt. Les millores proposades reduiran la factura fins al 40% i milloraran el confort.',
+      D: '🔸 Rendiment mitjà. Amb intervencions concretes pots assolir fàcilment la lletra B.',
+      C: '✅ Bon punt de partida. Optimitzacions selectives et portaran a la categoria A o B.',
+      B: '✅ Habitatge eficient. Petites millores consolidaran el teu avantatge energètic.',
+      A: '🏆 Excel·lent! El teu habitatge ja és de màxima eficiència energètica.'
+    },
+    es: {
+      G: '⚠️ Tu vivienda tiene un consumo muy elevado. Con una reforma puedes ahorrar más de la mitad de la factura.',
+      F: '⚠️ Edificio de alto consumo. Tienes mucho margen de mejora y acceso a las subvenciones máximas.',
+      E: '🔸 Consumo moderado-alto. Las mejoras propuestas reducirán la factura hasta un 40% y mejorarán el confort.',
+      D: '🔸 Rendimiento medio. Con intervenciones concretas puedes alcanzar fácilmente la letra B.',
+      C: '✅ Buen punto de partida. Optimizaciones selectivas te llevarán a la categoría A o B.',
+      B: '✅ Vivienda eficiente. Pequeñas mejoras consolidarán tu ventaja energética.',
+      A: '🏆 ¡Excelente! Tu vivienda ya es de máxima eficiencia energética.'
+    }
+  };
+  s('lletra-msg', msgs[L][lletraAct] || '');
+  document.getElementById('b-red-p').textContent = pctRed + '%';
+  document.getElementById('b-roi-p').textContent = roi + '%';
+  document.getElementById('bf-red').style.width = '0%';
+  document.getElementById('bf-roi').style.width = '0%';
+  setTimeout(()=>{
+    document.getElementById('bf-red').style.width = pctRed + '%';
+    document.getElementById('bf-roi').style.width = roi + '%';
+  }, 100);
 
-  // ── Facebook Pixel ──
-  fbq('track', 'ViewContent', {
-    content_name: 'Calculadora Certilab',
-    value: estalviAnual,
-    currency: 'EUR'
-  });
+  // ── MOSTRAR ──
+  const el = document.getElementById('res');
+  el.style.display = 'block';
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
+
+  fbq('track','ViewContent',{content_name:'Certilab Calculadora',value:estalviAnual,currency:'EUR'});
 }
 
-function clearResults() {
-  document.getElementById('results-section').style.display = 'none';
+function clearRes(){
+  document.getElementById('res').style.display = 'none';
 }
 
 // ══ FORMULARI ══
-function mostrarFormulari() {
-  document.getElementById('form-section').style.display = 'block';
-  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
-  fbq('track', 'InitiateCheckout');
+function mostrarForm(){
+  document.getElementById('form-sec').style.display = 'block';
+  updateProgress();
+  setTimeout(()=>document.getElementById('form-sec').scrollIntoView({behavior:'smooth'}), 50);
+  fbq('track','InitiateCheckout');
 }
 
-function selectRadio(el, name, val) {
-  document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-    r.closest('.radio-opt').classList.remove('selected');
-  });
-  el.classList.add('selected');
-  el.querySelector('input').checked = true;
+function selRad(el, name, val){
+  document.querySelectorAll(`#rg-${name} .ropt`).forEach(r=>r.classList.remove('on'));
+  el.classList.add('on');
+  el.querySelector('input[type=radio]').checked = true;
+  // Treure error
+  const ff = document.getElementById(`ff-${name}`);
+  if(ff) ff.classList.remove('err');
 }
 
-function validarCP(input) {
+function valCP(input){
   const cp = input.value.trim();
-  if (cp.length === 5) {
-    const pref = cp.substring(0, 2);
-    const valid = ['08','09','17','25','43'].includes(pref);
-    const ff = document.getElementById('ff-cp');
-    if (!valid) { ff.classList.add('error'); }
-    else { ff.classList.remove('error'); }
+  if(cp.length===5){
+    const ok = ['08','09','17','25','43'].includes(cp.substring(0,2));
+    document.getElementById('ff-cp').classList.toggle('err', !ok);
   }
 }
 
-// Validació per pas
-function validarPas(num) {
+function validateStep(n){
   let ok = true;
-  if (num === 1) {
-    const perfil = document.querySelector('input[name="perfil"]:checked');
-    const ff1 = document.getElementById('ff-perfil');
-    if (!perfil) { ff1.classList.add('error'); ok = false; }
-    else ff1.classList.remove('error');
+  if(n===1){
+    const p = document.querySelector('input[name="perf"]:checked');
+    const ffp = document.getElementById('ff-perf');
+    ffp.classList.toggle('err', !p);
+    if(!p) ok = false;
 
-    const cp = document.getElementById('inp-cp').value.trim();
-    const ff2 = document.getElementById('ff-cp');
-    if (cp.length !== 5 || !['08','09','17','25','43'].includes(cp.substring(0,2))) {
-      ff2.classList.add('error'); ok = false;
-    } else ff2.classList.remove('error');
+    const cp = document.getElementById('i-cp').value.trim();
+    const validCP = cp.length===5 && ['08','09','17','25','43'].includes(cp.substring(0,2));
+    document.getElementById('ff-cp').classList.toggle('err', !validCP);
+    if(!validCP) ok = false;
   }
-  if (num === 2) {
-    const tipo = document.getElementById('inp-tipo').value;
-    const ff = document.getElementById('err-tipo').parentElement;
-    if (!tipo) { ff.classList.add('error'); ok = false; }
-    else ff.classList.remove('error');
+  if(n===2){
+    const tipo = document.getElementById('i-tipo').value;
+    document.getElementById('ff-tipo').classList.toggle('err', !tipo);
+    if(!tipo) ok = false;
+
+    const plan = document.getElementById('i-plan').value;
+    document.getElementById('ff-plan').classList.toggle('err', !plan);
+    if(!plan) ok = false;
+
+    const cal = document.getElementById('i-cal').value;
+    document.getElementById('ff-cal').classList.toggle('err', !cal);
+    if(!cal) ok = false;
   }
-  if (num === 4) {
-    const nom = document.getElementById('inp-nom').value.trim();
-    const tel = document.getElementById('inp-tel').value.trim();
-    const email = document.getElementById('inp-email').value.trim();
-    const rgpd = document.getElementById('chk-rgpd').checked;
-    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const telRx = /^[6789]\d{8}$/;
+  if(n===3){
+    const m = document.querySelector('input[name="mot"]:checked');
+    document.getElementById('ff-mot').classList.toggle('err', !m);
+    if(!m) ok = false;
 
-    document.getElementById('ff-nom').classList.toggle('error', nom.length < 2);
-    document.getElementById('ff-tel').classList.toggle('error', !telRx.test(tel.replace(/\s/g,'')));
-    document.getElementById('ff-email').classList.toggle('error', !emailRx.test(email));
-    document.getElementById('err-rgpd').style.display = rgpd ? 'none' : 'block';
+    const pres = document.getElementById('i-pres').value;
+    document.getElementById('ff-pres').classList.toggle('err', !pres);
+    if(!pres) ok = false;
 
-    if(nom.length < 2 || !telRx.test(tel.replace(/\s/g,'')) || !emailRx.test(email) || !rgpd) ok = false;
+    const urg = document.getElementById('i-urg').value;
+    document.getElementById('ff-urg').classList.toggle('err', !urg);
+    if(!urg) ok = false;
+  }
+  if(n===4){
+    const nom = document.getElementById('i-nom').value.trim();
+    const tel = document.getElementById('i-tel').value.trim().replace(/\s/g,'');
+    const mail = document.getElementById('i-mail').value.trim();
+    const rgpd = document.getElementById('i-rgpd').checked;
+
+    const telOk = /^[6789]\d{8}$/.test(tel);
+    const mailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+
+    document.getElementById('ff-nom').classList.toggle('err', nom.length<2);
+    document.getElementById('ff-tel').classList.toggle('err', !telOk);
+    document.getElementById('ff-mail').classList.toggle('err', !mailOk);
+    const errRgpd = document.getElementById('e-rgpd');
+    errRgpd.style.display = rgpd ? 'none' : 'block';
+
+    if(nom.length<2||!telOk||!mailOk||!rgpd) ok = false;
   }
   return ok;
 }
 
-function nextStep(from) {
-  if (!validarPas(from)) return;
-  currentStep = from + 1;
-  document.getElementById(`step${from}`).classList.remove('active');
-  document.getElementById(`step${currentStep}`).classList.add('active');
+function nextS(from){
+  if(!validateStep(from)) return;
+  document.getElementById(`fs${from}`).classList.remove('on');
+  cStep = from + 1;
+  document.getElementById(`fs${cStep}`).classList.add('on');
   updateProgress();
-  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('form-sec').scrollIntoView({behavior:'smooth'});
 }
 
-function prevStep(from) {
-  currentStep = from - 1;
-  document.getElementById(`step${from}`).classList.remove('active');
-  document.getElementById(`step${currentStep}`).classList.add('active');
+function prevS(from){
+  document.getElementById(`fs${from}`).classList.remove('on');
+  cStep = from - 1;
+  document.getElementById(`fs${cStep}`).classList.add('on');
   updateProgress();
 }
 
-function updateProgress() {
-  for (let i = 1; i <= 4; i++) {
-    const dot = document.getElementById(`sd${i}`);
-    if (i < currentStep) { dot.classList.add('done'); dot.classList.remove('active'); dot.textContent = '✓'; }
-    else if (i === currentStep) { dot.classList.add('active'); dot.classList.remove('done'); dot.textContent = i; }
-    else { dot.classList.remove('active','done'); dot.textContent = i; }
-    if (i < 4) {
-      const line = document.getElementById(`sl${i}`);
-      line.classList.toggle('done', i < currentStep);
+function updateProgress(){
+  for(let i=1;i<=4;i++){
+    const d = document.getElementById(`sd${i}`);
+    d.classList.remove('on','done');
+    if(i<cStep){ d.classList.add('done'); d.textContent='✓'; }
+    else if(i===cStep){ d.classList.add('on'); d.textContent=i; }
+    else { d.textContent=i; }
+    if(i<4){
+      const l = document.getElementById(`sl${i}`);
+      l.classList.toggle('done', i<cStep);
     }
   }
-  document.getElementById('prog-lbl').innerHTML = T[lang].progLabels[currentStep - 1];
+  s('prog-lbl', t('progL')[cStep-1]);
 }
 
 // ══ LEAD SCORING ══
-function calcularScore() {
-  let score = 0;
-
-  // Perfil (0-15)
-  const perfil = document.querySelector('input[name="perfil"]:checked')?.value;
-  const scorePerfil = { comunitat: 15, empresa: 15, promotor: 12, propietari: 8 };
-  score += scorePerfil[perfil] || 0;
-
-  // Superfície (0-15)
-  if (calcData.sup >= 300) score += 15;
-  else if (calcData.sup >= 150) score += 12;
-  else if (calcData.sup >= 80) score += 8;
-  else score += 4;
-
-  // Any construcció (0-15)
-  if (calcData.any < 1960) score += 15;
-  else if (calcData.any < 1979) score += 12;
-  else if (calcData.any < 2000) score += 8;
-  else score += 3;
-
-  // Pressupost (0-20)
-  const pressupost = document.getElementById('inp-pressupost').value;
-  const scorePress = { mas30k: 20, '15k-30k': 15, '5k-15k': 10, menos5k: 5, sense: 3 };
-  score += scorePress[pressupost] || 0;
-
-  // Urgència (0-20)
-  const urgencia = document.getElementById('inp-urgencia').value;
-  const scoreUrg = { immediata: 20, '3m': 15, '6m': 10, exploracio: 3 };
-  score += scoreUrg[urgencia] || 0;
-
-  // Motivació (0-15)
-  const motiv = document.querySelector('input[name="motiv"]:checked')?.value;
-  const scoreMotiv = { subvencio: 15, estalvi: 12, confort: 8, certificat: 6 };
-  score += scoreMotiv[motiv] || 0;
-
-  let quality;
-  if (score >= 75) quality = 'HOT';
-  else if (score >= 55) quality = 'WARM';
-  else if (score >= 40) quality = 'COLD';
-  else quality = 'LOW';
-
-  return { score, quality };
+function scoring(){
+  let sc = 0;
+  const perf = document.querySelector('input[name="perf"]:checked')?.value;
+  sc += ({comunitat:15,empresa:15,promotor:12,propietari:8}[perf]||0);
+  if(cData.sup>=300) sc+=15; else if(cData.sup>=150) sc+=12; else if(cData.sup>=80) sc+=8; else sc+=4;
+  if(cData.any<1960) sc+=15; else if(cData.any<1979) sc+=12; else if(cData.any<2000) sc+=8; else sc+=3;
+  const pres = document.getElementById('i-pres').value;
+  sc += ({mas30k:20,'15k-30k':15,'5k-15k':10,menos5k:5,sense:3}[pres]||0);
+  const urg = document.getElementById('i-urg').value;
+  sc += ({immediata:20,'3m':15,'6m':10,exploracio:3}[urg]||0);
+  const mot = document.querySelector('input[name="mot"]:checked')?.value;
+  sc += ({subvencio:15,estalvi:12,confort:8,certificat:6}[mot]||0);
+  const q = sc>=75?'HOT':sc>=55?'WARM':sc>=40?'COLD':'LOW';
+  return {score:sc, quality:q};
 }
 
-// ══ ENVIAR FORMULARI ══
-async function enviarFormulari() {
-  if (!validarPas(4)) return;
-
-  const btn = document.getElementById('btn-send');
+// ══ ENVIAR ══
+async function enviar(){
+  if(!validateStep(4)) return;
+  const btn = document.getElementById('bn4');
   btn.disabled = true;
-  btn.textContent = lang === 'ca' ? 'Enviant...' : 'Enviando...';
+  btn.textContent = L==='ca'?'Enviant...':'Enviando...';
 
-  const { score, quality } = calcularScore();
-
+  const {score, quality} = scoring();
   const payload = {
-    // Calculadora
-    superficieM2: calcData.sup,
-    anyoConstruccio: calcData.any,
-    gastoMensualEur: calcData.gasto,
-    estalviAnualEur: calcData.estalviAnual,
-    subvencioCaeEur: calcData.cae,
-    co2EvitadKg: calcData.co2,
-    pctReduccio: calcData.pctReduccio,
-    letraEnergetica: calcData.lletra,
-    roiEstimat: calcData.roi,
-    consumpKwhM2: calcData.consumpM2,
-    // Pas 1
-    perfil: document.querySelector('input[name="perfil"]:checked')?.value,
-    codiPostal: document.getElementById('inp-cp').value,
-    // Pas 2
-    tipusImmoble: document.getElementById('inp-tipo').value,
-    plantes: document.getElementById('inp-plantes').value,
-    orientacio: document.getElementById('inp-orient').value,
-    sistemaCalefaccio: document.getElementById('inp-calef').value,
-    aïllamentExistent: document.getElementById('inp-aisl').value,
-    tipusFinestres: document.getElementById('inp-finestres').value,
-    // Pas 3
-    motivacioPrincipal: document.querySelector('input[name="motiv"]:checked')?.value,
-    pressupostDisponible: document.getElementById('inp-pressupost').value,
-    urgencia: document.getElementById('inp-urgencia').value,
-    // Pas 4
-    nomCognoms: document.getElementById('inp-nom').value,
-    telefon: document.getElementById('inp-tel').value,
-    email: document.getElementById('inp-email').value,
-    acceptaRgpd: document.getElementById('chk-rgpd').checked,
-    acceptaComunicacionsComercials: document.getElementById('chk-com').checked,
-    // Lead Scoring
+    superficieM2: cData.sup,
+    anyoConstruccio: cData.any,
+    gastoMensualEur: cData.gas,
+    estalviAnualEur: cData.estalviAnual,
+    subvencioCaeEur: cData.cae,
+    co2EvitadKg: cData.co2,
+    pctReduccio: cData.pctRed,
+    letraActual: cData.lletraAct,
+    letraPostReforma: cData.lletraPost,
+    pctRevalorizacion: cData.pctReval,
+    revalorizacionEur: cData.revalEur,
+    roiEstimat: cData.roi,
+    perfil: document.querySelector('input[name="perf"]:checked')?.value,
+    codiPostal: document.getElementById('i-cp').value,
+    tipusImmoble: document.getElementById('i-tipo').value,
+    plantes: document.getElementById('i-plan').value,
+    orientacio: document.getElementById('i-ori').value,
+    sistemaCalefaccio: document.getElementById('i-cal').value,
+    aillamentExistent: document.getElementById('i-ais').value,
+    tipusFinestres: document.getElementById('i-fin').value,
+    motivacioPrincipal: document.querySelector('input[name="mot"]:checked')?.value,
+    pressupostDisponible: document.getElementById('i-pres').value,
+    urgencia: document.getElementById('i-urg').value,
+    nomCognoms: document.getElementById('i-nom').value,
+    telefon: document.getElementById('i-tel').value,
+    email: document.getElementById('i-mail').value,
+    acceptaRgpd: document.getElementById('i-rgpd').checked,
+    acceptaComunicacions: document.getElementById('i-com').checked,
     leadScore: score,
     leadQuality: quality,
-    // Meta
-    idioma: lang,
+    idioma: L,
     timestamp: new Date().toISOString(),
     origen: window.location.href
   };
 
-  // Facebook Pixel Lead event
-  fbq('track', 'Lead', { value: calcData.estalviAnual, currency: 'EUR' });
-  if (quality === 'HOT') fbq('trackCustom', 'LeadHOT', { score });
-  else if (quality === 'WARM') fbq('trackCustom', 'LeadWARM', { score });
-  else if (quality === 'COLD') fbq('trackCustom', 'LeadCOLD', { score });
-  else fbq('trackCustom', 'LeadLOW', { score });
+  fbq('track','Lead',{value: cData.estalviAnual, currency:'EUR'});
+  if(quality==='HOT') fbq('trackCustom','LeadHOT',{score});
+  else if(quality==='WARM') fbq('trackCustom','LeadWARM',{score});
+  else if(quality==='COLD') fbq('trackCustom','LeadCOLD',{score});
+  else fbq('trackCustom','LeadLOW',{score});
 
-  try {
-    await fetch(WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-  } catch(e) {
-    console.warn('Webhook error:', e);
-  }
+  try{ await fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); }
+  catch(e){ console.warn('Webhook:',e); }
 
-  // Mostrar success
-  document.getElementById('form-section').style.display = 'none';
-  document.getElementById('success-section').style.display = 'block';
-  document.getElementById('success-section').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('form-sec').style.display = 'none';
+  document.getElementById('suc-sec').style.display = 'block';
+  document.getElementById('suc-sec').scrollIntoView({behavior:'smooth'});
 }
+
+// ══ INIT ══
+applyTexts();
+updateSelects();
+updateProgress();
 </script>
 </body>
 </html>
