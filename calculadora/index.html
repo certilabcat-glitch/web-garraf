@@ -24,45 +24,53 @@
         :root {
             --noir: #1A1A1A; --gris: #6B6B6B; --gris-clair: #C8C8C8;
             --blanc: #FAFAF8; --creme: #F5F3EF; --terre: #8B7355;
-            --accent: #2563eb; --vert-cae: #16a34a;
+            --accent: #2563eb; --vert-cae: #16a34a; --oro: #d97706;
         }
         body { font-family: 'Inter', sans-serif; background: var(--blanc); color: var(--noir); line-height: 1.7; font-weight: 300; -webkit-font-smoothing: antialiased; }
+        
+        /* Selector de Idioma Flotante */
+        .lang-selector { position: fixed; top: 20px; right: 20px; display: flex; gap: 8px; z-index: 1000; background: white; padding: 6px; border-radius: 100px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        .lang-btn { padding: 6px 14px; border: none; background: transparent; border-radius: 100px; font-size: 0.75rem; cursor: pointer; transition: 0.3s; font-weight: 600; color: var(--gris); }
+        .lang-btn.active { background: var(--noir); color: white; }
+
         .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
         header { padding: 60px 0 40px; text-align: center; }
-        .logo { font-family: 'Crimson Pro', serif; font-size: 1.4rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--noir); font-weight: 400; }
+        .logo { font-family: 'Crimson Pro', serif; font-size: 1.5rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--noir); font-weight: 400; }
         .tagline { font-size: 0.75rem; color: var(--gris); letter-spacing: 0.1em; margin-top: 5px; font-weight: 500; }
 
-        /* FASE 1: CALCULADORA */
+        /* Estilos Calculadora */
         .calculator-phase { max-width: 600px; margin: 0 auto 60px; }
-        .calc-card { background: var(--creme); padding: 40px; border: 1px solid rgba(139, 115, 85, 0.1); border-radius: 4px; }
+        .calc-card { background: var(--creme); padding: 40px; border: 1px solid rgba(139, 115, 85, 0.1); border-radius: 8px; }
         .field { margin-bottom: 24px; }
         label { display: block; margin-bottom: 10px; font-size: 0.9rem; font-weight: 500; }
-        input, select { width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid var(--gris-clair); font-size: 1rem; transition: 0.3s; color: var(--noir); }
+        input, select { width: 100%; padding: 12px 0; background: transparent; border: none; border-bottom: 1px solid var(--gris-clair); font-size: 1rem; transition: 0.3s; color: var(--noir); border-radius: 0; }
         input:focus { outline: none; border-bottom-color: var(--terre); }
 
-        /* RESULTADOS */
-        .results-display { background: white; padding: 40px; border: 1px solid #eee; text-align: center; margin-top: 32px; display: none; animation: fadeIn 0.6s ease; }
+        /* Pantalla de Resultados */
+        .results-display { background: white; padding: 40px; border: 1px solid #eee; text-align: center; margin-top: 32px; display: none; animation: fadeIn 0.6s ease; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        .big-number { font-family: 'Crimson Pro', serif; font-size: 4rem; color: var(--terre); line-height: 1; }
-        .energy-label-box { margin: 25px auto; padding: 20px; border: 1px dashed var(--gris-clair); max-width: 280px; background: #fafafa; border-radius: 8px; }
-        .letter-tag { display: inline-block; padding: 10px 40px; font-weight: 900; font-size: 2.8rem; color: white; border-radius: 6px; margin: 10px 0; }
+        .big-number { font-family: 'Crimson Pro', serif; font-size: 4.5rem; color: var(--terre); line-height: 1; margin-bottom: 10px; }
         
-        /* CUADRO VERDE CAE */
+        /* Etiqueta Energética */
+        .energy-label-box { margin: 25px auto; padding: 20px; border: 1px dashed var(--gris-clair); max-width: 280px; background: #fafafa; border-radius: 8px; }
+        .letter-tag { display: inline-block; padding: 12px 45px; font-weight: 900; font-size: 3rem; color: white; border-radius: 6px; margin: 10px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* Monetización CAE */
         .cae-box { margin: 25px 0; padding: 20px; background-color: #f0fdf4; border: 1px solid var(--vert-cae); border-radius: 8px; text-align: left; }
         
+        /* Métricas CO2 / ROI */
         .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; padding-top: 30px; border-top: 1px solid #eee; }
-        .metric-value { font-family: 'Crimson Pro', serif; font-size: 1.4rem; font-weight: 600; color: var(--noir); display: block; }
-        .metric-label { font-size: 0.7rem; text-transform: uppercase; color: var(--gris); letter-spacing: 0.05em; }
+        .metric-value { font-family: 'Crimson Pro', serif; font-size: 1.5rem; font-weight: 600; color: var(--noir); display: block; }
+        .metric-label { font-size: 0.7rem; text-transform: uppercase; color: var(--gris); letter-spacing: 0.05em; font-weight: 600; }
 
-        .btn { padding: 20px 32px; border: none; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: 600; width: 100%; margin-top: 15px; }
+        .btn { padding: 20px 32px; border: none; font-size: 1rem; cursor: pointer; transition: 0.3s; font-weight: 600; width: 100%; margin-top: 15px; border-radius: 4px; }
         .btn-primary { background: var(--noir); color: white; }
-        .btn-primary:hover { background: #333; }
+        .btn-primary:hover { background: #333; transform: translateY(-2px); }
 
-        /* DISCLAIMER TÈCNIC */
-        .disclaimer-text { font-size: 0.7rem; color: var(--gris); margin-top: 25px; line-height: 1.4; text-align: center; font-style: italic; }
+        .disclaimer-text { font-size: 0.7rem; color: var(--gris); margin-top: 25px; line-height: 1.5; text-align: center; font-style: italic; max-width: 500px; margin-left: auto; margin-right: auto; }
 
-        /* FASE 2: FORMULARIO */
+        /* Fase Formulario */
         .form-phase { display: none; max-width: 600px; margin: 0 auto 100px; }
         .form-phase.active { display: block; }
         .form-step { display: none; }
@@ -70,82 +78,122 @@
         @keyframes slideIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
         
         .step-dots { display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; }
-        .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gris-clair); }
+        .step-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gris-clair); transition: 0.3s; }
         .step-dot.active { background: var(--terre); transform: scale(1.3); }
 
         .success-screen { display: none; text-align: center; padding: 100px 40px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .big-number { font-size: 3rem; } }
+        
+        /* Traducciones */
+        [data-lang-content] { display: none; }
+        [data-lang-content].active-lang { display: inline; }
+        
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } .big-number { font-size: 3.2rem; } .metric-grid { grid-template-columns: 1fr; gap: 25px; } }
     </style>
 </head>
 <body>
+
+    <nav class="lang-selector" aria-label="Selecció d'idioma">
+        <button class="lang-btn active" onclick="setLanguage('ca')" id="btn-ca">CAT</button>
+        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ESP</button>
+    </nav>
+
     <div class="container">
         <header>
             <div class="logo">Certilab</div>
-            <p class="tagline">CONSULTORIA TÈCNICA · ARQUITECTURA TÈCNICA COL·LEGIADA</p>
+            <p class="tagline">
+                <span class="active-lang" data-lang-content="ca">CONSULTORIA TÈCNICA · ARQUITECTURA TÈCNICA COL·LEGIADA</span>
+                <span data-lang-content="es">CONSULTORÍA TÉCNICA · ARQUITECTURA TÉCNICA COLEGIADA</span>
+            </p>
         </header>
 
-        <div class="calculator-phase" id="phase1">
+        <main class="calculator-phase" id="phase1">
             <div class="calc-card">
                 <form id="calcForm" onsubmit="event.preventDefault(); calculateSavings();">
                     <div class="field">
-                        <label>Superfície útil habitatge (m²)</label>
+                        <label>
+                            <span class="active-lang" data-lang-content="ca">Superfície útil habitatge (m²)</span>
+                            <span data-lang-content="es">Superficie útil vivienda (m²)</span>
+                        </label>
                         <input type="number" id="input_sup" placeholder="Ex: 85" required min="20">
                     </div>
                     <div class="field">
-                        <label>Any de construcció aproximat</label>
-                        <input type="number" id="input_anio" placeholder="Ex: 1985" required min="1800" max="2026">
+                        <label>
+                            <span class="active-lang" data-lang-content="ca">Any de construcció aproximat</span>
+                            <span data-lang-content="es">Año de construcción aproximado</span>
+                        </label>
+                        <input type="number" id="input_anio" placeholder="Ex: 1980" required min="1800" max="2026">
                     </div>
                     <div class="field">
-                        <label>Despesa mensual promig (€)</label>
+                        <label>
+                            <span class="active-lang" data-lang="ca">Despesa mensual llum+gas (€)</span>
+                            <span data-lang-content="es">Gasto mensual luz+gas (€)</span>
+                        </label>
                         <input type="number" id="input_gasto" placeholder="Ex: 150" required min="10">
                     </div>
-                    <button type="submit" class="btn btn-primary">CALCULAR POTENCIAL D'ESTALVI</button>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="active-lang" data-lang-content="ca">CALCULAR POTENCIAL D'ESTALVI</span>
+                        <span data-lang-content="es">CALCULAR POTENCIAL DE AHORRO</span>
+                    </button>
                 </form>
             </div>
 
-            <div class="results-display" id="results">
+            <section class="results-display" id="results">
                 <div class="big-number" id="res_ahorro">0€</div>
-                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--gris); font-weight: 600;">Estalvi anual estimat</p>
+                <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--gris); font-weight: 600;">
+                    <span class="active-lang" data-lang-content="ca">Estalvi anual estimat</span>
+                    <span data-lang-content="es">Ahorro anual estimado</span>
+                </p>
 
                 <div class="energy-label-box">
-                    <p style="font-size: 0.7rem; font-weight: 700; color: var(--gris); letter-spacing: 0.05em;">QUALIFICACIÓ ENERGÈTICA ESTIMADA</p>
+                    <p style="font-size: 0.7rem; font-weight: 700; color: var(--gris); letter-spacing: 0.05em;">
+                        <span class="active-lang" data-lang-content="ca">QUALIFICACIÓ ENERGÈTICA ESTIMADA</span>
+                        <span data-lang-content="es">CALIFICACIÓN ENERGÉTICA ESTIMADA</span>
+                    </p>
                     <div class="letter-tag" id="res_letra">—</div>
                 </div>
 
                 <div class="cae-box">
                     <p style="color: #166534; line-height: 1.5; font-size: 0.95rem;">
-                        <strong>💰 Ingrés extra per CAEs:</strong> 
-                        Addicionalment, el mercat de Certificats d'Estalvi Energètic li podria abonar uns <span id="res_cae" style="font-weight: 800;">—</span> pel seu estalvi generat.
+                        <span class="active-lang" data-lang-content="ca"><strong>💰 Ingrés extra per CAEs:</strong> Pots recuperar uns <span id="res_cae_ca" style="font-weight: 800;">—</span> venent el teu estalvi al mercat de Certificats d'Estalvi Energètic.</span>
+                        <span data-lang-content="es"><strong>💰 Ingreso extra por CAEs:</strong> Puedes recuperar unos <span id="res_cae_es" style="font-weight: 800;">—</span> vendiendo tu ahorro al mercado de Certificados de Ahorro Energético.</span>
                     </p>
                 </div>
 
                 <div class="metric-grid">
                     <div class="metric">
                         <span class="metric-value" id="res_perc">0%</span>
-                        <span class="metric-label">Reducció</span>
+                        <span class="metric-label">
+                            <span class="active-lang" data-lang-content="ca">Reducció</span>
+                            <span data-lang-content="es">Reducción</span>
+                        </span>
                     </div>
                     <div class="metric">
                         <span class="metric-value" id="res_co2">0kg</span>
-                        <span class="metric-label">CO₂ / any</span>
+                        <span class="metric-label">CO₂ / ANY</span>
                     </div>
                     <div class="metric">
                         <span class="metric-value" id="res_roi">—</span>
-                        <span class="metric-label">ROI (Retorn)</span>
+                        <span class="metric-label">
+                            <span class="active-lang" data-lang-content="ca">Amortització (ROI)</span>
+                            <span data-lang-content="es">Amortización (ROI)</span>
+                        </span>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-primary" onclick="goToForm()">✓ VULL EL MEU INFORME GRATUÏT</button>
+                <button type="button" class="btn btn-primary" onclick="goToForm()">
+                    <span class="active-lang" data-lang-content="ca">✓ VULL EL MEU INFORME GRATUÏT</span>
+                    <span data-lang-content="es">✓ QUIERO MI INFORME GRATUITO</span>
+                </button>
                 
                 <p class="disclaimer-text">
-                    *Càlcul basat en el diferencial tèrmic teòric segons CE3X/CTE. 
-                    L'import CAE és una estimació de mercat segons preu kWh d'estalvi actual. 
-                    El ROI inclou l'estimació de subvencions oficials NextGen (40-80%).
+                    <span class="active-lang" data-lang-content="ca">*Càlcul basat en diferencial tèrmic teòric segons CE3X/CTE. L'import CAE és una estimació de mercat segons preu kWh d'estalvi actual. El ROI inclou l'estimació de subvencions NextGen (40-80%).</span>
+                    <span data-lang-content="es">*Cálculo basado en diferencial térmico teórico según CE3X/CTE. El importe CAE es una estimación de mercado según precio kWh de ahorro actual. El ROI incluye la estimación de subvenciones NextGen (40-80%).</span>
                 </p>
-            </div>
-        </div>
+            </section>
+        </main>
 
-        <div class="form-phase" id="phase2">
+        <section class="form-phase" id="phase2">
             <div class="step-dots">
                 <div class="step-dot active" data-dot="1"></div>
                 <div class="step-dot" data-dot="2"></div>
@@ -156,17 +204,19 @@
             <form id="detailedForm">
                 <div class="form-step active" data-step="1">
                     <div class="field">
-                        <label>La teva relació amb l'immoble</label>
+                        <label>
+                            <span class="active-lang" data-lang-content="ca">Relació amb l'immoble</span>
+                            <span data-lang-content="es">Relación con el inmueble</span>
+                        </label>
                         <select name="perfil" required>
-                            <option value="">Selecciona...</option>
-                            <option value="propietario">Sóc el propietari</option>
-                            <option value="comprador">Soc comprador interessat</option>
-                            <option value="comunidad">President de comunitat</option>
-                            <option value="arquitecto">Arquitecte o API</option>
+                            <option value="">...</option>
+                            <option value="propietario">Propietari</option>
+                            <option value="comprador">Comprador</option>
+                            <option value="comunidad">Comunitat</option>
                         </select>
                     </div>
                     <div class="field">
-                        <label>Codi Postal (Catalunya)</label>
+                        <label>Codi Postal</label>
                         <input type="text" name="cp" placeholder="08015" required pattern="^(08|17|25|43)[0-9]{3}$">
                     </div>
                     <button type="button" class="btn btn-primary" onclick="changeStep(2)">SEGÜENT →</button>
@@ -174,68 +224,71 @@
 
                 <div class="form-step" data-step="2">
                     <div class="grid">
-                        <div class="field"><label>Superfície (m²)</label><input type="number" id="f2_sup" name="superficie" required></div>
-                        <div class="field"><label>Any construcció</label><input type="number" id="f2_anio" name="anio" required></div>
+                        <div class="field"><label>M²</label><input type="number" id="f2_sup" name="superficie" required></div>
+                        <div class="field"><label>Any / Año</label><input type="number" id="f2_anio" name="anio" required></div>
                     </div>
-                    <div class="field"><label>Despesa mensual (€)</label><input type="number" id="f2_gasto" name="gasto_luz" required></div>
+                    <div class="field"><label>€ Mensual</label><input type="number" id="f2_gasto" name="gasto_luz" required></div>
                     <div class="grid">
-                        <button type="button" class="btn btn-secondary" onclick="changeStep(1)">← ENRERE</button>
-                        <button type="button" class="btn btn-primary" onclick="changeStep(3)">SEGÜENT →</button>
+                        <button type="button" class="btn btn-secondary" onclick="changeStep(1)">←</button>
+                        <button type="button" class="btn btn-primary" onclick="changeStep(3)">→</button>
                     </div>
                 </div>
 
                 <div class="form-step" data-step="3">
                     <div class="field">
-                        <label>Tipus de calefacció</label>
+                        <label>Calefacció / Calefacción</label>
                         <select name="calefaccion" required>
-                            <option value="gas">Caldera de Gas</option>
+                            <option value="gas">Gas</option>
                             <option value="electrica">Elèctrica</option>
-                            <option value="bomba">Bomba de calor</option>
-                            <option value="ninguna">No en té</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Pressupost aproximat millores</label>
-                        <select name="presupuesto" required>
-                            <option value="menos3000">< 3.000€</option>
-                            <option value="3000-10000">3k - 10k€</option>
-                            <option value="mas10000">> 10k€</option>
+                            <option value="bomba">Bomba calor</option>
                         </select>
                     </div>
                     <div class="grid">
-                        <button type="button" class="btn btn-secondary" onclick="changeStep(2)">← ENRERE</button>
-                        <button type="button" class="btn btn-primary" onclick="changeStep(4)">SEGÜENT →</button>
+                        <button type="button" class="btn btn-secondary" onclick="changeStep(2)">←</button>
+                        <button type="button" class="btn btn-primary" onclick="changeStep(4)">→</button>
                     </div>
                 </div>
 
                 <div class="form-step" data-step="4">
-                    <div class="field"><label>Nom i cognoms</label><input type="text" name="nombre" required minlength="3"></div>
-                    <div class="field"><label>WhatsApp de contacte</label><input type="tel" name="whatsapp" required pattern="[0-9]{9,12}"></div>
+                    <div class="field"><label>Nom / Nombre</label><input type="text" name="nombre" required></div>
+                    <div class="field"><label>WhatsApp</label><input type="tel" name="whatsapp" required></div>
                     <div class="field"><label>Email</label><input type="email" name="email" required></div>
                     <div class="grid">
-                        <button type="button" class="btn btn-secondary" onclick="changeStep(3)">← ENRERE</button>
-                        <button type="submit" class="btn btn-primary" id="btnSubmit">ENVIAR I REBRE ESTUDI</button>
+                        <button type="button" class="btn btn-secondary" onclick="changeStep(3)">←</button>
+                        <button type="submit" class="btn btn-primary" id="btnSubmit">ENVIAR</button>
                     </div>
                 </div>
             </form>
-        </div>
+        </section>
 
-        <div class="success-screen" id="successScreen">
+        <section class="success-screen" id="successScreen">
             <div style="font-size: 5rem; color: var(--vert-cae); margin-bottom: 20px;">✓</div>
-            <h2 style="font-family: 'Crimson Pro', serif; margin-bottom: 15px; font-size: 2rem;">Sol·licitud rebuda!</h2>
-            <p>Eva María González revisarà les teves dades i contactarà amb tu en menys de 24h.</p>
-        </div>
+            <h2 style="font-family: 'Crimson Pro', serif; font-size: 2rem;">
+                <span class="active-lang" data-lang-content="ca">Sol·licitud rebuda!</span>
+                <span data-lang-content="es">¡Solicitud recibida!</span>
+            </h2>
+            <p>Eva María González contactarà amb tu en menys de 24h.</p>
+        </section>
     </div>
 
     <script>
+        let currentLang = 'ca';
         let store = {};
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.id === 'btn-' + lang));
+            document.querySelectorAll('[data-lang-content]').forEach(el => {
+                el.classList.toggle('active-lang', el.getAttribute('data-lang-content') === lang);
+            });
+        }
 
         function calculateSavings() {
             const sup = parseFloat(document.getElementById('input_sup').value);
             const anio = parseFloat(document.getElementById('input_anio').value);
             const gasto = parseFloat(document.getElementById('input_gasto').value);
 
-            // Lógica de Letra Energética
+            // Algoritmo de Letra Certilab
             let letra = 'G'; let color = '#e31d1a';
             if (anio >= 2020) { letra = 'B'; color = '#4bb543'; }
             else if (anio >= 2014) { letra = 'C'; color = '#8ec63f'; }
@@ -244,20 +297,21 @@
             else if (anio >= 1980) { letra = 'F'; color = '#f26522'; }
 
             const ahorro = Math.round(gasto * 12 * 0.45);
-            const cae = Math.round(ahorro * 0.42); // Monetización estimada CAE
+            const cae = Math.round(ahorro * 0.42);
             const co2 = Math.round(sup * 12.5);
-            const roiValue = (anio < 1980 ? '4.8' : '7.2') + ' anys';
+            const roi = (anio < 1980 ? '4.8' : '7.2') + (currentLang === 'ca' ? ' anys' : ' años');
 
             store = { sup, anio, gasto, letra, cae };
 
-            // Actualizar UI
+            // Renderizar Resultados
             document.getElementById('res_ahorro').textContent = ahorro + '€';
             document.getElementById('res_letra').textContent = letra;
             document.getElementById('res_letra').style.backgroundColor = color;
-            document.getElementById('res_cae').textContent = cae + '€';
+            document.getElementById('res_cae_ca').textContent = cae + '€';
+            document.getElementById('res_cae_es').textContent = cae + '€';
             document.getElementById('res_perc').textContent = '45%';
-            document.getElementById('res_co2').textContent = co2 + ' kg';
-            document.getElementById('res_roi').textContent = roiValue;
+            document.getElementById('res_co2').textContent = co2 + 'kg';
+            document.getElementById('res_roi').textContent = roi;
 
             document.getElementById('results').style.display = 'block';
             document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
@@ -267,7 +321,7 @@
             document.getElementById('phase1').style.display = 'none';
             document.getElementById('phase2').classList.add('active');
             
-            // Inyectar datos guardados
+            // Inyectar datos guardados para evitar ceros
             document.getElementById('f2_sup').value = store.sup;
             document.getElementById('f2_anio').value = store.anio;
             document.getElementById('f2_gasto').value = store.gasto;
@@ -287,12 +341,14 @@
         document.getElementById('detailedForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnSubmit');
-            btn.disabled = true; btn.textContent = 'ENVIANT...';
+            btn.disabled = true; btn.textContent = '...';
 
             const data = Object.fromEntries(new FormData(this));
             Object.assign(data, { 
                 letra_estimada: store.letra, 
-                cae_estimado: store.cae 
+                cae_estimado: store.cae, 
+                idioma: currentLang,
+                fuente: 'Certilab_Web_V2'
             });
 
             try {
@@ -305,8 +361,7 @@
                 document.getElementById('successScreen').style.display = 'block';
                 window.scrollTo(0,0);
             } catch (err) {
-                alert('Error en enviament'); 
-                btn.disabled = false; btn.textContent = 'ENVIAR SOL·LICITUD';
+                alert('Error'); btn.disabled = false;
             }
         });
     </script>
