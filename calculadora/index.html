@@ -1,290 +1,293 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certilab | Estudi Energètic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Estalvi Energètic · Certilab</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243'); fbq('track', 'PageView');
-    </script>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1271893388238243');
+fbq('track', 'PageView');
+</script>
 
-    <style>
-        :root {
-            --terra: #8B6F47; --terra-dark: #5C4A2A; --crema: #F5EFE6;
-            --verde: #16a34a; --gris: #6B6B6B; --negre: #1A1A1A; --blanc: #FFFFFF;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', sans-serif; background: var(--crema); color: var(--negre); line-height: 1.6; }
-        
-        /* Lang Selector */
-        .lang-selector { position: fixed; top: 15px; right: 15px; z-index: 1000; background: white; padding: 5px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .lang-btn { padding: 5px 12px; border: none; background: none; cursor: pointer; font-size: 11px; font-weight: 600; border-radius: 50px; }
-        .lang-btn.active { background: var(--negre); color: white; }
+<style>
+  :root {
+    --terra: #8B6F47; --terra-dark: #5C4A2A; --terra-light: #C4A882;
+    --crema: #F5EFE6; --crema-dark: #EDE3D6; --verde: #4A7C59;
+    --gris: #6B6B6B; --gris-clar: #F0EDE8; --negre: #1A1A1A; --blanc: #FFFFFF;
+    --font-serif: 'Crimson Pro', Georgia, serif; --font-sans: 'Inter', system-ui, sans-serif;
+  }
 
-        .container { max-width: 650px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 30px; }
-        .logo { font-family: 'Crimson Pro', serif; text-transform: uppercase; letter-spacing: 3px; font-size: 1.2rem; color: var(--terra-dark); }
-        
-        .card { background: var(--blanc); padding: 35px; border-radius: 8px; border: 1px solid rgba(139,111,71,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 20px; }
-        h1 { font-family: 'Crimson Pro', serif; font-size: 2rem; margin-bottom: 10px; font-weight: 400; text-align: center; }
-        .subtitle { font-size: 0.9rem; color: var(--gris); text-align: center; margin-bottom: 30px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); background: var(--crema); color: var(--negre); line-height: 1.6; }
 
-        .field { margin-bottom: 20px; }
-        label { display: block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--terra); margin-bottom: 8px; }
-        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; background: #fafafa; }
-        
-        .btn { width: 100%; padding: 16px; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: 0.3s; font-size: 1rem; }
-        .btn-primary { background: var(--negre); color: white; }
-        .btn-green { background: var(--verde); color: white; margin-top: 15px; }
+  .header { background: var(--terra-dark); color: var(--blanc); padding: 28px 24px 24px; text-align: center; border-bottom: 3px solid var(--terra); }
+  .header-logo { font-family: var(--font-serif); font-size: 13px; letter-spacing: 4px; text-transform: uppercase; color: var(--terra-light); margin-bottom: 8px; }
+  .header h1 { font-family: var(--font-serif); font-size: clamp(22px, 5vw, 32px); font-weight: 400; margin-bottom: 6px; }
 
-        /* Results Display */
-        #results-area { display: none; margin-top: 20px; animation: fadeIn 0.5s ease; }
-        .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .res-item { background: #f9f9f9; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #eee; }
-        .res-val { display: block; font-family: 'Crimson Pro', serif; font-size: 1.6rem; font-weight: 600; color: var(--terra-dark); }
-        .res-lbl { font-size: 0.7rem; text-transform: uppercase; color: var(--gris); }
-        
-        .cae-highlight { background: #f0fdf4; border: 1px solid var(--verde); padding: 20px; border-radius: 8px; margin-bottom: 20px; }
-        .letter-box { display: inline-block; padding: 10px 30px; color: white; font-weight: 800; font-size: 2rem; border-radius: 4px; margin: 10px 0; }
+  .lang-bar { background: var(--terra-dark); display: flex; justify-content: center; gap: 4px; padding: 0 24px 14px; }
+  .lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); font-size: 11px; padding: 3px 10px; cursor: pointer; border-radius: 2px; }
+  .lang-btn.active { background: var(--terra); color: var(--blanc); border-color: var(--terra); }
 
-        /* Multi-step Form */
-        #form-area { display: none; }
-        .form-step { display: none; }
-        .form-step.active { display: block; }
-        .step-info { font-size: 0.8rem; color: var(--terra); margin-bottom: 20px; font-weight: 600; }
+  .container { max-width: 680px; margin: 0 auto; padding: 32px 16px; }
+  .card { background: var(--blanc); border-radius: 8px; padding: 32px; box-shadow: 0 2px 12px rgba(139,111,71,0.12); margin-bottom: 16px; border: 1px solid rgba(139,111,71,0.1); }
 
-        /* Language content control */
-        [data-lang] { display: none; }
-        body.lang-ca [data-lang="ca"] { display: block; }
-        body.lang-ca span[data-lang="ca"] { display: inline; }
-        body.lang-es [data-lang="es"] { display: block; }
-        body.lang-es span[data-lang="es"] { display: inline; }
+  .field-row { margin-bottom: 20px; }
+  label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--terra); margin-bottom: 6px; letter-spacing: 0.5px; }
+  input, select { width: 100%; padding: 12px 14px; border: 1.5px solid rgba(139,111,71,0.2); background: var(--crema); font-size: 15px; border-radius: 4px; font-family: var(--font-sans); }
+  input:focus, select:focus { outline: none; border-color: var(--terra); background: white; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+  #results-section { display: none; margin-top: 16px; }
+  .letra-badge { font-family: var(--font-serif); font-size: 28px; font-weight: 600; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; color: white; border-radius: 4px; }
+
+  .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+  .metric-box { background: var(--gris-clar); padding: 15px; text-align: center; border-radius: 4px; }
+  .metric-val { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--terra-dark); }
+  .metric-lbl { font-size: 10px; color: var(--gris); text-transform: uppercase; font-weight: 500; }
+
+  .cae-box { background: #E8F2EB; border: 1px solid rgba(74,124,89,0.3); padding: 18px; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; border-radius: 4px; }
+
+  .btn-calc { width: 100%; padding: 16px; background: var(--terra-dark); color: white; border: none; cursor: pointer; font-weight: 600; font-size: 14px; border-radius: 4px; transition: 0.3s; }
+  .btn-calc:hover { background: var(--terra); }
+  .btn-form { width: 100%; padding: 18px; background: var(--verde); color: white; border: none; cursor: pointer; font-weight: 600; border-radius: 4px; }
+
+  #form-section { display: none; }
+  .form-step { display: none; }
+  .form-step.active { display: block; animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-dots { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+  .step-dot { width: 30px; height: 30px; border-radius: 50%; background: var(--crema-dark); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--gris); }
+  .step-dot.active { background: var(--terra); color: white; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  @media (max-width: 500px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  [data-lang] { display: none; }
+  .lang-ca [data-lang="ca"] { display: block; }
+  .lang-ca span[data-lang="ca"] { display: inline; }
+  .lang-es [data-lang="es"] { display: block; }
+  .lang-es span[data-lang="es"] { display: inline; }
+</style>
 </head>
 <body class="lang-ca">
 
-    <div class="lang-selector">
-        <button class="lang-btn active" id="bca" onclick="toggleLang('ca')">CAT</button>
-        <button class="lang-btn" id="bes" onclick="toggleLang('es')">ESP</button>
+<div class="header">
+  <div class="header-logo">Certilab · Auditories Energètiques</div>
+  <h1 data-lang="ca">Estudi de Viabilitat Energètica</h1>
+  <h1 data-lang="es">Estudio de Viabilidad Energética</h1>
+</div>
+<div class="lang-bar">
+  <button class="lang-btn active" id="bca" onclick="setLang('ca')">CAT</button>
+  <button class="lang-btn" id="bes" onclick="setLang('es')">ESP</button>
+</div>
+
+<div class="container">
+  <div class="card" id="calc-card">
+    <form onsubmit="event.preventDefault(); calcular();">
+      <div class="field-row">
+        <label data-lang="ca">Superfície útil (m²)</label><label data-lang="es">Superficie útil (m²)</label>
+        <input type="number" id="m2" placeholder="90" required min="20">
+      </div>
+      <div class="field-row">
+        <label data-lang="ca">Any de construcció</label><label data-lang="es">Año de construcción</label>
+        <input type="number" id="any" placeholder="1985" required min="1900">
+      </div>
+      <div class="field-row">
+        <label data-lang="ca">Despesa mensual llum + gas (€)</label><label data-lang="es">Gasto mensual luz + gas (€)</label>
+        <input type="number" id="gasto" placeholder="120" required min="10">
+      </div>
+      <button type="submit" class="btn-calc">
+        <span data-lang="ca">CALCULAR ESTALVI POTENCIAL →</span>
+        <span data-lang="es">CALCULAR AHORRO POTENCIAL →</span>
+      </button>
+    </form>
+  </div>
+
+  <div id="results-section">
+    <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+        <h2 style="font-family: var(--font-serif); font-weight: 400;">Resultats Estimats</h2>
+        <div class="letra-badge" id="res-letra">F</div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-box"><div class="metric-val" id="res-ahorro">0€</div><div class="metric-lbl">Estalvi Anual</div></div>
+        <div class="metric-box"><div class="metric-val" id="res-co2">0kg</div><div class="metric-lbl">CO₂ Evitat</div></div>
+        <div class="metric-box"><div class="metric-val" id="res-roi">7.2</div><div class="metric-lbl">Anys ROI</div></div>
+      </div>
+      <div class="cae-box">
+        <span style="font-size: 28px;">💰</span>
+        <div>
+          <div style="font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--verde);" id="res-cae">0€</div>
+          <div style="font-size: 13px; color: var(--verde); font-weight: 600;">Ingrés extra per CAEs estimat</div>
+        </div>
+      </div>
+      <button class="btn-form" onclick="showForm()">OBTENIR INFORME TÈCNIC GRATUÏT →</button>
+      <p style="font-size: 11px; color: var(--gris); text-align: center; margin-top: 20px; font-style: italic;">
+        *Anàlisi preliminar basat en diferencial tèrmic teòric CE3X/CTE.
+      </p>
     </div>
+  </div>
 
-    <div class="container">
-        <header>
-            <div class="logo">Certilab</div>
-            <p style="font-size: 10px; letter-spacing: 2px; color: var(--gris); margin-top:5px;">ARQUITECTURA TÈCNICA COL·LEGIADA</p>
-        </header>
+  <div id="form-section">
+    <div class="card">
+      <div class="step-dots">
+        <div class="step-dot active" id="dot1">1</div>
+        <div class="step-dot" id="dot2">2</div>
+        <div class="step-dot" id="dot3">3</div>
+        <div class="step-dot" id="dot4">4</div>
+      </div>
 
-        <div id="calc-area">
-            <div class="card">
-                <h1 data-lang="ca">Estalvi Energètic</h1>
-                <h1 data-lang="es">Ahorro Energético</h1>
-                <p class="subtitle" data-lang="ca">Càlcul basat en CTE 2019 i CE3X</p>
-                <p class="subtitle" data-lang="es">Cálculo basado en CTE 2019 y CE3X</p>
-
-                <form onsubmit="event.preventDefault(); runCalc();">
-                    <div class="field">
-                        <label data-lang="ca">Superfície (m²)</label>
-                        <label data-lang="es">Superficie (m²)</label>
-                        <input type="number" id="m2" placeholder="80" required min="20">
-                    </div>
-                    <div class="field">
-                        <label data-lang="ca">Any construcció</label>
-                        <label data-lang="es">Año construcción</label>
-                        <input type="number" id="year" placeholder="1985" required min="1900" max="2026">
-                    </div>
-                    <div class="field">
-                        <label data-lang="ca">Factura mensual (€)</label>
-                        <label data-lang="es">Factura mensual (€)</label>
-                        <input type="number" id="bill" placeholder="120" required min="10">
-                    </div>
-                    <button type="submit" class="btn btn-primary">
-                        <span data-lang="ca">CALCULAR ESTALVI</span>
-                        <span data-lang="es">CALCULAR AHORRO</span>
-                    </button>
-                </form>
-            </div>
-
-            <div id="results-area">
-                <div class="card" style="text-align: center;">
-                    <span class="res-val" id="res-ahorro" style="font-size: 3.5rem;">0€</span>
-                    <p class="res-lbl" data-lang="ca">Estalvi anual estimat</p>
-                    <p class="res-lbl" data-lang="es">Ahorro anual estimado</p>
-
-                    <div class="energy-label-box" style="margin: 20px 0;">
-                        <p style="font-size: 0.7rem; font-weight: 700; color: var(--gris);">LETRA ACTUAL ESTIMADA</p>
-                        <div id="res-letra" class="letter-box">—</div>
-                    </div>
-
-                    <div class="cae-highlight">
-                        <p style="color: #166534; font-size: 0.95rem;">
-                            <strong data-lang="ca">💰 Ingrés extra CAEs:</strong>
-                            <strong data-lang="es">💰 Ingreso extra CAEs:</strong>
-                            <span data-lang="ca">Recupera uns <b id="res-cae">0€</b> venent el teu estalvi.</span>
-                            <span data-lang="es">Recupera unos <b id="res-cae2">0€</b> vendiendo tu ahorro.</span>
-                        </p>
-                    </div>
-
-                    <div class="res-grid">
-                        <div class="res-item"><span class="res-val" id="res-perc">45%</span><span class="res-lbl">Reducció</span></div>
-                        <div class="res-item"><span class="res-val" id="res-roi">7.2</span><span class="res-lbl">ROI (Anys)</span></div>
-                    </div>
-
-                    <button class="btn btn-green" onclick="showForm()">
-                        <span data-lang="ca">✓ VULL L'INFORME GRATUÏT</span>
-                        <span data-lang="es">✓ QUIERO EL INFORME GRATUITO</span>
-                    </button>
-                    <p style="font-size: 10px; color: var(--gris); margin-top: 15px; font-style: italic;">*Càlcul orientatiu basat en preus d'energia 2025 i subvencions NextGen.</p>
-                </div>
-            </div>
+      <form id="fullForm">
+        <div class="form-step active" id="s1">
+          <div class="field-row">
+            <label>Relació amb l'immoble</label>
+            <select name="perfil" required>
+              <option value="propietario">Propietari / Venedor</option>
+              <option value="comprador">Comprador interessat</option>
+              <option value="comunidad">President de comunitat</option>
+              <option value="tecnico">Tècnic / API / Administrador</option>
+            </select>
+          </div>
+          <div class="field-row">
+            <label>Codi Postal (Catalunya)</label>
+            <input type="text" name="cp" required pattern="^(08|17|25|43)[0-9]{3}$" placeholder="08001">
+          </div>
+          <button type="button" class="btn-calc" onclick="nextStep(2)">SEGÜENT</button>
         </div>
 
-        <div id="form-area">
-            <div class="card">
-                <form id="mainForm">
-                    <div class="form-step active" id="step1">
-                        <p class="step-info">PAS 1 / 3</p>
-                        <div class="field">
-                            <label data-lang="ca">Relació amb l'immoble</label>
-                            <label data-lang="es">Relación con el inmueble</label>
-                            <select name="perfil" required>
-                                <option value="propietario">Propietari</option>
-                                <option value="comprador">Comprador</option>
-                                <option value="comunidad">Comunitat</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <label data-lang="ca">Codi Postal (Catalunya)</label>
-                            <label data-lang="es">Código Postal (Cataluña)</label>
-                            <input type="text" name="cp" id="cp" placeholder="08001" required pattern="^(08|17|25|43)[0-9]{3}$">
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">SEGÜENT →</button>
-                    </div>
-
-                    <div class="form-step" id="step2">
-                        <p class="step-info">PAS 2 / 3</p>
-                        <div class="field">
-                            <label data-lang="ca">Problema principal</label>
-                            <label data-lang="es">Problema principal</label>
-                            <select name="problema">
-                                <option value="factura">Factura alta</option>
-                                <option value="humedad">Humitats</option>
-                                <option value="frio">Massa fred/calor</option>
-                            </select>
-                        </div>
-                        <div class="field">
-                            <label data-lang="ca">Pressupost millores</label>
-                            <label data-lang="es">Presupuesto mejoras</label>
-                            <select name="presupuesto">
-                                <option value="bajo">< 3.000€</option>
-                                <option value="medio">3k - 10k€</option>
-                                <option value="alto">> 10.000€</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="nextStep(3)">SEGÜENT →</button>
-                    </div>
-
-                    <div class="form-step" id="step3">
-                        <p class="step-info">PAS 3 / 3</p>
-                        <div class="field"><label>NOM COMPLET</label><input type="text" name="nombre" required></div>
-                        <div class="field"><label>WHATSAPP</label><input type="tel" name="whatsapp" required></div>
-                        <div class="field"><label>EMAIL</label><input type="email" name="email" required></div>
-                        <button type="submit" class="btn btn-primary" id="finalBtn">ENVIAR SOL·LICITUD</button>
-                    </div>
-                </form>
+        <div class="form-step" id="s2">
+          <div class="field-row">
+            <label>Tipus d'habitatge</label>
+            <select name="tipo_vivienda">
+              <option value="piso">Pis intermedi</option>
+              <option value="atico">Àtic / Última planta</option>
+              <option value="unifamiliar">Casa unifamiliar</option>
+            </select>
+          </div>
+          <div class="grid-2">
+            <div class="field-row"><label>Calefacció</label>
+              <select name="calefaccion"><option value="gas">Caldera Gas</option><option value="elec">Elèctrica</option><option value="bomba">Bomba Calor</option></select>
             </div>
+            <div class="field-row"><label>Finestres</label>
+              <select name="ventanas"><option value="sencillo">Vidre simple</option><option value="doble">Doble vidre</option></select>
+            </div>
+          </div>
+          <button type="button" class="btn-calc" onclick="nextStep(3)">SEGÜENT</button>
         </div>
 
-        <div id="success" style="display:none;" class="card">
-            <h2 style="color: var(--verde); text-align: center;">✓ Sol·licitud rebuda</h2>
-            <p style="text-align: center; margin-top: 10px;">Eva María contactarà amb vostè en 24h.</p>
+        <div class="form-step" id="s3">
+          <div class="field-row">
+            <label>Problema principal detectat</label>
+            <select name="problema">
+              <option value="factura">Factura massa alta</option>
+              <option value="confort">Fa fred / calor</option>
+              <option value="humedad">Humitats / Condensació</option>
+            </select>
+          </div>
+          <div class="grid-2">
+            <div class="field-row"><label>Pressupost aproximat</label>
+              <select name="presupuesto"><option value="bajo">< 3.000€</option><option value="medio">3k - 10k€</option><option value="alto">> 10k€</option></select>
+            </div>
+            <div class="field-row"><label>Urgència</label>
+              <select name="urgencia"><option value="alta">Immediata</option><option value="media">3-6 mesos</option><option value="baja">Només informació</option></select>
+            </div>
+          </div>
+          <button type="button" class="btn-calc" onclick="nextStep(4)">SEGÜENT</button>
         </div>
+
+        <div class="form-step" id="s4">
+          <div class="field-row"><label>Nom Complet</label><input type="text" name="nombre" required></div>
+          <div class="field-row"><label>WhatsApp</label><input type="tel" name="whatsapp" required></div>
+          <div class="field-row"><label>Email</label><input type="email" name="email" required></div>
+          <button type="submit" class="btn-form" id="btnSubmit">SOL·LICITAR INFORME ARA</button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <script>
-        let store = {};
-        function toggleLang(l) {
-            document.body.className = 'lang-' + l;
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.id === 'b' + l));
-        }
+  <div id="success" style="display:none;" class="card">
+    <h2 style="color: var(--verde); text-align: center; font-family: var(--font-serif);">✓ Sol·licitud enviada</h2>
+    <p style="text-align: center; margin-top: 15px;">Eva María González revisarà les teves dades personalment.</p>
+  </div>
+</div>
 
-        function runCalc() {
-            const m2 = parseFloat(document.getElementById('m2').value);
-            const any = parseInt(document.getElementById('year').value);
-            const gasto = parseFloat(document.getElementById('bill').value);
+<script>
+  let store = {};
+  function setLang(l) {
+    document.body.className = 'lang-' + l;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.id === 'b' + l));
+  }
 
-            // Algoritmo de Letra Realista
-            let letra = 'G'; let color = '#e31d1a';
-            if (any >= 2020) { letra = 'B'; color = '#4bb543'; }
-            else if (any >= 2014) { letra = 'C'; color = '#8ec63f'; }
-            else if (any >= 2008) { letra = 'D'; color = '#f8ef1a'; }
-            else if (any >= 1995) { letra = 'E'; color = '#f7941d'; }
-            else if (any >= 1980) { letra = 'F'; color = '#f26522'; }
+  function calcular() {
+    const m2 = document.getElementById('m2').value;
+    const any = document.getElementById('any').value;
+    const gasto = document.getElementById('gasto').value;
 
-            const ahorro = Math.round(gasto * 12 * 0.45);
-            const cae = Math.round(ahorro * 0.42);
-            
-            store = { m2, any, gasto, letra, cae, ahorro };
+    let letra = 'G'; let color = '#e31d1a';
+    if (any >= 2020) { letra = 'B'; color = '#4bb543'; }
+    else if (any >= 2014) { letra = 'C'; color = '#8ec63f'; }
+    else if (any >= 2008) { letra = 'D'; color = '#f8ef1a'; }
+    else if (any >= 1995) { letra = 'E'; color = '#f7941d'; }
+    else if (any >= 1980) { letra = 'F'; color = '#f26522'; }
 
-            document.getElementById('res-ahorro').textContent = ahorro + '€';
-            document.getElementById('res-letra').textContent = letra;
-            document.getElementById('res-letra').style.backgroundColor = color;
-            document.getElementById('res-cae').textContent = cae + '€';
-            document.getElementById('res-cae2').textContent = cae + '€';
-            document.getElementById('res-roi').textContent = (any < 1980 ? '4.8' : '7.5');
+    const ahorro = Math.round(gasto * 12 * 0.45);
+    const cae = Math.round(ahorro * 0.42);
+    store = { m2, any, gasto, letra, cae, ahorro };
 
-            document.getElementById('results-area').style.display = 'block';
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
+    document.getElementById('res-ahorro').textContent = ahorro + '€';
+    document.getElementById('res-letra').textContent = letra;
+    document.getElementById('res-letra').style.backgroundColor = color;
+    document.getElementById('res_co2').textContent = Math.round(m2 * 12.5) + 'kg';
+    document.getElementById('res-cae').textContent = cae + '€';
+    document.getElementById('res-roi').textContent = (any < 1980 ? '4.8' : '7.2');
 
-        function showForm() {
-            document.getElementById('calc-area').style.display = 'none';
-            document.getElementById('form-area').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
+    document.getElementById('results-section').style.display = 'block';
+    document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+  }
 
-        function nextStep(n) {
-            const current = document.querySelector('.form-step.active');
-            const inputs = current.querySelectorAll('input, select');
-            let valid = true;
-            inputs.forEach(i => { if(!i.checkValidity()) { i.reportValidity(); valid = false; } });
-            if(!valid) return;
+  function showForm() {
+    document.getElementById('results-section').style.display = 'none';
+    document.getElementById('calc-card').style.display = 'none';
+    document.getElementById('form-section').style.display = 'block';
+  }
 
-            current.classList.remove('active');
-            document.getElementById('step' + n).classList.add('active');
-        }
+  function nextStep(n) {
+    const current = document.querySelector('.form-step.active');
+    const inputs = current.querySelectorAll('input[required], select[required]');
+    let valid = true;
+    inputs.forEach(i => { if(!i.checkValidity()) { i.reportValidity(); valid = false; } });
+    if(!valid) return;
 
-        document.getElementById('mainForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('finalBtn');
-            btn.disabled = true; btn.textContent = '...';
+    document.querySelectorAll('.form-step').forEach(s => s.classList.remove('active'));
+    document.getElementById('s' + n).classList.add('active');
+    document.querySelectorAll('.step-dot').forEach((d, i) => d.classList.toggle('active', i+1 === n));
+  }
 
-            const data = Object.fromEntries(new FormData(e.target));
-            Object.assign(data, store, { 
-                url: window.location.href,
-                data_calculada: new Date().toLocaleDateString()
-            });
+  document.getElementById('fullForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = true; btn.textContent = 'Enviant...';
+    
+    const data = Object.fromEntries(new FormData(e.target));
+    const payload = { ...data, ...store, idioma: document.body.className };
 
-            try {
-                await fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(data)
-                });
-                document.getElementById('form-area').style.display = 'none';
-                document.getElementById('success').style.display = 'block';
-            } catch (err) {
-                alert('Error al enviar'); btn.disabled = false;
-            }
-        });
-    </script>
+    try {
+      await fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+      document.getElementById('form-section').style.display = 'none';
+      document.getElementById('success').style.display = 'block';
+    } catch (err) { alert('Error'); btn.disabled = false; }
+  });
+</script>
 </body>
 </html>
