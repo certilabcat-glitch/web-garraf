@@ -176,8 +176,12 @@
             border-radius: 4px;
             text-align: center;
             margin-top: 32px;
-            display: none;
+            display: none; /* Oculto por defecto hasta calcular */
             animation: fadeIn 0.6s ease;
+        }
+        
+        .results-display.show {
+            display: block;
         }
         
         @keyframes fadeIn {
@@ -550,8 +554,8 @@
                 </form>
             </div>
 
-            <div class="results-display" id="results">
-                <div class="big-number" id="res_ahorro">0€</div>
+            <div class="results-display" id="results" style="display: none;">
+                <div class="big-number" id="res_ahorro">—</div>
                 <p class="big-label">
                     <span class="lang-content active" data-lang="ca">Estalvi anual estimat</span>
                     <span class="lang-content" data-lang="es">Ahorro anual estimado</span>
@@ -562,7 +566,7 @@
                         <span class="lang-content active" data-lang="ca">QUALIFICACIÓ ENERGÈTICA ACTUAL</span>
                         <span class="lang-content" data-lang="es">CALIFICACIÓN ENERGÉTICA ACTUAL</span>
                     </p>
-                    <div class="letter-tag" id="res_letra">—</div>
+                    <div class="letter-tag" id="res_letra" style="background: #ccc;">—</div>
                 </div>
 
                 <div class="cae-box">
@@ -578,14 +582,14 @@
 
                 <div class="metric-grid">
                     <div class="metric">
-                        <span class="metric-value" id="res_perc">0%</span>
+                        <span class="metric-value" id="res_perc">—</span>
                         <span class="metric-label">
                             <span class="lang-content active" data-lang="ca">Reducció</span>
                             <span class="lang-content" data-lang="es">Reducción</span>
                         </span>
                     </div>
                     <div class="metric">
-                        <span class="metric-value" id="res_co2">0 kg</span>
+                        <span class="metric-value" id="res_co2">—</span>
                         <span class="metric-label">CO₂ / ANY</span>
                     </div>
                     <div class="metric">
@@ -994,8 +998,13 @@
             document.getElementById('res_co2').textContent = co2 + ' kg';
             document.getElementById('res_roi').textContent = roi < 15 ? roi + (currentLang === 'ca' ? ' anys' : ' años') : '10-15 ' + (currentLang === 'ca' ? 'anys' : 'años');
 
-            document.getElementById('results').style.display = 'block';
-            setTimeout(() => document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.classList.add('show');
+            resultsDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
 
             // Facebook Pixel
             if (typeof fbq !== 'undefined') {
