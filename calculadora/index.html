@@ -176,12 +176,15 @@
             border-radius: 4px;
             text-align: center;
             margin-top: 32px;
-            display: none; /* Oculto por defecto hasta calcular */
             animation: fadeIn 0.6s ease;
         }
         
         .results-display.show {
             display: block;
+        }
+        
+        .results-display[style*="display: none"] {
+            display: none !important;
         }
         
         @keyframes fadeIn {
