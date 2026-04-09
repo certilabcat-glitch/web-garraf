@@ -622,8 +622,8 @@ const COLORS_LLETRA = {G:'#8B0000',F:'#CC0000',E:'#E85500',D:'#E6A000',C:'#88A00
 const TX = {
   ca:{
     hTtl:'Calcula el teu estalvi energètic',
-    hSub:'Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya',
-    bannerTxt:'⚠ Les subvencions CAE 2026 tanquen el 31 de desembre · Calcula ara si t\'hi pots acollir',
+    hSub:'Certificació oficial CE3X · Accés a subvencions i ajuts energètics · Catalunya',
+    bannerTxt:'📋 Sense auditoria energètica oficial no pots accedir a cap subvenció · L\'informe de Certilab és el primer pas obligatori',
     cTtl:"Calculadora d'eficiència energètica",
     cSub:"Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons",
     lSup:'Superfície (m²)',hSup:'Superfície útil habitable',eSup:'Camp obligatori (mínim 20 m²)',
@@ -634,7 +634,7 @@ const TX = {
     llAct:'Lletra actual',llPost:'Lletra estimada post-reforma',
     lsAct:'Situació actual',lsPost:'Amb millores proposades',
     mEst:'Estalvi anual estimat',mRed:'Reducció del consum',mCo2:'CO₂ evitat per any',
-    caeLbl:'Subvenció CAE estimada (42%)',caeInfo:"Certificats d'Estalvi Energètic · Programa MOVES III",
+    caeLbl:'Potencial de recuperació via ajuts i CAE',caeInfo:'L\'auditor analitza quines subvencions actives s\'apliquen al teu cas · CAE sempre disponible',
     revalLbl:"Revalorització estimada de l'immoble",revalInfo:'~4-6% per lletra millorada · Font: RICS i Banco de España',
     bRedL:'Reducció del consum',bRoiL:'ROI estimat de la inversió',
     rNote:"Estimació orientativa. L'auditoria oficial CE3X determinarà els valors exactes i les millores òptimes per al teu habitatge.",
@@ -645,7 +645,7 @@ const TX = {
     checkTtl:'Amb el teu informe gratuït obtindràs',
     ck1:'Diagnòstic energètic detallat del teu habitatge',
     ck2:'Pla de millores prioritzat per rendibilitat',
-    ck3:'Guia de subvencions aplicables al teu cas (CAE, MOVES III, NextGen EU)',
+    ck3:'Mapa d\'ajuts aplicables al teu cas (CAE, IRPF, convocatòries autonòmiques vigents)',
     ck4:'Pressupost orientatiu sense compromís',
     progL:['Pas <strong>1</strong> de 4 · Perfil bàsic','Pas <strong>2</strong> de 4 · Característiques','Pas <strong>3</strong> de 4 · Interès','Pas <strong>4</strong> de 4 · Contacte'],
     s1Ttl:'Quin és el teu perfil?',s1Sub:'Fes clic a l\'opció que millor et descriu',
@@ -689,8 +689,8 @@ const TX = {
   },
   es:{
     hTtl:'Calcula tu ahorro energético',
-    hSub:'Certificación oficial CE3X · Subvenciones hasta el 42% (CAE) · Cataluña',
-    bannerTxt:'⚠ Las subvenciones CAE 2026 cierran el 31 de diciembre · Calcula ahora si puedes acogerte',
+    hSub:'Certificación oficial CE3X · Acceso a subvenciones y ayudas energéticas · Cataluña',
+    bannerTxt:'📋 Sin auditoría energética oficial no puedes acceder a ninguna subvención · El informe de Certilab es el primer paso obligatorio',
     cTtl:'Calculadora de eficiencia energética',
     cSub:'Introduce los datos de tu vivienda y obtendrás tu estimación gratuita en segundos',
     lSup:'Superficie (m²)',hSup:'Superficie útil habitable',eSup:'Campo obligatorio (mínimo 20 m²)',
@@ -701,7 +701,7 @@ const TX = {
     llAct:'Letra actual',llPost:'Letra estimada post-reforma',
     lsAct:'Situación actual',lsPost:'Con mejoras propuestas',
     mEst:'Ahorro anual estimado',mRed:'Reducción del consumo',mCo2:'CO₂ evitado por año',
-    caeLbl:'Subvención CAE estimada (42%)',caeInfo:'Certificados de Ahorro Energético · Programa MOVES III',
+    caeLbl:'Potencial de recuperación vía ayudas y CAE',caeInfo:'El auditor analiza qué subvenciones activas se aplican a tu caso · CAE siempre disponible',
     revalLbl:'Revalorización estimada del inmueble',revalInfo:'~4-6% por letra mejorada · Fuente: RICS y Banco de España',
     bRedL:'Reducción del consumo',bRoiL:'ROI estimado de la inversión',
     rNote:'Estimación orientativa. La auditoría oficial CE3X determinará los valores exactos y las mejoras óptimas para tu vivienda.',
@@ -712,7 +712,7 @@ const TX = {
     checkTtl:'Con tu informe gratuito obtendrás',
     ck1:'Diagnóstico energético detallado de tu vivienda',
     ck2:'Plan de mejoras priorizado por rentabilidad',
-    ck3:'Guía de subvenciones aplicables a tu caso (CAE, MOVES III, NextGen EU)',
+    ck3:'Mapa de ayudas aplicables a tu caso (CAE, IRPF, convocatorias autonómicas vigentes)',
     ck4:'Presupuesto orientativo sin compromiso',
     progL:['Paso <strong>1</strong> de 4 · Perfil básico','Paso <strong>2</strong> de 4 · Características','Paso <strong>3</strong> de 4 · Interés','Paso <strong>4</strong> de 4 · Contacto'],
     s1Ttl:'¿Cuál es tu perfil?',s1Sub:'Haz clic en la opción que mejor te describa',
@@ -936,7 +936,8 @@ function calcular(){
   s('m-est', estalviAnual.toLocaleString(loc) + ' €');
   s('m-red', pctRed + '%');
   s('m-co2', co2 + ' kg');
-  s('cae-v', cae.toLocaleString(loc) + ' €');
+  // CAE i ajuts: no mostrem % inventat - indiquem que l'auditor ho determina
+  s('cae-v', L==='ca' ? 'A consultar' : 'A consultar');
   var revalTxt = '+' + pctReval + '%';
   s('reval-v', revalTxt);
 
