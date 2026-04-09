@@ -220,6 +220,41 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
     <div class="err-msg" id="e-gas">Indica la despesa mensual</div>
   </div>
 
+  <!-- ── CERTIFICAT ENERGÈTIC ── -->
+  <div class="fld" id="ff-cert" style="margin-bottom:20px">
+    <div class="lbl" id="l-cert">Tens certificat energètic en vigor?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px" id="cert-grid">
+      <div class="cert-opt" id="co-si" onclick="selCert('si')" style="display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);cursor:pointer;background:var(--crema);transition:all .2s">
+        <span style="font-size:18px">✅</span>
+        <div><div style="font-size:13px;font-weight:500;color:var(--negre)" id="co-si-ttl">Sí, vigent</div><div style="font-size:11px;color:var(--gris)" id="co-si-sub">Menys de 10 anys</div></div>
+        <input type="radio" name="cert" value="si" style="display:none">
+      </div>
+      <div class="cert-opt" id="co-venc" onclick="selCert('vencido')" style="display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);cursor:pointer;background:var(--crema);transition:all .2s">
+        <span style="font-size:18px">⚠️</span>
+        <div><div style="font-size:13px;font-weight:500;color:var(--negre)" id="co-venc-ttl">Sí, caducat</div><div style="font-size:11px;color:var(--gris)" id="co-venc-sub">Més de 10 anys</div></div>
+        <input type="radio" name="cert" value="vencido" style="display:none">
+      </div>
+      <div class="cert-opt" id="co-no" onclick="selCert('no')" style="display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);cursor:pointer;background:var(--crema);transition:all .2s">
+        <span style="font-size:18px">❌</span>
+        <div><div style="font-size:13px;font-weight:500;color:var(--negre)" id="co-no-ttl">No en tinc</div><div style="font-size:11px;color:var(--gris)" id="co-no-sub">Mai n'he tingut</div></div>
+        <input type="radio" name="cert" value="no" style="display:none">
+      </div>
+      <div class="cert-opt" id="co-ns" onclick="selCert('ns')" style="display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);cursor:pointer;background:var(--crema);transition:all .2s">
+        <span style="font-size:18px">🤷</span>
+        <div><div style="font-size:13px;font-weight:500;color:var(--negre)" id="co-ns-ttl">No ho sé</div><div style="font-size:11px;color:var(--gris)" id="co-ns-sub">Necessito informació</div></div>
+        <input type="radio" name="cert" value="ns" style="display:none">
+      </div>
+      <!-- 5ª opció: comprador verificador — amplada completa -->
+      <div class="cert-opt" id="co-comp" onclick="selCert('comprador')" style="display:flex;align-items:center;gap:10px;padding:11px 13px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);cursor:pointer;background:var(--crema);transition:all .2s;grid-column:1/-1">
+        <span style="font-size:18px">🔍</span>
+        <div><div style="font-size:13px;font-weight:500;color:var(--negre)" id="co-comp-ttl">Vull verificar el certificat del pis que compro</div><div style="font-size:11px;color:var(--gris)" id="co-comp-sub">Comprovo si la lletra del venedor és real</div></div>
+        <input type="radio" name="cert" value="comprador" style="display:none">
+      </div>
+    </div>
+    <!-- Missatge contextual dinàmic -->
+    <div id="cert-msg" style="display:none;margin-top:10px;padding:10px 13px;border-radius:var(--r);font-size:12px;line-height:1.5"></div>
+  </div>
+
   <button class="btn-calc" id="btn-calc" onclick="calcular()">Calcular estalvi →</button>
 </div>
 
@@ -366,6 +401,10 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
           <div class="ropt" onclick="selRad(this,'perf','promotor')" data-v="promotor">
             <div class="ropt-check"><input type="radio" name="perf" value="promotor"></div>
             <div class="ropt-txt"><div class="ropt-ttl" id="rp-prom">Promotor o constructor</div><div class="ropt-sub" id="rs-prom">Obra nova o rehabilitació</div></div>
+          </div>
+          <div class="ropt" onclick="selRad(this,'perf','comprador')" data-v="comprador" id="ropt-comprador">
+            <div class="ropt-check"><input type="radio" name="perf" value="comprador"></div>
+            <div class="ropt-txt"><div class="ropt-ttl" id="rp-comp">Comprador d'immoble</div><div class="ropt-sub" id="rs-comp">Vull verificar el certificat del venedor</div></div>
           </div>
         </div>
         <div class="err-msg" id="e-perf">Selecciona una opció per continuar</div>
@@ -629,6 +668,19 @@ const TX = {
     lSup:'Superfície (m²)',hSup:'Superfície útil habitable',eSup:'Camp obligatori (mínim 20 m²)',
     lAny:'Any de construcció',hAny:'Entre 1900 i 2024',eAny:"Indica l'any correctament",
     lGas:'Despesa mensual llum + gas (€)',hGas:'Mitjana dels últims 12 mesos (suma total de les factures)',eGas:'Indica la despesa mensual',
+    lCert:'Tens certificat energètic en vigor?',
+    coSiTtl:'Sí, vigent', coSiSub:'Menys de 10 anys',
+    coVencTtl:'Sí, caducat', coVencSub:'Més de 10 anys',
+    coNoTtl:'No en tinc', coNoSub:'Mai n\'he tingut',
+    coNsTtl:'No ho sé', coNsSub:'Necessito informació',
+    coCompTtl:'Vull verificar el certificat del pis que compro', coCompSub:'Comprovo si la lletra del venedor és real',
+    certMsg:{
+      si:'✅ Perfecte. El teu certificat vigent és el punt de partida per a qualsevol subvenció. L\'auditoria CE3X el complementarà amb el pla de millores.',
+      vencido:'⚠️ Un certificat caducat no és vàlid per a subvencions. Renova\'l amb l\'auditoria de Certilab i torna\'t a ser elegible per a tots els ajuts.',
+      no:'📋 Sense certificat energètic no pots vendre ni llogar legalment el teu immoble, ni accedir a subvencions. L\'auditoria de Certilab ho soluciona en 4 dies hàbils.',
+      ns:'💡 No et preocupis. L\'auditor de Certilab comprova l\'estat documental i t\'informa de tot el que necessites saber.',
+      comprador:'🔍 <strong>Verificació independent del certificat.</strong> Certilab realitza una auditoria CE3X del pis que vols comprar i contrasta la lletra declarada pel venedor. És l\'única manera de saber si la qualificació és real o inflada. Sol·licita l\'informe i protegeix la teva inversió.'
+    },
     btnCalc:'Calcular estalvi →',
     rTtl:'Estimació energètica del teu habitatge',rSub:'Normativa CTE 2019 · Mètode CE3X · Valors orientatius',
     llAct:'Lletra actual',llPost:'Lletra estimada post-reforma',
@@ -639,6 +691,7 @@ const TX = {
     bRedL:'Reducció del consum',bRoiL:'ROI estimat de la inversió',
     rNote:"Estimació orientativa. L'auditoria oficial CE3X determinarà els valors exactes i les millores òptimes per al teu habitatge.",
     btnForm:'Vull el meu informe gratuït →',
+    btnFormComp:'Sol·licitar verificació independent →',
     btnFormSub:'Sense compromís · Sense cost · Resposta en menys de 24h',
     proofTtl:'247 propietaris de Catalunya han rebut el seu informe aquest mes',
     proofSub:'Temps mitjà d\'espera per a l\'auditoria: <strong>4 dies hàbils</strong> · Places limitades',
@@ -654,6 +707,7 @@ const TX = {
     rpCom:'President de comunitat de veïns',rsCom:'Edifici de plurifamiliars',
     rpEmp:'Empresa o administrador de finques',rsEmp:'Gestió de diversos immobles',
     rpProm:'Promotor o constructor',rsProm:'Obra nova o rehabilitació',
+    rpComp:'Comprador d\'immoble',rsComp:'Vull verificar el certificat del venedor',
     lCp:'Codi postal',hCp:'Servei disponible a Catalunya: 08, 17, 25, 43',eCp:'Codi postal no cobert. El servei és exclusiu per a Catalunya (08, 17, 25, 43)',
     s2Ttl:"Característiques de l'habitatge",s2Sub:'Dades per calibrar millor l\'estimació',
     lTipo:"Tipus d'immoble",eTipo:"Selecciona el tipus d'immoble",
@@ -696,6 +750,19 @@ const TX = {
     lSup:'Superficie (m²)',hSup:'Superficie útil habitable',eSup:'Campo obligatorio (mínimo 20 m²)',
     lAny:'Año de construcción',hAny:'Entre 1900 y 2024',eAny:'Indica el año correctamente',
     lGas:'Gasto mensual luz + gas (€)',hGas:'Media de los últimos 12 meses (suma total de las facturas)',eGas:'Indica el gasto mensual',
+    lCert:'¿Tienes certificado energético en vigor?',
+    coSiTtl:'Sí, vigente', coSiSub:'Menos de 10 años',
+    coVencTtl:'Sí, caducado', coVencSub:'Más de 10 años',
+    coNoTtl:'No tengo', coNoSub:'Nunca he tenido',
+    coNsTtl:'No lo sé', coNsSub:'Necesito información',
+    coCompTtl:'Quiero verificar el certificado del piso que compro', coCompSub:'Compruebo si la letra del vendedor es real',
+    certMsg:{
+      si:'✅ Perfecto. Tu certificado vigente es el punto de partida para cualquier subvención. La auditoría CE3X lo complementará con el plan de mejoras.',
+      vencido:'⚠️ Un certificado caducado no es válido para subvenciones. Renuévalo con la auditoría de Certilab y vuelve a ser elegible para todas las ayudas.',
+      no:'📋 Sin certificado energético no puedes vender ni alquilar legalmente tu inmueble, ni acceder a subvenciones. La auditoría de Certilab lo soluciona en 4 días hábiles.',
+      ns:'💡 No te preocupes. El auditor de Certilab comprueba el estado documental y te informa de todo lo que necesitas saber.',
+      comprador:'🔍 <strong>Verificación independiente del certificado.</strong> Certilab realiza una auditoría CE3X del piso que quieres comprar y contrasta la letra declarada por el vendedor. Es la única manera de saber si la calificación es real o inflada. Solicita el informe y protege tu inversión.'
+    },
     btnCalc:'Calcular ahorro →',
     rTtl:'Estimación energética de tu vivienda',rSub:'Normativa CTE 2019 · Método CE3X · Valores orientativos',
     llAct:'Letra actual',llPost:'Letra estimada post-reforma',
@@ -706,6 +773,7 @@ const TX = {
     bRedL:'Reducción del consumo',bRoiL:'ROI estimado de la inversión',
     rNote:'Estimación orientativa. La auditoría oficial CE3X determinará los valores exactos y las mejoras óptimas para tu vivienda.',
     btnForm:'Quiero mi informe gratuito →',
+    btnFormComp:'Solicitar verificación independiente →',
     btnFormSub:'Sin compromiso · Sin coste · Respuesta en menos de 24h',
     proofTtl:'247 propietarios de Cataluña han recibido su informe este mes',
     proofSub:'Tiempo medio de espera para la auditoría: <strong>4 días hábiles</strong> · Plazas limitadas',
@@ -721,6 +789,7 @@ const TX = {
     rpCom:'Presidente de comunidad de vecinos',rsCom:'Edificio de plurifamiliares',
     rpEmp:'Empresa o administrador de fincas',rsEmp:'Gestión de varios inmuebles',
     rpProm:'Promotor o constructor',rsProm:'Obra nueva o rehabilitación',
+    rpComp:'Comprador de inmueble',rsComp:'Quiero verificar el certificado del vendedor',
     lCp:'Código postal',hCp:'Servicio disponible en Cataluña: 08, 17, 25, 43',eCp:'Código postal no cubierto. El servicio es exclusivo para Cataluña (08, 17, 25, 43)',
     s2Ttl:'Características de la vivienda',s2Sub:'Datos para calibrar mejor la estimación',
     lTipo:'Tipo de inmueble',eTipo:'Selecciona el tipo de inmueble',
@@ -794,6 +863,16 @@ function applyTexts(){
   sv('l-sup',t('lSup')); s('h-sup',t('hSup')); s('e-sup',t('eSup'));
   sv('l-any',t('lAny')); s('h-any',t('hAny')); s('e-any',t('eAny'));
   sv('l-gas',t('lGas')); s('h-gas',t('hGas')); s('e-gas',t('eGas'));
+  sv('l-cert',t('lCert'));
+  sv('co-si-ttl',t('coSiTtl')); sv('co-si-sub',t('coSiSub'));
+  sv('co-venc-ttl',t('coVencTtl')); sv('co-venc-sub',t('coVencSub'));
+  sv('co-no-ttl',t('coNoTtl')); sv('co-no-sub',t('coNoSub'));
+  sv('co-ns-ttl',t('coNsTtl')); sv('co-ns-sub',t('coNsSub'));
+  sv('co-comp-ttl',t('coCompTtl')); sv('co-comp-sub',t('coCompSub'));
+  // Actualitzar missatge cert si ja s'ha seleccionat
+  if(cData.cert){ selCert(cData.cert); }
+  // Textos perfil comprador al formulari
+  sv('rp-comp',t('rpComp')); sv('rs-comp',t('rsComp'));
   s('btn-calc',t('btnCalc'));
   s('r-ttl',t('rTtl')); s('r-sub',t('rSub'));
   s('ll-act',t('llAct')); s('ll-post',t('llPost'));
@@ -942,6 +1021,11 @@ function calcular(){
   s('reval-v', revalTxt);
 
   // ── Missatge personalitzat per lletra ──
+  // Si és comprador, missatge adaptat a verificació
+  var msgsComp = {
+    ca: 'La lletra <strong>'+lletraAct+'</strong> estimada per a un edifici d\'aquest any és orientativa. Una auditoria CE3X independent de Certilab determinarà si la qualificació del venedor és correcta. <strong>Protegeix la teva inversió abans de signar.</strong>',
+    es: 'La letra <strong>'+lletraAct+'</strong> estimada para un edificio de este año es orientativa. Una auditoría CE3X independiente de Certilab determinará si la calificación del vendedor es correcta. <strong>Protege tu inversión antes de firmar.</strong>'
+  };
   const msgs = {
     ca: {
       G: '⚠️ El teu habitatge té un consum molt elevat. Amb una reforma pots estalviar més de la meitat de la factura.',
@@ -962,7 +1046,10 @@ function calcular(){
       A: '🏆 ¡Excelente! Tu vivienda ya es de máxima eficiencia energética.'
     }
   };
-  s('lletra-msg', msgs[L][lletraAct] || '');
+  var msgFinal = (cData.cert === 'comprador')
+    ? msgsComp[L]
+    : (msgs[L][lletraAct] || '');
+  s('lletra-msg', msgFinal);
   document.getElementById('b-red-p').textContent = pctRed + '%';
   document.getElementById('b-roi-p').textContent = roi + '%';
   document.getElementById('bf-red').style.width = '0%';
@@ -972,7 +1059,9 @@ function calcular(){
     document.getElementById('bf-roi').style.width = roi + '%';
   }, 100);
 
-  // ── MOSTRAR ──
+  // ── CTA adaptat al comprador ──
+  var btnTxt = (cData.cert === 'comprador') ? t('btnFormComp') : t('btnForm');
+  s('btn-form-txt', btnTxt);
   const el = document.getElementById('res');
   el.style.display = 'block';
   setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'nearest'}), 50);
@@ -992,7 +1081,48 @@ function mostrarForm(){
   fbq('track','InitiateCheckout');
 }
 
-function selRad(el, name, val){
+function selCert(val){
+  // Marcar opció seleccionada
+  ['co-si','co-venc','co-no','co-ns','co-comp'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.style.borderColor='rgba(139,111,71,0.22)'; el.style.background='var(--crema)'; }
+  });
+  var idMap = {si:'co-si', vencido:'co-venc', no:'co-no', ns:'co-ns', comprador:'co-comp'};
+  var sel = document.getElementById(idMap[val]);
+  if(sel){ sel.style.borderColor='var(--terra)'; sel.style.background='#fff'; }
+  var radioEl = document.querySelector('input[name="cert"][value="'+val+'"]');
+  if(radioEl) radioEl.checked = true;
+
+  // Colors per missatge
+  var bgMap  = {si:'#eaf5ed', vencido:'#fff8e6', no:'#fdf0ef', ns:'#eef3ff', comprador:'#eef3ff'};
+  var colMap = {si:'#2d6a3f', vencido:'#7a4f00', no:'#8b2020', ns:'#1e3a8a', comprador:'#1e3a8a'};
+
+  var msg = t('certMsg')[val] || '';
+  var msgEl = document.getElementById('cert-msg');
+  if(msgEl && msg){
+    msgEl.style.background = bgMap[val]||'#f5f0e8';
+    msgEl.style.color = colMap[val]||'var(--terra-dk)';
+    msgEl.style.borderLeft = '3px solid '+(colMap[val]||'var(--terra)');
+    msgEl.innerHTML = msg;
+    msgEl.style.display = 'block';
+  }
+
+  // Guardar
+  cData.cert = val;
+
+  // Si és comprador: preseleccionar perfil "comprador" al formulari i mostrar avís
+  if(val === 'comprador'){
+    var roptComp = document.querySelector('.ropt[data-v="comprador"]');
+    if(roptComp){
+      document.querySelectorAll('#rg-perf .ropt').forEach(function(r){ r.classList.remove('on'); });
+      roptComp.classList.add('on');
+      var radioPerf = roptComp.querySelector('input[type=radio]');
+      if(radioPerf) radioPerf.checked = true;
+    }
+  }
+}
+
+
   document.querySelectorAll(`#rg-${name} .ropt`).forEach(r=>r.classList.remove('on'));
   el.classList.add('on');
   el.querySelector('input[type=radio]').checked = true;
@@ -1099,7 +1229,6 @@ function updateProgress(){
   s('prog-lbl', t('progL')[cStep-1]);
 }
 
-// ══ LEAD SCORING ══
 function scoring(){
   let sc = 0;
   const perf = document.querySelector('input[name="perf"]:checked')?.value;
@@ -1112,6 +1241,11 @@ function scoring(){
   sc += ({immediata:20,'3m':15,'6m':10,exploracio:3}[urg]||0);
   const mot = document.querySelector('input[name="mot"]:checked')?.value;
   sc += ({subvencio:15,estalvi:12,confort:8,certificat:6}[mot]||0);
+  // Certificat energètic: urgència legal real + comprador = alta intenció
+  const cert = cData.cert || 'ns';
+  sc += ({no:10, vencido:8, comprador:12, ns:4, si:2}[cert]||0);
+  // Bonus addicional si perfil = comprador (doble senyal d'intenció)
+  if(perf === 'comprador') sc += 8;
   const q = sc>=75?'HOT':sc>=55?'WARM':sc>=40?'COLD':'LOW';
   return {score:sc, quality:q};
 }
@@ -1137,6 +1271,7 @@ async function enviar(){
     pctRevalorizacion: cData.pctReval,
     revalorizacionEur: cData.revalEur,
     roiEstimat: cData.roi,
+    certificatEnergeticEstat: cData.cert || 'no_informat',
     perfil: document.querySelector('input[name="perf"]:checked')?.value,
     codiPostal: document.getElementById('i-cp').value,
     tipusImmoble: document.getElementById('i-tipo').value,
