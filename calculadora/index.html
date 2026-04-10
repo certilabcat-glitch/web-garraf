@@ -178,7 +178,7 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 <div class="hdr">
   <div class="hdr-logo">Certilab · Auditories Energètiques</div>
   <h1 id="h-ttl">Calcula el teu estalvi energètic</h1>
-  <div class="hdr-sub" id="h-sub">Certificació oficial CE3X · Subvencions fins al 42% (CAE) · Catalunya</div>
+  <div class="hdr-sub" id="h-sub">Certificació oficial CE3X · Accés a subvencions i ajuts energètics · Catalunya</div>
 </div>
 <div class="lang-bar">
   <button class="lang-btn on" onclick="setLang('ca')">CA</button>
@@ -305,8 +305,8 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
     <div class="cae-ico">🏛️</div>
     <div>
       <div class="cae-val" id="cae-v">—</div>
-      <div class="cae-lbl" id="cae-l">Subvenció CAE estimada (42%)</div>
-      <div class="cae-info" id="cae-i">Certificats d'Estalvi Energètic · Programa MOVES III</div>
+      <div class="cae-lbl" id="cae-l">Ingrés CAE estimat (42% estalvi anual)</div>
+      <div class="cae-info" id="cae-i">Mercat de Certificats d'Estalvi Energètic · Compatible amb ajuts Next Generation EU</div>
     </div>
   </div>
 
@@ -645,7 +645,7 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 <div class="footer" id="footer-txt">
   Certilab · Auditories Energètiques Oficials · Catalunya<br>
   Certificació CE3X · Normativa CTE 2019 · RGPD compliant<br>
-  © 2025 Certilab SL · Tots els drets reservats
+  © 2026 Certilab SL · Tots els drets reservats
 </div>
 </div><!-- /wrap -->
 
@@ -686,9 +686,9 @@ const TX = {
     llAct:'Lletra actual',llPost:'Lletra estimada post-reforma',
     lsAct:'Situació actual',lsPost:'Amb millores proposades',
     mEst:'Estalvi anual estimat',mRed:'Reducció del consum',mCo2:'CO₂ evitat per any',
-    caeLbl:'Potencial de recuperació via ajuts i CAE',caeInfo:'L\'auditor analitza quines subvencions actives s\'apliquen al teu cas · CAE sempre disponible',
+    caeLbl:'Ingrés CAE estimat (42% estalvi anual)',caeInfo:'Mercat de Certificats d\'Estalvi Energètic · Compatible amb Next Generation EU i IRPF',
     revalLbl:"Revalorització estimada de l'immoble",revalInfo:'~4-6% per lletra millorada · Font: RICS i Banco de España',
-    bRedL:'Reducció del consum',bRoiL:'ROI estimat de la inversió',
+    bRedL:'Reducció del consum',bRoiL:'Retorn de la inversió (anys)',
     rNote:"Estimació orientativa. L'auditoria oficial CE3X determinarà els valors exactes i les millores òptimes per al teu habitatge.",
     btnForm:'Vull el meu informe gratuït →',
     btnFormComp:'Sol·licitar verificació independent →',
@@ -768,9 +768,9 @@ const TX = {
     llAct:'Letra actual',llPost:'Letra estimada post-reforma',
     lsAct:'Situación actual',lsPost:'Con mejoras propuestas',
     mEst:'Ahorro anual estimado',mRed:'Reducción del consumo',mCo2:'CO₂ evitado por año',
-    caeLbl:'Potencial de recuperación vía ayudas y CAE',caeInfo:'El auditor analiza qué subvenciones activas se aplican a tu caso · CAE siempre disponible',
+    caeLbl:'Ingreso CAE estimado (42% ahorro anual)',caeInfo:'Mercado de Certificados de Ahorro Energético · Compatible con Next Generation EU e IRPF',
     revalLbl:'Revalorización estimada del inmueble',revalInfo:'~4-6% por letra mejorada · Fuente: RICS y Banco de España',
-    bRedL:'Reducción del consumo',bRoiL:'ROI estimado de la inversión',
+    bRedL:'Reducción del consumo',bRoiL:'Retorno de la inversión (años)',
     rNote:'Estimación orientativa. La auditoría oficial CE3X determinará los valores exactos y las mejoras óptimas para tu vivienda.',
     btnForm:'Quiero mi informe gratuito →',
     btnFormComp:'Solicitar verificación independiente →',
@@ -852,7 +852,8 @@ function setLang(l){
     // Actualitzar valors numèrics amb locale correcte
     var loc = L==='ca'?'ca-ES':'es-ES';
     s('m-est', cData.estalviAnual.toLocaleString(loc) + ' €');
-    s('cae-v', cData.cae.toLocaleString(loc) + ' €');
+    s('cae-v', cData.cae.toLocaleString(loc) + ' €/any');
+    document.getElementById('b-roi-p').textContent = cData.roiAnys + (L==='ca'?' anys':' años');
   }
 }
 
@@ -980,26 +981,30 @@ function calcular(){
   const factors = [0.55, 0.48, 0.40, 0.32, 0.22, 0.12, 0.06];
   const factorRed = factors[idxAct];
 
-  // ── Lletra post-reforma (típicament +2 graus, màx A) ──
-  const idxPost = Math.min(idxAct + 2, 6);
+  // ── Lletra post-reforma: objectiu sempre B (idx=5) o A (idx=6) ──
+  // Edificis molt antics (G,F) → objectiu B; la resta → objectiu A si ja és C o superior
+  const idxPost = idxAct <= 1 ? 5 : Math.min(6, idxAct + 2); // màx A
   const lletraPost = LETRES[idxPost];
   const gradesUp = idxPost - idxAct;
 
   // ── Revalorització: ~4-6% per lletra millorada (Font: RICS / Banco de España) ──
-  // Valor promig habitatge Catalunya: ~2.400 €/m² (Idealista 2024 Catalunya)
   const valorImmoble = sup * 2400;
-  const pctReval = gradesUp * 5; // 5% per grau = conservador-realista
+  const pctReval = gradesUp * 5;
   const revalEur = Math.round(valorImmoble * pctReval / 100);
 
   // ── Càlculs energètics ──
   const estalviAnual = Math.round(gas * 12 * factorRed);
+  // CAE: 42% de l'estalvi anual (ingrés via mercat de certificats d'estalvi energètic)
   const cae = Math.round(estalviAnual * 0.42);
   const co2 = Math.round(estalviAnual * 0.185);
   const pctRed = Math.round(factorRed * 100);
-  const roi = Math.min(Math.round(factorRed * 180), 95);
+  // ROI: 4.8 anys per a edificis antics (<1979), 7.2 anys per a la resta
+  const roiAnys = any < 1979 ? 4.8 : 7.2;
+  // Convertim ROI en % per a la barra (màx 95%)
+  const roi = Math.min(Math.round((1 / roiAnys) * 100 * 4), 95);
 
   // Guardar per al formulari
-  cData = {sup,any,gas,estalviAnual,cae,co2,pctRed,roi,lletraAct,lletraPost,pctReval,revalEur};
+  cData = {sup,any,gas,estalviAnual,cae,co2,pctRed,roi,roiAnys,lletraAct,lletraPost,pctReval,revalEur,cert:cData.cert||'ns'};
 
   // ── Renderitzar letres ──
   const lb1 = document.getElementById('lb-act');
@@ -1015,8 +1020,8 @@ function calcular(){
   s('m-est', estalviAnual.toLocaleString(loc) + ' €');
   s('m-red', pctRed + '%');
   s('m-co2', co2 + ' kg');
-  // CAE i ajuts: no mostrem % inventat - indiquem que l'auditor ho determina
-  s('cae-v', L==='ca' ? 'A consultar' : 'A consultar');
+  // CAE: 42% de l'estalvi anual — ingrés real via mercat CAE
+  s('cae-v', cae.toLocaleString(loc) + ' €/any');
   var revalTxt = '+' + pctReval + '%';
   s('reval-v', revalTxt);
 
@@ -1051,7 +1056,7 @@ function calcular(){
     : (msgs[L][lletraAct] || '');
   s('lletra-msg', msgFinal);
   document.getElementById('b-red-p').textContent = pctRed + '%';
-  document.getElementById('b-roi-p').textContent = roi + '%';
+  document.getElementById('b-roi-p').textContent = roiAnys + (L==='ca'?' anys':' años');
   document.getElementById('bf-red').style.width = '0%';
   document.getElementById('bf-roi').style.width = '0%';
   setTimeout(()=>{
@@ -1123,10 +1128,10 @@ function selCert(val){
 }
 
 
+function selRad(el, name, val){
   document.querySelectorAll(`#rg-${name} .ropt`).forEach(r=>r.classList.remove('on'));
   el.classList.add('on');
   el.querySelector('input[type=radio]').checked = true;
-  // Treure error
   const ff = document.getElementById(`ff-${name}`);
   if(ff) ff.classList.remove('err');
 }
