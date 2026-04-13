@@ -15,16 +15,16 @@ fbq('track','PageView');
 </script>
 <style>
 :root{
-  --terra:#8B6F47;--terra-dk:#5C4A2A;--terra-lt:#C4A882;
-  --crema:#F5EFE6;--crema-dk:#EDE3D6;
-  --verde:#4A7C59;--verde-lt:#E8F2EB;
-  --gris:#6B6B6B;--gris-lt:#F0EDE8;
-  --negre:#1A1A1A;--blanc:#FFFFFF;
-  --err:#C0392B;--err-lt:#fdf0ef;
-  --font-serif:'Crimson Pro',Georgia,serif;
-  --font-sans:'Inter',system-ui,sans-serif;
-  --r:4px;--rl:8px;
-  --sh:0 2px 16px rgba(92,74,42,0.10);
+  --terra:#8B6F47;--terra-dk:#5C4A2A;--terra-lt:#C4A882;
+  --crema:#F5EFE6;--crema-dk:#EDE3D6;
+  --verde:#4A7C59;--verde-lt:#E8F2EB;
+  --gris:#6B6B6B;--gris-lt:#F0EDE8;
+  --negre:#1A1A1A;--blanc:#FFFFFF;
+  --err:#C0392B;--err-lt:#fdf0ef;
+  --font-serif:'Crimson Pro',Georgia,serif;
+  --font-sans:'Inter',system-ui,sans-serif;
+  --r:4px;--rl:8px;
+  --sh:0 2px 16px rgba(92,74,42,0.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min-height:100vh;font-size:15px;line-height:1.6}
@@ -69,6 +69,7 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 /* ESCALA LETRES */
 .letres-wrap{display:flex;gap:10px;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap}
 .lletra-col{flex:1;min-width:120px;text-align:center}
+.lletra-label{font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--gris);margin-bottom:6px}
 .lletra-badge{width:64px;height:64px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:36px;font-weight:600;color:#fff;margin:0 auto 6px;position:relative}
 .lletra-badge .arrow{position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--terra);font-size:18px}
 .lletra-sublbl{font-size:11px;color:var(--gris)}
@@ -82,13 +83,17 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 
 /* CAE BOX */
 .cae-box{background:var(--verde-lt);border:1px solid rgba(74,124,89,0.25);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.cae-ico{font-size:26px;flex-shrink:0}
 .cae-val{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--verde);line-height:1}
 .cae-lbl{font-size:11px;color:#3a6b48;font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.cae-info{font-size:11px;color:#4a7c59}
 
 /* REVALORITZ */
 .reval-box{background:#f5f0e8;border:1px solid rgba(139,111,71,0.2);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.reval-ico{font-size:26px;flex-shrink:0}
 .reval-val{font-family:var(--font-serif);font-size:26px;font-weight:600;color:var(--terra-dk);line-height:1}
 .reval-lbl{font-size:11px;color:var(--terra);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+.reval-info{font-size:11px;color:var(--gris)}
 
 /* BARRES */
 .bar-row{margin-bottom:14px}
@@ -116,8 +121,16 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 .sline{flex:1;height:2px;background:var(--crema-dk);transition:background .3s}
 .sline.done{background:var(--verde)}
 .prog-lbl{font-size:12px;color:var(--gris);margin-top:8px}
+.prog-lbl strong{color:var(--terra-dk)}
 
-/* RADIO OPTS */
+/* FORM BODY */
+.fbody{padding:24px 24px 20px}
+.fstep{display:none}
+.fstep.on{display:block}
+.fstep-ttl{font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--terra-dk);margin-bottom:3px}
+.fstep-sub{font-size:13px;color:var(--gris);margin-bottom:20px}
+
+/* RADIO OPTS - UX MILLORAT */
 .radio-grp{display:flex;flex-direction:column;gap:8px;margin-top:4px}
 .ropt{display:flex;align-items:center;gap:0;border:1.5px solid rgba(139,111,71,0.2);border-radius:var(--r);cursor:pointer;transition:all .2s;background:var(--crema);overflow:hidden;position:relative}
 .ropt-check{width:44px;height:52px;background:rgba(139,111,71,0.07);border-right:1px solid rgba(139,111,71,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;transition:all .2s}
@@ -128,235 +141,298 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 .ropt-txt{padding:10px 14px;font-size:14px;color:var(--negre);line-height:1.3}
 .ropt-ttl{font-weight:500}
 .ropt-sub{font-size:11px;color:var(--gris);margin-top:1px}
+.ropt:hover{border-color:var(--terra);background:#fff}
 .ropt.on{border-color:var(--terra);background:#fff}
+.ropt.on .ropt-ttl{color:var(--terra-dk)}
+
+/* CHECKBOXES */
+.chk-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--gris);line-height:1.5;margin-bottom:12px}
+.chk-row input{accent-color:var(--terra);margin-top:2px;flex-shrink:0;width:16px;height:16px}
+.chk-row a{color:var(--terra)}
+
+/* FORM NAV */
+.fnav{display:flex;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--crema-dk)}
+.btn-back{padding:12px 18px;background:transparent;border:1.5px solid rgba(139,111,71,0.28);border-radius:var(--r);font-family:var(--font-sans);font-size:14px;color:var(--terra);cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-back:hover{border-color:var(--terra);background:var(--gris-lt)}
+.btn-next{flex:1;padding:12px;background:var(--terra-dk);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:14px;font-weight:500;cursor:pointer;transition:background .2s}
+.btn-next:hover{background:var(--terra)}
 
 /* SUCCESS */
 #suc-sec{display:none}
 .suc-card{background:#fff;border:1px solid rgba(74,124,89,0.28);border-radius:var(--rl);padding:40px 28px;text-align:center;box-shadow:var(--sh)}
+.suc-ico{font-size:52px;margin-bottom:14px}
+.suc-ttl{font-family:var(--font-serif);font-size:26px;color:var(--verde);margin-bottom:10px}
+.suc-sub{font-size:14px;color:var(--gris);max-width:380px;margin:0 auto}
 
 /* FOOTER */
 .footer{text-align:center;font-size:11px;color:var(--gris);margin-top:28px;padding-top:14px;border-top:1px solid rgba(139,111,71,0.13);line-height:1.9}
+
+/* DIVIDER */
 .divider{height:1px;background:var(--crema-dk);margin:16px 0}
 
-/* PAYPAL FIX */
-.paypal-btn-wrap { margin: 15px auto 0; max-width: 320px; }
+/* SELECT wrapper */
+.sel-wrap{position:relative}
+.sel-wrap::after{content:'▾';position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--terra);pointer-events:none;font-size:12px}
+.sel-wrap select{padding-right:30px}
+
+/* PAYPAL BOTTON ALIGNMENT */
+.paypal-btn-container { margin-top: 15px; min-height: 44px; }
 
 </style>
 </head>
 <body>
 
 <div style="background:var(--terra-dk);padding:28px 20px 24px;text-align:center">
-  <div style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin-bottom:12px">Certilab · Consultoría Energética</div>
-  <h1 id="h-ttl" style="font-family:var(--font-serif);font-size:clamp(22px,5.5vw,34px);font-weight:400;color:#fff;line-height:1.25;margin-bottom:10px;max-width:500px;margin-left:auto;margin-right:auto">¿El certificado del piso que vas a comprar es real?</h1>
-  <div id="h-sub" style="font-size:14px;color:rgba(255,255,255,0.78);line-height:1.7;max-width:420px;margin:0 auto 18px">Un certificado inflado puede costarte entre 10.000 y 30.000 € de más. Eva María lo revisa y te da la respuesta en 48 horas.</div>
-  
-  <div class="paypal-btn-wrap">
-    <div id="paypal-container-9HPT5ZUA2756E-HERO"></div>
+  <div style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--terra-lt);margin-bottom:12px">Certilab · Consultoría Energética</div>
+  <h1 id="h-ttl" style="font-family:var(--font-serif);font-size:clamp(22px,5.5vw,34px);font-weight:400;color:#fff;line-height:1.25;margin-bottom:10px;max-width:500px;margin-left:auto;margin-right:auto">¿El certificado del piso que vas a comprar es real?</h1>
+  <div id="h-sub" style="font-size:14px;color:rgba(255,255,255,0.78);line-height:1.7;max-width:420px;margin:0 auto 18px">Un certificado inflado puede costarte entre 10.000 y 30.000 € de más. Eva María lo revisa y te da la respuesta en 48 horas.</div>
+  
+  <div style="max-width:320px; margin: 0 auto;">
+    <div id="paypal-container-HERO"></div>
     <script>
-      paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-9HPT5ZUA2756E-HERO")
+      paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-HERO")
     </script>
   </div>
 
-  <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:12px" id="hero-cta-sub">Pago seguro · Respuesta en 48h · Eva María lo revisa personalmente</div>
+  <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-top:12px" id="hero-cta-sub">Pago seguro · Respuesta en 48h · Eva María lo revisa personalmente</div>
 </div>
 
 <div style="background:var(--crema-dk);border-bottom:1px solid rgba(139,111,71,0.18);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap">
-  <div style="display:flex;align-items:center;gap:8px">
-    <div style="width:34px;height:34px;border-radius:50%;background:var(--terra-dk);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">👩‍💼</div>
-    <div>
-      <div style="font-size:12px;font-weight:700;color:var(--terra-dk);line-height:1.2">Eva María González García</div>
-      <div style="font-size:10px;color:var(--gris);line-height:1.3" id="h-cred-col">Arquitecta Técnica · Colegiada CAATEB nº 9457 · Barcelona</div>
-    </div>
-  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <div style="width:34px;height:34px;border-radius:50%;background:var(--terra-dk);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">👩‍💼</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--terra-dk);line-height:1.2">Eva María González García</div>
+      <div style="font-size:10px;color:var(--gris);line-height:1.3" id="h-cred-col">Arquitecta Técnica · Colegiada CAATEB nº 9457 · Barcelona</div>
+    </div>
+  </div>
 </div>
 <div class="lang-bar">
-  <button class="lang-btn" onclick="setLang('ca')">CA</button>
-  <button class="lang-btn on" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" onclick="setLang('ca')">CA</button>
+  <button class="lang-btn on" onclick="setLang('es')">ES</button>
 </div>
 
 <div class="wrap">
 
 <div class="card" style="padding:20px 16px;margin-bottom:14px">
-  <div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:14px;text-align:center" id="como-ttl">Cómo funciona — 3 pasos</div>
-  <div style="display:flex;flex-direction:column;gap:12px">
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
-      <div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="paso1t">Pagas y nos envías el certificado</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso1d">El PDF del certificado del vendedor y la dirección del piso. En 5 minutos está hecho.</div></div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-      <div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="paso2t">Eva María lo revisa</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso2d">Contrasta la letra declarada con la realidad del edificio. Detecta errores, inflaciones e irregularidades.</div></div>
-    </div>
-    <div style="display:flex;align-items:flex-start;gap:12px">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--verde);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
-      <div><div style="font-size:13px;font-weight:700;color:var(--verde)" id="paso3t">Recibes el informe en 48 horas</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso3d">Conclusión clara por escrito, firmada por una arquitecta colegiada. Con valor legal.</div></div>
-    </div>
-  </div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:14px;text-align:center" id="como-ttl">Cómo funciona — 3 pasos</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+      <div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="paso1t">Pagas y nos envías el certificado</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso1d">El PDF del certificado del vendedor y la dirección del piso. En 5 minutos está hecho.</div></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--terra);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+      <div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="paso2t">Eva María lo revisa</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso2d">Contrasta la letra declarada con la realidad del edificio. Detecta errores, inflaciones e irregularidades.</div></div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--verde);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+      <div><div style="font-size:13px;font-weight:700;color:var(--verde)" id="paso3t">Recibes el informe en 48 horas</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="paso3d">Conclusión clara por escrito, firmada por una arquitecta colegiada. Con valor legal.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="padding:20px 16px;margin-bottom:14px">
+  <div style="font-size:14px;font-weight:700;color:var(--terra-dk);margin-bottom:4px" id="comp-inc-ttl">Por 97 € recibes un informe completo firmado por Eva María:</div>
+  <div style="font-size:12px;color:var(--gris);margin-bottom:16px" id="comp-inc-sub">Todo lo que necesitas saber antes de firmar la compra</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">🔍</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm1t">Si la letra del certificado es real o está inflada</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm1d">Comprobamos si la calificación declarada por el vendedor corresponde con la realidad del edificio</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">💶</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm2t">Cuánto gastarás realmente en energía</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm2d">No lo que dice el papel — lo que pagarás de verdad en luz y gas cuando vivas ahí</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">🔨</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm3t">Qué obras necesitaría y en qué orden</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm3d">Si la letra es mejorable, te decimos exactamente qué cambiar y qué hacer primero</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">📈</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm4t">Cuánto recuperas y en cuánto tiempo</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm4d">El retorno real de cada mejora y cuándo empiezas a ganar dinero</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">🏛️</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm5t">Qué ayudas públicas puedes pedir</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm5d">Las subvenciones disponibles para ese piso concreto y cómo solicitarlas</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">💬</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm6t">Argumentos para negociar el precio si hay errores</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm6d">Si encontramos irregularidades, te damos un argumento documentado y firmado para renegociar</div></div></div>
+    <div style="display:flex;gap:12px;align-items:flex-start"><span style="font-size:20px;flex-shrink:0">🛡️</span><div><div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="cm7t">Guía anti-estafa para reformar sin riesgos</div><div style="font-size:12px;color:var(--gris);margin-top:2px;line-height:1.4" id="cm7d">Qué materiales exigir, qué preguntar a cada instalador y qué cláusulas poner en el contrato</div></div></div>
+  </div>
 </div>
 
 <div id="comp-pay" style="border:2px solid var(--terra);border-radius:var(--rl);overflow:hidden;margin-bottom:14px">
-  <div style="background:var(--terra-dk);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px">
-    <div>
-      <div style="font-family:var(--font-serif);font-size:20px;color:#fff;line-height:1.2" id="comp-cta-ttl">Informe Expert Certilab</div>
-      <div style="font-size:11px;color:var(--terra-lt);margin-top:3px" id="comp-cta-sub">7 módulos · Firmado por Eva María · Entrega en 48h</div>
-    </div>
-    <div style="text-align:right;flex-shrink:0">
-      <div style="font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff">97 €</div>
-      <div style="font-size:10px;color:var(--terra-lt)" id="comp-iva">IVA incluido</div>
-    </div>
-  </div>
-  <div style="padding:16px;background:#fff; text-align: center;">
+  <div style="background:var(--terra-dk);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px">
+    <div>
+      <div style="font-family:var(--font-serif);font-size:20px;color:#fff;line-height:1.2" id="comp-cta-ttl">Informe Expert Certilab</div>
+      <div style="font-size:11px;color:var(--terra-lt);margin-top:3px" id="comp-cta-sub">7 módulos · Firmado por Eva María · Entrega en 48h</div>
+    </div>
+    <div style="text-align:right;flex-shrink:0">
+      <div style="font-family:var(--font-serif);font-size:32px;font-weight:700;color:#fff">97 €</div>
+      <div style="font-size:10px;color:var(--terra-lt)" id="comp-iva">IVA incluido</div>
+    </div>
+  </div>
+  <div style="padding:16px;background:#fff; text-align:center;">
     
-    <div id="paypal-container-9HPT5ZUA2756E-CARD"></div>
+    <div id="paypal-container-PRICING"></div>
     <script>
-      paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-9HPT5ZUA2756E-CARD")
+      paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-PRICING")
     </script>
 
-    <div style="text-align:center;font-size:11px;color:var(--gris);margin-top:12px;line-height:1.5" id="comp-pay-sub">Pago seguro · Eva María lo revisa personalmente · Respuesta en 48h</div>
-    <a href="https://wa.me/34608515922?text=Hola%2C%20estoy%20comprando%20un%20piso%20y%20tengo%20dudas%20sobre%20el%20certificado%20energ%C3%A9tico" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;padding:12px;background:#25D366;color:#fff;border-radius:var(--r);font-size:13px;font-weight:600;text-decoration:none" id="comp-wa-btn">
-      <span style="font-size:18px">💬</span><span id="comp-wa-txt">¿Tienes dudas? Escríbenos por WhatsApp</span>
-    </a>
-  </div>
+    <div style="text-align:center;font-size:11px;color:var(--gris);margin-top:12px;line-height:1.5" id="comp-pay-sub">Pago seguro · Eva María lo revisa personalmente · Respuesta en 48h</div>
+    <a href="https://wa.me/34608515922?text=Hola%2C%20estoy%20comprando%20un%20piso%20y%20tengo%20dudas%20sobre%20el%20certificado%20energ%C3%A9tico" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;padding:12px;background:#25D366;color:#fff;border-radius:var(--r);font-size:13px;font-weight:600;text-decoration:none" id="comp-wa-btn">
+      <span style="font-size:18px">💬</span><span id="comp-wa-txt">¿Tienes dudas? Escríbenos por WhatsApp</span>
+    </a>
+  </div>
 </div>
 
-<div class="card" id="selector-card">
-  <div style="text-align:center;margin-bottom:16px">
-    <div style="font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--terra-dk);margin-bottom:4px" id="sel-ttl">¿Cuál es tu situación?</div>
-    <div style="font-size:13px;color:var(--gris)" id="sel-sub">Selecciona y te mostramos exactamente lo que necesitas</div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="sel-grid">
-    <div class="sel-opt" id="so-comprador" onclick="selPerfil('comprador')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid rgba(139,111,71,0.2);border-radius:var(--rl);cursor:pointer;background:var(--crema);transition:all .2s;text-align:center">
-      <span style="font-size:26px">🔍</span>
-      <div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="sl-comp">Compro un piso</div>
-      <div style="font-size:11px;color:var(--gris);line-height:1.3" id="ss-comp">Verificar el certificado del vendedor</div>
-    </div>
-    <div class="sel-opt" id="so-propietari" onclick="selPerfil('propietari')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid rgba(139,111,71,0.2);border-radius:var(--rl);cursor:pointer;background:var(--crema);transition:all .2s;text-align:center">
-      <span style="font-size:26px">🏠</span>
-      <div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="sl-prop">Tengo un piso</div>
-      <div style="font-size:11px;color:var(--gris);line-height:1.3" id="ss-prop">Estado y mejoras posibles</div>
-    </div>
-  </div>
+<div style="display:flex;align-items:center;gap:10px;margin:4px 0 16px">
+  <div style="flex:1;height:1px;background:var(--crema-dk)"></div>
+  <div style="font-size:11px;color:var(--gris);white-space:nowrap;text-align:center" id="otros-ttl">¿No eres comprador? Aquí también podemos ayudarte</div>
+  <div style="flex:1;height:1px;background:var(--crema-dk)"></div>
+</div>
+
+<div class="card" id="selector-card" style="padding:20px 16px;margin-bottom:14px">
+  <div style="text-align:center;margin-bottom:16px">
+    <div style="font-family:var(--font-serif);font-size:20px;font-weight:400;color:var(--terra-dk);margin-bottom:4px" id="sel-ttl">¿Cuál es tu situación?</div>
+    <div style="font-size:13px;color:var(--gris)" id="sel-sub">Selecciona y te mostramos exactamente lo que necesitas</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="sel-grid">
+    <div class="sel-opt" id="so-comprador" onclick="selPerfil('comprador')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid rgba(139,111,71,0.2);border-radius:var(--rl);cursor:pointer;background:var(--crema);transition:all .2s;text-align:center">
+      <span style="font-size:26px">🔍</span>
+      <div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="sl-comp">Compro un piso</div>
+      <div style="font-size:11px;color:var(--gris);line-height:1.3" id="ss-comp">Verificar el certificado del vendedor</div>
+    </div>
+    <div class="sel-opt" id="so-propietari" onclick="selPerfil('propietari')" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border:2px solid rgba(139,111,71,0.2);border-radius:var(--rl);cursor:pointer;background:var(--crema);transition:all .2s;text-align:center">
+      <span style="font-size:26px">🏠</span>
+      <div style="font-size:13px;font-weight:700;color:var(--terra-dk)" id="sl-prop">Tengo un piso</div>
+      <div style="font-size:11px;color:var(--gris);line-height:1.3" id="ss-prop">Estado y mejoras posibles</div>
+    </div>
+  </div>
+</div>
+
+<div id="banner-sec" style="background:var(--terra-dk);color:#fff;border-radius:var(--r);padding:10px 16px;margin-bottom:14px;display:flex;align-items:center;gap:10px;font-size:13px">
+  <span style="font-size:16px;flex-shrink:0">⏱️</span>
+  <span id="banner-txt">Les subvencions CAE 2025 tanquen el 31 de desembre · Calcula ara si t'hi pots acollir</span>
 </div>
 
 <div class="card" id="calc-card">
-  <div class="card-ttl" id="c-ttl">Calculadora d'eficiència energètica</div>
-  <div class="card-sub" id="c-sub">Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons</div>
-  <div class="g2">
-    <div class="fld" id="ff-sup">
-      <label id="l-sup">Superfície (m²)</label>
-      <input type="number" id="i-sup" min="20" max="5000" placeholder="90" oninput="clearRes()">
-    </div>
-    <div class="fld" id="ff-any">
-      <label id="l-any">Any de construcció</label>
-      <input type="number" id="i-any" min="1900" max="2024" placeholder="1985" oninput="clearRes()">
-    </div>
-  </div>
-  <div class="fld" id="ff-gas">
-    <label id="l-gas">Despesa mensual llum + gas (€)</label>
-    <input type="number" id="i-gas" placeholder="120" oninput="clearRes()">
-  </div>
-  <button class="btn-calc" id="btn-calc" onclick="calcular()">Calcular estalvi →</button>
+  <div class="card-ttl" id="c-ttl">Calculadora d'eficiència energètica</div>
+  <div class="card-sub" id="c-sub">Introdueix les dades del teu habitatge i obtindràs la teva estimació gratuïta en segons</div>
+
+  <div class="g2">
+    <div class="fld" id="ff-sup">
+      <label id="l-sup">Superfície (m²)</label>
+      <input type="number" id="i-sup" min="20" max="5000" placeholder="90" oninput="clearRes()">
+      <div class="fld-hint" id="h-sup">Superfície útil habitable</div>
+      <div class="err-msg" id="e-sup">Camp obligatori (mínim 20 m²)</div>
+    </div>
+    <div class="fld" id="ff-any">
+      <label id="l-any">Any de construcció</label>
+      <input type="number" id="i-any" min="1900" max="2024" placeholder="1985" oninput="clearRes()">
+      <div class="fld-hint" id="h-any">Entre 1900 i 2024</div>
+      <div class="err-msg" id="e-any">Indica l'any correctament</div>
+    </div>
+  </div>
+
+  <div class="fld" id="ff-gas">
+    <label id="l-gas">Despesa mensual llum + gas (€)</label>
+    <input type="number" id="i-gas" min="10" max="5000" placeholder="120" oninput="clearRes()">
+    <div class="fld-hint" id="h-gas">Mitjana dels últims 12 mesos (suma total de las facturas)</div>
+    <div class="err-msg" id="e-gas">Indica la despesa mensual</div>
+  </div>
+
+  <button class="btn-calc" id="btn-calc" onclick="calcular()">Calcular estalvi →</button>
 </div>
 
 <div id="res" style="display:none">
 <div class="card" style="padding:20px 16px">
-  <div class="card-ttl" id="r-ttl">Aquí tens la teva estimació</div>
-  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px">
-    <div style="text-align:center">
-      <div class="lletra-badge" id="lb-act" style="background:#ccc"></div>
-    </div>
-    <div style="font-size:32px;color:var(--terra)">→</div>
-    <div style="text-align:center">
-      <div class="lletra-badge" id="lb-post" style="background:#ccc"></div>
-    </div>
-  </div>
-  <div id="lletra-msg" style="font-size:13px;color:var(--terra-dk);background:var(--crema);padding:11px 14px;margin-bottom:18px"></div>
-  
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0">
-    <div style="background:var(--crema);border-radius:var(--r);padding:14px 12px;text-align:center">
-      <div style="font-size:22px;font-weight:600;color:var(--terra-dk)" id="m-est">—</div>
-      <div style="font-size:10px;color:var(--gris)" id="ml-est">Ahorro anual</div>
-    </div>
-    <div style="background:var(--verde-lt);border-radius:var(--r);padding:14px 12px;text-align:center">
-      <div style="font-size:22px;font-weight:600;color:var(--verde)" id="cae-v">—</div>
-      <div style="font-size:10px;color:#3a6b48" id="cae-l">Ayuda CAE</div>
-    </div>
-  </div>
+  <div class="card-ttl" id="r-ttl" style="font-size:20px;margin-bottom:2px">Aquí tens la teva estimació</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:16px">
+    <div style="text-align:center">
+      <div class="lletra-badge" id="lb-act" style="background:#ccc;width:72px;height:72px;font-size:40px;margin:0 auto"></div>
+      <div style="font-size:11px;color:var(--gris);margin-top:5px" id="ls-act">Situació actual</div>
+    </div>
+    <div style="font-size:32px;color:var(--terra);line-height:1;padding-top:18px">→</div>
+    <div style="text-align:center">
+      <div class="lletra-badge" id="lb-post" style="background:#ccc;width:72px;height:72px;font-size:40px;margin:0 auto"></div>
+      <div style="font-size:11px;color:var(--gris);margin-top:5px" id="ls-post">Amb millores</div>
+    </div>
+  </div>
 
-  <button class="btn-form" id="btn-form" onclick="mostrarForm()">Vull el meu informe gratuït →</button>
+  <div id="lletra-msg" style="font-size:13px;color:var(--terra-dk);background:var(--crema);border-left:3px solid var(--terra);border-radius:0 var(--r) var(--r) 0;padding:11px 14px;margin-bottom:18px;line-height:1.6"></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0">
+    <div style="background:var(--crema);border-radius:var(--r);padding:14px 12px;text-align:center">
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--terra-dk);line-height:1;margin-bottom:4px" id="m-est">—</div>
+      <div style="font-size:11px;color:var(--gris);line-height:1.3" id="ml-est">Podries estalviar a l'any</div>
+    </div>
+    <div style="background:var(--verde-lt);border-radius:var(--r);padding:14px 12px;text-align:center">
+      <div style="font-family:var(--font-serif);font-size:22px;font-weight:600;color:var(--verde);line-height:1;margin-bottom:4px" id="cae-v">—</div>
+      <div style="font-size:11px;color:#3a6b48;line-height:1.3" id="cae-l">Ajut públic CAE</div>
+    </div>
+  </div>
+
+  <button class="btn-form" id="btn-form" onclick="mostrarForm()" style="margin-top:18px;padding:16px;font-size:16px;border-radius:var(--r)">
+    <span id="btn-form-txt">Vull el meu informe gratuït →</span>
+  </button>
 </div>
 </div>
 
 <div id="form-sec">
 <div class="form-card">
-  <div class="fbody">
-    <div class="fstep on" id="fs1">
-      <div class="fld"><label>Nombre y Apellidos</label><input type="text" id="i-nom"></div>
-      <div class="fld"><label>Email</label><input type="email" id="i-mail"></div>
-      <button class="btn-next" onclick="enviar()">Enviar i obtenir informe →</button>
-    </div>
-  </div>
+  <div class="fbody">
+    <div class="fstep on" id="fs1">
+      <div class="fstep-ttl">Dades de contacte</div>
+      <div class="fld"><label>Nombre y Apellidos</label><input type="text" id="i-nom"></div>
+      <div class="fld"><label>Email</label><input type="email" id="i-mail"></div>
+      <button class="btn-next" onclick="enviar()">Enviar i obtenir informe →</button>
+    </div>
+  </div>
 </div>
 </div>
 
 <div id="suc-sec">
-  <div class="suc-card">
-    <div class="suc-ttl" id="suc-ttl">Sol·licitud enviada!</div>
-    <div class="suc-sub" id="suc-sub">En menys de 24 hores un expert de Certilab et contactarà.</div>
-    
+  <div class="suc-card">
+    <div class="suc-ico">✅</div>
+    <div class="suc-ttl" id="suc-ttl">Sol·licitud enviada!</div>
+    <div class="suc-sub" id="suc-sub">En menys de 24 hores un expert de Certilab et contactarà.</div>
+
     <div id="suc-upsell" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--crema-dk);text-align:center">
-      <div style="font-family:var(--font-serif);font-size:16px;color:var(--terra-dk);margin-bottom:8px">¿Quieres certeza técnica inmediata?</div>
-      <p style="font-size:13px;color:var(--gris);margin-bottom:15px">Añade una verificación técnica profesional por 97 €.</p>
+      <div style="font-family:var(--font-serif);font-size:16px;color:var(--terra-dk);margin-bottom:8px">¿Vols certesa técnica immediata?</div>
+      <p style="font-size:13px;color:var(--gris);margin-bottom:15px">Afegeix una verificació técnica per 97 €.</p>
       
-      <div id="paypal-container-9HPT5ZUA2756E-SUCCESS"></div>
+      <div id="paypal-container-SUCCESS"></div>
       <script>
-        paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-9HPT5ZUA2756E-SUCCESS")
+        paypal.HostedButtons({ hostedButtonId: "9HPT5ZUA2756E", }).render("#paypal-container-SUCCESS")
       </script>
-    </div>
-  </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer" id="footer-txt">© 2026 Certilab SL · Catalunya</div>
 
-<script>
-// Mantenemos tu lógica original de idiomas y cálculos
+</div><script>
 let L = 'ca';
 let cData = {};
 const LETRES = ['G','F','E','D','C','B','A'];
 const COLORS_LLETRA = {G:'#8B0000',F:'#CC0000',E:'#E85500',D:'#E6A000',C:'#88A000',B:'#4C8800',A:'#006600'};
 
-function setLang(l){ L = l; applyTexts(); }
-
-function applyTexts(){ /* Mantenemos tus traducciones */ }
+function setLang(l){
+  L = l;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('on'));
+  if(l==='ca') document.querySelectorAll('.lang-btn')[0].classList.add('on');
+  else document.querySelectorAll('.lang-btn')[1].classList.add('on');
+}
 
 function calcular(){
-  const sup = parseFloat(document.getElementById('i-sup').value);
-  const any = parseInt(document.getElementById('i-any').value);
+  const sup = parseFloat(document.getElementById('i-sup').value);
+  const any = parseInt(document.getElementById('i-any').value);
   const gas = parseFloat(document.getElementById('i-gas').value);
-  if(!sup || !any || !gas) return;
+  if(!sup || !any || !gas) return;
 
-  const idxAct = any < 1980 ? 1 : any < 2000 ? 3 : 5;
-  const lletraAct = LETRES[idxAct];
-  const lletraPost = 'B';
+  const idxAct = any < 1980 ? 1 : any < 2000 ? 3 : 5;
+  const lletraAct = LETRES[idxAct];
+  const lletraPost = 'B';
 
-  const lb1 = document.getElementById('lb-act'); lb1.textContent = lletraAct; lb1.style.background = COLORS_LLETRA[lletraAct];
-  const lb2 = document.getElementById('lb-post'); lb2.textContent = lletraPost; lb2.style.background = COLORS_LLETRA[lletraPost];
-  
+  const lb1 = document.getElementById('lb-act'); lb1.textContent = lletraAct; lb1.style.background = COLORS_LLETRA[lletraAct];
+  const lb2 = document.getElementById('lb-post'); lb2.textContent = lletraPost; lb2.style.background = COLORS_LLETRA[lletraPost];
+  
   document.getElementById('m-est').textContent = Math.round(gas * 12 * 0.4) + ' €';
   document.getElementById('cae-v').textContent = Math.round(gas * 4.5) + ' €';
 
-  document.getElementById('res').style.display = 'block';
-  document.getElementById('res').scrollIntoView({behavior:'smooth'});
+  document.getElementById('res').style.display = 'block';
+  document.getElementById('res').scrollIntoView({behavior:'smooth'});
 }
 
-function mostrarForm(){ document.getElementById('form-sec').style.display='block'; }
-
-function enviar(){
-  document.getElementById('form-sec').style.display='none';
-  document.getElementById('suc-sec').style.display='block';
-}
-
-function clearRes(){ document.getElementById('res').style.display='none'; }
+function mostrarForm(){ document.getElementById('form-sec').style.display = 'block'; }
+function enviar(){ document.getElementById('form-sec').style.display = 'none'; document.getElementById('suc-sec').style.display = 'block'; }
+function clearRes(){ document.getElementById('res').style.display = 'none'; }
+function selPerfil(p){ document.getElementById('calc-card').scrollIntoView({behavior:'smooth'}); }
 </script>
 </body>
 </html>
