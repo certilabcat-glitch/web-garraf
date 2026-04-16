@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Expediente Certilab · Formulari Certilab</title>
+<title>Tu expediente energético — Certilab</title>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1271893388238243');
 fbq('track','PageView');
-fbq('track','ViewContent',{content_name:'Formulario Post-Pago Certilab',value:97,currency:'EUR'});
+fbq('track','ViewContent',{content_name:'Formulario Post-Pago Certilab',value:99,currency:'EUR'});
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -25,14 +25,14 @@ fbq('track','ViewContent',{content_name:'Formulario Post-Pago Certilab',value:97
   --sh:0 4px 24px rgba(92,74,42,0.10);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min-height:100vh;font-size:15px;line-height:1.6;padding:0 0 60px}
+body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min-height:100vh;font-size:16px;line-height:1.7;padding:0 0 60px}
 
 /* STICKY HEADER */
-.sticky-hdr{position:sticky;top:0;z-index:100;background:var(--terra-dk);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.sticky-logo{font-family:var(--font-serif);font-size:13px;color:var(--terra-lt);letter-spacing:2px}
+.sticky-hdr{position:sticky;top:0;z-index:100;background:var(--terra-dk);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sticky-logo{font-family:var(--font-serif);font-size:15px;color:var(--terra-lt);letter-spacing:2px}
 .sticky-prog{display:flex;align-items:center;gap:6px}
-.sticky-step{font-size:11px;color:rgba(255,255,255,0.7);white-space:nowrap}
-.prog-bar-wrap{width:120px;height:5px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden}
+.sticky-step{font-size:13px;color:rgba(255,255,255,0.7);white-space:nowrap}
+.prog-bar-wrap{width:120px;height:6px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden}
 .prog-bar-fill{height:100%;background:var(--terra-lt);border-radius:3px;transition:width .4s ease}
 
 /* LANG */
@@ -41,10 +41,10 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 .lang-btn.on{background:var(--terra-dk);border-color:var(--terra-dk);color:#fff}
 
 /* HEADER */
-.hdr{max-width:720px;margin:16px auto 20px;text-align:center;padding:0 16px}
-.hdr-logo{font-family:var(--font-serif);font-size:11px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
-.hdr-ttl{font-family:var(--font-serif);font-size:clamp(22px,5vw,30px);font-weight:400;color:var(--terra-dk);margin-bottom:6px;line-height:1.2}
-.hdr-sub{font-size:13px;color:var(--gris);line-height:1.6;max-width:480px;margin:0 auto}
+.hdr{max-width:720px;margin:20px auto 24px;text-align:center;padding:0 16px}
+.hdr-logo{font-family:var(--font-serif);font-size:12px;font-weight:300;letter-spacing:5px;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.hdr-ttl{font-family:var(--font-serif);font-size:clamp(26px,5vw,36px);font-weight:400;color:var(--terra-dk);margin-bottom:8px;line-height:1.2}
+.hdr-sub{font-size:15px;color:var(--gris);line-height:1.7;max-width:480px;margin:0 auto}
 
 /* CRED STRIP */
 .cred-strip{max-width:720px;margin:0 auto 16px;background:#fff;border:1px solid rgba(139,111,71,0.18);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--sh)}
@@ -70,15 +70,15 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 .sec-sub{font-size:12px;color:var(--gris);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--crema-dk);line-height:1.5}
 
 /* FIELDS */
-.fld{margin-bottom:16px}
-.fld label,.fld-lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:5px}
-.fld .hint{font-size:11px;color:var(--gris);margin-bottom:6px;line-height:1.4;display:block;font-style:italic}
-.fld input,.fld select,.fld textarea{width:100%;padding:12px 14px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);font-family:var(--font-sans);font-size:14px;color:var(--negre);background:var(--crema);transition:border-color .2s;-webkit-appearance:none;appearance:none}
+.fld{margin-bottom:18px}
+.fld label,.fld-lbl{display:block;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--terra);margin-bottom:6px}
+.fld .hint{font-size:13px;color:var(--gris);margin-bottom:8px;line-height:1.5;display:block;font-style:italic}
+.fld input,.fld select,.fld textarea{width:100%;padding:14px 16px;border:1.5px solid rgba(139,111,71,0.22);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;color:var(--negre);background:var(--crema);transition:border-color .2s;-webkit-appearance:none;appearance:none}
 .fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--terra);background:#fff}
 .fld.err input,.fld.err select,.fld.err textarea{border-color:var(--err);background:var(--err-lt)}
-.err-msg{font-size:11px;color:var(--err);margin-top:4px;display:none}
+.err-msg{font-size:13px;color:var(--err);margin-top:5px;display:none}
 .fld.err .err-msg{display:block}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:520px){.g2{grid-template-columns:1fr}}
 
 /* SELECT */
@@ -98,16 +98,16 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 .preview-big{font-size:11px;color:var(--err);display:none;margin-top:4px;padding:6px 10px;background:var(--err-lt);border-radius:var(--r)}
 
 /* RADIO */
-.radio-grp{display:flex;flex-direction:column;gap:8px}
+.radio-grp{display:flex;flex-direction:column;gap:10px}
 .ropt{display:flex;align-items:center;border:1.5px solid rgba(139,111,71,0.2);border-radius:var(--r);cursor:pointer;transition:all .2s;background:var(--crema);overflow:hidden}
-.ropt-check{width:42px;height:48px;background:rgba(139,111,71,0.07);border-right:1px solid rgba(139,111,71,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.ropt-check{width:46px;height:54px;background:rgba(139,111,71,0.07);border-right:1px solid rgba(139,111,71,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
 .ropt-check input[type=radio]{display:none}
-.ropt-check::after{content:'○';font-size:15px;color:rgba(139,111,71,0.4)}
+.ropt-check::after{content:'○';font-size:17px;color:rgba(139,111,71,0.4)}
 .ropt.on .ropt-check{background:var(--terra);border-right-color:var(--terra)}
-.ropt.on .ropt-check::after{content:'✓';color:#fff;font-size:13px;font-weight:700}
-.ropt-txt{padding:10px 13px;font-size:13px;color:var(--negre);line-height:1.3;flex:1}
-.ropt-ttl{font-weight:600}
-.ropt-sub{font-size:11px;color:var(--gris);margin-top:1px}
+.ropt.on .ropt-check::after{content:'✓';color:#fff;font-size:15px;font-weight:700}
+.ropt-txt{padding:12px 14px;font-size:15px;color:var(--negre);line-height:1.4;flex:1}
+.ropt-ttl{font-weight:600;font-size:15px}
+.ropt-sub{font-size:13px;color:var(--gris);margin-top:2px}
 .ropt:hover{border-color:var(--terra);background:#fff}
 .ropt.on{border-color:var(--terra);background:#fff}
 .ropt.on .ropt-ttl{color:var(--terra-dk)}
@@ -128,28 +128,28 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 /* RESUMEN */
 #resumen-sec{display:none;max-width:720px;margin:0 auto 14px}
 .resumen-card{background:#fff;border:2px solid var(--terra);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh)}
-.resumen-hdr{background:var(--terra-dk);padding:16px 20px}
-.resumen-hdr-ttl{font-family:var(--font-serif);font-size:20px;color:#fff;margin-bottom:3px}
-.resumen-hdr-sub{font-size:12px;color:var(--terra-lt)}
-.resumen-body{padding:18px 18px 14px}
-.resumen-sec{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--crema-dk)}
+.resumen-hdr{background:var(--terra-dk);padding:20px 22px}
+.resumen-hdr-ttl{font-family:var(--font-serif);font-size:26px;color:#fff;margin-bottom:4px}
+.resumen-hdr-sub{font-size:14px;color:var(--terra-lt)}
+.resumen-body{padding:20px 20px 16px}
+.resumen-sec{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--crema-dk)}
 .resumen-sec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.resumen-sec-ttl{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
-.resumen-row{display:flex;gap:8px;margin-bottom:5px;font-size:13px}
-.resumen-lbl{color:var(--gris);min-width:140px;flex-shrink:0;font-size:12px}
-.resumen-val{color:var(--negre);font-weight:500;flex:1}
-.resumen-warn{background:#fff8e6;border:1px solid rgba(230,160,0,0.3);border-radius:var(--r);padding:10px 12px;font-size:12px;color:#7a4f00;margin-bottom:14px}
-.resumen-btns{display:flex;gap:10px;padding:16px 18px;border-top:1px solid var(--crema-dk);background:var(--crema)}
-.btn-edit{flex:1;padding:13px;background:transparent;border:1.5px solid rgba(139,111,71,0.3);border-radius:var(--r);font-family:var(--font-sans);font-size:14px;color:var(--terra);cursor:pointer;font-weight:500}
-.btn-confirm{flex:2;padding:13px;background:var(--verde);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:14px;font-weight:700;cursor:pointer;transition:background .2s}
+.resumen-sec-ttl{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.resumen-row{display:flex;gap:12px;margin-bottom:8px}
+.resumen-lbl{color:var(--gris);min-width:160px;flex-shrink:0;font-size:14px}
+.resumen-val{color:var(--negre);font-weight:600;flex:1;font-size:14px}
+.resumen-warn{background:#fff8e6;border:1px solid rgba(230,160,0,0.3);border-radius:var(--r);padding:12px 14px;font-size:14px;color:#7a4f00;margin-bottom:16px}
+.resumen-btns{display:flex;gap:12px;padding:18px 20px;border-top:1px solid var(--crema-dk);background:var(--crema)}
+.btn-edit{flex:1;padding:15px;background:transparent;border:1.5px solid rgba(139,111,71,0.3);border-radius:var(--r);font-family:var(--font-sans);font-size:15px;color:var(--terra);cursor:pointer;font-weight:600}
+.btn-confirm{flex:2;padding:15px;background:var(--verde);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
 .btn-confirm:hover{background:#3a6b48}
 .btn-confirm:disabled{background:#aaa;cursor:not-allowed}
 
 /* BTN REVIEW */
-.btn-review{width:100%;max-width:720px;display:block;margin:0 auto;padding:16px;background:var(--terra-dk);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:16px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s;letter-spacing:.2px}
+.btn-review{width:100%;max-width:720px;display:block;margin:0 auto;padding:18px;background:var(--terra-dk);color:#fff;border:none;border-radius:var(--r);font-family:var(--font-sans);font-size:17px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s;letter-spacing:.2px}
 .btn-review:hover{background:var(--terra)}
 .btn-review:active{transform:scale(.99)}
-.btn-sub-txt{text-align:center;font-size:11px;color:var(--gris);margin-top:8px;max-width:720px;margin-left:auto;margin-right:auto;display:block}
+.btn-sub-txt{text-align:center;font-size:13px;color:var(--gris);margin-top:10px;max-width:720px;margin-left:auto;margin-right:auto;display:block}
 
 /* SUCCESS */
 #success-sec{display:none;max-width:720px;margin:40px auto;background:#fff;border:1px solid rgba(74,124,89,0.3);border-radius:var(--rl);padding:40px 24px;text-align:center;box-shadow:var(--sh)}
@@ -186,7 +186,7 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 <div class="hdr">
   <div class="hdr-logo">Certilab · Consultoría Energética</div>
   <h1 class="hdr-ttl" id="hdr-ttl">Tu expediente energético</h1>
-  <p class="hdr-sub" id="hdr-sub">Rellena con lo que sepas. Si tienes dudas en algún campo, déjalo en blanco y te contactamos por WhatsApp. Recibirás tu informe en menos de 48 horas.</p>
+  <p class="hdr-sub" id="hdr-sub">Rellena con lo que sepas. Si tienes dudas en algún campo, déjalo en blanco y te contactamos. Recibirás tu informe en menos de 48 horas.</p>
 </div>
 
 <div class="wrap">
@@ -206,8 +206,60 @@ body{font-family:var(--font-sans);background:var(--crema);color:var(--negre);min
 
 <!-- ALERT PAGO -->
 <div class="alert-pago">
-  <span style="font-size:20px;flex-shrink:0">✅</span>
-  <div><strong id="ap-ttl">Pago confirmado — gracias.</strong><span id="ap-sub"> Rellena este formulario y Eva María empezará con tu informe. Cuanta más información nos des, más preciso será el resultado.</span></div>
+  <span style="font-size:24px;flex-shrink:0">✅</span>
+  <div>
+    <strong id="ap-ttl" style="font-size:16px">Pago confirmado — gracias.</strong>
+    <span id="ap-sub" style="font-size:15px;display:block;margin-top:3px"> Rellena este formulario y Eva María empezará con tu informe. Cuanta más información nos des, más preciso será el resultado.</span>
+  </div>
+</div>
+
+<!-- BLOQUE BIENVENIDA -->
+<div style="max-width:720px;margin:0 auto 20px;background:#fff;border:1px solid rgba(139,111,71,0.18);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh)">
+  <!-- Cabecera -->
+  <div style="background:var(--crema-dk);padding:18px 20px;border-bottom:1px solid rgba(139,111,71,0.15)">
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:6px" id="bienvenida-label">Antes de empezar</div>
+    <div style="font-family:var(--font-serif);font-size:22px;color:var(--terra-dk);line-height:1.3" id="bienvenida-ttl">¿Cómo funciona este formulario?</div>
+  </div>
+  <!-- Pasos -->
+  <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;align-items:flex-start;gap:14px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--terra);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--terra-dk);margin-bottom:2px" id="paso-b1">Rellena lo que sepas</div>
+        <div style="font-size:14px;color:var(--gris);line-height:1.6" id="paso-b1d">Si hay algún campo que no sabes responder, déjalo en blanco. No es obligatorio saberlo todo — Eva María trabaja con lo que tienes.</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--terra);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--terra-dk);margin-bottom:2px" id="paso-b2">Revisa todo antes de enviar</div>
+        <div style="font-size:14px;color:var(--gris);line-height:1.6" id="paso-b2d">Al final verás un resumen completo con toda la información que has dado. Podrás corregir cualquier cosa antes de enviarlo definitivamente.</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:14px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--verde);color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--verde);margin-bottom:2px" id="paso-b3">Recibe tu informe en 48 horas</div>
+        <div style="font-size:14px;color:var(--gris);line-height:1.6" id="paso-b3d">Una vez enviado, Eva María analiza toda la información y te envía el informe completo a tu correo electrónico.</div>
+      </div>
+    </div>
+    <!-- Tiempo estimado -->
+    <div style="background:var(--crema);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;gap:12px;margin-top:4px">
+      <div style="font-size:22px;flex-shrink:0">⏱</div>
+      <div style="font-size:14px;color:var(--terra-dk);line-height:1.5" id="tiempo-txt"><strong>Tiempo estimado:</strong> entre 10 y 15 minutos. Puedes hacerlo con calma y desde cualquier dispositivo.</div>
+    </div>
+  </div>
+  <!-- Link perdido -->
+  <div style="background:#fff8e6;border-top:1px solid rgba(230,160,0,0.25);padding:14px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div style="font-size:14px;color:#7a4f00;line-height:1.5;flex:1" id="link-perdido-txt">
+      <strong>¿Se te cerró la página y perdiste el link?</strong><br>
+      Escríbenos al <strong>608 515 922</strong> por WhatsApp y te lo reenviamos en minutos.
+    </div>
+    <a href="https://wa.me/34608515922?text=Hola%2C%20he%20perdido%20el%20link%20del%20formulario%20de%20Certilab%20tras%20realizar%20el%20pago" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 18px;background:#25D366;color:#fff;border-radius:var(--r);font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0" id="link-perdido-wa">
+      <span style="font-size:18px">💬</span>
+      <span id="link-perdido-wa-txt">Pedir el link por WhatsApp</span>
+    </a>
+  </div>
 </div>
 
 <form id="mainForm" onscroll="updateProgress()">
@@ -1430,6 +1482,6 @@ async function enviarFormulario(){
   try{ await fetch(WEBHOOK_URL, {method:'POST', body:formData}); }
   catch(err){ console.warn('Webhook:', err); }
   // Pixel Purchase — conversió completa
-  fbq('track','Purchase',{value:97, currency:'EUR', content_name:'Informe Expert Certilab'});
+  fbq('track','Purchase',{value:99, currency:'EUR', content_name:'Informe Expert Certilab'});
   document.getElementById('resumen-sec').style.display='none';
   document.getElementById('footer-legal').style
