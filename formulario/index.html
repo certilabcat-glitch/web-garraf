@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de Estudio Preliminar | Certilab</title>
+    <title>Solicita tu Diagnóstico Energético Gratuito | Certilab — Toda España</title>
     
     <script>
     !function(f,b,e,v,n,t,s)
@@ -133,8 +133,8 @@
 <div class="container">
     <div class="header">
         <span class="logo-text">Certilab · Consultoría Técnica</span>
-        <h1>Estudio de Viabilidad Energética</h1>
-        <p class="subtitle">Análisis preliminar gratuito para evaluar el potencial de ahorro de su inmueble y el acceso a subvenciones (NextGen / CAEs).</p>
+        <h1>Diagnóstico Energético Gratuito</h1>
+        <p class="subtitle">Análisis preliminar sin compromiso para evaluar el potencial de ahorro de su inmueble y el acceso a subvenciones. Servicio 100% online para <strong>toda España</strong>.</p>
     </div>
 
     <form id="leadForm">
@@ -194,7 +194,7 @@
         </div>
 
         <label>Código Postal *</label>
-        <input type="text" name="cp" id="cpInput" pattern="^(08|8|17|25|43)[0-9]{3}$" placeholder="Ej: 08015" required title="Introduce un código postal válido de Cataluña (08, 17, 25 o 43)">
+        <input type="text" name="cp" id="cpInput" pattern="^[0-5][0-9]{4}$" placeholder="Ej: 08015, 46001, 28001..." required title="Introduce un código postal español válido (5 dígitos)">
 
         <div id="divEnlace" style="display: none; background-color: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #3b82f6;">
             <label style="color: #1e3a8a;">Enlace del anuncio (Idealista, Fotocasa...)</label>
@@ -255,7 +255,7 @@
 
         <label class="legal-label" style="margin-top: 25px;">
             <input type="checkbox" name="acepta_rgpd" required class="legal-checkbox">
-            <span>He leído y acepto la <a href="/politica-de-privacidad" target="_blank">Política de Privacidad</a> y consiento que el equipo técnico de Certilab analice estos datos para enviarme el estudio de viabilidad sin compromiso.</span>
+            <span>He leído y acepto la <a href="/privacidad.html" target="_blank">Política de Privacidad</a> y consiento que el equipo técnico de Certilab analice estos datos para enviarme el diagnóstico sin compromiso.</span>
         </label>
 
         <div class="capa-legal">
@@ -263,7 +263,7 @@
             <strong>Finalidad:</strong> Análisis de pre-viabilidad energética y envío de propuestas técnicas.
         </div>
 
-        <button type="submit" id="btnEnviar">SOLICITAR ESTUDIO PRELIMINAR</button>
+        <button type="submit" id="btnEnviar">SOLICITAR DIAGNÓSTICO GRATUITO</button>
     </form>
 </div>
 
@@ -282,15 +282,14 @@
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // --- EL PORTERO: VALIDACIÓN ESTRICTA DEL CP DE CATALUÑA ---
+        // Validación de CP español (5 dígitos, empieza por 0-5)
         const cpValue = document.getElementById('cpInput').value.trim();
-        const cpRegex = /^(08|8|17|25|43)[0-9]{3}$/;
+        const cpRegex = /^[0-5][0-9]{4}$/;
         
         if (!cpRegex.test(cpValue)) {
-            alert("⚠️ Lo sentimos, actualmente Certilab solo presta servicio en el territorio de Cataluña.\n\nPor favor, introduzca un código postal válido de la región (Barcelona, Girona, Lleida o Tarragona).");
-            return; // Corta la ejecución y no envía nada a n8n
+            alert("⚠️ Por favor, introduce un código postal español válido (5 dígitos).");
+            return;
         }
-        // -----------------------------------------------------------
 
         const btn = document.getElementById('btnEnviar');
         const originalText = btn.innerHTML;
