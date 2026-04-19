@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicita tu Diagnóstico Energético Gratuito | Certilab — Toda España</title>
+    <title>Solicita tu Diagnóstico Energético | Certilab — Toda España</title>
+    <meta name="description" content="Diagnóstico energético sin compromiso. Arquitecta Técnica CAATEB 9457. Servicio en remoto. Tramitación digital completa. Resultado en 48h.">
     
+    <link rel="canonical" href="https://www.certilab.cat/formulario/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="google-site-verification" content="7VCVmdemmkNmVYz9SnjCaB61Y5hYMZCf12_mZpYaF2Q">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -14,318 +25,358 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    
-    // TU PÍXEL ID REAL
     fbq('init', '1271893388238243'); 
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
     /></noscript>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Diagnóstico Energético Express",
+        "description": "Pre-diagnóstico energético sin compromiso. Arquitecta Técnica CAATEB 9457. Servicio en remoto.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Certilab",
+            "image": "https://www.certilab.cat/logo-generalitat.png"
+        },
+        "serviceType": "Diagnóstico Energético",
+        "areaServed": "España",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
     <style>
-        :root { 
-            --primary: #1e293b; 
-            --secondary: #0f172a; 
-            --accent: #2563eb; 
-            --bg: #f8fafc; 
-            --surface: #ffffff;
-            --border: #e2e8f0;
-            --text-muted: #64748b;
-        }
-
-        body { 
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; 
-            background-color: var(--bg); 
-            display: flex; 
-            justify-content: center; 
-            padding: 40px 20px; 
-            color: var(--secondary); 
-            line-height: 1.6; 
-            margin: 0;
-        }
-
-        .container { 
-            background: var(--surface); 
-            padding: 40px; 
-            border-radius: 12px; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-            width: 100%; 
-            max-width: 650px; 
-            border-top: 6px solid var(--accent); 
-        }
-
-        .header { text-align: center; margin-bottom: 30px; }
+        /* Formulario específico */
+        .form-container { background: var(--blanc); border: 1px solid rgba(139,111,71,0.16); border-radius: var(--rl); padding: 40px; box-shadow: var(--sh); max-width: 800px; margin: 0 auto; }
+        .form-header { text-align: center; margin-bottom: 40px; }
+        .form-header .logo-txt { font-family: var(--font-serif); font-size: 1.2rem; color: var(--terra-dk); letter-spacing: 2px; margin-bottom: 12px; }
+        .form-header h1 { font-family: var(--font-serif); font-size: 1.8rem; color: var(--terra-dk); margin: 0 0 12px; font-weight: 400; }
+        .form-header p { color: var(--gris); font-size: 0.95rem; max-width: 550px; margin: 0 auto; }
         
-        .logo-text {
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        h1 { color: var(--primary); margin: 0; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.3;}
-        p.subtitle { color: var(--text-muted); font-size: 0.95rem; margin-top: 15px; }
-
-        .section-title { 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            color: var(--accent); 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            margin: 30px 0 15px 0; 
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 5px; 
-        }
-
-        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: var(--primary); }
+        .form-section { margin-bottom: 30px; }
+        .form-section-title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--terra-dk); margin: 0 0 16px; font-weight: 600; }
         
-        input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], select { 
-            width: 100%; 
-            padding: 12px 14px; 
-            margin-bottom: 15px; 
-            border: 1px solid var(--border); 
-            border-radius: 8px; 
-            box-sizing: border-box; 
-            font-size: 0.95rem; 
-            background-color: #fdfdfd; 
-            transition: all 0.2s ease; 
-            font-family: inherit;
-        }
-
-        input:focus, select:focus { 
-            border-color: var(--accent); 
-            outline: none; 
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); 
-            background-color: #fff;
-        }
-
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        @media (max-width: 500px) { .grid { grid-template-columns: 1fr; gap: 0; } }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 767px) { .form-grid { grid-template-columns: 1fr; } }
         
-        button { 
-            width: 100%; 
-            padding: 16px; 
-            background-color: var(--primary); 
-            color: white; 
-            border: none; 
-            border-radius: 8px; 
-            font-size: 1.1rem; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-            margin-top: 20px; 
-            letter-spacing: 0.5px;
-        }
-
-        button:hover { background-color: var(--secondary); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--terra-dk); }
+        .form-group input, .form-group select { width: 100%; padding: 12px 16px; border: 1px solid rgba(139,111,71,0.3); border-radius: var(--r); font-size: 0.95rem; background: var(--blanc); transition: border-color 0.2s; }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px rgba(139,111,71,0.1); }
         
-        .legal-label { display: flex; align-items: flex-start; gap: 12px; font-weight: 400; font-size: 0.8rem; color: var(--text-muted); cursor: pointer; }
-        .legal-checkbox { width: 18px; height: 18px; margin: 2px 0 0 0; flex-shrink: 0; accent-color: var(--accent); }
-        .capa-legal { font-size: 0.7rem; color: #94a3b8; margin-top: 15px; padding: 15px; background-color: #f1f5f9; border-radius: 6px; line-height: 1.5; }
-        a { color: var(--accent); text-decoration: none; font-weight: 600;}
+        .form-group.full-width { grid-column: 1 / -1; }
+        
+        .form-cta { margin-top: 30px; }
+        .form-cta button { width: 100%; padding: 16px 24px; background: var(--verde); color: #fff; border: none; border-radius: var(--r); font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+        .form-cta button:hover { background: #3a6b48; }
+        
+        .form-legal { margin-top: 30px; padding: 20px; background: var(--verde-lt); border-radius: var(--r); }
+        .form-legal p { font-size: 0.85rem; color: var(--gris); line-height: 1.6; margin: 0; }
+        .form-legal a { color: var(--terra); font-weight: 700; }
+        
+        .form-sidebar { background: var(--terra-dk); color: white; padding: 30px; border-radius: var(--rl); margin-top: 30px; }
+        .form-sidebar h3 { font-family: var(--font-serif); font-size: 1.2rem; margin: 0 0 16px; font-weight: 400; }
+        .form-sidebar p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 16px; }
+        .form-sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .form-sidebar li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
+        .form-sidebar li::before { content: "✓"; color: var(--verde); font-weight: bold; }
+        .form-sidebar .price { font-size: 1.5rem; font-weight: 800; color: var(--terra-lt); margin: 16px 0; }
+        .form-sidebar .price small { font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.7); }
+        
+        .form-divider { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
+        @media (max-width: 767px) { .form-divider { grid-template-columns: 1fr; } }
+        
+        .form-notice { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 12px 16px; border-radius: var(--r); margin-bottom: 20px; }
+        .form-notice p { font-size: 0.85rem; color: rgba(255,255,255,0.9); margin: 0; }
+        
+        .success-message { display: none; background: var(--verde-lt); border: 1px solid var(--verde); border-radius: var(--r); padding: 20px; text-align: center; color: var(--verde); font-weight: 600; font-size: 1rem; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <span class="logo-text">Certilab · Consultoría Técnica</span>
-        <h1>Diagnóstico Energético Gratuito</h1>
-        <p class="subtitle">Análisis preliminar sin compromiso para evaluar el potencial de ahorro de su inmueble y el acceso a subvenciones. Servicio 100% online para <strong>toda España</strong>.</p>
+    <div id="cookie-banner" role="alert" aria-live="polite">
+        <p>Utilizamos cookies técnicas para garantizar su seguridad profesional. <a href="/cookies.html">Política de Cookies</a>.</p>
+        <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <form id="leadForm">
-        
-        <div class="section-title">1. Relación y Datos del Inmueble</div>
-        <div class="grid">
-            <div>
-                <label>Tu relación con el inmueble *</label>
-                <select name="perfil" id="perfilSelect" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="propietario">Soy el propietario / Vendedor</option>
-                    <option value="comprador">Estoy pensando en comprarlo</option>
-                </select>
+    <header role="banner">
+        <nav class="container nav-bar" aria-label="Navegación principal">
+            <a href="/" class="logo-link" aria-label="Ir al inicio de Certilab">
+                <span class="logo-txt">CERTILAB</span>
+                <span class="tagline">Arquitecta Técnica · CAATEB 9457</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="#servicios">Servicios ▾</a>
+                    <div class="nav-dropdown-content">
+                        <a href="/certificado-energetico/">Certificado Energético</a>
+                        <a href="/auditoria-energetica-online/">Auditoría Energética</a>
+                        <a href="/certificadoenergeticoinflado/">Verificar CE inflado</a>
+                        <a href="/calculadoracat/">Calculadora ahorro</a>
+                        <a href="/precio-certificado-energetico/">Ver precios</a>
+                        <a href="/profesionales/">Para profesionales</a>
+                    </div>
+                </div>
+                <a href="/formulario/" class="nav-cta">Diagnóstico sin compromiso</a>
             </div>
-            <div>
-                <label>Tipo de Vivienda *</label>
-                <select name="tipo_vivienda" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="piso_intermedio">Piso intermedio (vecinos arriba/abajo)</option>
-                    <option value="atico">Ático / Última planta</option>
-                    <option value="bajo">Planta Baja</option>
-                    <option value="unifamiliar">Casa / Chalet Unifamiliar</option>
-                </select>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="form-divider">
+                <div class="form-container">
+                    <div class="form-header">
+                        <span class="logo-txt">CERTILAB</span>
+                        <h1>Diagnóstico Energético</h1>
+                        <p>Sin compromiso. Servicio en remoto. Arquitecta Técnica CAATEB 9457.</p>
+                    </div>
+
+                    <form id="leadForm">
+                        <div class="form-section">
+                            <h2 class="form-section-title">1. Relación y Datos del Inmueble</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Tu relación con el inmueble *</label>
+                                    <select name="perfil" id="perfilSelect" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="propietario">Soy el propietario / Vendedor</option>
+                                        <option value="comprador">Estoy pensando en comprarlo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo de Vivienda *</label>
+                                    <select name="tipo_vivienda" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="piso_intermedio">Piso intermedio (vecinos arriba/abajo)</option>
+                                        <option value="atico">Ático / Última planta</option>
+                                        <option value="bajo">Planta Baja</option>
+                                        <option value="unifamiliar">Casa / Chalet Unifamiliar</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Uso principal *</label>
+                                    <select name="uso" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="habitual">Vivienda Habitual</option>
+                                        <option value="segunda_residencia">Segunda Residencia</option>
+                                        <option value="alquiler">Para Alquilar / Vender</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Estado de actualización *</label>
+                                    <select name="estado_reforma" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="origen">De origen (nunca reformada)</option>
+                                        <option value="parcial">Reforma parcial (ej. solo ventanas)</option>
+                                        <option value="integral">Reforma íntegra (hace menos de 10 años)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Superficie aprox. (m²) *</label>
+                                    <input type="number" name="superficie" min="10" max="999" placeholder="Ej: 90" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Año Construcción aprox. *</label>
+                                    <input type="number" name="anio" min="1800" max="2026" placeholder="Ej: 1985" required>
+                                </div>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Código Postal *</label>
+                                <input type="text" name="cp" id="cpInput" pattern="^[0-5][0-9]{4}$" placeholder="Ej: 08015, 46001, 28001..." required title="Introduce un código postal español válido (5 dígitos)">
+                            </div>
+                            <div id="divEnlace" style="display: none; background: var(--verde-lt); padding: 16px; border-radius: var(--r); margin-bottom: 20px;">
+                                <label style="color: var(--terra-dk); font-weight: 600; margin-bottom: 8px; display: block;">Enlace del anuncio (Idealista, Fotocasa...)</label>
+                                <span style="font-size: 0.85rem; color: var(--gris); display: block; margin-bottom: 12px;">Recomendado: Pegue aquí el link para buscar "vicios ocultos" antes de comprar.</span>
+                                <input type="url" name="enlace_inmueble" placeholder="https://www.idealista.com/inmueble/..." style="margin-bottom: 0;">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">2. Perfil Energético Actual</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Calefacción principal *</label>
+                                    <select name="calefaccion" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="gas_natural">Caldera de Gas / Gasoil</option>
+                                        <option value="bomba_calor">Bomba de Calor / Splits</option>
+                                        <option value="radiadores_el">Radiadores Eléctricos</option>
+                                        <option value="aerotermia">Aerotermia</option>
+                                        <option value="ninguna">No dispongo de calefacción</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tipo de Ventanas *</label>
+                                    <select name="tipo_ventanas" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="madera_simple">Madera o Aluminio (Cristal Simple)</option>
+                                        <option value="aluminio_doble">Aluminio (Cristal Doble Antiguo)</option>
+                                        <option value="pvc_doble">PVC / Aluminio RPT (Cristal Moderno)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Principal problema térmico percibido *</label>
+                                <select name="problema_termico" required>
+                                    <option value="" disabled selected>Seleccione...</option>
+                                    <option value="frio">Pérdida de calor en invierno (Facturas altas)</option>
+                                    <option value="calor">Exceso de calor en verano (Efecto horno)</option>
+                                    <option value="humedades">Humedades o condensación en ventanas</option>
+                                    <option value="normativa">Ninguno, solo anticiparme a la Normativa 2030</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Gasto energético medio mensual (€) *</label>
+                                <input type="number" name="gasto_luz" min="0" max="2500" placeholder="Ej: 120 (Suma aprox. Luz + Gas)" required>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">3. Datos de Contacto</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Nombre y Apellidos *</label>
+                                    <input type="text" name="nombre" placeholder="Su nombre" required minlength="3">
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono (WhatsApp) *</label>
+                                    <input type="tel" name="whatsapp" pattern="[0-9]{9,15}" placeholder="Ej: 600000000" required title="Introduce un teléfono válido">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico *</label>
+                                <input type="email" name="email" placeholder="Donde recibirá el pre-diagnóstico" required>
+                            </div>
+                        </div>
+
+                        <div class="form-legal">
+                            <p><strong>Responsable:</strong> Eva Maria Gonzalez Gracia (Arq. Técnica Colegiada CAATEB nº 9457) - Certilab.<br>
+                            <strong>Finalidad:</strong> Análisis de pre-viabilidad energética y envío de propuestas técnicas.</p>
+                        </div>
+
+                        <div class="form-cta">
+                            <button type="submit" id="btnEnviar">Solicitar diagnóstico sin compromiso</button>
+                        </div>
+                    </form>
+                    
+                    <div id="success-message" class="success-message">
+                        ✅ ¡Datos recibidos con éxito! Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.
+                    </div>
+                </div>
+
+                <div class="form-sidebar">
+                    <div class="form-notice">
+                        <p>🔒 Servicio en remoto. Rigor técnico. Privacidad absoluta.</p>
+                    </div>
+                    
+                    <h3>¿Qué incluye tu diagnóstico?</h3>
+                    <ul>
+                        <li>Estimación etiqueta energética</li>
+                        <li>Ahorro potencial estimado</li>
+                        <li>Viabilidad ayudas disponibles</li>
+                        <li>Recomendaciones técnicas</li>
+                        <li>Asesoría personalizada</li>
+                    </ul>
+                    
+                    <div class="price">0€ <small>sin compromiso</small></div>
+                    
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 20px;">
+                        ¿Dudas? Escríbenos por WhatsApp:<br>
+                        <a href="https://wa.me/34608515922" style="color: var(--terra-lt); font-weight: 700;">Contactar por WhatsApp</a>
+                    </p>
+                </div>
             </div>
         </div>
+    </main>
 
-        <div class="grid">
-            <div>
-                <label>Uso principal *</label>
-                <select name="uso" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="habitual">Vivienda Habitual</option>
-                    <option value="segunda_residencia">Segunda Residencia</option>
-                    <option value="alquiler">Para Alquilar / Vender</option>
-                </select>
-            </div>
-            <div>
-                <label>Estado de actualización *</label>
-                <select name="estado_reforma" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="origen">De origen (nunca reformada)</option>
-                    <option value="parcial">Reforma parcial (ej. solo ventanas)</option>
-                    <option value="integral">Reforma íntegra (hace menos de 10 años)</option>
-                </select>
-            </div>
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-logo">CERTILAB</div>
+            <nav class="footer-links" aria-label="Enlaces legales">
+                <a href="/legal.html">Aviso Legal</a>
+                <a href="/privacidad.html">Privacidad</a>
+                <a href="/cookies.html">Cookies</a>
+                <a href="/profesionales/">Profesionales</a>
+            </nav>
+            <p class="footer-legal">Eva María González Gracia · Arquitecta Técnica · CAATEB Barcelona nº 9457<br>Seguro RC Profesional · Servicio 100% online para toda España</p>
+            <p class="footer-copy">© 2026 CERTILAB · Todos los derechos reservados</p>
         </div>
+    </footer>
 
-        <div class="grid">
-            <div>
-                <label>Superficie aprox. (m²) *</label>
-                <input type="number" name="superficie" min="10" max="999" placeholder="Ej: 90" required>
-            </div>
-            <div>
-                <label>Año Construcción aprox. *</label>
-                <input type="number" name="anio" min="1800" max="2026" placeholder="Ej: 1985" required>
-            </div>
-        </div>
+    <script>
+        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
+        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
 
-        <label>Código Postal *</label>
-        <input type="text" name="cp" id="cpInput" pattern="^[0-5][0-9]{4}$" placeholder="Ej: 08015, 46001, 28001..." required title="Introduce un código postal español válido (5 dígitos)">
+        // Mostrar campo de enlace solo si es Comprador
+        document.getElementById('perfilSelect').addEventListener('change', function() {
+            const divEnlace = document.getElementById('divEnlace');
+            if (this.value === 'comprador') {
+                divEnlace.style.display = 'block';
+            } else {
+                divEnlace.style.display = 'none';
+            }
+        });
 
-        <div id="divEnlace" style="display: none; background-color: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #3b82f6;">
-            <label style="color: #1e3a8a;">Enlace del anuncio (Idealista, Fotocasa...)</label>
-            <span style="font-size: 0.8em; color: #3b82f6; display: block; margin-bottom: 8px;">Recomendado: Pegue aquí el link para buscar "vicios ocultos" antes de comprar.</span>
-            <input type="url" name="enlace_inmueble" placeholder="https://www.idealista.com/inmueble/..." style="margin-bottom: 0;">
-        </div>
-
-        <div class="section-title">2. Perfil Energético Actual</div>
-        <div class="grid">
-            <div>
-                <label>Calefacción principal *</label>
-                <select name="calefaccion" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="gas_natural">Caldera de Gas / Gasoil</option>
-                    <option value="bomba_calor">Bomba de Calor / Splits</option>
-                    <option value="radiadores_el">Radiadores Eléctricos</option>
-                    <option value="aerotermia">Aerotermia</option>
-                    <option value="ninguna">No dispongo de calefacción</option>
-                </select>
-            </div>
-            <div>
-                <label>Tipo de Ventanas *</label>
-                <select name="tipo_ventanas" required>
-                    <option value="" disabled selected>Seleccione...</option>
-                    <option value="madera_simple">Madera o Aluminio (Cristal Simple)</option>
-                    <option value="aluminio_doble">Aluminio (Cristal Doble Antiguo)</option>
-                    <option value="pvc_doble">PVC / Aluminio RPT (Cristal Moderno)</option>
-                </select>
-            </div>
-        </div>
-
-        <label>Principal problema térmico percibido *</label>
-        <select name="problema_termico" required>
-            <option value="" disabled selected>Seleccione...</option>
-            <option value="frio">Pérdida de calor en invierno (Facturas altas)</option>
-            <option value="calor">Exceso de calor en verano (Efecto horno)</option>
-            <option value="humedades">Humedades o condensación en ventanas</option>
-            <option value="normativa">Ninguno, solo anticiparme a la Normativa 2030</option>
-        </select>
-
-        <label>Gasto energético medio mensual (€) *</label>
-        <input type="number" name="gasto_luz" min="0" max="2500" placeholder="Ej: 120 (Suma aprox. Luz + Gas)" required>
-
-        <div class="section-title">3. Datos de Contacto</div>
-        <div class="grid">
-            <div>
-                <label>Nombre y Apellidos *</label>
-                <input type="text" name="nombre" placeholder="Su nombre" required minlength="3">
-            </div>
-            <div>
-                <label>Teléfono (WhatsApp) *</label>
-                <input type="tel" name="whatsapp" pattern="[0-9]{9,15}" placeholder="Ej: 600000000" required title="Introduce un teléfono válido">
-            </div>
-        </div>
-        
-        <label>Correo Electrónico *</label>
-        <input type="email" name="email" placeholder="Donde recibirá el pre-diagnóstico" required>
-
-        <label class="legal-label" style="margin-top: 25px;">
-            <input type="checkbox" name="acepta_rgpd" required class="legal-checkbox">
-            <span>He leído y acepto la <a href="/privacidad.html" target="_blank">Política de Privacidad</a> y consiento que el equipo técnico de Certilab analice estos datos para enviarme el diagnóstico sin compromiso.</span>
-        </label>
-
-        <div class="capa-legal">
-            <strong>Responsable:</strong> Eva Maria Gonzalez Gracia (Arq. Técnica Colegiada CAATEB nº 9457) - Certilab.<br>
-            <strong>Finalidad:</strong> Análisis de pre-viabilidad energética y envío de propuestas técnicas.
-        </div>
-
-        <button type="submit" id="btnEnviar">SOLICITAR DIAGNÓSTICO GRATUITO</button>
-    </form>
-</div>
-
-<script>
-    // Mostrar campo de enlace solo si es Comprador
-    document.getElementById('perfilSelect').addEventListener('change', function() {
-        const divEnlace = document.getElementById('divEnlace');
-        if (this.value === 'comprador') {
-            divEnlace.style.display = 'block';
-        } else {
-            divEnlace.style.display = 'none';
-        }
-    });
-
-    const form = document.getElementById('leadForm');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Validación de CP español (5 dígitos, empieza por 0-5)
-        const cpValue = document.getElementById('cpInput').value.trim();
-        const cpRegex = /^[0-5][0-9]{4}$/;
-        
-        if (!cpRegex.test(cpValue)) {
-            alert("⚠️ Por favor, introduce un código postal español válido (5 dígitos).");
-            return;
-        }
-
-        const btn = document.getElementById('btnEnviar');
-        const originalText = btn.innerHTML;
-        
-        btn.innerHTML = 'ENVIANDO SOLICITUD...';
-        btn.disabled = true;
-
-        const data = Object.fromEntries(new FormData(form).entries());
-        
-        // URL DE TU WEBHOOK EN N8N
-        const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
-
-        try {
-            await fetch(WEBHOOK_URL, { 
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+        const form = document.getElementById('leadForm');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
             
-            if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+            // Validación de CP español (5 dígitos, empieza por 0-5)
+            const cpValue = document.getElementById('cpInput').value.trim();
+            const cpRegex = /^[0-5][0-9]{4}$/;
             
-            alert('✅ ¡Datos recibidos con éxito! Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.');
-            form.reset();
-            document.getElementById('divEnlace').style.display = 'none'; // Resetea el campo oculto
+            if (!cpRegex.test(cpValue)) {
+                alert("⚠️ Por favor, introduce un código postal español válido (5 dígitos).");
+                return;
+            }
+
+            const btn = document.getElementById('btnEnviar');
+            const originalText = btn.innerHTML;
             
-        } catch (error) { 
-            if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
-            console.log("Datos enviados"); 
-            alert('✅ Solicitud enviada correctamente.');
-            form.reset();
-            document.getElementById('divEnlace').style.display = 'none'; // Resetea el campo oculto
-        } finally { 
-            btn.innerHTML = originalText; 
-            btn.disabled = false; 
-        }
-    });
-</script>
+            btn.innerHTML = 'ENVIANDO SOLICITUD...';
+            btn.disabled = true;
+
+            const data = Object.fromEntries(new FormData(form).entries());
+            
+            // URL DE TU WEBHOOK EN N8N
+            const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
+
+            try {
+                await fetch(WEBHOOK_URL, { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+                
+                // Mostrar mensaje de éxito
+                form.style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+                
+            } catch (error) { 
+                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+                console.log("Datos enviados"); 
+                // Mostrar mensaje de éxito incluso si falla el envío
+                form.style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            } finally { 
+                btn.innerHTML = originalText; 
+                btn.disabled = false; 
+            }
+        });
+    </script>
 </body>
 </html>

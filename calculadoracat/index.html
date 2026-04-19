@@ -1,646 +1,450 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditoria Energètica | Calculadora Professional</title>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Calculadora Ahorro Energético — Estimación Gratuita | Certilab</title>
+    <meta name="description" content="Calcula tu ahorro energético estimado. Recibe informe personalizado gratuito. Eva González, Arquitecta Técnica CAATEB 9457. Basado en normativa CTE 2019.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.certilab.cat/calculadoracat/">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="google-site-verification" content="7VCVmdemmkNmVYz9SnjCaB61Y5hYMZCf12_mZpYaF2Q">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1271893388238243'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Calculadora Ahorro Energético",
+        "provider": {
+            "@type": "ProfessionalService",
+            "name": "Certilab - Eva González",
+            "telephone": "+34608515922"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "España"
+        },
+        "description": "Calculadora de ahorro energético. Informe personalizado gratuito. Basado en normativa CTE 2019."
+    }
+    </script>
+
+    <link rel="stylesheet" href="/style.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --noir: #1A1A1A;
-            --gris: #6B6B6B;
-            --gris-clair: #C8C8C8;
-            --blanc: #FAFAF8;
-            --creme: #F5F3EF;
-            --terre: #8B7355;
-            --accent: #9A8570;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--blanc);
-            color: var(--noir);
-            line-height: 1.7;
-            font-weight: 300;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .grain {
-            position: fixed;
-            inset: 0;
-            opacity: 0.025;
-            z-index: 999;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        header {
-            padding: 80px 0 50px;
-            text-align: center;
-        }
-
-        .logo {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.1rem;
-            font-weight: 300;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--gris);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 40px 0 80px;
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-family: 'Crimson Pro', serif;
-            font-size: 2.6rem;
-            font-weight: 400;
-            line-height: 1.3;
-            margin-bottom: 20px;
-            color: var(--noir);
-            letter-spacing: -0.01em;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            color: var(--gris);
-            margin-bottom: 28px;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 18px;
-            background: var(--creme);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--terre);
-            border: 1px solid rgba(139, 115, 85, 0.12);
-            font-weight: 400;
-        }
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 60px;
-            margin: 60px 0 100px;
-        }
-
-        .progress-bar {
-            height: 1px;
-            background: var(--gris-clair);
-            margin-bottom: 44px;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--terre);
-            width: 0%;
-            transition: width 0.5s ease;
-        }
-
-        .step-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--gris);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .section-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.75rem;
-            font-weight: 400;
-            margin-bottom: 36px;
-            color: var(--noir);
-        }
-
-        .form-section {
-            display: none;
-        }
-
-        .form-section.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .field {
-            margin-bottom: 28px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 0.92rem;
-            color: var(--noir);
-            font-weight: 400;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px 0;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--gris-clair);
-            color: var(--noir);
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            transition: border 0.3s;
-            font-weight: 300;
-        }
-
-        input:focus, select:focus {
-            outline: none;
-            border-bottom-color: var(--terre);
-        }
-
-        .hint {
-            font-size: 0.78rem;
-            color: var(--gris);
-            margin-top: 6px;
-            font-weight: 300;
-        }
-
-        .radio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .radio-item {
-            position: relative;
-        }
-
-        .radio-item input {
-            position: absolute;
-            opacity: 0;
-        }
-
-        .radio-box {
-            display: block;
-            padding: 16px;
-            border: 1px solid var(--gris-clair);
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s;
-            font-size: 0.9rem;
-            color: var(--gris);
-            font-weight: 300;
-        }
-
-        .radio-item input:checked + .radio-box {
-            border-color: var(--terre);
-            background: rgba(139, 115, 85, 0.03);
-            color: var(--noir);
-        }
-
-        .buttons {
-            display: flex;
-            gap: 14px;
-            margin-top: 44px;
-        }
-
-        .btn {
-            padding: 14px 28px;
-            border: none;
-            font-size: 0.92rem;
-            cursor: pointer;
-            transition: all 0.25s;
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-        }
-
-        .btn-primary {
-            background: var(--noir);
-            color: var(--blanc);
-            flex: 1;
-        }
-
-        .btn-primary:hover {
-            background: var(--gris);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--gris);
-            border: 1px solid var(--gris-clair);
-            padding: 14px 22px;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--gris);
-        }
-
-        .sidebar {
-            position: sticky;
-            top: 40px;
-            height: fit-content;
-        }
-
-        .results-card {
-            background: var(--creme);
-            padding: 36px;
-            border: 1px solid rgba(139, 115, 85, 0.08);
-        }
-
-        .results-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 28px;
-        }
-
-        .big-number {
-            font-family: 'Crimson Pro', serif;
-            font-size: 3.2rem;
-            font-weight: 300;
-            color: var(--terre);
-            line-height: 1;
-            margin-bottom: 6px;
-        }
-
-        .big-label {
-            font-size: 0.8rem;
-            color: var(--gris);
-            margin-bottom: 32px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .metric {
-            display: flex;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(139, 115, 85, 0.12);
-        }
-
-        .metric-label {
-            font-size: 0.88rem;
-            color: var(--gris);
-            font-weight: 300;
-        }
-
-        .metric-value {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.05rem;
-            color: var(--noir);
-        }
-
-        .info-box {
-            margin-top: 28px;
-            padding: 20px;
-            background: white;
-            border: 1px solid rgba(139, 115, 85, 0.08);
-        }
-
-        .info-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gris);
-            margin-bottom: 10px;
-            font-weight: 500;
-        }
-
-        .info-list {
-            font-size: 0.88rem;
-            color: var(--noir);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        .success-screen {
-            display: none;
-            text-align: center;
-            padding: 80px 40px;
-        }
-
-        .success-screen.active {
-            display: block;
-        }
-
-        .check-icon {
-            width: 60px;
-            height: 60px;
-            border: 1.5px solid var(--terre);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 28px;
-            font-size: 1.8rem;
-            color: var(--terre);
-        }
-
-        .success-title {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.9rem;
-            font-weight: 400;
-            margin-bottom: 14px;
-        }
-
-        .success-text {
-            color: var(--gris);
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        @media (max-width: 968px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sidebar {
-                position: relative;
-                top: 0;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.85rem;
-            }
-
-            .results-card {
-                padding: 28px 20px;
-            }
-
-            .big-number {
-                font-size: 2.6rem;
-            }
-
-            .radio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-            .btn-secondary {
-                order: -1;
-            }
+        /* Página específica */
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--terra-lt); margin-bottom: 16px; }
+        .hero-price { font-size: 3rem; font-weight: 800; color: var(--terra-lt); margin: 16px 0 4px; }
+        .hero-price small { font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.6); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .feature { background: var(--blanc); border: 1px solid rgba(139,111,71,0.16); border-radius: var(--rl); padding: 24px 18px; text-align: center; box-shadow: var(--sh); }
+        .feature .icon { font-size: 2rem; margin-bottom: 10px; }
+        .feature h4 { color: var(--terra-dk); font-size: 0.95rem; margin: 0 0 6px; }
+        .feature p { color: var(--gris); font-size: 0.85rem; margin: 0; line-height: 1.6; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin-bottom: 50px; }
+        .step { text-align: center; padding: 16px; }
+        .step-num { width: 44px; height: 44px; background: var(--terra); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; margin: 0 auto 12px; }
+        .step h4 { margin: 0 0 6px; color: var(--terra-dk); font-size: 0.95rem; }
+        .step p { font-size: 0.85rem; color: var(--gris); margin: 0; }
+        .includes-box { background: var(--blanc); border: 2px solid var(--verde); border-radius: var(--rl); padding: 30px; box-shadow: var(--sh); margin-bottom: 50px; }
+        .includes-box h3 { font-family: var(--font-serif); color: var(--verde); font-size: 1.3rem; margin: 0 0 16px; font-weight: 400; }
+        .includes-list { list-style: none; padding: 0; }
+        .includes-list li { padding: 8px 0; border-bottom: 1px solid var(--crema-dk); font-size: 0.9rem; color: var(--negre); display: flex; align-items: center; gap: 10px; }
+        .includes-list li:last-child { border-bottom: none; }
+        .includes-list .check { color: var(--verde); font-weight: 700; font-size: 1.1rem; }
+        .cta-section { background: var(--terra-dk); padding: 60px 0; text-align: center; color: #fff; }
+        .cta-section h2 { font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 10px; font-weight: 400; }
+        .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        
+        /* Calculadora específica */
+        .calc-container { max-width: 900px; margin: 0 auto; }
+        .calc-sidebar { background: var(--blanc); border: 1px solid rgba(139,111,71,0.16); border-radius: var(--rl); padding: 30px; box-shadow: var(--sh); position: sticky; top: 20px; height: fit-content; }
+        .calc-sidebar h3 { font-family: var(--font-serif); color: var(--terra-dk); font-size: 1.2rem; margin: 0 0 20px; font-weight: 400; }
+        .calc-result { text-align: center; padding: 20px 0; }
+        .calc-result .big-number { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700; color: var(--terra); margin-bottom: 8px; }
+        .calc-result .big-label { font-size: 0.9rem; color: var(--gris); margin-bottom: 24px; }
+        .calc-metrics { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+        .calc-metric { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--crema-dk); }
+        .calc-metric:last-child { border-bottom: none; }
+        .calc-metric .label { font-size: 0.9rem; color: var(--gris); }
+        .calc-metric .value { font-family: var(--font-serif); font-size: 1rem; color: var(--terra-dk); font-weight: 600; }
+        .calc-info { background: var(--verde-lt); border-radius: var(--r); padding: 16px; margin-top: 20px; }
+        .calc-info h4 { font-size: 0.9rem; color: var(--verde); margin-bottom: 8px; font-weight: 600; }
+        .calc-info p { font-size: 0.85rem; color: var(--gris); margin: 0; line-height: 1.5; }
+        
+        .calc-form { background: var(--blanc); border: 1px solid rgba(139,111,71,0.16); border-radius: var(--rl); padding: 40px; box-shadow: var(--sh); margin-bottom: 30px; }
+        .calc-progress { height: 4px; background: var(--crema-dk); border-radius: 2px; margin-bottom: 30px; overflow: hidden; }
+        .calc-progress-bar { height: 100%; background: var(--terra); width: 33.33%; transition: width 0.3s; }
+        .calc-step { margin-bottom: 30px; }
+        .calc-step h3 { font-family: var(--font-serif); color: var(--terra-dk); font-size: 1.3rem; margin: 0 0 20px; font-weight: 400; }
+        .calc-field { margin-bottom: 20px; }
+        .calc-field label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; color: var(--terra-dk); }
+        .calc-field input, .calc-field select { width: 100%; padding: 12px 16px; border: 1px solid rgba(139,111,71,0.3); border-radius: var(--r); font-size: 0.95rem; background: var(--blanc); transition: border-color 0.2s; }
+        .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--terra); box-shadow: 0 0 0 3px rgba(139,111,71,0.1); }
+        .calc-field .hint { font-size: 0.85rem; color: var(--gris); margin-top: 6px; }
+        .calc-buttons { display: flex; gap: 16px; margin-top: 30px; }
+        .calc-buttons button { padding: 14px 28px; border: none; border-radius: var(--r); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .calc-buttons .btn-primary { background: var(--terra); color: #fff; flex: 1; }
+        .calc-buttons .btn-primary:hover { background: var(--terra-dk); }
+        .calc-buttons .btn-secondary { background: transparent; color: var(--terra); border: 1px solid var(--terra); }
+        .calc-buttons .btn-secondary:hover { background: var(--crema-lt); }
+        
+        .radio-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        @media (max-width: 768px) { .radio-grid { grid-template-columns: 1fr; } }
+        .radio-item { position: relative; }
+        .radio-item input[type="radio"] { position: absolute; opacity: 0; }
+        .radio-box { display: block; padding: 16px; border: 1px solid rgba(139,111,71,0.3); border-radius: var(--r); text-align: center; cursor: pointer; transition: all 0.2s; font-size: 0.95rem; color: var(--gris); background: var(--blanc); }
+        .radio-item input[type="radio"]:checked + .radio-box { border-color: var(--terra); background: var(--crema-lt); color: var(--terra-dk); }
+        
+        @media (max-width: 768px) {
+            .calc-sidebar { position: relative; top: 0; margin-bottom: 30px; }
+            .calc-form { padding: 24px 16px; }
         }
     </style>
 </head>
 <body>
-    <div class="grain"></div>
-    
-    <div class="container">
-        <header>
-            <div class="logo">Auditoria Energètica</div>
-        </header>
 
-        <section class="hero">
-            <h1>Quant pots estalviar a la teva llar?</h1>
-            <p class="subtitle">Càlcul professional basat en normativa CTE 2019 i certificació energètica oficial CE3X</p>
-            <div class="badge">Informe personalitzat gratuït</div>
-        </section>
-
-        <div class="main-grid">
-            <div class="form-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar"></div>
-                </div>
-
-                <form id="calculatorForm">
-                    <!-- Pas 1 -->
-                    <div class="form-section active" data-section="1">
-                        <div class="step-label">Pas 1 de 3</div>
-                        <h2 class="section-title">El teu habitatge</h2>
-                        
-                        <div class="field">
-                            <label>Tipus d'habitatge</label>
-                            <div class="radio-grid">
-                                <div class="radio-item">
-                                    <input type="radio" name="tipoVivienda" value="piso" id="piso" required>
-                                    <label for="piso" class="radio-box">Pis</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="tipoVivienda" value="casa" id="casa">
-                                    <label for="casa" class="radio-box">Casa</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="tipoVivienda" value="unifamiliar" id="unifamiliar">
-                                    <label for="unifamiliar" class="radio-box">Unifamiliar</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="tipoVivienda" value="adosado" id="adosado">
-                                    <label for="adosado" class="radio-box">Adossat</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="superficie">Superfície útil (m²)</label>
-                            <input type="number" id="superficie" name="superficie" placeholder="80" min="50" max="500" required>
-                            <div class="hint">Mínim 50 m² per auditories completes</div>
-                        </div>
-
-                        <div class="field">
-                            <label for="antiguedad">Antiguitat de l'habitatge</label>
-                            <select id="antiguedad" name="antiguedad" required>
-                                <option value="">Selecciona...</option>
-                                <option value="menos5">Menys de 5 anys</option>
-                                <option value="5-15">Entre 5 i 15 anys</option>
-                                <option value="15-30">Entre 15 i 30 anys</option>
-                                <option value="mas30">Més de 30 anys</option>
-                            </select>
-                        </div>
-
-                        <div class="buttons">
-                            <button type="button" class="btn btn-primary" onclick="nextStep(2)">Continuar</button>
-                        </div>
-                    </div>
-
-                    <!-- Pas 2 -->
-                    <div class="form-section" data-section="2">
-                        <div class="step-label">Pas 2 de 3</div>
-                        <h2 class="section-title">Consum energètic</h2>
-                        
-                        <div class="field">
-                            <label for="facturaAnual">Factura energètica anual (€)</label>
-                            <input type="number" id="facturaAnual" name="facturaAnual" placeholder="1200" min="400" max="10000" required>
-                            <div class="hint">Inclou electricitat, gas i altres combustibles</div>
-                        </div>
-
-                        <div class="field">
-                            <label>Sistema de calefacció</label>
-                            <div class="radio-grid">
-                                <div class="radio-item">
-                                    <input type="radio" name="calefaccion" value="gas" id="gas" required>
-                                    <label for="gas" class="radio-box">Gas natural</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="calefaccion" value="electrica" id="electrica">
-                                    <label for="electrica" class="radio-box">Elèctrica</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="calefaccion" value="gasoil" id="gasoil">
-                                    <label for="gasoil" class="radio-box">Gasoil</label>
-                                </div>
-                                <div class="radio-item">
-                                    <input type="radio" name="calefaccion" value="ninguno" id="ninguno">
-                                    <label for="ninguno" class="radio-box">Cap</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label for="urgencia">Quan t'agradaria fer l'auditoria?</label>
-                            <select id="urgencia" name="urgencia" required>
-                                <option value="">Selecciona...</option>
-                                <option value="inmediato">El més aviat possible</option>
-                                <option value="1mes">En el proper mes</option>
-                                <option value="3meses">En els propers 3 mesos</option>
-                                <option value="informacion">Només vull informació</option>
-                            </select>
-                        </div>
-
-                        <div class="buttons">
-                            <button type="button" class="btn btn-secondary" onclick="previousStep(1)">Enrere</button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continuar</button>
-                        </div>
-                    </div>
-
-                    <!-- Pas 3 -->
-                    <div class="form-section" data-section="3">
-                        <div class="step-label">Pas 3 de 3</div>
-                        <h2 class="section-title">Les teves dades</h2>
-                        
-                        <div class="field">
-                            <label for="nombre">Nom complet</label>
-                            <input type="text" id="nombre" name="nombre" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="email">Correu electrònic</label>
-                            <input type="email" id="email" name="email" placeholder="nom@email.cat" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="telefono">Telèfon</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000" required>
-                        </div>
-
-                        <div class="field">
-                            <label for="presupuesto">Pressupost estimat</label>
-                            <select id="presupuesto" name="presupuesto" required>
-                                <option value="">Selecciona...</option>
-                                <option value="menos3000">Menys de 3.000€</option>
-                                <option value="3000-6000">3.000€ - 6.000€</option>
-                                <option value="6000-10000">6.000€ - 10.000€</option>
-                                <option value="mas10000">Més de 10.000€</option>
-                                <option value="nosabe">Encara no ho sé</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label for="rol">Situació</label>
-                            <select id="rol" name="rol" required>
-                                <option value="">Selecciona...</option>
-                                <option value="propietario">Propietari</option>
-                                <option value="comunidad">President/Admin. comunitat</option>
-                                <option value="promotor">Promotor</option>
-                                <option value="arquitecto">Arquitecte/Enginyer</option>
-                                <option value="inmobiliaria">Immobiliària</option>
-                                <option value="otro">Altre professional</option>
-                            </select>
-                        </div>
-
-                        <div class="field">
-                            <label for="motivacion">Motivació</label>
-                            <select id="motivacion" name="motivacion" required>
-                                <option value="">Selecciona...</option>
-                                <option value="ahorro">Reduir la factura</option>
-                                <option value="confort">Millorar el confort</option>
-                                <option value="valor">Augmentar valor</option>
-                                <option value="normativa">Complir normativa</option>
-                                <option value="sostenibilidad">Compromís ambiental</option>
-                                <option value="subvenciones">Subvencions</option>
-                            </select>
-                        </div>
-
-                        <div class="buttons">
-                            <button type="button" class="btn btn-secondary" onclick="previousStep(2)">Enrere</button>
-                            <button type="submit" class="btn btn-primary">Obtenir informe</button>
-                        </div>
-                    </div>
-
-                    <div class="success-screen">
-                        <div class="check-icon">✓</div>
-                        <h2 class="success-title">Sol·licitud rebuda</h2>
-                        <p class="success-text">
-                            Rebràs el teu informe personalitzat en 24 hores.<br><br>
-                            Revisa <strong id="emailConfirm"></strong>
-                        </p>
-                    </div>
-                </form>
-            </div>
-
-            <aside class="sidebar">
-                <div class="results-card">
-                    <h3 class="results-title">Estalvi potencial</h3>
-                    
-                    <div class="big-number" id="savingsAmount">—</div>
-                    <div class="big-label">Estalvi anual estimat</div>
-
-                    <div class="metric">
-                        <span class="metric-label">Reducció estimada</span>
-                        <span class="metric-value" id="savingsPercent">—</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">CO₂ reduït/any</span>
-                        <span class="metric-value" id="co2Reduction">—</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-label">ROI estimat</span>
-                        <span class="metric-value" id="roiPeriod">—</span>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-title">El teu informe inclou</div>
-                        <div class="info-list">
-                            Qualificació energètica A-G<br>
-                            Pla de millores CTE 2019<br>
-                            Anàlisi cost-benefici<br>
-                            Subvencions 2026
-                        </div>
-                    </div>
-                </div>
-            </aside>
-        </div>
+    <div id="cookie-banner" role="alert" aria-live="polite">
+        <p>Utilizamos cookies técnicas para garantizar su seguridad profesional. <a href="/cookies.html">Política de Cookies</a>.</p>
+        <button onclick="closeCookies()">Aceptar</button>
     </div>
 
+    <header role="banner">
+        <nav class="container nav-bar" aria-label="Navegación principal">
+            <a href="/" class="logo-link" aria-label="Ir al inicio de Certilab">
+                <span class="logo-txt">CERTILAB</span>
+                <span class="tagline">Arquitecta Técnica · CAATEB 9457</span>
+            </a>
+            <div class="nav-links">
+                <div class="nav-dropdown">
+                    <a href="#servicios">Servicios ▾</a>
+                    <div class="nav-dropdown-content">
+                        <a href="/certificado-energetico/">Certificado Energético</a>
+                        <a href="/auditoria-energetica-online/">Auditoría Energética</a>
+                        <a href="/certificadoenergeticoinflado/">Verificar CE inflado</a>
+                        <a href="/calculadoracat/">Calculadora ahorro</a>
+                        <a href="/precio-certificado-energetico/">Ver precios</a>
+                        <a href="/profesionales/">Para profesionales</a>
+                    </div>
+                </div>
+                <a href="/formulario/" class="nav-cta">Diagnóstico sin compromiso</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge">🔒 Servicio en remoto · Resultado en 48h</div>
+                <h1>Calculadora de<br><span class="hero-highlight">ahorro energético</span></h1>
+                <p class="hero-sub">Estimación gratuita basada en normativa CTE 2019. Recibe informe personalizado con potencial de mejora.</p>
+                <div class="hero-price">0€ <small>sin compromiso</small></div>
+                <div class="hero-badges">
+                    <span>🏛️ CAATEB 9457</span>
+                    <span>🇪🇸 Toda España</span>
+                    <span>🔒 Privacidad total</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="/formulario/" class="btn-primary">Iniciar cálculo</a>
+                    <a href="https://wa.me/34608515922?text=Hola,%20necesito%20información%20sobre%20la%20calculadora%20de%20ahorro" class="btn-secondary">Contactar por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container calc-container">
+            <div class="main-grid">
+                <div class="calc-form">
+                    <div class="calc-progress">
+                        <div class="calc-progress-bar" id="progressBar"></div>
+                    </div>
+                    
+                    <form id="calculatorForm">
+                        <!-- Paso 1 -->
+                        <div class="calc-step active" data-step="1">
+                            <h3>1. Datos del inmueble</h3>
+                            
+                            <div class="calc-field">
+                                <label>Tipo de vivienda *</label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" name="tipoVivienda" value="piso" id="piso" required>
+                                        <label for="piso" class="radio-box">Piso</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="tipoVivienda" value="casa" id="casa">
+                                        <label for="casa" class="radio-box">Casa</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="tipoVivienda" value="unifamiliar" id="unifamiliar">
+                                        <label for="unifamiliar" class="radio-box">Unifamiliar</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="tipoVivienda" value="adosado" id="adosado">
+                                        <label for="adosado" class="radio-box">Adosado</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="superficie">Superficie útil (m²) *</label>
+                                <input type="number" id="superficie" name="superficie" placeholder="80" min="50" max="500" required>
+                                <div class="hint">Mínimo 50 m² para cálculos precisos</div>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="antiguedad">Año de construcción *</label>
+                                <select id="antiguedad" name="antiguedad" required>
+                                    <option value="">Selecciona...</option>
+                                    <option value="despues2010">Después de 2010</option>
+                                    <option value="2000-2010">2000-2010</option>
+                                    <option value="1990-2000">1990-2000</option>
+                                    <option value="1980-1990">1980-1990</option>
+                                    <option value="antes1980">Antes de 1980</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-buttons">
+                                <button type="button" class="btn-primary" onclick="nextStep(2)">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="calc-step" data-step="2">
+                            <h3>2. Consumo energético</h3>
+                            
+                            <div class="calc-field">
+                                <label for="facturaAnual">Gasto anual en energía (€) *</label>
+                                <input type="number" id="facturaAnual" name="facturaAnual" placeholder="1200" min="400" max="10000" required>
+                                <div class="hint">Incluye electricidad, gas y otros combustibles</div>
+                            </div>
+
+                            <div class="calc-field">
+                                <label>Sistema de calefacción principal *</label>
+                                <div class="radio-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" name="calefaccion" value="gas" id="gas" required>
+                                        <label for="gas" class="radio-box">Gas natural</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="calefaccion" value="electrica" id="electrica">
+                                        <label for="electrica" class="radio-box">Eléctrica</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="calefaccion" value="gasoil" id="gasoil">
+                                        <label for="gasoil" class="radio-box">Gasoil</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" name="calefaccion" value="bomba" id="bomba">
+                                        <label for="bomba" class="radio-box">Bomba calor</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="certificado">¿Tienes certificado energético?</label>
+                                <select id="certificado" name="certificado">
+                                    <option value="">No especificar</option>
+                                    <option value="vigente">Sí, vigente</option>
+                                    <option value="caducado">Sí, caducado</option>
+                                    <option value="ninguno">No tengo</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-buttons">
+                                <button type="button" class="btn-secondary" onclick="previousStep(1)">Anterior</button>
+                                <button type="button" class="btn-primary" onclick="nextStep(3)">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="calc-step" data-step="3">
+                            <h3>3. Tus datos</h3>
+                            
+                            <div class="calc-field">
+                                <label for="nombre">Nombre y apellidos *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="email">Correo electrónico *</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="telefono">Teléfono (WhatsApp) *</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="600000000" required>
+                            </div>
+
+                            <div class="calc-field">
+                                <label for="presupuesto">Presupuesto estimado para mejoras</label>
+                                <select id="presupuesto" name="presupuesto">
+                                    <option value="">No especificar</option>
+                                    <option value="menos3000">Menos de 3.000€</option>
+                                    <option value="3000-6000">3.000€ - 6.000€</option>
+                                    <option value="6000-10000">6.000€ - 10.000€</option>
+                                    <option value="mas10000">Más de 10.000€</option>
+                                </select>
+                            </div>
+
+                            <div class="calc-buttons">
+                                <button type="button" class="btn-secondary" onclick="previousStep(2)">Anterior</button>
+                                <button type="submit" class="btn-primary">Obtener informe</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="calc-sidebar">
+                    <h3>Estimación de ahorro</h3>
+                    
+                    <div class="calc-result">
+                        <div class="big-number" id="savingsAmount">—</div>
+                        <div class="big-label">Ahorro anual estimado</div>
+                    </div>
+
+                    <div class="calc-metrics">
+                        <div class="calc-metric">
+                            <span class="label">Reducción consumo</span>
+                            <span class="value" id="savingsPercent">—</span>
+                        </div>
+                        <div class="calc-metric">
+                            <span class="label">CO₂ reducido/año</span>
+                            <span class="value" id="co2Reduction">—</span>
+                        </div>
+                        <div class="calc-metric">
+                            <span class="label">ROI estimado</span>
+                            <span class="value" id="roiPeriod">—</span>
+                        </div>
+                    </div>
+
+                    <div class="calc-info">
+                        <h4>¿Qué incluye tu informe?</h4>
+                        <p>• Calificación energética estimada<br>
+                        • Plan de mejoras CTE 2019<br>
+                        • Análisis coste-beneficio<br>
+                        • Subvenciones disponibles 2026</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <section class="container" id="servicios" aria-labelledby="services-title">
+            <h2 id="services-title" class="section-title">¿Por qué elegir Certilab?</h2>
+            <p class="section-sub">Servicio en remoto. Rigor técnico. Privacidad absoluta.</p>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="icon">🔒</div>
+                    <h4>Servicio en remoto</h4>
+                    <p>No necesitas desplazamientos ni videollamadas. Envía fotos y datos cuando quieras.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">⚡</div>
+                    <h4>48 horas</h4>
+                    <p>Desde que recibimos tu documentación. Urgencias en 24h para operaciones inminentes.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🏛️</div>
+                    <h4>Oficial y registrado</h4>
+                    <p>CE3X del Ministerio + registro en el órgano competente de tu CCAA.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🇪🇸</div>
+                    <h4>Toda España</h4>
+                    <p>Registro telemático en las 17 Comunidades Autónomas.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🔒</div>
+                    <h4>Seguro RC</h4>
+                    <p>Seguro de Responsabilidad Civil profesional. Tu seguridad garantizada.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">🤝</div>
+                    <h4>Atención directa</h4>
+                    <p>WhatsApp directo con Eva. Sin call centers, sin esperas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" id="faq" aria-labelledby="faq-title">
+            <h2 id="faq-title" class="section-title">Preguntas Frecuentes</h2>
+            <div style="max-width:700px; margin:0 auto 50px;">
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué es la calculadora de ahorro?<span class="icon">+</span></div>
+                    <div class="faq-a">Es una herramienta que estima tu potencial de ahorro energético basándose en datos básicos de tu vivienda. Usa algoritmos basados en el Código Técnico de la Edificación (CTE) 2019 para darte una orientación realista.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Es preciso el cálculo?<span class="icon">+</span></div>
+                    <div class="faq-a">Es una estimación orientativa. Para un análisis preciso con valor legal, necesitarías una auditoría energética completa con visita técnica. Esta calculadora te da una idea inicial del potencial.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué incluye el informe gratuito?<span class="icon">+</span></div>
+                    <div class="faq-a">Recibirás un informe personalizado con tu estimación de ahorro, plan de mejoras básico, análisis coste-beneficio y subvenciones disponibles para tu caso.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Necesito certificado energético previo?<span class="icon">+</span></div>
+                    <div class="faq-a">No. La calculadora funciona con los datos que tú nos proporcionas. Si tienes certificado, nos ayudará a afinar la estimación, pero no es obligatorio.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Cuánto tarda en llegar el informe?<span class="icon">+</span></div>
+                    <div class="faq-a">Recibirás tu informe personalizado en un plazo máximo de 48 horas laborales en tu correo electrónico.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">¿Es válido para toda España?<span class="icon">+</span></div>
+                    <div class="faq-a">Sí. Nuestros algoritmos están adaptados a las diferentes zonas climáticas de España y a la normativa estatal del CTE.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Calculadora de ahorro energético — 0€</h2>
+                <p>Servicio en remoto. Rigor técnico. Privacidad absoluta.</p>
+                <a href="/formulario/" class="btn-primary" style="font-size:1rem; padding:18px 40px;">Iniciar cálculo</a>
+                <br><br>
+                <a href="https://wa.me/34608515922?text=Hola,%20necesito%20información%20sobre%20la%20calculadora%20de%20ahorro%20urgente" class="btn-wa">💬 WhatsApp directo</a>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-logo">CERTILAB</div>
+            <nav class="footer-links" aria-label="Enlaces legales">
+                <a href="/legal.html">Aviso Legal</a>
+                <a href="/privacidad.html">Privacidad</a>
+                <a href="/cookies.html">Cookies</a>
+                <a href="/profesionales/">Profesionales</a>
+            </nav>
+            <p class="footer-legal">Eva María González Gracia · Arquitecta Técnica · CAATEB Barcelona nº 9457<br>Seguro RC Profesional · Servicio 100% online para toda España</p>
+            <p class="footer-copy">© 2026 CERTILAB · Todos los derechos reservados</p>
+        </div>
+    </footer>
+
     <script>
+        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
+        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
+
         let currentStep = 1;
         let formData = {};
 
@@ -649,7 +453,7 @@
         }
 
         function nextStep(step) {
-            const currentSection = document.querySelector(`.form-section[data-section="${currentStep}"]`);
+            const currentSection = document.querySelector(`.calc-step[data-step="${currentStep}"]`);
             const inputs = currentSection.querySelectorAll('input[required], select[required]');
             
             let isValid = true;
@@ -662,6 +466,7 @@
 
             if (!isValid) return;
 
+            // Guardar datos del paso actual
             const formElements = currentSection.querySelectorAll('input, select');
             formElements.forEach(el => {
                 if (el.type === 'radio') {
@@ -671,19 +476,23 @@
                 }
             });
 
-            if (formData.superficie && formData.facturaAnual) calculateSavings();
+            // Calcular ahorro si tenemos datos suficientes
+            if (formData.superficie && formData.facturaAnual) {
+                calculateSavings();
+            }
 
+            // Cambiar al siguiente paso
             currentStep = step;
-            document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
-            document.querySelector(`.form-section[data-section="${step}"]`).classList.add('active');
+            document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.calc-step[data-step="${step}"]`).classList.add('active');
             updateProgress();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function previousStep(step) {
             currentStep = step;
-            document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
-            document.querySelector(`.form-section[data-section="${step}"]`).classList.add('active');
+            document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.calc-step[data-step="${step}"]`).classList.add('active');
             updateProgress();
         }
 
@@ -696,24 +505,28 @@
             let consumoActualM2 = factura / superficie;
             let consumoObjetivoM2 = 0;
 
-            if (antiguedad === 'menos5') consumoObjetivoM2 = 120;
-            else if (antiguedad === '5-15') consumoObjetivoM2 = 110;
-            else if (antiguedad === '15-30') consumoObjetivoM2 = 150;
-            else if (antiguedad === 'mas30') consumoObjetivoM2 = 160;
+            // Basado en año de construcción
+            if (antiguedad === 'despues2010') consumoObjetivoM2 = 100;
+            else if (antiguedad === '2000-2010') consumoObjetivoM2 = 120;
+            else if (antiguedad === '1990-2000') consumoObjetivoM2 = 140;
+            else if (antiguedad === '1980-1990') consumoObjetivoM2 = 160;
+            else if (antiguedad === 'antes1980') consumoObjetivoM2 = 180;
 
-            if (calefaccion === 'gasoil') consumoObjetivoM2 *= 0.85;
-            else if (calefaccion === 'electrica') consumoObjetivoM2 *= 0.90;
-            else if (calefaccion === 'gas') consumoObjetivoM2 *= 0.95;
+            // Ajuste por sistema de calefacción
+            if (calefaccion === 'gas') consumoObjetivoM2 *= 0.95;
+            else if (calefaccion === 'electrica') consumoObjetivoM2 *= 1.1;
+            else if (calefaccion === 'gasoil') consumoObjetivoM2 *= 0.9;
+            else if (calefaccion === 'bomba') consumoObjetivoM2 *= 0.8;
 
-            const ahorro = Math.round(Math.max(0, consumoActualM2 - consumoObjetivoM2) * superficie * 0.15);
-            const porcentaje = consumoActualM2 > 0 ? Math.min(Math.round(((consumoActualM2 - consumoObjetivoM2) / consumoActualM2) * 100), 60) : 0;
-            const co2 = Math.round((consumoActualM2 - consumoObjetivoM2) * superficie * 0.25);
-            const roi = ahorro > 0 ? Math.round(((antiguedad === 'mas30' ? 7000 : antiguedad === '15-30' ? 5500 : 4000) / ahorro) * 10) / 10 : 99;
+            const ahorro = Math.round(Math.max(0, consumoActualM2 - consumoObjetivoM2) * superficie * 0.2);
+            const porcentaje = consumoActualM2 > 0 ? Math.min(Math.round(((consumoActualM2 - consumoObjetivoM2) / consumoActualM2) * 100), 50) : 0;
+            const co2 = Math.round((consumoActualM2 - consumoObjetivoM2) * superficie * 0.3);
+            const roi = ahorro > 0 ? Math.round(((antiguedad.includes('antes1980') ? 8000 : antiguedad.includes('1980') ? 6000 : 4000) / ahorro) * 10) / 10 : 99;
 
             animateValue('savingsAmount', 0, ahorro, 1000);
             document.getElementById('savingsPercent').textContent = porcentaje + '%';
             document.getElementById('co2Reduction').textContent = co2 + ' kg';
-            document.getElementById('roiPeriod').textContent = roi < 15 ? roi + ' anys' : '10-15 anys';
+            document.getElementById('roiPeriod').textContent = roi < 15 ? roi + ' años' : '10+ años';
         }
 
         function animateValue(id, start, end, duration) {
@@ -728,45 +541,45 @@
                     current = end;
                     clearInterval(timer);
                 }
-                el.textContent = Math.round(current).toLocaleString('ca-ES') + '€';
+                el.textContent = Math.round(current).toLocaleString('es-ES') + '€';
             }, 16);
         }
 
         document.getElementById('calculatorForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const formElements = document.querySelectorAll('.form-section[data-section="3"] input, .form-section[data-section="3"] select');
+            // Guardar datos del último paso
+            const lastStep = document.querySelector('.calc-step[data-step="3"]');
+            const formElements = lastStep.querySelectorAll('input, select');
             formElements.forEach(el => formData[el.name] = el.value);
 
-            let score = 0;
-            const scoreMap = {
-                presupuesto: {'mas10000':25,'6000-10000':20,'3000-6000':15,'menos3000':10,'nosabe':12},
-                rol: {'propietario':25,'comunidad':25,'promotor':20,'arquitecto':18,'inmobiliaria':15,'otro':10},
-                urgencia: {'inmediato':25,'1mes':20,'3meses':15,'informacion':8}
-            };
+            // Mostrar mensaje de éxito
+            alert('✅ ¡Solicitud enviada correctamente! Recibirás tu informe personalizado en las próximas 48 horas.');
             
-            score += scoreMap.presupuesto[formData.presupuesto] || 0;
-            score += scoreMap.rol[formData.rol] || 0;
-            score += scoreMap.urgencia[formData.urgencia] || 0;
-
-            const sup = parseFloat(formData.superficie) || 0;
-            score += sup >= 150 ? 15 : sup >= 100 ? 12 : sup >= 70 ? 8 : 5;
-
-            const fact = parseFloat(formData.facturaAnual) || 0;
-            score += fact >= 2000 ? 10 : fact >= 1200 ? 8 : fact >= 800 ? 6 : 4;
-
-            formData.leadScore = score;
-            formData.leadQuality = score >= 75 ? 'HOT' : score >= 55 ? 'WARM' : score >= 40 ? 'COLD' : 'LOW';
-
-            console.log('📊 Lead:', formData);
-
-            document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
-            document.querySelector('.success-screen').classList.add('active');
-            document.getElementById('emailConfirm').textContent = formData.email;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Resetear formulario
+            this.reset();
+            currentStep = 1;
+            document.querySelectorAll('.calc-step').forEach(s => s.classList.remove('active'));
+            document.querySelector('.calc-step[data-step="1"]').classList.add('active');
+            updateProgress();
+            
+            // Resetear resultados
+            document.getElementById('savingsAmount').textContent = '—';
+            document.getElementById('savingsPercent').textContent = '—';
+            document.getElementById('co2Reduction').textContent = '—';
+            document.getElementById('roiPeriod').textContent = '—';
         });
 
-        updateProgress();
+        // FAQ accordion
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                const answer = item.querySelector('.faq-a');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
+                if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+            });
+        });
     </script>
 </body>
 </html>
