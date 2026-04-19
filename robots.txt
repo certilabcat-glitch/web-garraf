@@ -9,7 +9,6 @@ Disallow: /ca/author/
 Disallow: /es/category/
 Disallow: /ca/category/
 Disallow: */feed/
-Disallow: /fr/
 Disallow: /cgi-bin/
 Disallow: /es/politica-de-privacidad/
 
