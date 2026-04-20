@@ -1,0 +1,129 @@
+# Caddyfile.backup — Redirecciones 301 para Certilab
+# 
+# IMPORTANTE: Este archivo NO se usa en producción con Nixpacks/EasyPanel.
+# Es solo una referencia de backup en formato Caddy.
+# 
+# Para aplicar estos redirects en EasyPanel:
+# 1. Ir a la UI de EasyPanel → Settings → Redirects
+# 2. Añadir cada redirect manualmente según docs/01-plan-redirects-easypanel.md
+# 
+# Fecha: 20/04/2026
+# Rama: refundacion-modelo-sin-ce
+
+certilab.cat {
+    # Encode responses
+    encode gzip
+
+    # Root directory
+    root * /srv
+
+    # ═══════════════════════════════════════════════════════════
+    # REDIRECCIONES 301 — Modelo antiguo → Nuevo modelo
+    # ═══════════════════════════════════════════════════════════
+
+    # 1. Certificado Energético → Por qué no emitimos CE
+    redir /certificado-energetico /por-que-no-emite-ce/ 301
+    redir /certificado-energetico/ /por-que-no-emite-ce/ 301
+
+    # 2. Precio Certificado Energético → Por qué no emitimos CE
+    redir /precio-certificado-energetico /por-que-no-emite-ce/ 301
+    redir /precio-certificado-energetico/ /por-que-no-emite-ce/ 301
+
+    # 3. Obtener CE Gratis → Por qué no emitimos CE
+    redir /obtener-certificado-energetico-gratis /por-que-no-emite-ce/ 301
+    redir /obtener-certificado-energetico-gratis/ /por-que-no-emite-ce/ 301
+
+    # 4. Auditoría Energética Online → Informe Técnico Energético
+    redir /auditoria-energetica-online /informe-tecnico-energetico/ 301
+    redir /auditoria-energetica-online/ /informe-tecnico-energetico/ 301
+
+    # 5. Fondos Next Generation → Ayudas Eficiencia Energética
+    redir /fondos-next-generation-2026 /ayudas-eficiencia-energetica/ 301
+    redir /fondos-next-generation-2026/ /ayudas-eficiencia-energetica/ 301
+
+    # 6. Certificado Energético Inflado → Segunda Opinión (ya configurado)
+    redir /certificadoenergeticoinflado /segunda-opinion/ 301
+    redir /certificadoenergeticoinflado/ /segunda-opinion/ 301
+
+    # 7. Tu expediente energético (URL con tilde) → Expediente
+    redir /Tuexpedienteenergético /expediente/ 301
+    redir /Tuexpedienteenergético/ /expediente/ 301
+
+    # ═══════════════════════════════════════════════════════════
+    # PÁGINAS MUNICIPALES (OBSOLETAS) → Home
+    # ═══════════════════════════════════════════════════════════
+    # Nota: Estas páginas ya no existen tras expandir scope a nacional
+    # Redirigir a home para no perder tráfico SEO
+
+    redir /cedula-habitabilidad-certificado-energetico-sitges /  301
+    redir /cedula-habitabilidad-certificado-energetico-sitges/ / 301
+    
+    redir /cedula-habitabilidad-certificado-energetico-vilanova / 301
+    redir /cedula-habitabilidad-certificado-energetico-vilanova/ / 301
+    
+    redir /cedula-habitabilidad-certificado-energetico-cubelles / 301
+    redir /cedula-habitabilidad-certificado-energetico-cubelles/ / 301
+    
+    redir /cedula-habitabilidad-certificado-energetico-canyelles / 301
+    redir /cedula-habitabilidad-certificado-energetico-canyelles/ / 301
+    
+    redir /cedula-habitabilidad-certificado-energetico-olivella / 301
+    redir /cedula-habitabilidad-certificado-energetico-olivella/ / 301
+    
+    redir /cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes / 301
+    redir /cedula-habitabilidad-certificado-energetico-sant-pere-de-ribes/ / 301
+
+    # ═══════════════════════════════════════════════════════════
+    # IDIOMAS OBSOLETOS (si existieran) → Home
+    # ═══════════════════════════════════════════════════════════
+    # Solo mantenemos castellano en esta fase
+
+    redir /ca / 301
+    redir /ca/ / 301
+    redir /en / 301
+    redir /en/ / 301
+    redir /fr / 301
+    redir /fr/ / 301
+
+    # ═══════════════════════════════════════════════════════════
+    # SERVIR ARCHIVOS ESTÁTICOS
+    # ═══════════════════════════════════════════════════════════
+
+    # Try files, then directory index, then 404
+    try_files {path} {path}/index.html {path}/ =404
+
+    # File server
+    file_server
+
+    # Security headers
+    header {
+        # Prevent clickjacking
+        X-Frame-Options "SAMEORIGIN"
+        # Prevent MIME sniffing
+        X-Content-Type-Options "nosniff"
+        # XSS Protection
+        X-XSS-Protection "1; mode=block"
+        # Referrer Policy
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+}
+
+# ═══════════════════════════════════════════════════════════
+# NOTAS DE IMPLEMENTACIÓN
+# ═══════════════════════════════════════════════════════════
+#
+# Este Caddyfile NO se usa en producción porque:
+# 1. EasyPanel usa Nixpacks como buildpack
+# 2. Nixpacks genera su propia configuración de servidor
+# 3. Los archivos de configuración del repo son ignorados
+#
+# Para aplicar estos redirects en producción:
+# → Usar la UI de EasyPanel (Settings → Redirects)
+# → Ver: docs/01-plan-redirects-easypanel.md
+#
+# Este archivo sirve como:
+# - Referencia de backup
+# - Documentación de los redirects en formato estándar
+# - Base para migración futura si se cambia de hosting
+#
+# ═══════════════════════════════════════════════════════════
