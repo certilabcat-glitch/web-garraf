@@ -91,7 +91,7 @@ La única consultoría que no compite con certificadores — porque trabajamos p
 
 Somos la única consultoría energética que NO emite certificados oficiales. ¿Por qué? Porque priorizamos análisis técnico riguroso sobre trámites rápidos.
 
-Dirigida por Eva María González Gracia, Arquitecta Técnica CAATEB 9457.
+Dirigida por Eva María González Gracia, Arquitecta Técnica · Colegiada nº 9457 · Cateb.
 
 Servicios sin emisión oficial:
 • Diagnóstico Express (0€)
@@ -213,7 +213,7 @@ Mostrar ejemplo real (anonimizado) de error detectado en CE existente.
 • Check-Up Inmobiliario (199€) — Análisis pre-compra
 • Informe Técnico (399€) — Estudio completo
 
-Dirigido por Eva María González Gracia, Arquitecta Técnica CAATEB 9457.
+Dirigido por Eva María González Gracia, Arquitecta Técnica · Colegiada nº 9457 · Cateb.
 
 👉 Más info: certilab.cat/por-que-no-emite-ce
 
