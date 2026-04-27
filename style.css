@@ -592,3 +592,484 @@ details a { color: var(--black); text-decoration: underline; }
   .pasos-grid { grid-template-columns: repeat(4, 1fr); }
   .diff-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+/* ================================
+   BLOQUES AÑADIDOS — Rediseño páginas internas
+   Se añaden al final sin modificar nada existente
+   ================================ */
+
+/* B1 — Hero utilities */
+.hero-badge {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+.hero-credentials {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+.hero-price {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--brown);
+  margin: 1rem 0;
+}
+.hero-price small {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--grey);
+  font-weight: 400;
+}
+
+/* B2 — Features grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+.feature {
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+.feature .feature-num {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin-bottom: 0.75rem;
+}
+.feature h4 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+.feature p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* B3 — Steps */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 3rem;
+}
+.step {
+  text-align: center;
+}
+.step-num {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+.step h4 {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.4rem;
+}
+.step p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* B4 — Includes box */
+.includes-box {
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  margin: 2rem 0 3rem;
+}
+.includes-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 1rem;
+}
+.includes-list {
+  list-style: none;
+  padding: 0;
+}
+.includes-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.includes-list li:last-child { border-bottom: none; }
+.includes-list .check {
+  color: var(--brown);
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+/* B5 — FAQ accordion */
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding: 1.2rem 0;
+}
+.faq-item:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  user-select: none;
+}
+.faq-q .icon {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--grey);
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-q .icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.faq-item.open .faq-a {
+  max-height: 400px;
+}
+.faq-a p {
+  margin: 1rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+/* B6 — Router cards (por-que-no-emite-ce) */
+.router-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+@media (max-width: 700px) {
+  .router-grid { grid-template-columns: 1fr; }
+}
+.card {
+  border: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.card .card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 0.75rem;
+}
+.card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.75rem;
+}
+.card p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+.card-price {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+.card-price small {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--grey);
+}
+.card-cta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* B7 — Law section + quote (por-que-no-emite-ce) */
+.law-section {
+  background: var(--cream);
+  padding: 6rem 1.5rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.law-section .section-title { color: var(--black); }
+.law-section p {
+  color: var(--dark);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.legal-quote {
+  border-left: 3px solid var(--brown);
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 720px;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--dark);
+  font-style: italic;
+}
+.legal-quote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--grey);
+  font-family: var(--font-sans);
+}
+.legal-quote cite a {
+  color: var(--brown);
+  text-decoration: underline;
+}
+
+/* B8 — Empathy + Eva sections (por-que-no-emite-ce) */
+.empathy-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+.empathy-section p {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+.empathy-section .transition-text {
+  border-left: 3px solid var(--brown);
+  padding: 1.25rem 1.5rem;
+  font-weight: 500;
+  color: var(--black);
+}
+.eva-inner-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+.eva-inner-page h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 1.75rem;
+}
+.eva-inner-page p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--dark);
+  margin-bottom: 1.125rem;
+}
+
+/* B9 — Where-section + dir-links (por-que-no-emite-ce) */
+.where-section {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+.where-section p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+.dir-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.dir-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: var(--brown);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+.dir-link:hover { border-color: var(--black); }
+
+/* B10 — Trust block (por-que-no-emite-ce) */
+.trust-block {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.trust-block p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin: 0.25rem 0;
+}
+.trust-block strong {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--black);
+}
+.trust-block .disclaimer {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* B11 — Situations + schedule + comparison (segunda-opinion-express) */
+.situations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+.situation-card {
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+.situation-card .situation-num {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  color: var(--grey);
+  margin-bottom: 0.75rem;
+}
+.situation-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.75rem;
+}
+.situation-card p {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+.schedule-box {
+  border: 1px solid var(--border);
+  padding: 2rem 2.5rem;
+  margin: 2rem 0 3rem;
+}
+.schedule-box h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+.schedule-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.schedule-item:last-child { border-bottom: none; }
+.schedule-label {
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.schedule-value {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0 3rem;
+}
+.comparison-table th {
+  background: var(--cream);
+  color: var(--black);
+  border-bottom: 2px solid var(--black);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem;
+  text-align: left;
+}
+.comparison-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--dark);
+}
+.comparison-table .highlight { font-weight: 500; }
+
+/* B12 — CTA section (paginas 2 y 3) */
+.cta-section {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: var(--cream);
+}
+.cta-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.75rem;
+}
+.cta-section p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--grey);
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
+}
