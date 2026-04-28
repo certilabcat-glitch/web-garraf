@@ -6,7 +6,7 @@ Reestructuración ética y transparente de la web para eliminar promesas problem
 ## 🔄 Cambios realizados
 
 ### 1. Reformulación de servicios
-- **Antes:** "Verificar CE inflado" → **Ahora:** "Segunda Opinión CE"
+- **Antes:** "Verificar CE inflado" → **Ahora:** "Segunda Opinión del Certificado Energético"
 - **Nueva página:** "Por qué no emitimos CE" (`/por-que-no-emite-ce/`)
 
 ### 2. Mejora de transparencia

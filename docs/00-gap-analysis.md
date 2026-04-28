@@ -89,7 +89,7 @@
 
 **Check-Up Inmobiliario (199€)** — Para DECIDIR una compra (pre-firma):
 - Nota Simple del Registro + Certificado Catastral + Consulta de cargas
-- Análisis del CE del vendedor si lo aporta (= Segunda Opinión incorporada)
+- Análisis del certificado energético del vendedor si lo aporta (= Segunda Opinión incorporada)
 - Análisis técnico con datos del formulario + fotos + facturas
 - Detección de reformas no declaradas
 - Estimación de coste energético real
@@ -103,7 +103,7 @@
 - Esto debe quedar explícito en el copy. NO es un servicio de contenido distinto.
 
 **`/por-que-no-emite-ce/` — Router de intención al final:**
-- "Tengo un CE y quiero verificarlo" → `/segunda-opinion/`
+- "Tengo  y quiero verificarlo" → `/segunda-opinion/`
 - "Voy a comprar un piso" → `/check-up-inmobiliario/`
 - "Tengo un piso y quiero mejorarlo" → `/informe-tecnico-energetico/`
 

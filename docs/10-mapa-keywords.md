@@ -370,7 +370,7 @@
 
 | Página origen | Página destino | Texto ancla recomendado | Razón |
 |---------------|----------------|-------------------------|-------|
-| **Home** | Segunda Opinión | "Segunda Opinión CE (39€)" | Servicio martillo, conversión rápida |
+| **Home** | Segunda Opinión | "Segunda Opinión del Certificado Energético (39€)" | Servicio martillo, conversión rápida |
 | **Home** | Check-Up Inmobiliario | "Check-Up Inmobiliario (199€)" | Servicio palanca, alto valor |
 | **Home** | Informe Técnico | "Informe Técnico Energético (399€)" | Servicio premium |
 | **Home** | Diagnóstico Express | "Diagnóstico Express gratuito" | Lead magnet, captación |
@@ -381,7 +381,7 @@
 | **Por qué no emite CE** | Diagnóstico Express | "diagnóstico gratuito sin compromiso" | Router intención: explorar |
 | **Segunda Opinión** | Segunda Opinión Express | "versión urgente en <2h" | Upsell por urgencia |
 | **Segunda Opinión** | Diagnóstico Express | "no estás seguro de qué necesitas" | Downgrade para indecisos |
-| **Check-Up Inmobiliario** | Segunda Opinión | "ya tienes el piso y solo quieres verificar el CE" | Cross-sell |
+| **Check-Up Inmobiliario** | Segunda Opinión | "ya tienes el piso y solo quieres verificar el certificado energético" | Cross-sell |
 | **Check-Up Inmobiliario** | Diagnóstico Express | "explorar antes de decidir" | Lead magnet |
 | **Informe Técnico** | Ayudas Eficiencia | "ayudas disponibles para financiar mejoras" | Contenido relacionado |
 | **Ayudas Eficiencia** | Informe Técnico | "plan técnico previo para solicitar ayudas" | Conversión desde contenido |
@@ -439,7 +439,7 @@ Las keywords geo-localizadas ("segunda opinión certificado energético Barcelon
 - **Título:** "5 señales de que tu certificado energético está inflado (y cómo verificarlo)"
 - **Keyword primaria:** "certificado energético inflado"
 - **Keywords secundarias:** "cómo saber si CE está inflado", "verificar certificado energético"
-- **Objetivo conversión:** Segunda Opinión CE
+- **Objetivo conversión:** Segunda Opinión del Certificado Energético
 - **Urgencia:** Mes 1
 
 **Artículo 3:**

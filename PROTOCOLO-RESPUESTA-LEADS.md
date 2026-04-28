@@ -48,17 +48,17 @@ WhatsApp: +34 608 515 922
 ```
 Hola [Nombre],
 
-Entiendo que tienes un certificado energético pero quieres verificar su contenido. En este caso, te ofrecemos nuestra servicio de segunda opinión certificada.
+Entiendo que tienes un certificado energéticortificado energético pero quieres verificar su contenido. En este caso, te ofrecemos nuestra servicio de segunda opinión certificada.
 
 ¿Qué incluye?
-- Análisis técnico del CE existente
+- Análisis técnico del certificado energético existente
 - Verificación de cálculos y etiqueta
 - Informe con mejoras recomendadas
 - Audio explicativo personalizado
 
 Precio: 149€ (IVA incluido)
 
-Si estás interesado, envíanos el CE actual y te preparamos un análisis detallado.
+Si estás interesado, envíanos el certificado energético actual y te preparamos un análisis detallado.
 
 Un saludo,
 Eva González
@@ -70,10 +70,10 @@ WhatsApp: +34 608 515 922
 ```
 Hola [Nombre],
 
-Gracias por tu consulta. Tras evaluar tu caso, debo ser transparente: no podemos emitir un certificado energético para tu situación concreta por [explicar razón: construcción sin habitabilidad, local comercial, etc.].
+Gracias por tu consulta. Tras evaluar tu caso, debo ser transparente: no podemos emitir un certificado energéticortificado energético para tu situación concreta por [explicar razón: construcción sin habitabilidad, local comercial, etc.].
 
 Sin embargo, te ofrezco alternativas:
-1. Segunda opinión del CE que ya tienes
+1. Segunda opinión del certificado energético que ya tienes
 2. Auditoría energética para mejoras
 3. Asesoría sobre requisitos para poder emitir en el futuro
 
