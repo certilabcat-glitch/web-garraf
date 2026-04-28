@@ -176,7 +176,7 @@ Guion sugerido:
 
 Certilab es diferente porque NO emitimos certificados energéticos oficiales.
 
-¿Por qué? Porque un certificado energéticortificado hecho en 10 minutos sin visitar tu vivienda no te dice nada útil.
+¿Por qué? Porque un certificado energético hecho en 10 minutos sin visitar tu vivienda no te dice nada útil.
 
 Nosotros hacemos análisis técnicos reales: revisamos planos, analizamos facturas, identificamos problemas que otros certificadores no ven.
 
@@ -234,7 +234,7 @@ Dirigido por Eva María González Gracia, Arquitecta Técnica · Colegiada nº 9
 ```
 🎁 SERVICIO GRATUITO: Diagnóstico Express en 24h
 
-¿Tienes un certificado energéticortificado energético y sospechas que está mal hecho?
+¿Tienes un certificado energético y sospechas que está mal hecho?
 
 Te ofrecemos un análisis preliminar GRATIS:
 • Revisión de calificación (¿es coherente con tu vivienda?)
@@ -489,7 +489,7 @@ Lamento que el servicio no cumpliera tus expectativas.
 
 Como indico claramente en la web, Certilab NO emite certificados energéticos oficiales. Nuestro servicio es análisis técnico independiente, no tramitación administrativa.
 
-Si necesitabas un certificado energéticortificado oficial para el notario, debería haberte dirigido a un certificado energéticortificador habilitado desde el principio.
+Si necesitabas un certificado energético oficial para el notario, debería haberte dirigido a un certificado energético habilitado por un técnico desde el principio.
 
 Te he enviado un email privado para ver cómo puedo ayudarte.
 
@@ -648,7 +648,7 @@ Eva
 Google permite añadir preguntas y respuestas proactivamente. Recomendadas:
 
 **P1:** ¿Emitís certificados energéticos oficiales?  
-**R:** No. Certilab es una consultoría independiente que hace análisis técnicos sin emisión oficial. Si necesitas un certificado energéticortificado para el notario, te recomendamos certificadores habilitados. Nuestros servicios son para quien necesita información real, no solo un trámite.
+**R:** No. Certilab es una consultoría independiente que hace análisis técnicos sin emisión oficial. Si necesitas un certificado energético para el notario, te recomendamos certificadores habilitados. Nuestros servicios son para quien necesita información real, no solo un trámite.
 
 **P2:** ¿Cuánto cuesta una segunda opinión?  
 **R:** 39€ (entrega en 48h) o 79€ (entrega en 24h express). Incluye revisión completa del certificado existente, detección de errores y recomendaciones.
@@ -659,8 +659,8 @@ Google permite añadir preguntas y respuestas proactivamente. Recomendadas:
 **P4:** ¿Trabajáis solo en Garraf o en toda España?  
 **R:** Trabajamos en toda España. Nuestra especialización es Garraf/Barcelona, pero el análisis técnico online no tiene límites geográficos.
 
-**P5:** ¿Qué diferencia hay entre vuestro servicio y un certificado energéticortificado energético normal?  
-**R:** un certificado energéticortificado energético es un trámite obligatorio para vender/alquilar. Nuestros servicios son análisis técnicos opcionales para quien quiere información real antes de comprar, vender o mejorar su vivienda.
+**P5:** ¿Qué diferencia hay entre vuestro servicio y un certificado energético normal?  
+**R:** un certificado energético es un trámite obligatorio para vender/alquilar. Nuestros servicios son análisis técnicos opcionales para quien quiere información real antes de comprar, vender o mejorar su vivienda.
 
 ---
 

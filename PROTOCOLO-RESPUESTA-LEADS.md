@@ -48,7 +48,7 @@ WhatsApp: +34 608 515 922
 ```
 Hola [Nombre],
 
-Entiendo que tienes un certificado energéticortificado energético pero quieres verificar su contenido. En este caso, te ofrecemos nuestra servicio de segunda opinión certificada.
+Entiendo que tienes un certificado energético pero quieres verificar su contenido. En este caso, te ofrecemos nuestra servicio de segunda opinión certificada.
 
 ¿Qué incluye?
 - Análisis técnico del certificado energético existente
@@ -70,7 +70,7 @@ WhatsApp: +34 608 515 922
 ```
 Hola [Nombre],
 
-Gracias por tu consulta. Tras evaluar tu caso, debo ser transparente: no podemos emitir un certificado energéticortificado energético para tu situación concreta por [explicar razón: construcción sin habitabilidad, local comercial, etc.].
+Gracias por tu consulta. Tras evaluar tu caso, debo ser transparente: no podemos emitir un certificado energético para tu situación concreta por [explicar razón: construcción sin habitabilidad, local comercial, etc.].
 
 Sin embargo, te ofrezco alternativas:
 1. Segunda opinión del certificado energético que ya tienes
