@@ -284,7 +284,7 @@ fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Ene
                 menu.classList.toggle('is-open');
             });
         })();
-// FAQ accordion (con clone para evitar listeners duplicados)
+        // FAQ accordion (con clone para evitar listeners duplicados)
         document.querySelectorAll('.faq-q').forEach(function(q) {
             var newQ = q.cloneNode(true);
             q.parentNode.replaceChild(newQ, q);
