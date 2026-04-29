@@ -345,14 +345,23 @@
             });
         })();
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                const answer = item.querySelector('.faq-a');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
-                if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+   // FAQ accordion (con clone para evitar listeners duplicados)
+        document.querySelectorAll('.faq-q').forEach(function(q) {
+            var newQ = q.cloneNode(true);
+            q.parentNode.replaceChild(newQ, q);
+            newQ.addEventListener('click', function() {
+                var item = newQ.parentElement;
+                var answer = item.querySelector('.faq-a');
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('open');
+                    var a = i.querySelector('.faq-a');
+                    if (a) a.style.maxHeight = '0';
+                });
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             });
         });
     </script>

@@ -17,18 +17,20 @@
 
     <!-- Meta Pixel -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Energético', value: 39, currency: 'EUR'});
-    </script>
+try {
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1271893388238243');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Energético', value: 39, currency: 'EUR'});
+} catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
+</script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
     /></noscript>
@@ -282,15 +284,23 @@
                 menu.classList.toggle('is-open');
             });
         })();
-
-        // FAQ accordion
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                const answer = item.querySelector('.faq-a');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
-                if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+// FAQ accordion (con clone para evitar listeners duplicados)
+        document.querySelectorAll('.faq-q').forEach(function(q) {
+            var newQ = q.cloneNode(true);
+            q.parentNode.replaceChild(newQ, q);
+            newQ.addEventListener('click', function() {
+                var item = newQ.parentElement;
+                var answer = item.querySelector('.faq-a');
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('open');
+                    var a = i.querySelector('.faq-a');
+                    if (a) a.style.maxHeight = '0';
+                });
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             });
         });
     </script>
