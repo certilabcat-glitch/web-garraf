@@ -1104,3 +1104,114 @@ details a { color: var(--black); text-decoration: underline; }
   margin: 0 auto 1.5rem;
   line-height: 1.7;
 }
+
+/* B7 — Sobre nosotros: prose, manifiesto, personas */
+
+/* Bloque de prosa larga (sección filosofía) */
+.prose-block {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.prose-block p {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--dark);
+  margin: 0 0 1.5rem;
+}
+.prose-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* Manifiesto */
+.manifiesto-list {
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+.manifiesto-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.manifiesto-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.2;
+}
+.manifiesto-item h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+}
+.manifiesto-item p {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--grey);
+  margin: 0;
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .manifiesto-item {
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+  }
+  .manifiesto-num {
+    font-size: 2rem;
+  }
+  .manifiesto-item h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Personas */
+.personas-grid {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+.persona {
+  border-top: 1px solid var(--border);
+  padding-top: 2rem;
+}
+.persona-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 0.25rem;
+}
+.persona-role {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--brown);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.persona-bio {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--grey);
+  margin: 0;
+  line-height: 1.7;
+}
+@media (min-width: 768px) {
+  .personas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
