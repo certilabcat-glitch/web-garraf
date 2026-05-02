@@ -169,26 +169,27 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <header role="banner">
-        <nav class="container nav-bar" aria-label="Navegación principal">
-            <a href="/" class="logo-link" aria-label="Ir al inicio de Certilab">
-                <span class="logo-txt">CERTILAB</span>
-                <span class="tagline">Arquitecta Técnica · CAATEB 9457</span>
+    <header class="nav" role="banner">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
+                <span>CERTILAB</span>
             </a>
-            <div class="nav-links">
-                <div class="nav-dropdown">
-                    <a href="#servicios">Servicios ▾</a>
-                    <div class="nav-dropdown-content">
-                        <a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a>
-                        <a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a>
-                        <a href="/informe-tecnico-energetico/">Informe Técnico</a>
-                        <a href="/formulario/">Diagnóstico Express</a>
-                        <a href="/profesionales/">Para profesionales</a>
-                    </div>
-                </div>
-                <a href="/formulario/" class="nav-cta">Diagnóstico sin compromiso</a>
-            </div>
-        </nav>
+            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" role="list" aria-label="Navegación principal">
+                <li><a href="/#servicios">Servicios</a></li>
+                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+                <li><a href="/calculadoracat/">Calculadora</a></li>
+                <li><a href="/profesionales/">Profesionales</a></li>
+                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+                <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+            </ul>
+        </div>
     </header>
 
     <main id="main-content">
@@ -422,6 +423,18 @@
         function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
         window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
 
+        // Nav toggle
+        (function() {
+            var toggle = document.querySelector('.nav-toggle');
+            var menu = document.querySelector('.nav-menu');
+            if (!toggle || !menu) return;
+            toggle.addEventListener('click', function() {
+                var expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                menu.classList.toggle('is-open');
+            });
+        })();
+
         document.getElementById('proForm').addEventListener('submit', async(e)=>{
             e.preventDefault();
             const btn=e.target.querySelector('button');
@@ -435,14 +448,23 @@
             document.getElementById('success-msg').style.display='block';
         });
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-q').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                const answer = item.querySelector('.faq-a');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = '0'; });
-                if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+        // FAQ accordion (con clone para evitar listeners duplicados)
+        document.querySelectorAll('.faq-q').forEach(function(q) {
+            var newQ = q.cloneNode(true);
+            q.parentNode.replaceChild(newQ, q);
+            newQ.addEventListener('click', function() {
+                var item = newQ.parentElement;
+                var answer = item.querySelector('.faq-a');
+                var wasOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('open');
+                    var a = i.querySelector('.faq-a');
+                    if (a) a.style.maxHeight = '0';
+                });
+                if (!wasOpen) {
+                    item.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
             });
         });
     </script>
