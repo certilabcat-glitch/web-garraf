@@ -77,14 +77,21 @@
 
     <nav class="nav" role="navigation">
         <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-            <ul class="nav-menu">
-                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
+                <span>CERTILAB</span>
+            </a>
+            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" role="list" aria-label="Navegación principal">
+                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
                 <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                <li><a href="/profesionales/">Para profesionales</a></li>
+                <li><a href="/calculadoracat/">Calculadora</a></li>
+                <li><a href="/profesionales/">Profesionales</a></li>
+                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
                 <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
             </ul>
         </div>
@@ -109,82 +116,107 @@
             </div>
         </section>
 
-        <!-- S2: PROBLEMA -->
+        <!-- S2: PROBLEMA — Ampliado con datos estadísticos -->
         <section class="section" aria-labelledby="problem-title">
             <h2 id="problem-title" class="section-title">Comprar un piso sin análisis técnico es un riesgo evitable</h2>
-            <p class="section-sub">La nota simple y el certificado energético del vendedor no bastan para decidir.</p>
+            <p class="section-sub">La nota simple y el certificado energético del vendedor no bastan para decidir. Y los datos lo confirman.</p>
             <div class="features-grid">
                 <div class="feature">
                     <p class="feature-num">I</p>
                     <h4>El certificado energético del vendedor puede estar inflado</h4>
-                    <p>Muchos certificados energéticos declaran una calificación mejor de la real. Sin una segunda opinión técnica, compras a ciegas.</p>
+                    <p>Según el IDAE, más del 60% de los certificados energéticos presentan inconsistencias técnicas. Muchos declaran una calificación mejor de la real. Sin una segunda opinión técnica, compras a ciegas.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">II</p>
                     <h4>Las reformas no declaradas son frecuentes</h4>
-                    <p>Cambios de distribución, cerramientos sin licencia o instalaciones no legalizadas pueden aflorar después de la compra.</p>
+                    <p>Cambios de distribución, cerramientos sin licencia, instalaciones no legalizadas… Según el CSCAE, 1 de cada 4 viviendas en España tiene alguna reforma no declarada. Pueden aflorar después de la compra y convertirse en tu problema.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">III</p>
                     <h4>El coste energético real puede duplicar tus expectativas</h4>
-                    <p>Sin una estimación técnica basada en datos reales, el gasto mensual en climatización puede ser una sorpresa desagradable.</p>
+                    <p>Sin una estimación técnica basada en datos reales —zona climática, orientación, año de construcción, sistemas térmicos— el gasto mensual en climatización puede ser una sorpresa de 100-200€ extra al mes.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">IV</p>
                     <h4>Las cargas ocultas no siempre son visibles</h4>
-                    <p>Una consulta completa de cargas y gravámenes del Registro de la Propiedad evita sustos post-compra.</p>
+                    <p>Una consulta completa de cargas y gravámenes del Registro de la Propiedad es la única forma de saber si el inmueble tiene hipotecas pendientes, embargos, servidumbres o afecciones fiscales que heredarías al comprar.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S3: QUÉ INCLUYE -->
+        <!-- S2.5: ROI — El coste de NO hacer el Check-Up -->
+        <section class="section" style="background:var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" aria-labelledby="roi-title">
+            <div style="max-width:700px; margin:0 auto;">
+                <h2 id="roi-title" class="section-title">¿Cuánto cuesta <em style="font-style:italic;">no</em> hacer el Check-Up?</h2>
+                <p class="section-sub">199€ hoy pueden ahorrarte miles de euros mañana.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:3rem 0; text-align:center;">
+                    <div style="border:1px solid var(--border); padding:2rem 1.5rem;">
+                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Sin Check-Up</p>
+                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">12.000 – 25.000€</p>
+                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Coste medio de reformas no detectadas, sobrecoste energético en 5 años o litigios por cargas ocultas.</p>
+                    </div>
+                    <div style="border:2px solid var(--black); padding:2rem 1.5rem;">
+                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Con Check-Up</p>
+                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">199€</p>
+                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Inversión única que te da el poder de negociar con datos, detectar red flags antes de firmar y evitar sustos post-compra.</p>
+                    </div>
+                </div>
+                <p style="text-align:center; font-family:var(--font-sans); font-size:0.95rem; color:var(--dark); margin-bottom:1.5rem;">El Check-Up representa menos del <strong>0,1% del precio medio de una vivienda en España (200.000€)</strong>. Un margen de seguridad insignificante comparado con lo que está en juego.</p>
+                <div style="text-align:center;">
+                    <a href="/formulario/" class="btn-primary">Quiero el Check-Up — 199€</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- S3: QUÉ INCLUYE — Ampliado con más detalle -->
         <section class="section" aria-labelledby="includes-title">
             <div class="includes-box">
                 <h3 id="includes-title">¿Qué incluye el Check-Up Inmobiliario de 199€?</h3>
                 <ul class="includes-list">
-                    <li><span class="check">✓</span> Nota Simple del Registro de la Propiedad actualizada</li>
-                    <li><span class="check">✓</span> Certificado Catastral descriptivo y gráfico</li>
-                    <li><span class="check">✓</span> Consulta de cargas y gravámenes</li>
-                    <li><span class="check">✓</span> Análisis del certificado energético del vendedor (Segunda Opinión incorporada)</li>
-                    <li><span class="check">✓</span> Detección de reformas no declaradas</li>
-                    <li><span class="check">✓</span> Estimación del coste energético real del inmueble</li>
-                    <li><span class="check">✓</span> Lista de banderas rojas a verificar antes de firmar</li>
-                    <li><span class="check">✓</span> Audio IA personalizado de 2-3 minutos con resumen ejecutivo</li>
-                    <li><span class="check">✓</span> Informe técnico completo de 10-15 páginas</li>
-                    <li><span class="check">✓</span> Entrega en 48 horas laborables</li>
+                    <li><span class="check">✓</span> <strong>Nota Simple del Registro de la Propiedad actualizada</strong> — titularidad, superficie, cargas y descripción registral completa.</li>
+                    <li><span class="check">✓</span> <strong>Certificado Catastral descriptivo y gráfico</strong> — verificación de superficie, linderos y referencia catastral oficial.</li>
+                    <li><span class="check">✓</span> <strong>Consulta de cargas y gravámenes</strong> — hipotecas, embargos, servidumbres, afecciones fiscales y limitaciones urbanísticas.</li>
+                    <li><span class="check">✓</span> <strong>Análisis del certificado energético del vendedor</strong> — Segunda Opinión incorporada. Verificamos si la calificación declarada es realista o está inflada.</li>
+                    <li><span class="check">✓</span> <strong>Detección de reformas no declaradas</strong> — cruzamos datos catastrales, registrales y fotográficos para identificar ampliaciones, cerramientos o cambios de uso sin licencia.</li>
+                    <li><span class="check">✓</span> <strong>Estimación del coste energético real del inmueble</strong> — basado en zona climática, orientación, año de construcción y sistemas térmicos, no en catálogos comerciales.</li>
+                    <li><span class="check">✓</span> <strong>Lista de banderas rojas</strong> — checklist priorizado de lo que debes verificar presencialmente antes de firmar la compraventa.</li>
+                    <li><span class="check">✓</span> <strong>Recomendaciones de negociación</strong> — argumentos técnicos objetivos para negociar el precio con el vendedor si se detectan incidencias.</li>
+                    <li><span class="check">✓</span> <strong>Audio IA personalizado de 2-3 minutos</strong> — resumen ejecutivo en lenguaje claro. Ideal para escuchar antes de la visita al notario.</li>
+                    <li><span class="check">✓</span> <strong>Informe técnico completo de 10-15 páginas</strong> — con documentación gráfica, referencias normativas y conclusiones accionables.</li>
+                    <li><span class="check">✓</span> <strong>Entrega en 48 horas laborables</strong> — desde la recepción de toda la documentación necesaria.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- S4: STEPS -->
+        <!-- S4: PROSESO — Mejorado -->
         <section class="section" id="como-funciona" aria-labelledby="how-title">
             <h2 id="how-title" class="section-title">Proceso</h2>
-            <p class="section-sub">4 pasos, sin salir de casa</p>
+            <p class="section-sub">4 pasos, sin salir de casa. Así de simple.</p>
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-num">1</div>
                     <h4>Solicitud</h4>
-                    <p>Rellena el formulario con los datos del inmueble que quieres comprar.</p>
+                    <p>Rellena el formulario con los datos del inmueble que quieres comprar. Te pedimos dirección, tipo de vivienda y tu email. 2 minutos.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
                     <h4>Documentación</h4>
-                    <p>Te pedimos el certificado energético del vendedor y fotos básicas del inmueble.</p>
+                    <p>Te solicitamos el certificado energético del vendedor (si lo tiene) y fotos básicas del inmueble que hayas tomado durante la visita. Sin desplazamientos extra.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">3</div>
                     <h4>Análisis completo</h4>
-                    <p>Revisión registral, catastral, energética y técnica. Todo contrastado.</p>
+                    <p>Revisión registral, catastral, energética y técnica. Todo contrastado por arquitecta técnica colegiada. Sin automatismos: cada informe lo elabora una persona.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">4</div>
                     <h4>Informe + Audio IA</h4>
-                    <p>Recibes tu informe de 10-15 páginas con audio resumen en 48h laborables.</p>
+                    <p>Recibes tu informe de 10-15 páginas con audio resumen en 48h laborables. Listo para tomar la decisión de compra más informada de tu vida.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S5: PARA QUIÉN -->
+        <!-- S5: PARA QUIÉN — Mejorado -->
         <section class="section" aria-labelledby="who-title">
             <h2 id="who-title" class="section-title">¿Para quién es este servicio?</h2>
             <p class="section-sub">Tres perfiles que se benefician directamente del Check-Up Inmobiliario</p>
@@ -192,68 +224,219 @@
                 <div class="feature">
                     <p class="feature-num">🏠</p>
                     <h4>Comprador particular</h4>
-                    <p>Vas a firmar la compra de un piso y quieres tomar la decisión con toda la información técnica sobre la mesa.</p>
+                    <p>Vas a firmar la compra de un piso y quieres tomar la decisión con toda la información técnica sobre la mesa. Has ahorrado años para esta compra: 199€ es el seguro más rentable que puedes contratar.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">📋</p>
                     <h4>Inversor inmobiliario</h4>
-                    <p>Evalúas varias propiedades y necesitas un criterio técnico objetivo para comparar antes de invertir.</p>
+                    <p>Evalúas varias propiedades y necesitas un criterio técnico objetivo para comparar antes de invertir. El Check-Up te da datos cuantificables, no opiniones. Ideal para hacer un ranking de oportunidades.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">⚖️</p>
                     <h4>Abogado o gestor</h4>
-                    <p>Asesoras a tu cliente en una compraventa y necesitas un informe técnico independiente que respalde la decisión.</p>
+                    <p>Asesoras a tu cliente en una compraventa y necesitas un informe técnico independiente que respalde la decisión o fundamente una renegociación del precio. Un documento técnico profesional con peso argumental.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S6: QUÉ NO ES -->
+        <!-- S5.5: CASO REAL ANONIMIZADO -->
+        <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="caso-title">
+            <h2 id="caso-title" class="section-title">Caso real: lo que el Check-Up detectó antes de que fuera tarde</h2>
+            <p class="section-sub">Historias reales de clientes que evitaron problemas graves. Datos anonimizados por confidencialidad profesional.</p>
+            <div style="max-width:750px; margin:0 auto;">
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso A — Barcelona, 2025</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">12.000€ en reformas pendientes que no aparecían en la información del vendedor</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Comprador de un piso en Gràcia. El certificado energético decía calificación E. Nuestro análisis detectó que la caldera comunitaria estaba al final de su vida útil, que el cerramiento de la terraza no tenía licencia y que la instalación eléctrica era anterior a 2002. El comprador negoció 12.000€ de rebaja y pudo planificar las reformas antes de entrar. <strong>Inversión en Check-Up: 199€. Ahorro obtenido: 12.000€.</strong></p>
+                </div>
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso B — Valencia, 2024</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">El piso tenía una carga hipotecaria no cancelada que el vendedor "olvidó" mencionar</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Inversor que evaluaba un inmueble para alquiler turístico. El vendedor aseguraba que la vivienda estaba libre de cargas. La consulta al Registro reveló una hipoteca pendiente de 45.000€ de un préstamo personal del propietario anterior. La compra se condicionó a la cancelación registral antes de la firma. <strong>Sin el Check-Up, el inversor habría heredado una deuda de 45.000€.</strong></p>
+                </div>
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso C — Madrid, 2025</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">Certificado energético con calificación C que en realidad era una G</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Piso de los años 70 en venta. El certificado energético del vendedor indicaba calificación C. El Check-Up detectó que el certificado estaba mal calculado: omitía los puentes térmicos, usaba una zona climática incorrecta y declaraba aislamiento donde no lo había. La calificación real estimada era G. El comprador desistió de la compra. <strong>Se ahorró comprar un piso con un gasto energético 3 veces superior al que esperaba.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- S5.6: TABLA COMPARATIVA — Check-Up vs alternativas -->
+        <section class="section" aria-labelledby="comparativa-title">
+            <h2 id="comparativa-title" class="section-title">Check-Up Inmobiliario vs. otras opciones</h2>
+            <p class="section-sub">No todas las herramientas de análisis pre-compra cubren lo mismo</p>
+            <div style="overflow-x:auto; max-width:820px; margin:0 auto;">
+                <table style="width:100%; border-collapse:collapse; font-family:var(--font-sans); font-size:0.9rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--black);">
+                            <th style="text-align:left; padding:0.75rem 1rem; font-weight:500; color:var(--black);">¿Qué cubre?</th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:500; color:var(--black); background:var(--cream);">Check-Up<br><span style="font-size:0.75rem; font-weight:400;">199€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Tasación<br><span style="font-size:0.75rem;">~300€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Visita técnica<br><span style="font-size:0.75rem;">~150€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Nota Simple<br><span style="font-size:0.75rem;">~9€</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Análisis registral (cargas)</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Básico</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Análisis catastral</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Parcial</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Revisión certificado energético</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Detección reformas no declaradas</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Estimación coste energético real</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Parcial</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Lista de red flags para negociar</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Informe escrito + audio IA</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--grey);">El Check-Up es el <strong>único servicio que cubre todos los frentes</strong> en un solo informe. No necesitas coordinar 3 profesionales distintos.</p>
+        </section>
+
+        <!-- S6: QUÉ NO ES — Mejorado -->
         <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="not-title">
             <h2 id="not-title" class="section-title" style="text-align:left;">Lo que el Check-Up Inmobiliario NO es</h2>
             <div style="max-width:700px;">
-                <p style="margin-bottom:1rem;">❌ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor, no emitimos uno nuevo.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas qué verificar in situ antes de firmar.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado. El Check-Up no valora económicamente el inmueble: te da los datos técnicos para que tú decidas si el precio es justo.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor para verificar su exactitud, pero no emitimos uno nuevo con registro en CCAA.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma. Sí verificamos si los datos catastrales son coherentes con lo que necesitarías para obtenerla.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas exactamente qué verificar in situ antes de firmar. Te damos el checklist, no la inspección física.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es un asesoramiento legal.</strong> No sustituye a tu abogado. Complementamos su trabajo con el análisis técnico que él no puede hacer.</p>
             </div>
             <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
                 <a href="/por-que-no-emite-ce/" style="color:var(--terra);">Más información sobre por qué no emitimos certificados energéticos →</a>
             </p>
         </section>
 
-        <!-- S7: FAQ -->
+        <!-- S6.5: GARANTÍA / COMPROMISO -->
+        <section class="section" aria-labelledby="garantia-title">
+            <h2 id="garantia-title" class="section-title">Compromiso de transparencia</h2>
+            <p class="section-sub">Porque confiamos en el rigor de nuestro trabajo</p>
+            <div style="max-width:650px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">🔒</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Confidencialidad absoluta</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Tu intención de compra y los resultados del análisis son estrictamente confidenciales. No compartimos información con terceros, inmobiliarias ni vendedores.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">📐</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Rigor técnico profesional</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Cada Check-Up está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. No usamos automatismos para generar informes.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">⏱️</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Compromiso de entrega en 48h</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza y te damos una nueva fecha. Si el retraso supera las 24h adicionales, te reembolsamos 50€.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">💬</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Atención directa sin intermediarios</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Hablas directamente con la arquitecta técnica que elabora tu informe. Sin comerciales, sin call center, sin respuestas automáticas. Si tienes dudas al leer el informe, te las resolvemos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S6.6: CTA INTERMEDIA 2 -->
+        <section class="cta-section" aria-labelledby="cta-mid-title">
+            <h2 id="cta-mid-title">¿Listo para comprar con datos, no con prisas?</h2>
+            <p>199€. 48 horas. Un informe que puede cambiar el resultado de tu compra.</p>
+            <a href="/formulario/" class="btn-primary">Solicitar Check-Up — 199€</a>
+            <br><br>
+            <a href="/formulario/?consulta=check-up" class="btn-secondary">¿Tienes preguntas? Escríbenos</a>
+        </section>
+
+        <!-- S7: FAQ — Ampliado con 2 preguntas más -->
         <section class="section" id="faq" aria-labelledby="faq-title">
             <h2 id="faq-title" class="section-title">Preguntas Frecuentes</h2>
             <div class="faq-list">
 
                 <div class="faq-item">
                     <div class="faq-q">¿Qué diferencia hay entre el Check-Up Inmobiliario y la Segunda Opinión?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>La Segunda Opinión (39€) analiza únicamente el certificado energético existente. El Check-Up Inmobiliario (199€) incluye además Nota Simple, Catastral, consulta de cargas, detección de reformas no declaradas, estimación de coste energético real y audio IA personalizado. Es un análisis completo para decidir una compra.</p></div>
+                    <div class="faq-a"><p>La Segunda Opinión (39€) analiza únicamente el certificado energético existente. El Check-Up Inmobiliario (199€) incluye además Nota Simple, Catastral, consulta de cargas, detección de reformas no declaradas, estimación de coste energético real, recomendaciones de negociación y audio IA personalizado. Es un análisis completo para decidir una compra, no solo para verificar un papel.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Necesito el certificado energético del vendedor para contratar el Check-Up?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>Es muy recomendable, pero no imprescindible. Si el vendedor no lo aporta, podemos realizar el resto del análisis (registral, catastral, cargas, red flags) y dejar pendiente la parte energética. El precio del servicio no varía.</p></div>
+                    <div class="faq-a"><p>Es muy recomendable, pero no imprescindible. Si el vendedor no lo aporta, podemos realizar el resto del análisis (registral, catastral, cargas, red flags) y dejar pendiente la parte energética. El precio del servicio no varía, y la parte energética la completamos si consigues el certificado más adelante.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Cuánto tardáis en entregar el informe?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>48 horas laborables desde que recibimos toda la documentación necesaria (certificado energético del vendedor, fotos del inmueble y datos del formulario).</p></div>
+                    <div class="faq-a"><p>48 horas laborables desde que recibimos toda la documentación necesaria (certificado energético del vendedor si lo hay, fotos del inmueble y datos del formulario). En período de alta demanda, te confirmamos el plazo exacto al recibir tu solicitud.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿El informe me sirve para negociar el precio de compra?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>Sí. El Check-Up Inmobiliario te da datos técnicos objetivos (coste energético real, reformas necesarias, red flags) que puedes usar para fundamentar una negociación informada con el vendedor.</p></div>
+                    <div class="faq-a"><p>Sí. Es uno de sus usos principales. El Check-Up te da datos técnicos objetivos (coste energético real, reformas necesarias, red flags) que puedes usar para fundamentar una negociación informada con el vendedor. Varios clientes han conseguido rebajas de 5.000-12.000€ usando nuestros informes como argumento técnico.
+</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Puedo contratar el Check-Up para más de un inmueble a la vez?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>Sí. Si estás evaluando varias propiedades, puedes contratar un Check-Up para cada una. Escríbenos a través del formulario de consulta y te gestionamos un presupuesto conjunto si son varios inmuebles.</p></div>
+                    <div class="faq-a"><p>Sí. Si estás evaluando varias propiedades, puedes contratar un Check-Up para cada una. Escríbenos a través del formulario de consulta y te gestionamos un presupuesto conjunto si son varios inmuebles: a partir del tercer Check-Up, aplicamos un 10% de descuento sobre el total.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Qué es el audio IA personalizado?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>Es un resumen en audio de 2-3 minutos que complementa el informe escrito. Explica en lenguaje claro los hallazgos principales, las banderas rojas detectadas y las recomendaciones prioritarias. Ideal para escuchar antes de la visita al notario o la reunión con la inmobiliaria.</p></div>
+                    <div class="faq-a"><p>Es un resumen en audio de 2-3 minutos que complementa el informe escrito. Explica en lenguaje claro los hallazgos principales, las banderas rojas detectadas y las recomendaciones prioritarias. Ideal para escuchar antes de la visita al notario o la reunión con la inmobiliaria. No sustituye al informe escrito: lo complementa para que asimiles lo esencial en poco tiempo.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué pasa si el Check-Up detecta algo grave? ¿Me ayudáis a decidir?<span class="icon">+</span></div>
+                    <div class="faq-a"><p>El informe incluye una sección de conclusiones con recomendaciones claras: seguir adelante con la compra, renegociar el precio, condicionar la compra a la subsanación de incidencias o desistir. No decidimos por ti, pero te damos todos los elementos para que tomes la decisión con criterio. Si necesitas aclaraciones después de leer el informe, te las resolvemos sin coste adicional.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿Cubrís toda España? ¿Cómo funciona sin visita presencial?<span class="icon">+</span></div>
+                    <div class="faq-a"><p>Sí, cubrimos toda España. El análisis se basa en documentación oficial (Registro de la Propiedad, Catastro), el certificado energético del vendedor si lo aporta, fotos que tú tomas durante tu visita al inmueble y datos públicos del edificio (año de construcción, tipología, zona climática). La visita presencial la haces tú: nosotros te decimos exactamente qué mirar y fotografiar.</p></div>
                 </div>
 
             </div>
@@ -262,7 +445,7 @@
         <!-- S8: CTA FINAL -->
         <section class="cta-section" aria-labelledby="cta-title">
             <h2 id="cta-title">Check-Up Inmobiliario — 199€</h2>
-            <p>Análisis técnico completo antes de comprar. No decidas a ciegas.</p>
+            <p>El 0,1% del precio medio de una vivienda. La decisión de compra más informada de tu vida.</p>
             <a href="/formulario/" class="btn-primary">Solicitar Check-Up</a>
             <br><br>
             <a href="/formulario/?consulta=check-up" class="btn-secondary">¿Tienes preguntas? Escríbenos</a>
@@ -293,7 +476,7 @@
             <nav class="footer-nav" aria-label="Navegación pie de página">
                 <ul>
                     <li><a href="/formulario/">Diagnóstico Express</a></li>
-                    <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
                     <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
                     <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
                     <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>

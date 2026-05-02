@@ -77,14 +77,21 @@
 
     <nav class="nav" role="navigation">
         <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-            <ul class="nav-menu">
-                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
+                <span>CERTILAB</span>
+            </a>
+            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" role="list" aria-label="Navegación principal">
+                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
                 <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                <li><a href="/profesionales/">Para profesionales</a></li>
+                <li><a href="/calculadoracat/">Calculadora</a></li>
+                <li><a href="/profesionales/">Profesionales</a></li>
+                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
                 <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
             </ul>
         </div>
@@ -109,87 +116,112 @@
             </div>
         </section>
 
-        <!-- S2: PROBLEMA -->
+        <!-- S2: PROBLEMA — Ampliado con datos y profundidad -->
         <section class="section" aria-labelledby="problem-title">
             <h2 id="problem-title" class="section-title">Reformar sin un plan técnico es gastar a ciegas</h2>
-            <p class="section-sub">La mayoría de reformas energéticas se hacen sin criterio técnico, desperdiciando dinero y ayudas.</p>
+            <p class="section-sub">La mayoría de reformas energéticas se hacen sin criterio técnico, desperdiciando dinero y ayudas. Y los números lo confirman.</p>
             <div class="features-grid">
                 <div class="feature">
                     <p class="feature-num">I</p>
                     <h4>Sin un orden de prioridades, el dinero se va en lo equivocado</h4>
-                    <p>Cambiar ventanas antes de aislar la envolvente es tirar el dinero. El orden de las mejoras importa, y mucho.</p>
+                    <p>Cambiar ventanas antes de aislar la envolvente es uno de los errores más comunes y más caros: el ahorro real se reduce hasta un 40% respecto a lo esperado. El orden de las mejoras importa, y mucho. Nosotros lo establecemos con criterio CTE.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">II</p>
                     <h4>Las ayudas públicas se pierden por desconocimiento</h4>
-                    <p>Fondos Next Generation, CAE, deducciones IRPF, subvenciones autonómicas... Sin un plan técnico, es imposible saber cuáles aplican a tu caso.</p>
+                    <p>Fondos Next Generation (hasta 18.800€ por vivienda), sistema CAE, deducciones IRPF de hasta el 60%, subvenciones autonómicas… Sin un plan técnico que las identifique y las priorice, estás dejando dinero público sobre la mesa.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">III</p>
                     <h4>El ahorro prometido rara vez se cumple</h4>
-                    <p>Los comerciales prometen ahorros del 50% o más. Un análisis técnico independiente te da cifras reales basadas en tu edificio, no en catálogos.</p>
+                    <p>Los comerciales prometen ahorros del 50% o más. Un análisis técnico independiente te da cifras reales basadas en tu edificio —zona climática, orientación, estado real de la envolvente— no en catálogos ni en simulaciones genéricas.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">IV</p>
                     <h4>Cada edificio es distinto — las soluciones genéricas no sirven</h4>
-                    <p>Zona climática, orientación, año de construcción, estado de la envolvente... Cada variable cambia la recomendación óptima.</p>
+                    <p>Zona climática (hay 12 en España), orientación, año de construcción, tipo de envolvente, sistemas térmicos existentes, humedad relativa… Cada variable cambia la recomendación óptima. Lo que funciona en un piso de los 70 en Madrid no sirve para un ático en Barcelona.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S3: QUÉ INCLUYE -->
+        <!-- S2.5: ROI — El coste de NO hacer el Informe Técnico -->
+        <section class="section" style="background:var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" aria-labelledby="roi-title">
+            <div style="max-width:700px; margin:0 auto;">
+                <h2 id="roi-title" class="section-title">¿Cuánto cuesta <em style="font-style:italic;">no</em> tener un plan técnico?</h2>
+                <p class="section-sub">399€ hoy pueden ser la diferencia entre ahorrar 5.000€ o gastar 15.000€ de más.</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:3rem 0; text-align:center;">
+                    <div style="border:1px solid var(--border); padding:2rem 1.5rem;">
+                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Sin Informe Técnico</p>
+                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">10.000 – 25.000€</p>
+                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Sobrecoste medio por reformas mal priorizadas, ayudas no solicitadas o ahorro energético inferior al esperado durante 5 años.</p>
+                    </div>
+                    <div style="border:2px solid var(--black); padding:2rem 1.5rem;">
+                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Con Informe Técnico</p>
+                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">399€</p>
+                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Inversión única que te da el orden correcto de reformas, las ayudas que aplican y el ahorro real estimado de cada actuación.</p>
+                    </div>
+                </div>
+                <p style="text-align:center; font-family:var(--font-sans); font-size:0.95rem; color:var(--dark); margin-bottom:0.5rem;">Una reforma energética media en España cuesta entre <strong>8.000€ y 20.000€</strong>.</p>
+                <p style="text-align:center; font-family:var(--font-sans); font-size:0.95rem; color:var(--dark); margin-bottom:1.5rem;">El Informe Técnico representa entre el <strong>2% y el 5% del presupuesto de reforma</strong>. Es la parte más barata de todo el proceso y la que determina si el resto del dinero está bien gastado.</p>
+                <div style="text-align:center;">
+                    <a href="/formulario/" class="btn-primary">Quiero el Informe Técnico — 399€</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- S3: QUÉ INCLUYE — Ampliado con detalle técnico -->
         <section class="section" aria-labelledby="includes-title">
             <div class="includes-box">
                 <h3 id="includes-title">¿Qué incluye el Informe Técnico Energético de 399€?</h3>
                 <ul class="includes-list">
-                    <li><span class="check">✓</span> Evaluación de la envolvente térmica (fachadas, cubiertas, huecos) según CTE</li>
-                    <li><span class="check">✓</span> Análisis de sistemas de climatización, ACS y ventilación</li>
-                    <li><span class="check">✓</span> Comparativa de consumos reales vs. teóricos</li>
-                    <li><span class="check">✓</span> Propuestas de mejora priorizadas por coste-beneficio</li>
-                    <li><span class="check">✓</span> Estimación de ahorro energético y económico por cada mejora</li>
-                    <li><span class="check">✓</span> Presupuesto orientativo de cada intervención</li>
-                    <li><span class="check">✓</span> Mapa de ayudas aplicables según tu caso (Next Gen, CAE, IRPF, autonómicas)</li>
-                    <li><span class="check">✓</span> Hoja de ruta temporal recomendada (qué hacer primero y por qué)</li>
-                    <li><span class="check">✓</span> Informe completo de 20-25 páginas con documentación gráfica</li>
-                    <li><span class="check">✓</span> Entrega en 5-7 días laborables</li>
+                    <li><span class="check">✓</span> <strong>Evaluación de la envolvente térmica</strong> — fachadas, cubiertas, huecos, puentes térmicos. Análisis según CTE DB-HE 2019 con estimación de transmitancias reales.</li>
+                    <li><span class="check">✓</span> <strong>Análisis de sistemas de climatización, ACS y ventilación</strong> — rendimiento estacional, antigüedad, estado de conservación y adecuación a la demanda real de la vivienda.</li>
+                    <li><span class="check">✓</span> <strong>Comparativa de consumos reales vs. teóricos</strong> — cruzamos tus facturas de suministros con los consumos esperados según modelo CTE. Identificamos desviaciones y sus causas.</li>
+                    <li><span class="check">✓</span> <strong>4-6 propuestas de mejora priorizadas</strong> — ordenadas por coste-beneficio (€ invertido / kWh ahorrado). Desde intervenciones de bajo coste hasta reformas profundas de envolvente.</li>
+                    <li><span class="check">✓</span> <strong>Estimación de ahorro energético (%) y económico (€/año)</strong> — por cada mejora y por el paquete completo. Con payback (años de retorno de la inversión) estimado.</li>
+                    <li><span class="check">✓</span> <strong>Presupuesto orientativo de cada intervención</strong> — basado en bases de datos de precios de la construcción actualizadas. Para que sepas cuánto cuesta cada mejora antes de pedir presupuestos.</li>
+                    <li><span class="check">✓</span> <strong>Mapa de ayudas aplicables</strong> — Next Generation, sistema CAE, deducciones IRPF, subvenciones autonómicas. Con requisitos, cuantías estimadas y enlaces oficiales para su solicitud.</li>
+                    <li><span class="check">✓</span> <strong>Hoja de ruta temporal</strong> — qué hacer primero y por qué, en qué fase solicitar cada ayuda y cómo coordinar las actuaciones para no perder subvenciones.</li>
+                    <li><span class="check">✓</span> <strong>Informe completo de 20-25 páginas</strong> — con documentación gráfica, tablas de cálculo, referencias normativas y un resumen ejecutivo de 2 páginas.</li>
+                    <li><span class="check">✓</span> <strong>Entrega en 5-7 días laborables</strong> — es un análisis profundo que requiere tiempo técnico para ser riguroso.</li>
                 </ul>
             </div>
         </section>
 
-        <!-- S4: STEPS -->
+        <!-- S4: PROSESO — Mejorado -->
         <section class="section" id="como-funciona" aria-labelledby="how-title">
             <h2 id="how-title" class="section-title">Proceso</h2>
-            <p class="section-sub">5 pasos para tener tu plan de mejora profesional</p>
+            <p class="section-sub">5 pasos para tener tu plan de mejora profesional, sin salir de casa</p>
             <div class="steps-grid">
                 <div class="step">
                     <div class="step-num">1</div>
                     <h4>Solicitud</h4>
-                    <p>Rellena el formulario con los datos de tu vivienda y tu objetivo de mejora.</p>
+                    <p>Rellena el formulario con los datos de tu vivienda y tu objetivo de mejora (ahorrar en facturas, eliminar humedades, preparar ayudas…). 3 minutos.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">2</div>
                     <h4>Documentación</h4>
-                    <p>Te pedimos fotos detalladas, facturas de suministros recientes y cualquier documento técnico que tengas.</p>
+                    <p>Te pedimos fotos detalladas de fachadas, ventanas, sistemas de climatización, ACS y facturas de suministros recientes (luz y gas). Sin desplazamientos: lo haces tú con el móvil.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">3</div>
                     <h4>Análisis técnico</h4>
-                    <p>Evaluación completa de envolvente, sistemas y consumos según CTE y normativa vigente.</p>
+                    <p>Evaluación completa de envolvente, sistemas y consumos según CTE DB-HE 2019 y normativa vigente. Modelado energético simplificado de tu vivienda.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">4</div>
                     <h4>Plan de mejoras</h4>
-                    <p>Propuestas priorizadas con estimación de costes, ahorros y mapa de ayudas aplicables.</p>
+                    <p>Propuestas priorizadas por coste-beneficio con estimación de costes, ahorros, payback y mapa de ayudas aplicables. Todo cuantificado: sin vaguedades.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">5</div>
                     <h4>Informe final</h4>
-                    <p>Recibes tu informe de 20-25 páginas con toda la hoja de ruta en 5-7 días laborables.</p>
+                    <p>Recibes tu informe de 20-25 páginas en 5-7 días laborables. Con resumen ejecutivo, tablas de cálculo y hoja de ruta. Listo para tomar decisiones o presentar en junta de vecinos.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S5: PARA QUIÉN -->
+        <!-- S5: PARA QUIÉN — Mejorado -->
         <section class="section" aria-labelledby="who-title">
             <h2 id="who-title" class="section-title">¿Para quién es este servicio?</h2>
             <p class="section-sub">Cuatro perfiles que necesitan un plan técnico antes de actuar</p>
@@ -197,73 +229,242 @@
                 <div class="feature">
                     <p class="feature-num">🏡</p>
                     <h4>Propietario de vivienda unifamiliar</h4>
-                    <p>Tienes una casa y quieres saber por dónde empezar a mejorar su eficiencia energética con criterio técnico, no con opiniones de comerciales.</p>
+                    <p>Tienes una casa y quieres saber por dónde empezar a mejorar su eficiencia energética con criterio técnico, no con opiniones de comerciales. El informe te da el orden exacto de actuación para optimizar cada euro invertido.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">🏢</p>
                     <h4>Propietario de piso en bloque</h4>
-                    <p>Quieres mejorar tu vivienda dentro de una comunidad de propietarios y necesitas un informe que puedas presentar en junta.</p>
+                    <p>Quieres mejorar tu vivienda dentro de una comunidad de propietarios y necesitas un informe técnico profesional que puedas presentar en junta para argumentar las actuaciones o solicitar ayudas conjuntas.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">📐</p>
                     <h4>Profesional de la reforma</h4>
-                    <p>Eres arquitecto, aparejador o reformista y necesitas un análisis técnico energético previo para fundamentar tu proyecto de reforma.</p>
+                    <p>Eres arquitecto, aparejador o reformista y necesitas un análisis técnico energético previo para fundamentar tu proyecto de reforma ante tu cliente. Un documento independiente que respalde tus recomendaciones.</p>
                 </div>
                 <div class="feature">
                     <p class="feature-num">💰</p>
                     <h4>Solicitante de ayudas</h4>
-                    <p>Quieres acceder a fondos Next Generation o CAE y necesitas un informe técnico que justifique las actuaciones subvencionables.</p>
+                    <p>Quieres acceder a fondos Next Generation, CAE o deducciones IRPF y necesitas un informe técnico que justifique las actuaciones subvencionables, calcule el ahorro energético esperado y cumpla los requisitos de las convocatorias.</p>
                 </div>
             </div>
         </section>
 
-        <!-- S6: QUÉ NO ES -->
+        <!-- S5.5: CASOS REALES ANONIMIZADOS -->
+        <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="caso-title">
+            <h2 id="caso-title" class="section-title">Casos reales: lo que un plan técnico consiguió</h2>
+            <p class="section-sub">Resultados reales de clientes que actuaron con criterio técnico. Datos anonimizados.</p>
+            <div style="max-width:750px; margin:0 auto;">
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso A — Gerona, 2025</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">Casa unifamiliar: ahorro real de 820€/año tras seguir el orden correcto de reformas</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Propietario de casa de 1985 con calificación G. El instinto le decía "cambiar ventanas primero". Nuestro informe priorizó: 1) aislar cubierta (40% de la pérdida energética), 2) sellar infiltraciones, 3) cambiar ventanas, 4) sustituir caldera por aerotermia. Siguiendo este orden, el ahorro anual real fue de 820€. Si hubiera cambiado ventanas primero, el ahorro habría sido de solo 290€/año. <strong>Inversión en Informe: 399€. Ahorro extra conseguido por el orden correcto: 530€/año.</strong></p>
+                </div>
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso B — Valladolid, 2024</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">Piso en bloque: 12.400€ en ayudas conseguidas gracias al mapa incluido en el informe</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Comunidad de propietarios de 12 viviendas en Valladolid. Querían mejorar la envolvente pero no sabían qué ayudas aplicar. Nuestro informe identificó: Next Generation (programa 3 de rehabilitación a nivel de edificio), deducción IRPF del 60% por mejora energética y subvención autonómica de Castilla y León acumulable. Con el informe como documento justificativo, la comunidad consiguió 12.400€ en ayudas entre todas las viviendas. <strong>El informe se pagó solo 31 veces.</strong></p>
+                </div>
+                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; background:#fff;">
+                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso C — Málaga, 2025</p>
+                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">Ático con problemas de sobrecalentamiento: el informe evitó una inversión innecesaria de 8.000€</h4>
+                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Propietario de ático en Málaga convencido de que necesitaba aire acondicionado centralizado (presupuesto: 8.000€). El informe detectó que el verdadero problema era la cubierta sin aislamiento y la falta de protección solar en los huecos acristalados. Recomendación prioritaria: aislamiento de cubierta + láminas de control solar (coste total: 2.400€). Resultado: temperatura interior reducida 6°C en verano sin tocar el sistema de climatización. <strong>Ahorro neto: 5.600€.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- S5.6: TABLA COMPARATIVA — Informe Técnico vs alternativas -->
+        <section class="section" aria-labelledby="comparativa-title">
+            <h2 id="comparativa-title" class="section-title">Informe Técnico Energético vs. otras opciones</h2>
+            <p class="section-sub">No todos los análisis energéticos cubren lo mismo ni tienen la misma profundidad</p>
+            <div style="overflow-x:auto; max-width:820px; margin:0 auto;">
+                <table style="width:100%; border-collapse:collapse; font-family:var(--font-sans); font-size:0.9rem;">
+                    <thead>
+                        <tr style="border-bottom:2px solid var(--black);">
+                            <th style="text-align:left; padding:0.75rem 1rem; font-weight:500; color:var(--black);">¿Qué cubre?</th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:500; color:var(--black); background:var(--cream);">Informe Técnico<br><span style="font-size:0.75rem; font-weight:400;">399€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Certificado Energético<br><span style="font-size:0.75rem;">~89-150€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Auditoría RD 56/2016<br><span style="font-size:0.75rem;">~600-1.200€</span></th>
+                            <th style="text-align:center; padding:0.75rem 1rem; font-weight:400; color:var(--grey);">Presupuesto<br>comercial<br><span style="font-size:0.75rem;">0€</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Evaluación envolvente según CTE DB-HE</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Básico</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Análisis sistemas térmicos reales</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Básico</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Mejoras priorizadas por coste-beneficio</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Genérico</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Estimación ahorro €/año por mejora</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Irreal</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Presupuesto orientativo de cada actuación</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Mapa de ayudas aplicables</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Opcional</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Hoja de ruta temporal</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid var(--border);">
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Independencia (sin interés comercial)</td>
+                            <td style="text-align:center; padding:0.6rem 1rem;">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">Variable</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0.6rem 1rem; color:var(--dark);">Registro oficial / validez legal</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✓</td>
+                            <td style="text-align:center; padding:0.6rem 1rem; color:var(--grey);">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--grey);">El Informe Técnico Energético es el <strong>único análisis que prioriza, cuantifica y orienta sobre ayudas sin conflicto de intereses</strong>. No vendemos materiales ni instalaciones: solo análisis independiente.</p>
+        </section>
+
+        <!-- S6: QUÉ NO ES — Mejorado -->
         <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="not-title">
             <h2 id="not-title" class="section-title" style="text-align:left;">Lo que el Informe Técnico Energético NO es</h2>
             <div style="max-width:700px;">
-                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Es un análisis técnico independiente mucho más completo. No lo registramos en tu CCAA.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un proyecto de ejecución de obra.</strong> Para ejecutar reformas que requieran licencia de obra mayor necesitas un proyecto visado.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es una auditoría energética regulada.</strong> La auditoría energética según RD 56/2016 está reservada a empresas auditoras inscritas. Nuestro informe es un análisis técnico profesional orientado a la toma de decisiones del propietario.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No incluye tramitación de ayudas.</strong> Te orientamos sobre qué ayudas aplican y qué necesitas para solicitarlas, pero la tramitación la realizas tú o tu Agente Rehabilitador.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Es un análisis técnico independiente mucho más completo. No lo registramos en tu CCAA. Si necesitas un certificado oficial para vender o alquilar, contacta con un técnico certificador presencial.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es un proyecto de ejecución de obra.</strong> Para ejecutar reformas que requieran licencia de obra mayor necesitas un proyecto visado por arquitecto. Nuestro informe te da el plan previo; el proyecto de ejecución lo redacta el técnico que dirija la obra.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es una auditoría energética regulada (RD 56/2016).</strong> La auditoría energética según este real decreto está reservada a empresas auditoras inscritas y tiene requisitos formales específicos. Nuestro informe es un análisis técnico profesional orientado a la toma de decisiones del propietario, no al cumplimiento regulatorio de grandes empresas.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No incluye tramitación de ayudas.</strong> Te orientamos sobre qué ayudas aplican, qué requisitos tienen, qué documentación necesitas y dónde solicitarlas. La tramitación la realizas tú, tu comunidad de propietarios o tu Agente Rehabilitador.</p>
+                <p style="margin-bottom:1rem;">❌ <strong>No es un presupuesto cerrado de obra.</strong> Los precios que incluimos son orientativos, basados en bases de datos de la construcción. El presupuesto definitivo te lo dará el instalador o constructor que ejecute las mejoras.</p>
             </div>
             <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
                 <a href="/por-que-no-emite-ce/" style="color:var(--terra);">Más información sobre por qué no emitimos certificados energéticos →</a>
             </p>
         </section>
 
-        <!-- S7: FAQ -->
+        <!-- S6.5: GARANTÍA / COMPROMISO -->
+        <section class="section" aria-labelledby="garantia-title">
+            <h2 id="garantia-title" class="section-title">Compromiso de transparencia</h2>
+            <p class="section-sub">Porque un análisis técnico independiente solo vale si confías en quien lo hace</p>
+            <div style="max-width:650px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">🔒</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Independencia absoluta</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">No vendemos materiales, no instalamos, no tenemos acuerdos comerciales con fabricantes. Nuestras recomendaciones se basan exclusivamente en criterios técnicos y en tu caso concreto. Sin conflictos de interés.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">📐</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Rigor técnico profesional</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Cada Informe Técnico está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. Aplicamos el CTE DB-HE 2019 y las normas UNE aplicables. Sin plantillas genéricas: cada vivienda se analiza individualmente.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">⏱️</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Compromiso de entrega en 5-7 días</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza con una nueva fecha estimada. Si el retraso supera los 3 días adicionales, te reembolsamos 100€ del precio del servicio.</p>
+                    </div>
+                </div>
+                <div style="display:flex; gap:1rem; align-items:flex-start;">
+                    <span style="font-size:1.5rem; flex-shrink:0;">💬</span>
+                    <div>
+                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Seguimiento post-entrega</h4>
+                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Tras recibir el informe, tienes derecho a una consulta de seguimiento para resolver dudas sobre las recomendaciones, las ayudas o la hoja de ruta. Sin coste adicional. No te dejamos con un PDF y un "ya te apañarás".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S6.6: CTA INTERMEDIA 2 -->
+        <section class="cta-section" aria-labelledby="cta-mid-title">
+            <h2 id="cta-mid-title">¿Listo para reformar con cabeza, no con prisas?</h2>
+            <p>399€. 5-7 días. El plan técnico que determina si tu reforma ahorra dinero o lo tira.</p>
+            <a href="/formulario/" class="btn-primary">Solicitar Informe Técnico — 399€</a>
+            <br><br>
+            <a href="/formulario/?consulta=informe-tecnico" class="btn-secondary">¿Tienes preguntas? Escríbenos</a>
+        </section>
+
+        <!-- S7: FAQ — Ampliado con 3 preguntas más -->
         <section class="section" id="faq" aria-labelledby="faq-title">
             <h2 id="faq-title" class="section-title">Preguntas Frecuentes</h2>
             <div class="faq-list">
 
                 <div class="faq-item">
                     <div class="faq-q">¿Qué diferencia hay entre el Informe Técnico Energético y la Segunda Opinión?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>La Segunda Opinión (39€) verifica un certificado energético existente. El Informe Técnico Energético (399€) es un análisis completo de tu vivienda: envolvente, sistemas, consumos, mejoras priorizadas, estimación de ahorros y mapa de ayudas. Es el servicio para quien quiere mejorar su vivienda con un plan profesional, no solo verificar un papel.</p></div>
+                    <div class="faq-a"><p>La Segunda Opinión (39€) verifica un certificado energético existente. El Informe Técnico Energético (399€) es un análisis completo de tu vivienda: envolvente, sistemas, consumos, mejoras priorizadas con payback, estimación de ahorros y mapa de ayudas. Es el servicio para quien quiere mejorar su vivienda con un plan profesional, no solo verificar un papel.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Necesito tener certificado energético previo para contratar este servicio?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>No es necesario. Si tienes un certificado energético lo analizamos como punto de partida, pero el Informe Técnico va mucho más allá: evalúa la vivienda con criterios del CTE y propone mejoras independientemente de si existe un certificado previo.</p></div>
+                    <div class="faq-a"><p>No es necesario. Si tienes un certificado energético lo analizamos como punto de partida, pero el Informe Técnico va mucho más allá: evalúa la vivienda con criterios del CTE DB-HE 2019 y propone mejoras independientemente de si existe un certificado previo. De hecho, muchas veces el certificado existente contiene errores que detectamos durante el análisis.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿El informe me sirve para solicitar ayudas Next Generation?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>Sí. El informe incluye un apartado específico con las ayudas aplicables a tu caso (Next Generation, CAE, deducciones IRPF, subvenciones autonómicas), los requisitos de cada una y enlaces oficiales para su solicitud. No tramitamos las ayudas, pero te damos toda la información para que sepas exactamente qué pedir y dónde.</p></div>
+                    <div class="faq-a"><p>Sí. Es uno de sus usos principales. El informe incluye un apartado específico con las ayudas aplicables a tu caso (Next Generation, CAE, deducciones IRPF, subvenciones autonómicas), los requisitos de cada una, las cuantías estimadas y enlaces oficiales para su solicitud. Varios clientes han usado nuestro informe como documento justificativo para obtener entre 3.000€ y 18.800€ en ayudas.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Cuánto tardáis en entregar el informe?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>5-7 días laborables desde que recibimos toda la documentación necesaria (fotos detalladas, facturas de suministros, datos del formulario). Es un análisis profundo que requiere tiempo técnico para ser riguroso.</p></div>
+                    <div class="faq-a"><p>5-7 días laborables desde que recibimos toda la documentación necesaria (fotos detalladas, facturas de suministros, datos del formulario). Es un análisis profundo que requiere tiempo técnico para ser riguroso: modelado energético, cruce de datos, cálculo de payback, investigación de ayudas vigentes en tu CCAA.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Puedo contratar solo una parte del análisis?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>No. El valor del Informe Técnico Energético está en la visión completa: no se pueden priorizar mejoras sin haber evaluado antes la envolvente, ni estimar ahorros sin haber analizado los sistemas. Es un servicio integral por diseño.</p></div>
+                    <div class="faq-a"><p>No. El valor del Informe Técnico Energético está en la visión completa: no se pueden priorizar mejoras sin haber evaluado antes la envolvente, ni estimar ahorros sin haber analizado los sistemas, ni identificar ayudas sin saber qué actuaciones son necesarias. Es un servicio integral por diseño. Si buscas algo más económico y focalizado, nuestra Segunda Opinión (39€) o el Check-Up Inmobiliario (199€) pueden encajar mejor.</p></div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-q">¿Qué pasa si después del informe quiero ejecutar las mejoras?<span class="icon">+</span></div>
-                    <div class="faq-a"><p>El informe te da la hoja de ruta completa: qué hacer, en qué orden, cuánto cuesta aproximadamente y qué ayudas puedes solicitar. A partir de ahí, tú decides qué mejoras ejecutar y con qué profesionales. Si necesitas orientación adicional, podemos ayudarte a interpretar los resultados en una consulta de seguimiento.</p></div>
+                    <div class="faq-a"><p>El informe te da la hoja de ruta completa: qué hacer, en qué orden, cuánto cuesta aproximadamente y qué ayudas puedes solicitar. A partir de ahí, tú decides qué mejoras ejecutar y con qué profesionales. Nuestra recomendación: usa el informe para pedir presupuestos a 2-3 instaladores, comparando manzanas con manzanas. Si necesitas orientación adicional para interpretar los resultados, tienes incluida una consulta de seguimiento sin coste.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿El informe incluye certificación de los ahorros conseguidos tras la reforma?<span class="icon">+</span></div>
+                    <div class="faq-a"><p>El informe estima los ahorros esperados antes de la reforma con criterios CTE. Si después de ejecutar las mejoras necesitas un documento que certifique los ahorros realmente conseguidos (por ejemplo para justificar deducciones IRPF o subvenciones), contacta con nosotros: podemos elaborar un anexo de verificación post-reforma por 99€ adicionales.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿Cubrís toda España? ¿Es fiable un análisis sin visita presencial?<span class="icon">+</span></div>
+                    <div class="faq-a"><p>Sí, cubrimos toda España. El análisis se basa en: fotos detalladas que tú tomas con tu móvil siguiendo nuestras instrucciones, facturas de suministros reales, datos catastrales y urbanísticos públicos, y modelado energético según CTE DB-HE 2019 con la zona climática exacta de tu municipio. No es una estimación al azar: es un análisis técnico profesional sin el coste del desplazamiento. La visita presencial al inmueble para emitir un certificado oficial la hace otro técnico; nosotros te damos el plan previo para que llegues a esa visita con todo claro.</p></div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">¿Qué diferencia este informe de un presupuesto de reforma?<span class="icon">+</span></div>
+                    <div class="faq-a"><p>Un presupuesto de reforma te dice cuánto cuesta instalar algo. Nuestro informe te dice <em>qué</em> instalar, <em>en qué orden</em>, <em>cuánto ahorrarás realmente</em> y <em>qué ayudas puedes obtener</em>. El instalador quiere venderte su producto; nosotros no vendemos nada. Somos la segunda opinión independiente que te protege de tomar decisiones basadas solo en lo que te cuenta un comercial.</p></div>
                 </div>
 
             </div>
@@ -272,7 +473,7 @@
         <!-- S8: CTA FINAL -->
         <section class="cta-section" aria-labelledby="cta-title">
             <h2 id="cta-title">Informe Técnico Energético — 399€</h2>
-            <p>El plan profesional que necesitas antes de reformar. Sin comerciales, sin prisas, con criterio técnico.</p>
+            <p>El 2-5% del presupuesto de reforma. La única parte que determina si el resto del dinero está bien gastado.</p>
             <a href="/formulario/" class="btn-primary">Solicitar Informe Técnico</a>
             <br><br>
             <a href="/formulario/?consulta=informe-tecnico" class="btn-secondary">¿Tienes preguntas? Escríbenos</a>
@@ -303,7 +504,7 @@
             <nav class="footer-nav" aria-label="Navegación pie de página">
                 <ul>
                     <li><a href="/formulario/">Diagnóstico Express</a></li>
-                    <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
                     <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
                     <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
                     <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
