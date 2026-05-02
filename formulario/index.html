@@ -110,28 +110,20 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <header role="banner">
-        <nav class="container nav-bar" aria-label="Navegación principal">
-            <a href="/" class="logo-link" aria-label="Ir al inicio de Certilab">
-                <span class="logo-txt">CERTILAB</span>
-                <span class="tagline">Arquitecta Técnica · CAATEB 9457</span>
-            </a>
-            <div class="nav-links">
-                <div class="nav-dropdown">
-                    <a href="#servicios">Servicios ▾</a>
-                    <div class="nav-dropdown-content">
-                        <a href="/certificado-energetico/">Certificado Energético</a>
-                        <a href="/auditoria-energetica-online/">Auditoría Energética</a>
-                        <a href="/certificadoenergeticoinflado/">Verificar CE inflado</a>
-                        <a href="/calculadoracat/">Calculadora ahorro</a>
-                        <a href="/precio-certificado-energetico/">Ver precios</a>
-                        <a href="/profesionales/">Para profesionales</a>
-                    </div>
-                </div>
-                <a href="/formulario/" class="nav-cta">Diagnóstico sin compromiso</a>
-            </div>
-        </nav>
-    </header>
+    <nav class="nav" role="navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
+            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+            <ul class="nav-menu">
+                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
+                <li><a href="/profesionales/">Para profesionales</a></li>
+                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <main id="main-content">
         <div class="container">
@@ -262,7 +254,7 @@
                         </div>
 
                         <div class="form-legal">
-                            <p><strong>Responsable:</strong> Eva Maria Gonzalez Gracia (Arq. Técnica Colegiada CAATEB nº 9457) - Certilab.<br>
+                            <p><strong>Responsable:</strong> Eva María González Gracia (Arq. Técnica Colegiada CAATEB nº 9457) - Certilab.<br>
                             <strong>Finalidad:</strong> Análisis de pre-viabilidad energética y envío de propuestas técnicas.</p>
                         </div>
 
@@ -272,13 +264,13 @@
                     </form>
                     
                     <div id="success-message" class="success-message">
-                        ✅ ¡Datos recibidos con éxito! Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.
+                        Datos recibidos con éxito. Nuestro equipo técnico preparará su estudio y contactaremos con usted en breve.
                     </div>
                 </div>
 
                 <div class="form-sidebar">
                     <div class="form-notice">
-                        <p>🔒 Servicio en remoto. Rigor técnico. Privacidad absoluta.</p>
+                        <p>Servicio en remoto. Rigor técnico. Privacidad absoluta.</p>
                     </div>
                     
                     <h3>¿Qué incluye tu diagnóstico?</h3>
@@ -301,21 +293,48 @@
         </div>
     </main>
 
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-logo">CERTILAB</div>
-            <nav class="footer-links" aria-label="Enlaces legales">
-                <a href="/legal.html">Aviso Legal</a>
-                <a href="/privacidad.html">Privacidad</a>
-                <a href="/cookies.html">Cookies</a>
-                <a href="/profesionales/">Profesionales</a>
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p>Consultoría energética técnica e independiente.<br>
+                Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+            </div>
+            <nav class="footer-nav" aria-label="Navegación pie de página">
+                <ul>
+                    <li><a href="/formulario/">Diagnóstico Express</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+                    <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
+                    <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
+                    <li><a href="/profesionales/">Para profesionales</a></li>
+                    <li><a href="/por-que-no-emite-ce/">Por qué no emitimos certificados</a></li>
+                    <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+                </ul>
             </nav>
-            <p class="footer-legal">Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb<br>Seguro RC Profesional · Servicio 100% online para toda España</p>
-            <p class="footer-copy">© 2026 CERTILAB · Todos los derechos reservados</p>
+            <nav class="footer-legal" aria-label="Páginas legales">
+                <ul>
+                    <li><a href="/privacidad.html">Privacidad</a></li>
+                    <li><a href="/cookies.html">Cookies</a></li>
+                    <li><a href="/legal.html">Aviso legal</a></li>
+                </ul>
+            </nav>
         </div>
+        <p class="footer-copy">© 2026 Certilab · Todos los derechos reservados</p>
     </footer>
 
     <script>
+        (function() {
+            var toggle = document.querySelector('.nav-toggle');
+            var menu = document.querySelector('.nav-menu');
+            if (!toggle || !menu) return;
+            toggle.addEventListener('click', function() {
+                var expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                menu.classList.toggle('is-open');
+            });
+        })();
+
         function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
         window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
 
@@ -338,7 +357,7 @@
             const cpRegex = /^[0-5][0-9]{4}$/;
             
             if (!cpRegex.test(cpValue)) {
-                alert("⚠️ Por favor, introduce un código postal español válido (5 dígitos).");
+                alert("Por favor, introduce un código postal español válido (5 dígitos).");
                 return;
             }
 
