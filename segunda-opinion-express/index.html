@@ -17,17 +17,18 @@
 
     <!-- Meta Pixel -->
     <script>
+    try {
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n. versión='2.0';
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243'); 
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Segunda Opinión Express', value: 79, currency: 'EUR'});
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
+    try { fbq('track', 'ViewContent', {content_name: 'Segunda Opinión Express', value: 79, currency: 'EUR'}); } catch(e) {}
+    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
@@ -67,10 +68,10 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <header class="nav" role="banner">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-inner">
             <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>CERTILAB</span>
+                <span>Certilab</span>
             </a>
             <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
                 <span></span>
@@ -81,14 +82,14 @@
                 <li><a href="/#servicios">Servicios</a></li>
                 <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
                 <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-                <li><a href="/informe-técnico-energético/">Informe Técnico</a></li>
+                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
                 <li><a href="/calculadoracat/">Calculadora</a></li>
                 <li><a href="/profesionales/">Profesionales</a></li>
                 <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
                 <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
             </ul>
         </div>
-    </header>
+    </nav>
 
     <main id="main-content">
 
@@ -323,8 +324,8 @@
                     <li><a href="/formulario/">Diagnostico Express</a></li>
                     <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
                     <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-                    <li><a href="/informe-técnico-energético/">Informe Técnico</a></li>
-                    <li><a href="/ayudas-eficiencia-energética/">Ayudas energeticias</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+                    <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
                     <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
                     <li><a href="/profesionales/">Para profesionales</a></li>
                     <li><a href="/por-que-no-emite-ce/">Por qué no emitimos certificados</a></li>
@@ -340,7 +341,7 @@
             </nav>
         </div>
         <p class="footer-copy">
-            © 2025 Certilab · Todos los derechos reservados ·
+            © 2026 Certilab · Todos los derechos reservados ·
             <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
         </p>
     </footer>
