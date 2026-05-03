@@ -32,8 +32,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243');
-    fbq('track', 'PageView');
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
     fbq('track', 'ViewContent', {content_name: 'Check-Up Inmobiliario', value: 199, currency: 'EUR'});
     } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
@@ -75,27 +74,26 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>CERTILAB</span>
-            </a>
-            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" role="list" aria-label="Navegación principal">
-                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora</a></li>
-                <li><a href="/profesionales/">Profesionales</a></li>
-                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
 
@@ -222,17 +220,17 @@
             <p class="section-sub">Tres perfiles que se benefician directamente del Check-Up Inmobiliario</p>
             <div class="features-grid">
                 <div class="feature">
-                    <p class="feature-num">🏠</p>
+                    <p class="feature-num">I</p>
                     <h4>Comprador particular</h4>
                     <p>Vas a firmar la compra de un piso y quieres tomar la decisión con toda la información técnica sobre la mesa. Has ahorrado años para esta compra: 199€ es el seguro más rentable que puedes contratar.</p>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">📋</p>
+                    <p class="feature-num">II</p>
                     <h4>Inversor inmobiliario</h4>
                     <p>Evalúas varias propiedades y necesitas un criterio técnico objetivo para comparar antes de invertir. El Check-Up te da datos cuantificables, no opiniones. Ideal para hacer un ranking de oportunidades.</p>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">⚖️</p>
+                    <p class="feature-num">III</p>
                     <h4>Abogado o gestor</h4>
                     <p>Asesoras a tu cliente en una compraventa y necesitas un informe técnico independiente que respalde la decisión o fundamente una renegociación del precio. Un documento técnico profesional con peso argumental.</p>
                 </div>
@@ -337,11 +335,11 @@
         <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="not-title">
             <h2 id="not-title" class="section-title" style="text-align:left;">Lo que el Check-Up Inmobiliario NO es</h2>
             <div style="max-width:700px;">
-                <p style="margin-bottom:1rem;">❌ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado. El Check-Up no valora económicamente el inmueble: te da los datos técnicos para que tú decidas si el precio es justo.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor para verificar su exactitud, pero no emitimos uno nuevo con registro en CCAA.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma. Sí verificamos si los datos catastrales son coherentes con lo que necesitarías para obtenerla.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas exactamente qué verificar in situ antes de firmar. Te damos el checklist, no la inspección física.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un asesoramiento legal.</strong> No sustituye a tu abogado. Complementamos su trabajo con el análisis técnico que él no puede hacer.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado. El Check-Up no valora económicamente el inmueble: te da los datos técnicos para que tú decidas si el precio es justo.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor para verificar su exactitud, pero no emitimos uno nuevo con registro en CCAA.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma. Sí verificamos si los datos catastrales son coherentes con lo que necesitarías para obtenerla.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas exactamente qué verificar in situ antes de firmar. Te damos el checklist, no la inspección física.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es un asesoramiento legal.</strong> No sustituye a tu abogado. Complementamos su trabajo con el análisis técnico que él no puede hacer.</p>
             </div>
             <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
                 <a href="/por-que-no-emite-ce/" style="color:var(--terra);">Más información sobre por qué no emitimos certificados energéticos →</a>
@@ -354,28 +352,28 @@
             <p class="section-sub">Porque confiamos en el rigor de nuestro trabajo</p>
             <div style="max-width:650px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">🔒</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">I</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Confidencialidad absoluta</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Tu intención de compra y los resultados del análisis son estrictamente confidenciales. No compartimos información con terceros, inmobiliarias ni vendedores.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">📐</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">II</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Rigor técnico profesional</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Cada Check-Up está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. No usamos automatismos para generar informes.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">⏱️</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">III</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Compromiso de entrega en 48h</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza y te damos una nueva fecha. Si el retraso supera las 24h adicionales, te reembolsamos 50€.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">💬</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">IV</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Atención directa sin intermediarios</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Hablas directamente con la arquitecta técnica que elabora tu informe. Sin comerciales, sin call center, sin respuestas automáticas. Si tienes dudas al leer el informe, te las resolvemos.</p>

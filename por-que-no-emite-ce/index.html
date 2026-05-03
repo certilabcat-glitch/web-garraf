@@ -28,6 +28,7 @@
 
   <!-- Meta Pixel -->
   <script>
+  try {
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -36,8 +37,8 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1271893388238243');
-  fbq('track', 'PageView');
+  try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
+  } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
@@ -132,20 +133,26 @@
     <button onclick="closeCookies()">Aceptar</button>
   </div>
 
-  <nav class="nav" role="navigation">
+<nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-      <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-      <ul class="nav-menu">
-        <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-        <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-        <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-        <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-        <li><a href="/profesionales/">Para profesionales</a></li>
-        <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-      </ul>
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
   <main id="main-content">
 
@@ -159,12 +166,16 @@
         Muchos competidores lo hacen online sin visitar tu vivienda. La ley lo prohíbe.
         Aquí te explicamos por qué no lo hacemos nosotros — y qué sí podemos hacer por ti.
       </p>
-      <div class="hero-credentials">
-        <span>Cateb 9457</span> &nbsp;·&nbsp;
-        <span>Toda España</span> &nbsp;·&nbsp;
-        <span>Seguro RC Profesional</span>
-      </div>
-    </section>
+            <div class="hero-credentials">
+                <span>Cateb 9457</span> &nbsp;·&nbsp;
+                <span>Toda España</span> &nbsp;·&nbsp;
+                <span>Seguro RC Profesional</span>
+            </div>
+            <div class="hero-ctas">
+                <a href="/formulario/" class="btn-primary">Consulta gratuita</a>
+                <a href="/#servicios" class="btn-secondary">Nuestros servicios</a>
+            </div>
+        </section>
 
     <!-- S2: EMPATÍA -->
     <section aria-labelledby="empathy-title">

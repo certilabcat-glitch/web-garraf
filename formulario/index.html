@@ -17,6 +17,7 @@
 
     <!-- Meta Pixel -->
     <script>
+    try {
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -25,8 +26,8 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243'); 
-    fbq('track', 'PageView');
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
+    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
@@ -90,7 +91,7 @@
         .form-sidebar p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 16px; }
         .form-sidebar ul { list-style: none; padding: 0; margin: 0; }
         .form-sidebar li { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; }
-        .form-sidebar li::before { content: "✓"; color: var(--verde); font-weight: bold; }
+        .form-sidebar li { list-style: disc; list-style-position: inside; }
         .form-sidebar .price { font-size: 1.5rem; font-weight: 800; color: var(--terra-lt); margin: 16px 0; }
         .form-sidebar .price small { font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.7); }
         
@@ -110,27 +111,33 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-            <ul class="nav-menu">
-                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                <li><a href="/profesionales/">Para profesionales</a></li>
-                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
         <div class="container">
             <div class="form-divider">
                 <div class="form-container">
                     <div class="form-header">
-                        <span class="logo-txt">CERTILAB</span>
+<span class="logo-txt">Certilab</span>
                         <h1>Diagnóstico Energético</h1>
                         <p>Sin compromiso. Servicio en remoto. Arquitecta Técnica · Colegiada nº 9457 · Cateb.</p>
                     </div>
@@ -291,6 +298,20 @@
                 </div>
             </div>
         </div>
+
+        <!-- S5: TRUST BLOCK (añadido) -->
+        <section class="trust-block" aria-label="Información profesional">
+            <p><strong>Eva María González Gracia</strong></p>
+            <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+            <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
+            <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
+                <span>Cateb 9457</span>
+                <span>Seguro RC</span>
+                <span>Consultoría energética independiente</span>
+            </div>
+            <p class="disclaimer">Certilab no emite certificados energéticos oficiales con registro en CCAA.<br>
+            Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
+        </section>
     </main>
 
     <footer class="footer" role="contentinfo">

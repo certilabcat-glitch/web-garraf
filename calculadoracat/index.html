@@ -26,9 +26,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Calculadora Ahorro Energético', value: 0, currency: 'EUR'});
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'ViewContent', {content_name: 'Calculadora Ahorro Energético', value: 0, currency: 'EUR'}); } catch(e) {}
     } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -134,20 +132,26 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-            <ul class="nav-menu">
-                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                <li><a href="/profesionales/">Para profesionales</a></li>
-                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
 
@@ -160,6 +164,10 @@
                 <span>Cateb 9457</span> &nbsp;·&nbsp;
                 <span>Herramienta gratuita</span> &nbsp;·&nbsp;
                 <span>Sin compromiso</span>
+            </div>
+            <div class="hero-ctas">
+                <a href="/formulario/" class="btn-primary">Solicitar diagnóstico gratuito</a>
+                <a href="/informe-tecnico-energetico/" class="btn-secondary">Informe Técnico 399€</a>
             </div>
         </section>
 
@@ -228,19 +236,19 @@
             <p class="section-sub">Nuestros servicios te ayudan a pasar de la estimación a la acción</p>
             <div class="features-grid">
                 <div class="feature">
-                    <p class="feature-num">🔍</p>
+                    <p class="feature-num">I</p>
                     <h4>Segunda Opinión — 39€</h4>
                     <p>Verifica si el certificado energético de tu vivienda refleja la realidad antes de planificar mejoras.</p>
                     <a href="/segunda-opinion/" style="color:var(--terra); font-weight:600;">Más información →</a>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">📋</p>
+                    <p class="feature-num">II</p>
                     <h4>Informe Técnico Energético — 399€</h4>
                     <p>El plan completo: mejoras priorizadas, ahorro real estimado y mapa de ayudas aplicables a tu caso.</p>
                     <a href="/informe-tecnico-energetico/" style="color:var(--terra); font-weight:600;">Más información →</a>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">💬</p>
+                    <p class="feature-num">III</p>
                     <h4>Diagnóstico Express — 0€</h4>
                     <p>Cuéntanos tu caso y te orientamos sin compromiso sobre qué servicio necesitas.</p>
                     <a href="/formulario/" style="color:var(--terra); font-weight:600;">Solicitar →</a>

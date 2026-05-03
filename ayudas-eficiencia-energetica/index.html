@@ -32,9 +32,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243');
-    fbq('track', 'PageView');
-    fbq('track', 'ViewContent', {content_name: 'Ayudas Eficiencia Energética', value: 0, currency: 'EUR'});
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'ViewContent', {content_name: 'Ayudas Eficiencia Energética', value: 0, currency: 'EUR'}); } catch(e) {}
     } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -72,20 +70,26 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/favicon.png" alt="Certilab" width="32" height="32"><span>Certilab</span></a>
-            <button class="nav-toggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-            <ul class="nav-menu">
-                <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                <li><a href="/profesionales/">Para profesionales</a></li>
-                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
 
@@ -98,6 +102,10 @@
                 <span>Cateb 9457</span> &nbsp;·&nbsp;
                 <span>Información contrastada</span> &nbsp;·&nbsp;
                 <span>Sin intermediación</span>
+            </div>
+            <div class="hero-ctas">
+                <a href="/formulario/" class="btn-primary">Solicitar diagnóstico gratuito</a>
+                <a href="/por-que-no-emite-ce/" class="btn-secondary">Saber más</a>
             </div>
         </section>
 
@@ -136,15 +144,15 @@
             <p class="section-sub">Documentación y condiciones habituales</p>
             <div style="max-width:700px; margin:0 auto;">
                 <ul class="includes-list">
-                    <li><span class="check">✓</span> Certificado energético antes y después de la actuación (emitido por técnico competente)</li>
-                    <li><span class="check">✓</span> Proyecto o memoria técnica de la actuación</li>
-                    <li><span class="check">✓</span> Presupuesto detallado de las obras</li>
-                    <li><span class="check">✓</span> Facturas y justificantes de pago (post-ejecución)</li>
-                    <li><span class="check">✓</span> Fotografías del antes y después</li>
-                    <li><span class="check">✓</span> Cumplir el porcentaje mínimo de mejora energética exigido por cada programa</li>
+                    <li>Certificado energético antes y después de la actuación (emitido por técnico competente)</li>
+                    <li>Proyecto o memoria técnica de la actuación</li>
+                    <li>Presupuesto detallado de las obras</li>
+                    <li>Facturas y justificantes de pago (post-ejecución)</li>
+                    <li>Fotografías del antes y después</li>
+                    <li>Cumplir el porcentaje mínimo de mejora energética exigido por cada programa</li>
                 </ul>
                 <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
-                    ⚠️ <strong>Importante:</strong> Los certificados energéticos necesarios para solicitar ayudas deben ser emitidos por un técnico certificador con visita presencial obligatoria. <strong>Certilab no emite certificados energéticos oficiales.</strong> Nuestro <a href="/informe-tecnico-energetico/">Informe Técnico Energético</a> te da la hoja de ruta para saber qué ayudas aplicar, qué mejoras priorizar y qué documentación necesitarás, pero no sustituye al certificado oficial ni tramita la solicitud.
+                    <strong>Importante:</strong> Los certificados energéticos necesarios para solicitar ayudas deben ser emitidos por un técnico certificador con visita presencial obligatoria. <strong>Certilab no emite certificados energéticos oficiales.</strong> Nuestro <a href="/informe-tecnico-energetico/">Informe Técnico Energético</a> te da la hoja de ruta para saber qué ayudas aplicar, qué mejoras priorizar y qué documentación necesitarás, pero no sustituye al certificado oficial ni tramita la solicitud.
                 </p>
             </div>
         </section>
@@ -155,19 +163,19 @@
             <p class="section-sub">No tramitamos solicitudes, pero te preparamos para llegar con todo</p>
             <div class="features-grid">
                 <div class="feature">
-                    <p class="feature-num">📋</p>
+                    <p class="feature-num">I</p>
                     <h4>Informe Técnico Energético — 399€</h4>
                     <p>Incluye un mapa de ayudas aplicables a tu caso concreto, con los requisitos de cada una y enlaces oficiales para la solicitud. Es el documento que necesitas para saber exactamente qué pedir y dónde.</p>
                     <a href="/informe-tecnico-energetico/" style="color:var(--terra); font-weight:600;">Más información →</a>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">💰</p>
+                    <p class="feature-num">II</p>
                     <h4>Calculadora de ahorro — 0€</h4>
                     <p>Estima cuánto puedes ahorrar al año mejorando tu vivienda. Un primer paso gratuito para ver si te compensa solicitar ayudas.</p>
                     <a href="/calculadoracat/" style="color:var(--terra); font-weight:600;">Probar calculadora →</a>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">💬</p>
+                    <p class="feature-num">III</p>
                     <h4>Diagnóstico Express — 0€</h4>
                     <p>Cuéntanos tu caso y te orientamos sin compromiso sobre qué ayudas podrían aplicar a tu vivienda y qué servicio de Certilab te conviene más.</p>
                     <a href="/formulario/" style="color:var(--terra); font-weight:600;">Solicitar →</a>

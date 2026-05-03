@@ -18,6 +18,23 @@
     <meta property="og:description" content="Una mirada distinta sobre la eficiencia energética: la del Mediterráneo.">
     <meta property="og:image" content="https://certilab.cat/favicon.png">
     <meta property="og:locale" content="es_ES">
+    <!-- Meta Pixel -->
+    <script>
+    try {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
+    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
+    /></noscript>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -27,10 +44,10 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <header class="nav" role="banner">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-inner">
             <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>CERTILAB</span>
+                <span>Certilab</span>
             </a>
             <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -46,7 +63,7 @@
                 <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
             </ul>
         </div>
-    </header>
+    </nav>
 
     <main id="main-content">
         <section class="hero" aria-labelledby="hero-title">
@@ -124,6 +141,20 @@
             </div>
         </section>
 
+        <!-- S5: TRUST BLOCK (añadido) -->
+        <section class="trust-block" aria-label="Información profesional">
+            <p><strong>Eva María González Gracia</strong></p>
+            <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+            <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
+            <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
+                <span>Cateb 9457</span>
+                <span>Seguro RC</span>
+                <span>Consultoría energética independiente</span>
+            </div>
+            <p class="disclaimer">Certilab no emite certificados energéticos oficiales con registro en CCAA.<br>
+            Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
+        </section>
+
         <section class="section cta-section" aria-labelledby="cta-title">
             <h2 id="cta-title" class="section-title">Cómo trabajar con nosotros</h2>
             <p class="section-sub">Cinco servicios para cinco situaciones distintas.</p>
@@ -160,7 +191,10 @@
                 </ul>
             </nav>
         </div>
-        <p class="footer-copy">&copy; 2025 Certilab · Todos los derechos reservados · <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a></p>
+      <p class="footer-copy">
+        © 2026 Certilab · Todos los derechos reservados ·
+        <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
+      </p>
     </footer>
 
     <script>

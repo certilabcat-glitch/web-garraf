@@ -32,8 +32,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1271893388238243');
-    fbq('track', 'PageView');
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
     fbq('track', 'ViewContent', {content_name: 'Informe Técnico Energético', value: 399, currency: 'EUR'});
     } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
     </script>
@@ -75,27 +74,26 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>CERTILAB</span>
-            </a>
-            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" role="list" aria-label="Navegación principal">
-                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/calculadoracat/">Calculadora</a></li>
-                <li><a href="/profesionales/">Profesionales</a></li>
-                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-                <li><a href="/formulario/" class="nav-cta">Diagnóstico gratuito</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
 
@@ -227,22 +225,22 @@
             <p class="section-sub">Cuatro perfiles que necesitan un plan técnico antes de actuar</p>
             <div class="features-grid">
                 <div class="feature">
-                    <p class="feature-num">🏡</p>
+                    <p class="feature-num">I</p>
                     <h4>Propietario de vivienda unifamiliar</h4>
                     <p>Tienes una casa y quieres saber por dónde empezar a mejorar su eficiencia energética con criterio técnico, no con opiniones de comerciales. El informe te da el orden exacto de actuación para optimizar cada euro invertido.</p>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">🏢</p>
+                    <p class="feature-num">II</p>
                     <h4>Propietario de piso en bloque</h4>
                     <p>Quieres mejorar tu vivienda dentro de una comunidad de propietarios y necesitas un informe técnico profesional que puedas presentar en junta para argumentar las actuaciones o solicitar ayudas conjuntas.</p>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">📐</p>
+                    <p class="feature-num">III</p>
                     <h4>Profesional de la reforma</h4>
                     <p>Eres arquitecto, aparejador o reformista y necesitas un análisis técnico energético previo para fundamentar tu proyecto de reforma ante tu cliente. Un documento independiente que respalde tus recomendaciones.</p>
                 </div>
                 <div class="feature">
-                    <p class="feature-num">💰</p>
+                    <p class="feature-num">IV</p>
                     <h4>Solicitante de ayudas</h4>
                     <p>Quieres acceder a fondos Next Generation, CAE o deducciones IRPF y necesitas un informe técnico que justifique las actuaciones subvencionables, calcule el ahorro energético esperado y cumpla los requisitos de las convocatorias.</p>
                 </div>
@@ -361,11 +359,11 @@
         <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="not-title">
             <h2 id="not-title" class="section-title" style="text-align:left;">Lo que el Informe Técnico Energético NO es</h2>
             <div style="max-width:700px;">
-                <p style="margin-bottom:1rem;">❌ <strong>No es un certificado energético oficial.</strong> Es un análisis técnico independiente mucho más completo. No lo registramos en tu CCAA. Si necesitas un certificado oficial para vender o alquilar, contacta con un técnico certificador presencial.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un proyecto de ejecución de obra.</strong> Para ejecutar reformas que requieran licencia de obra mayor necesitas un proyecto visado por arquitecto. Nuestro informe te da el plan previo; el proyecto de ejecución lo redacta el técnico que dirija la obra.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es una auditoría energética regulada (RD 56/2016).</strong> La auditoría energética según este real decreto está reservada a empresas auditoras inscritas y tiene requisitos formales específicos. Nuestro informe es un análisis técnico profesional orientado a la toma de decisiones del propietario, no al cumplimiento regulatorio de grandes empresas.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No incluye tramitación de ayudas.</strong> Te orientamos sobre qué ayudas aplican, qué requisitos tienen, qué documentación necesitas y dónde solicitarlas. La tramitación la realizas tú, tu comunidad de propietarios o tu Agente Rehabilitador.</p>
-                <p style="margin-bottom:1rem;">❌ <strong>No es un presupuesto cerrado de obra.</strong> Los precios que incluimos son orientativos, basados en bases de datos de la construcción. El presupuesto definitivo te lo dará el instalador o constructor que ejecute las mejoras.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es un certificado energético oficial.</strong> Es un análisis técnico independiente mucho más completo. No lo registramos en tu CCAA. Si necesitas un certificado oficial para vender o alquilar, contacta con un técnico certificador presencial.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es un proyecto de ejecución de obra.</strong> Para ejecutar reformas que requieran licencia de obra mayor necesitas un proyecto visado por arquitecto. Nuestro informe te da el plan previo; el proyecto de ejecución lo redacta el técnico que dirija la obra.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es una auditoría energética regulada (RD 56/2016).</strong> La auditoría energética según este real decreto está reservada a empresas auditoras inscritas y tiene requisitos formales específicos. Nuestro informe es un análisis técnico profesional orientado a la toma de decisiones del propietario, no al cumplimiento regulatorio de grandes empresas.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No incluye tramitación de ayudas.</strong> Te orientamos sobre qué ayudas aplican, qué requisitos tienen, qué documentación necesitas y dónde solicitarlas. La tramitación la realizas tú, tu comunidad de propietarios o tu Agente Rehabilitador.</p>
+                <p style="margin-bottom:1rem;">✗ <strong>No es un presupuesto cerrado de obra.</strong> Los precios que incluimos son orientativos, basados en bases de datos de la construcción. El presupuesto definitivo te lo dará el instalador o constructor que ejecute las mejoras.</p>
             </div>
             <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
                 <a href="/por-que-no-emite-ce/" style="color:var(--terra);">Más información sobre por qué no emitimos certificados energéticos →</a>
@@ -378,28 +376,28 @@
             <p class="section-sub">Porque un análisis técnico independiente solo vale si confías en quien lo hace</p>
             <div style="max-width:650px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">🔒</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">I</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Independencia absoluta</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">No vendemos materiales, no instalamos, no tenemos acuerdos comerciales con fabricantes. Nuestras recomendaciones se basan exclusivamente en criterios técnicos y en tu caso concreto. Sin conflictos de interés.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">📐</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">II</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Rigor técnico profesional</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Cada Informe Técnico está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. Aplicamos el CTE DB-HE 2019 y las normas UNE aplicables. Sin plantillas genéricas: cada vivienda se analiza individualmente.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">⏱️</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">III</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Compromiso de entrega en 5-7 días</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza con una nueva fecha estimada. Si el retraso supera los 3 días adicionales, te reembolsamos 100€ del precio del servicio.</p>
                     </div>
                 </div>
                 <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">💬</span>
+                    <span style="font-size:1.5rem; flex-shrink:0;">IV</span>
                     <div>
                         <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Seguimiento post-entrega</h4>
                         <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Tras recibir el informe, tienes derecho a una consulta de seguimiento para resolver dudas sobre las recomendaciones, las ayudas o la hoja de ruta. Sin coste adicional. No te dejamos con un PDF y un "ya te apañarás".</p>

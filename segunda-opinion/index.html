@@ -26,9 +26,7 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1271893388238243');
-fbq('track', 'PageView');
-fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Energético', value: 39, currency: 'EUR'});
+try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Energético', value: 39, currency: 'EUR'}); } catch(e) {}
 } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
 </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -69,10 +67,10 @@ fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Ene
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <header class="nav" role="banner">
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
         <div class="nav-inner">
             <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>CERTILAB</span>
+                <span>Certilab</span>
             </a>
             <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
                 <span></span>
@@ -90,7 +88,7 @@ fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Ene
                 <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
             </ul>
         </div>
-    </header>
+    </nav>
 
     <main id="main-content">
 
@@ -280,7 +278,7 @@ fbq('track', 'ViewContent', {content_name: 'Segunda Opinión del Certificado Ene
             </nav>
         </div>
         <p class="footer-copy">
-            © 2025 Certilab · Todos los derechos reservados ·
+            © 2026 Certilab · Todos los derechos reservados ·
             <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
         </p>
     </footer>
