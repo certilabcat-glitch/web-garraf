@@ -1313,3 +1313,113 @@ details a { color: var(--black); text-decoration: underline; }
 .faq-native details .faq-answer li {
   margin-bottom: 0.3rem;
 }
+
+/* ======================================
+   CTAs ESTRATÉGICOS — Artículos
+   ====================================== */
+
+/* CTA suave (diagnóstico gratuito) */
+.cta-soft {
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 720px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--dark);
+  text-align: center;
+  line-height: 1.7;
+}
+.cta-soft a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--terra-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--terra);
+  transition: border-color 0.2s;
+}
+.cta-soft a:hover {
+  border-color: var(--verde);
+}
+
+/* CTA urgente (tono terra, borde verde izquierdo) */
+.cta-urgente {
+  background: #fef9f0;
+  border-left: 4px solid var(--verde);
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 720px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--dark);
+  line-height: 1.7;
+}
+.cta-urgente a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--verde);
+  font-weight: 700;
+  text-decoration: none;
+}
+.cta-urgente a:hover {
+  text-decoration: underline;
+}
+
+/* CTA principal (fondo verde, texto blanco) */
+.cta-principal {
+  background: var(--verde);
+  color: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2.5rem auto;
+  max-width: 680px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  box-shadow: 0 4px 20px rgba(0, 128, 85, 0.2);
+}
+.cta-principal a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background: #fff;
+  color: var(--verde);
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.15s;
+}
+.cta-principal a:hover {
+  transform: scale(1.03);
+}
+
+/* CTA final (crema, centrado) */
+.cta-final {
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem auto 3rem;
+  max-width: 680px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.7;
+}
+.cta-final a {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--terra-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.cta-final a:hover {
+  color: var(--verde);
+}
