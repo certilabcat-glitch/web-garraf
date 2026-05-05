@@ -26,24 +26,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Meta Pixel -->
-    <script>
-    try {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
-    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
-    /></noscript>
-
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
@@ -67,7 +49,29 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.certilab.cat/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Diagnóstico Gratuito",
+          "item": "https://www.certilab.cat/formulario/"
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/style.css">
+    <script src="/cookies.js" defer></script>
     <style>
         /* Formulario específico */
         .form-container { background: var(--blanc); border: 1px solid rgba(139,111,71,0.16); border-radius: var(--rl); padding: 40px; box-shadow: var(--sh); max-width: 800px; margin: 0 auto; }
@@ -96,6 +100,12 @@
         .form-legal { margin-top: 30px; padding: 20px; background: var(--verde-lt); border-radius: var(--r); }
         .form-legal p { font-size: 0.85rem; color: var(--gris); line-height: 1.6; margin: 0; }
         .form-legal a { color: var(--terra); font-weight: 700; }
+
+        .form-consent { padding: 16px 20px; background: rgba(139,111,71,0.05); border: 1px solid rgba(139,111,71,0.15); border-radius: var(--r); margin-top: 20px; }
+        .consent-checkbox { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 0.85rem; color: var(--gris); line-height: 1.5; }
+        .consent-checkbox input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: var(--terra); cursor: pointer; }
+        .consent-checkbox a { color: var(--terra); font-weight: 700; text-decoration: underline; }
+        .consent-checkbox a:hover { color: var(--terra-dk); }
         
         .form-sidebar { background: var(--terra-dk); color: white; padding: 30px; border-radius: var(--rl); margin-top: 30px; }
         .form-sidebar h3 { font-family: var(--font-serif); font-size: 1.2rem; margin: 0 0 16px; font-weight: 400; }
@@ -117,11 +127,6 @@
 </head>
 <body>
 
-    <div id="cookie-banner" role="alert" aria-live="polite">
-        <p>Utilizamos cookies técnicas para garantizar su seguridad profesional. <a href="/cookies.html">Política de Cookies</a>.</p>
-        <button onclick="closeCookies()">Aceptar</button>
-    </div>
-
 <nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
         <a href="/" class="nav-logo" aria-label="Certilab — inicio">
@@ -137,10 +142,11 @@
             <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
             <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
             <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-            <li><a href="/blog/errores-certificado-energetico/">Blog</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
         </ul>
     </div>
 </nav>
@@ -284,6 +290,17 @@
                             <strong>Finalidad:</strong> Análisis de pre-viabilidad energética y envío de propuestas técnicas.</p>
                         </div>
 
+                        <div class="form-consent">
+                            <label class="consent-checkbox">
+                                <input type="checkbox" name="consentimiento_rgpd" required>
+                                <span>He leído y acepto la <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y consiento expresamente el tratamiento de mis datos personales por parte de Eva María González Gracia (Certilab) para la finalidad indicada, conforme al RGPD (UE) 2016/679. *</span>
+                            </label>
+                            <label class="consent-checkbox" style="margin-top:12px;">
+                                <input type="checkbox" name="consentimiento_comercial">
+                                <span>Acepto recibir comunicaciones comerciales relacionadas con servicios de consultoría técnica energética (puede retirar este consentimiento en cualquier momento).</span>
+                            </label>
+                        </div>
+
                         <div class="form-cta">
                             <button type="submit" id="btnEnviar">Solicitar diagnóstico sin compromiso</button>
                         </div>
@@ -394,69 +411,14 @@
                 toggle.setAttribute('aria-expanded', String(!expanded));
                 menu.classList.toggle('is-open');
             });
-        })();
-
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
-
-        // Mostrar campo de enlace solo si es Comprador
-        document.getElementById('perfilSelect').addEventListener('change', function() {
-            const divEnlace = document.getElementById('divEnlace');
-            if (this.value === 'comprador') {
-                divEnlace.style.display = 'block';
-            } else {
-                divEnlace.style.display = 'none';
-            }
-        });
-
-        const form = document.getElementById('leadForm');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Validación de CP español (5 dígitos, empieza por 0-5)
-            const cpValue = document.getElementById('cpInput').value.trim();
-            const cpRegex = /^[0-5][0-9]{4}$/;
-            
-            if (!cpRegex.test(cpValue)) {
-                alert("Por favor, introduce un código postal español válido (5 dígitos).");
-                return;
-            }
-
-            const btn = document.getElementById('btnEnviar');
-            const originalText = btn.innerHTML;
-            
-            btn.innerHTML = 'ENVIANDO SOLICITUD...';
-            btn.disabled = true;
-
-            const data = Object.fromEntries(new FormData(form).entries());
-            
-            // URL DE TU WEBHOOK EN N8N
-            const WEBHOOK_URL = 'https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab';
-
-            try {
-                await fetch(WEBHOOK_URL, { 
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+            // Cerrar menú móvil al hacer clic en cualquier enlace
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
-                
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
-                
-                // Mostrar mensaje de éxito
-                form.style.display = 'none';
-                document.getElementById('success-message').style.display = 'block';
-                
-            } catch (error) { 
-                if (typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
-                console.log("Datos enviados"); 
-                // Mostrar mensaje de éxito incluso si falla el envío
-                form.style.display = 'none';
-                document.getElementById('success-message').style.display = 'block';
-            } finally { 
-                btn.innerHTML = originalText; 
-                btn.disabled = false; 
-            }
-        });
+            });
+        })();
     </script>
 </body>
 </html>

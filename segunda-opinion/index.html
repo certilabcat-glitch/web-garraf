@@ -44,8 +44,26 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- Schema.org -->
+    <!-- Schema.org BreadcrumbList + Service -->
     <script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.certilab.cat/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Segunda Opinión Certificado Energético",
+                "item": "https://www.certilab.cat/segunda-opinion/"
+            }
+        ]
+    },
     {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -78,7 +96,7 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
             }
         ],
         "description": "Análisis técnico profesional de certificado energético. Segunda opinión experta sin desplazamientos. Dos modalidades: Básica (39€, 24-48h) y Express (79€, <2h)."
-    }
+    }]
     </script>
 
     <link rel="stylesheet" href="/style.css">
@@ -91,29 +109,28 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
     </div>
 
     <nav class="nav" role="navigation" aria-label="Navegación principal">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo" aria-label="Ir al inicio de Certilab">
-                <span>Certilab</span>
-            </a>
-            <button class="nav-toggle" aria-label="Menú de navegación" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
-                <li><a href="/#servicios">Servicios</a></li>
-                <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-                <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
-                <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-                <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-                <li><a href="/blog/errores-certificado-energetico/">Blog</a></li>
-                <li><a href="/profesionales/">Profesionales</a></li>
-                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-                <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
 
@@ -308,31 +325,6 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
             <a href="https://wa.me/34608515922?text=Hola%20Certilab,%20tengo%20una%20consulta%20sobre%20la%20Segunda%20Opini%C3%B3n" class="btn-secondary" target="_blank" rel="noopener">¿Tienes preguntas? Escríbenos</a>
         </section>
 
-        <!-- S7: BLOQUE CONFIANZA -->
-        <!-- FAQ nativo con details/summary -->
-        <section class="section faq-native" aria-labelledby="faq-native-title" id="faq-detalles">
-          <h2 id="faq-native-title" class="section-title">Preguntas frecuentes</h2>
-
-          <details>
-            <summary>¿Qué diferencia hay entre una segunda opinión y un certificado energético oficial?</summary>
-            <p>La segunda opinión no es un certificado oficial ni lo sustituye. Es un dictamen técnico independiente que analiza si tu certificado actual cumple el RD 390/2021 y si la calificación energética declarada se corresponde con la realidad del inmueble. No se registra en la CCAA, pero te da argumentos técnicos para reclamar si detectamos errores.</p>
-          </details>
-
-          <details>
-            <summary>¿En qué situaciones necesito una segunda opinión del certificado energético?</summary>
-            <p>Cuando sospechas que la letra es demasiado baja o alta para tu piso, cuando el notario o comprador cuestiona el certificado aportado, cuando has recibido un certificado online sin visita presencial, o cuando necesitas verificar que cumple la normativa antes de una transacción inmobiliaria. En todos estos casos, 39€ pueden ahorrarte problemas legales y económicos.</p>
-          </details>
-
-          <details>
-            <summary>¿Qué incluye exactamente el informe de segunda opinión de Certilab?</summary>
-            <p>Incluye: verificación de la calificación energética declarada, análisis de los datos introducidos en el programa reconocido (CE3X, HULC, etc.), comprobación del cumplimiento del RD 390/2021 art. 6.5, detección de inconsistencias técnicas, y un dictamen final con conclusiones. Todo firmado por Arquitecta Técnica colegiada Cateb 9457.</p>
-          </details>
-
-          <details>
-            <summary>¿Puedo usar la segunda opinión para reclamar si mi certificado es incorrecto?</summary>
-            <p>Sí. Nuestro dictamen es un documento técnico firmado por profesional colegiado que puedes presentar ante la administración autonómica, asociaciones de consumidores (FACUA, OCU) o el colegio profesional del técnico que emitió el certificado original. Te damos argumentos técnicos sólidos respaldados por el RD 390/2021.</p>
-          </details>
-        </section>
 
         <section class="trust-block" aria-label="Información profesional">
             <p><strong>Eva María González Gracia</strong></p>
@@ -383,10 +375,6 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
     </footer>
 
     <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } };
-
-        // Nav toggle
         (function() {
             var toggle = document.querySelector('.nav-toggle');
             var menu = document.querySelector('.nav-menu');
@@ -396,26 +384,14 @@ try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'V
                 toggle.setAttribute('aria-expanded', String(!expanded));
                 menu.classList.toggle('is-open');
             });
-        })();
-        // FAQ accordion (con clone para evitar listeners duplicados)
-        document.querySelectorAll('.faq-q').forEach(function(q) {
-            var newQ = q.cloneNode(true);
-            q.parentNode.replaceChild(newQ, q);
-            newQ.addEventListener('click', function() {
-                var item = newQ.parentElement;
-                var answer = item.querySelector('.faq-a');
-                var wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(function(i) {
-                    i.classList.remove('open');
-                    var a = i.querySelector('.faq-a');
-                    if (a) a.style.maxHeight = '0';
+            // Cerrar menú móvil al hacer clic en cualquier enlace
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
-                if (!wasOpen) {
-                    item.classList.add('open');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                }
             });
-        });
+        })();
     </script>
 </body>
 </html>

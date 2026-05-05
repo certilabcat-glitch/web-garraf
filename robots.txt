@@ -1,23 +1,8 @@
 User-agent: *
 Allow: /
 
-# 1. BLOQUEO DE CONTENIDO NO DESEADO (Elimina errores 404 de Search Console)
-Disallow: /es/tag/
-Disallow: /ca/tag/
-Disallow: /es/author/
-Disallow: /ca/author/
-Disallow: /es/category/
-Disallow: /ca/category/
-Disallow: */feed/
-Disallow: /cgi-bin/
-Disallow: /es/politica-de-privacidad/
+# Bloqueo de archivos internos (no necesarios para indexación)
+Disallow: /deploy/
 
-# 2. RUTAS DE SITEMAPS OFICIALES 2026
-# El primero es el maestro (con www, según tu web principal)
+# Sitemap principal
 Sitemap: https://www.certilab.cat/sitemap.xml
-
-# El segundo ayuda a indexar los resultados de tu buscador
-Sitemap: https://www.certilab.cat/cercador-certificats-energetics/sitemap.xml
-
-# 3. NOTA PARA GOOGLE: Priorizar versión con WWW
-# (Esto ayuda a unificar el tráfico y evitar duplicidad)

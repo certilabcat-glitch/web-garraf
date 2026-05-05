@@ -66,6 +66,27 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.certilab.cat/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ayudas Eficiencia Energética",
+          "item": "https://www.certilab.cat/ayudas-eficiencia-energetica/"
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -86,12 +107,15 @@
         <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
             <li><a href="/#servicios">Servicios</a></li>
             <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
             <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
             <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
             <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
         </ul>
     </div>
 </nav>
@@ -238,8 +262,6 @@
     </footer>
 
     <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } };
         (function() {
             var toggle = document.querySelector('.nav-toggle');
             var menu = document.querySelector('.nav-menu');
@@ -248,6 +270,13 @@
                 var expanded = toggle.getAttribute('aria-expanded') === 'true';
                 toggle.setAttribute('aria-expanded', String(!expanded));
                 menu.classList.toggle('is-open');
+            });
+            // Cerrar menú móvil al hacer clic en cualquier enlace
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
             });
         })();
     </script>

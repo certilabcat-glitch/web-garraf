@@ -103,6 +103,27 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.certilab.cat/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Para Profesionales",
+          "item": "https://www.certilab.cat/profesionales/"
+        }
+      ]
+    }
+    </script>
+
     <link rel="stylesheet" href="/style.css">
     <style>
         /* Página específica */
@@ -182,27 +203,28 @@
     </div>
 
     <nav class="nav" role="navigation" aria-label="Navegación principal">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo" aria-label="Certilab — inicio">
-                <span>Certilab</span>
-            </a>
-            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
-    <li><a href="/#servicios">Servicios</a></li>
-    <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-    <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
-    <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-    <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-    <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-    <li><a href="/blog/errores-certificado-energetico/">Blog</a></li>
-    <li><a href="/profesionales/">Profesionales</a></li>
-    <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-    <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
-</ul>
-        </div>
-    </nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+            <span>Certilab</span>
+        </a>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+            <li><a href="/#servicios">Servicios</a></li>
+            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
+            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
+            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
+            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/profesionales/">Profesionales</a></li>
+            <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
+        </ul>
+    </div>
+</nav>
 
     <main id="main-content">
         <section class="hero">
@@ -456,10 +478,6 @@
     </footer>
 
     <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } }
-
-        // Nav toggle
         (function() {
             var toggle = document.querySelector('.nav-toggle');
             var menu = document.querySelector('.nav-menu');
@@ -469,40 +487,14 @@
                 toggle.setAttribute('aria-expanded', String(!expanded));
                 menu.classList.toggle('is-open');
             });
-        })();
-
-        document.getElementById('proForm').addEventListener('submit', async(e)=>{
-            e.preventDefault();
-            const btn=e.target.querySelector('button');
-            btn.textContent='ENVIANDO...';btn.disabled=true;
-            const data=Object.fromEntries(new FormData(e.target).entries());
-            try{
-                await fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/registro-certilab',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,tipo:'profesional'})});
-                if(typeof fbq!=='undefined')fbq('track','Lead');
-            }catch(err){if(typeof fbq!=='undefined')fbq('track','Lead');}
-            e.target.style.display='none';
-            document.getElementById('success-msg').style.display='block';
-        });
-
-        // FAQ accordion (con clone para evitar listeners duplicados)
-        document.querySelectorAll('.faq-q').forEach(function(q) {
-            var newQ = q.cloneNode(true);
-            q.parentNode.replaceChild(newQ, q);
-            newQ.addEventListener('click', function() {
-                var item = newQ.parentElement;
-                var answer = item.querySelector('.faq-a');
-                var wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(function(i) {
-                    i.classList.remove('open');
-                    var a = i.querySelector('.faq-a');
-                    if (a) a.style.maxHeight = '0';
+            // Cerrar menú móvil al hacer clic en cualquier enlace
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
-                if (!wasOpen) {
-                    item.classList.add('open');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                }
             });
-        });
+        })();
     </script>
 </body>
 </html>

@@ -45,8 +45,26 @@
     src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
     /></noscript>
 
-    <!-- Schema.org -->
+    <!-- Schema.org BreadcrumbList + Service -->
     <script type="application/ld+json">
+    [{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.certilab.cat/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Informe Técnico Energético",
+                "item": "https://www.certilab.cat/informe-tecnico-energetico/"
+            }
+        ]
+    },
     {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -67,7 +85,7 @@
             "availability": "https://schema.org/InStock"
         },
         "description": "Análisis técnico completo del comportamiento energético de la vivienda con propuestas de mejora priorizadas por coste-beneficio, estimación de ahorro y orientación sobre ayudas disponibles."
-    }
+    }]
     </script>
 
     <link rel="stylesheet" href="/style.css">
@@ -94,10 +112,11 @@
             <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
             <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
             <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-            <li><a href="/blog/errores-certificado-energetico/">Blog</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">No emitimos certificados</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
         </ul>
     </div>
 </nav>
@@ -503,30 +522,6 @@
             Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
         </section>
 
-        <!-- S10: FAQ -->
-        <section class="faq-native" aria-labelledby="faq-title-ite">
-          <h2 id="faq-title-ite">Preguntas frecuentes sobre el Informe Técnico Energético</h2>
-
-          <details>
-            <summary>¿Qué diferencia hay entre un Informe Técnico Energético y un certificado energético oficial?</summary>
-            <p>El certificado energético oficial (RD 390/2021) asigna una letra (A-G) a la vivienda y se registra en la comunidad autónoma. El Informe Técnico Energético de Certilab va mucho más allá: diagnostica la envolvente y los sistemas, propone mejoras concretas priorizadas por coste-beneficio, estima el ahorro económico de cada medida, detalla las ayudas disponibles (Next Generation, CAE, deducciones IRPF) y lo firma una Arquitecta Técnica colegiada Cateb 9457 sin conflicto de intereses. Es una hoja de ruta para rehabilitar, no solo una etiqueta.</p>
-          </details>
-
-          <details>
-            <summary>¿Necesito el Informe Técnico Energético si ya tengo el certificado energético?</summary>
-            <p>Depende de tu objetivo. Si solo necesitas la etiqueta para vender o alquilar, el certificado basta. Si quieres saber qué reformas te conviene hacer primero, cuánto te vas a ahorrar de verdad, qué ayudas puedes solicitar y cómo planificar la rehabilitación para no malgastar dinero, el Informe Técnico Energético te da respuestas que el certificado no incluye. Es la diferencia entre un diagnóstico y un plan de acción.</p>
-          </details>
-
-          <details>
-            <summary>¿Puedo usar el Informe Técnico Energético para solicitar ayudas Next Generation o deducciones fiscales?</summary>
-            <p>Sí. Nuestro informe identifica las ayudas europeas, estatales y autonómicas aplicables a tu caso concreto, y te indica qué documentación necesitas para cada una. Para las deducciones del IRPF por obras de mejora energética (hasta el 60%), necesitarás además un certificado energético anterior y posterior a la reforma. Nosotros te guiamos en todo el proceso para que no pierdas ninguna ayuda por errores administrativos.</p>
-          </details>
-
-          <details>
-            <summary>¿El informe incluye cálculos de ahorro económico real o solo estimaciones genéricas?</summary>
-            <p>Incluye cálculos personalizados basados en los datos reales de tu vivienda: zona climática según CTE, orientación, superficie, sistemas térmicos actuales y precios energéticos de referencia. No usamos estimaciones genéricas. Por ejemplo, no decimos "cambiar ventanas ahorra un 20%", sino "cambiar tus ventanas actuales (carpintería de aluminio sin RPT, año 1995) por unas con U<1,2 W/m²K te ahorraría aproximadamente X €/año en calefacción según tu zona climática C2".</p>
-          </details>
-        </section>
 
     </main>
 
@@ -564,10 +559,6 @@
     </footer>
 
     <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } };
-
-        // Nav toggle
         (function() {
             var toggle = document.querySelector('.nav-toggle');
             var menu = document.querySelector('.nav-menu');
@@ -577,26 +568,14 @@
                 toggle.setAttribute('aria-expanded', String(!expanded));
                 menu.classList.toggle('is-open');
             });
-        })();
-        // FAQ accordion
-        document.querySelectorAll('.faq-q').forEach(function(q) {
-            var newQ = q.cloneNode(true);
-            q.parentNode.replaceChild(newQ, q);
-            newQ.addEventListener('click', function() {
-                var item = newQ.parentElement;
-                var answer = item.querySelector('.faq-a');
-                var wasOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(function(i) {
-                    i.classList.remove('open');
-                    var a = i.querySelector('.faq-a');
-                    if (a) a.style.maxHeight = '0';
+            // Cerrar menú móvil al hacer clic en cualquier enlace
+            document.querySelectorAll('.nav-menu a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    menu.classList.remove('is-open');
+                    toggle.setAttribute('aria-expanded', 'false');
                 });
-                if (!wasOpen) {
-                    item.classList.add('open');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                }
             });
-        });
+        })();
     </script>
 </body>
 </html>
