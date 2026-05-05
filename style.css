@@ -1427,3 +1427,253 @@ details a { color: var(--black); text-decoration: underline; }
 .cta-final a:hover {
   color: var(--verde);
 }
+
+/* ================================
+   B13 — Pricing Cards (Segunda Opinión unificada)
+   Rediseño: barras de color superiores, badge "Más popular", estructura mejorada
+   ================================ */
+
+.pricing-section {
+  padding: 4rem 1.5rem 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing-section .pricing-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+
+.pricing-section .pricing-sub {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--grey);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.pricing-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+/* === Tarjeta base === */
+.pricing-card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  background: #FFF;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+}
+
+/* === Deck de color superior === */
+.pricing-card-accent {
+  height: 5px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.pricing-card-accent--basic {
+  background: var(--terra-light);
+}
+
+.pricing-card-accent--express {
+  background: var(--verde);
+}
+
+/* === Cuerpo de la tarjeta === */
+.pricing-card-body {
+  padding: 2.25rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* === Tarjeta destacada === */
+.pricing-card--featured {
+  border: 2px solid var(--verde);
+  position: relative;
+}
+
+.pricing-card--featured .pricing-card-body {
+  padding-top: 1.5rem;
+}
+
+/* === Badge "Más popular" === */
+.pricing-badge {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #FFF;
+  background: var(--verde);
+  padding: 0.35rem 1.1rem;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+
+/* === Nombre del plan === */
+.pricing-card .plan-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+/* === Precio === */
+.pricing-card .price {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.pricing-card .price-amount {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--terra);
+  display: block;
+}
+
+.pricing-card--featured .price-amount {
+  color: var(--verde);
+}
+
+.pricing-card .price-vat {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--grey);
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* === Tiempo de entrega === */
+.pricing-card .delivery {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+/* === Lista de características === */
+.pricing-card .features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+
+.pricing-card .features li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pricing-card .features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-card .features .check {
+  color: var(--verde);
+  font-weight: 600;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* === Texto "ideal para" === */
+.pricing-card .ideal-for {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+/* === Botón CTA genérico === */
+.pricing-card .cta-button {
+  display: inline-block;
+  background: var(--black);
+  color: var(--crema);
+  padding: 0.8rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  transition: opacity 0.2s, transform 0.15s;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+.pricing-card .cta-button:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+/* === Botón CTA versión Express (verde) === */
+.pricing-card .cta-button--express {
+  background: var(--verde);
+  color: #FFF;
+}
+
+.pricing-card .cta-button--express:hover {
+  opacity: 0.85;
+  background: #3d6a4a;
+}
+
+/* === Credenciales bajo las tarjetas === */
+.pricing-credentials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+/* === Responsive === */
+@media (max-width: 700px) {
+  .pricing-container {
+    gap: 1.5rem;
+  }
+
+  .pricing-card {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .pricing-card .price-amount {
+    font-size: 2.5rem;
+  }
+}
