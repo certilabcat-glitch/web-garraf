@@ -19,8 +19,11 @@ HTML_FILES = [
     "calculadoracat/index.html",
     "ayudas-eficiencia-energetica/index.html",
     "profesionales/index.html",
+    "blog/index.html",
     "blog/errores-certificado-energetico/index.html",
     "blog/obtener-certificado-energetico-gratis/index.html",
+    "blog/cuanto-cuesta-certificado-energetico-2026/index.html",
+    "gracias/index.html",
 ]
 
 NEW_NAV = """<!-- NAV -->
@@ -45,7 +48,15 @@ NEW_NAV = """<!-- NAV -->
                 </ul>
             </li>
             <li><a href="/por-que-no-emite-ce/">Por qu\u00e9 no emitimos CE</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Blog <span class="arrow"></span></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="/blog/">Ver todos los art\u00edculos</a></li>
+                    <li><a href="/blog/cuanto-cuesta-certificado-energetico-2026/">Precio CE 2026: lo barato sale caro</a></li>
+                    <li><a href="/blog/obtener-certificado-energetico-gratis/">\u00bfCertificado Gratis? Gu\u00eda 2026</a></li>
+                    <li><a href="/blog/errores-certificado-energetico/">Errores comunes en el CE</a></li>
+                </ul>
+            </li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
             <li><a href="/calculadoracat/">Calculadora</a></li>
             <li><a href="/formulario/" class="nav-cta">Diagn\u00f3stico Gratis</a></li>
