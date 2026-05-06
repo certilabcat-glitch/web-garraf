@@ -68,7 +68,7 @@ Cual de estas opciones encaja mejor contigo?
 
 Un saludo,
 Eva Gonzalez
-Arquitecta Tecnica - CAATEB 9457
+Arquitecta Tecnica - Cateb 9457
 WhatsApp: +34 608 515 922
 ```
 
@@ -95,7 +95,7 @@ Si te interesa, enviame el certificado que tienes y lo revisamos.
 
 Un saludo,
 Eva Gonzalez
-Arquitecta Tecnica - CAATEB 9457
+Arquitecta Tecnica - Cateb 9457
 WhatsApp: +34 608 515 922
 ```
 
@@ -123,7 +123,7 @@ basicos.
 
 Un saludo,
 Eva Gonzalez
-Arquitecta Tecnica - CAATEB 9457
+Arquitecta Tecnica - Cateb 9457
 WhatsApp: +34 608 515 922
 ```
 
@@ -147,7 +147,7 @@ Solicitalo aqui: https://www.certilab.cat/formulario/
 
 Un saludo,
 Eva Gonzalez
-Arquitecta Tecnica - CAATEB 9457
+Arquitecta Tecnica - Cateb 9457
 WhatsApp: +34 608 515 922
 ```
 
@@ -175,7 +175,7 @@ pasos.
 
 Un saludo,
 Eva Gonzalez
-Arquitecta Tecnica - CAATEB 9457
+Arquitecta Tecnica - Cateb 9457
 WhatsApp: +34 608 515 922
 ```
 

@@ -71,7 +71,7 @@ Horario: Lunes a Viernes 9:00-18:00 (o "Con cita previa")
 **Versión A (Enfoque Técnico):**
 
 ```
-Consultoría energética independiente dirigida por Eva María González Gracia, Arquitecta Técnica colegiada (CAATEB 9457). No emitimos certificados energéticos oficiales porque priorizamos el rigor técnico sobre la velocidad comercial.
+Consultoría energética independiente dirigida por Eva María González Gracia, Arquitecta Técnica colegiada (Cateb 9457). No emitimos certificados energéticos oficiales porque priorizamos el rigor técnico sobre la velocidad comercial.
 
 Servicios:
 • Diagnóstico Express (0€) — Análisis preliminar en 24h
@@ -358,7 +358,7 @@ Tu opinión ayuda a otros propietarios a tomar mejores decisiones (y a mí a seg
 Gracias por confiar en Certilab,
 
 Eva María González Gracia
-Arquitecta Técnica CAATEB 9457
+Arquitecta Técnica Cateb 9457
 certilab.cat
 ```
 

@@ -72,7 +72,7 @@
 **Keywords long-tail:**
 - "consultoría energética que no emite certificados" — **(est. 40/mes)** — **Prioridad ALTA** (competencia casi nula)
 - "por qué no emiten certificado energético online" — **(est. 35/mes)** — **Prioridad ALTA**
-- "arquitecta técnica CAATEB certificación energética" — **(est. 25/mes)** — **Prioridad MEDIA**
+- "arquitecta técnica Cateb certificación energética" — **(est. 25/mes)** — **Prioridad MEDIA**
 - "análisis técnico energético remoto España" — **(est. 60/mes)** — **Prioridad MEDIA**
 - "consultoría energética independiente Barcelona" — **(est. 90/mes)** — **Prioridad BAJA** (geo-específica, ver coordinación GBP)
 - "rigor técnico certificación energética" — **(est. 20/mes)** — **Prioridad BAJA**
@@ -316,8 +316,8 @@
 ### Marca personal Eva María González Gracia:
 - "Eva María González Gracia" — **(est. <10/mes)** — **Prioridad ALTA**
 - "Eva González arquitecta técnica" — **(est. <10/mes)** — **Prioridad ALTA**
-- "Eva González CAATEB 9457" — **(est. <10/mes)** — **Prioridad MEDIA**
-- "arquitecta técnica CAATEB 9457" — **(est. 25/mes)** — **Prioridad MEDIA**
+- "Eva González Cateb 9457" — **(est. <10/mes)** — **Prioridad MEDIA**
+- "arquitecta técnica Cateb 9457" — **(est. 25/mes)** — **Prioridad MEDIA**
 
 ### Marca personal Abdelaziz Achibane:
 

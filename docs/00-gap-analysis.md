@@ -14,7 +14,7 @@
 
 **Riesgos de continuar con el modelo anterior:**
 - Sanciones económicas: 300–6.000 €
-- Expediente deontológico CAATEB
+- Expediente deontológico Cateb
 - Denuncias FACUA
 - Pérdida del seguro RC profesional
 - Nulidad de los certificados emitidos

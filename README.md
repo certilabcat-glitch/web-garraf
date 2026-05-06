@@ -28,4 +28,4 @@ Gestionado por **Eva González**, Arquitecta Técnica Colegiada 9457.
 - Google Site Verification: 7VCVmdemmkNmVYz9SnjCaB61Y5hYMZCf12_mZpYaF2Q
 
 ---
-© 2026 Certilab · Eva González · CAATEB 9457
+© 2026 Certilab · Eva González · Cateb 9457
