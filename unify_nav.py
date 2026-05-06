@@ -23,11 +23,11 @@ HTML_FILES = [
     "blog/errores-certificado-energetico/index.html",
     "blog/obtener-certificado-energetico-gratis/index.html",
     "blog/cuanto-cuesta-certificado-energetico-2026/index.html",
+    "blog/brown-discount-precio-vivienda/index.html",
     "gracias/index.html",
 ]
 
-NEW_NAV = """<!-- NAV -->
-  <nav class="nav" role="navigation" aria-label="Navegaci\u00f3n principal">
+NEW_NAV = """  <nav class="nav" role="navigation" aria-label="Navegaci\u00f3n principal">
     <div class="nav-inner">
         <a href="/" class="nav-logo" aria-label="Certilab \u2014 inicio">
             <span>Certilab</span>
@@ -52,6 +52,7 @@ NEW_NAV = """<!-- NAV -->
                 <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Blog <span class="arrow"></span></button>
                 <ul class="nav-dropdown-menu">
                     <li><a href="/blog/">Ver todos los art\u00edculos</a></li>
+                    <li><a href="/blog/brown-discount-precio-vivienda/">Brown Discount: qu\u00e9 es</a></li>
                     <li><a href="/blog/cuanto-cuesta-certificado-energetico-2026/">Precio CE 2026: lo barato sale caro</a></li>
                     <li><a href="/blog/obtener-certificado-energetico-gratis/">\u00bfCertificado Gratis? Gu\u00eda 2026</a></li>
                     <li><a href="/blog/errores-certificado-energetico/">Errores comunes en el CE</a></li>
@@ -110,32 +111,53 @@ NEW_SCRIPT = """<script>
 
 
 def replace_nav_block(content):
-    """Replace <nav class="nav" ...> ... </nav> with the unified nav."""
-    # Find opening <nav class="nav"
+    """Replace ALL <nav class='nav' ...> ... </nav> blocks with ONE unified nav.
+    Also strips any <!-- NAV --> comments preceding nav blocks. Removes all but the first."""
+    # First, strip all <!-- NAV --> comments (any number of spaces between dashes and NAV)
+    content = re.sub(r'<!--\s*NAV\s*-->\s*', '', content)
+    
+    # Now find all <nav class="nav" ...>...</nav> blocks
+    nav_blocks = []
     pattern_start = re.compile(r'<nav\s+class="nav"[^>]*>')
-    m = pattern_start.search(content)
-    if not m:
-        return content
-
-    start_idx = m.start()
-    depth = 1
-    i = m.end()
-    while i < len(content) and depth > 0:
-        # Look for next <nav or </nav>
-        next_open = content.find('<nav', i)
-        next_close = content.find('</nav>', i)
-        if next_close == -1:
+    
+    pos = 0
+    while pos < len(content):
+        m = pattern_start.search(content, pos)
+        if not m:
             break
-        if next_open != -1 and next_open < next_close:
-            depth += 1
-            i = next_open + 4
-        else:
-            depth -= 1
-            if depth == 0:
-                end_idx = next_close + len('</nav>')
-                return content[:start_idx] + NEW_NAV + content[end_idx:]
-            i = next_close + len('</nav>')
-    return content
+        start_idx = m.start()
+        depth = 1
+        i = m.end()
+        while i < len(content) and depth > 0:
+            next_open = content.find('<nav', i)
+            next_close = content.find('</nav>', i)
+            if next_close == -1:
+                break
+            if next_open != -1 and next_open < next_close:
+                depth += 1
+                i = next_open + 4
+            else:
+                depth -= 1
+                if depth == 0:
+                    end_idx = next_close + len('</nav>')
+                    nav_blocks.append((start_idx, end_idx))
+                    break
+                i = next_close + len('</nav>')
+        pos = end_idx if depth == 0 else i + 1
+    
+    if not nav_blocks:
+        return content
+    
+    # Keep the first nav block position, replace it with NEW_NAV, remove all others
+    # Work backwards to avoid index shifting
+    first_start, first_end = nav_blocks[0]
+    result = list(content)
+    # Remove all nav blocks (working backwards)
+    for start, end in reversed(nav_blocks):
+        result[start:end] = []
+    content = ''.join(result)
+    # Insert NEW_NAV at the position of the first nav
+    return content[:first_start] + NEW_NAV + content[first_start:]
 
 
 def replace_script_block(content):
