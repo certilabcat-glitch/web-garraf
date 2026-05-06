@@ -1,288 +1,353 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog de Certilab | Consultoría Energética para Particulares y Profesionales</title>
-    <meta name="description" content="Blog de Certilab: artículos sobre certificación energética, eficiencia en viviendas, normativa y consultoría técnica. Por Eva María González Gracia, Arquitecta Técnica Cateb 9457.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.certilab.cat/blog/">
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <meta name="google-site-verification" content="vbxqc3rtusTH9zjcV54qo7HI9PV9D2exiFZ4VjhDyv4" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Consultoría Energética | Certilab</title>
+  <meta name="description" content="Artículos sobre certificación energética, eficiencia en edificios, ayudas y normativa. Consultoría técnica independiente por Eva María González Gracia, Arquitecta Técnica Cateb 9457.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.certilab.cat/blog/">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta name="google-site-verification" content="vbxqc3rtusTH9zjcV54qo7HI9PV9D2exiFZ4VjhDyv4" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Blog de Certilab | Consultoría Energética">
-    <meta property="og:description" content="Artículos sobre certificación energética, eficiencia en viviendas y normativa. Por Arquitecta Técnica Cateb 9457.">
-    <meta property="og:url" content="https://www.certilab.cat/blog/">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://www.certilab.cat/logo-generalitat.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog de Consultoría Energética | Certilab">
+  <meta property="og:description" content="Artículos sobre certificación energética, eficiencia en edificios, ayudas y normativa. Consultoría técnica independiente.">
+  <meta property="og:url" content="https://www.certilab.cat/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://certilab.cat/og-image.jpg">
+  <meta property="og:locale" content="es_ES">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog de Certilab | Consultoría Energética">
-    <meta name="twitter:description" content="Artículos sobre certificación energética, eficiencia en viviendas y normativa. Por Arquitecta Técnica Cateb 9457.">
-    <meta name="twitter:image" content="https://www.certilab.cat/logo-generalitat.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog de Consultoría Energética | Certilab">
+  <meta name="twitter:description" content="Artículos sobre certificación energética, eficiencia en edificios, ayudas y normativa.">
+  <meta name="twitter:image" content="https://certilab.cat/og-image.jpg">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Schema Blog -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    .blog-header {
+      text-align: center;
+      padding: 5rem 1.5rem 2rem;
+    }
+    .blog-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 300;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+    .blog-header p {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--grey);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .blog-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+      display: grid;
+      gap: 2rem;
+    }
+    .blog-card {
+      background: var(--crema);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .blog-card h2 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .blog-card h2 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .blog-card h2 a:hover {
+      color: var(--terra);
+    }
+    .blog-card .meta {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--grey);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    .blog-card p {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .blog-card .read-more {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--terra);
+      text-decoration: none;
+    }
+    .blog-card .read-more:hover {
+      text-decoration: underline;
+    }
+    .blog-cta {
+      text-align: center;
+      padding: 2rem 1.5rem 5rem;
+    }
+    .blog-cta p {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--grey);
+      margin-bottom: 1rem;
+    }
+    .blog-cta .btn-primary {
+      display: inline-block;
+    }
+  </style>
+
+  <!-- Schema.org Blog + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
         "@type": "Blog",
+        "@id": "https://www.certilab.cat/blog/#blog",
         "name": "Blog de Certilab",
-        "description": "Artículos sobre certificación energética, eficiencia en viviendas y consultoría técnica",
+        "description": "Art\u00edculos sobre certificaci\u00f3n energ\u00e9tica, eficiencia en edificios, ayudas y normativa.",
         "url": "https://www.certilab.cat/blog/",
         "publisher": {
-            "@type": "Person",
-            "name": "Eva María González Gracia",
-            "jobTitle": "Arquitecta Técnica",
-            "url": "https://www.certilab.cat/sobre-nosotros/"
+          "@id": "https://www.certilab.cat/#organization"
         },
+        "inLanguage": "es",
         "blogPost": [
-            {
-                "@type": "BlogPosting",
-                "headline": "5 Errores en Certificados Energéticos que Pueden Costarte Caro",
-                "description": "Evita los 5 errores certificado energético más graves: fraudes CAE, sin visita, no registrarlo. Multas hasta 6.000€.",
-                "url": "https://www.certilab.cat/blog/errores-certificado-energetico/",
-                "datePublished": "2026-04-15",
-                "author": {
-                    "@type": "Person",
-                    "name": "Eva María González Gracia"
-                }
-            },
-            {
-                "@type": "BlogPosting",
-                "headline": "Obtener Certificado Energético Gratis: Por Qué Es Imposible (y Qué Riesgos Corres)",
-                "description": "Te explico por qué es imposible legalmente, qué riesgos implican los anuncios de CE a 39€ sin visita, y cómo ahorrar de verdad.",
-                "url": "https://www.certilab.cat/blog/obtener-certificado-energetico-gratis/",
-                "datePublished": "2026-05-01",
-                "author": {
-                    "@type": "Person",
-                    "name": "Eva María González Gracia"
-                }
-            }
+          {
+            "@type": "BlogPosting",
+            "headline": "Errores comunes en el certificado energ\u00e9tico que pueden costarte dinero",
+            "url": "https://www.certilab.cat/blog/errores-certificado-energetico/",
+            "datePublished": "2026-04-15",
+            "dateModified": "2026-04-15",
+            "abstract": "Descubre los errores m\u00e1s frecuentes en certificados energ\u00e9ticos que pueden inflar o hundir la calificaci\u00f3n de tu vivienda."
+          },
+          {
+            "@type": "BlogPosting",
+            "headline": "\u00bfSe puede obtener un certificado energ\u00e9tico gratis? Gu\u00eda 2026",
+            "url": "https://www.certilab.cat/blog/obtener-certificado-energetico-gratis/",
+            "datePublished": "2026-04-28",
+            "dateModified": "2026-04-28",
+            "abstract": "Analizamos todas las v\u00edas legales para conseguir un certificado energ\u00e9tico sin coste. Subvenciones, programas p\u00fablicos y alternativas reales."
+          }
         ]
-    }
-    </script>
-
-    <!-- BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
+      },
+      {
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Inicio",
-                "item": "https://www.certilab.cat/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Blog",
-                "item": "https://www.certilab.cat/blog/"
-            }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.certilab.cat/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.certilab.cat/blog/"
+          }
         ]
-    }
-    </script>
-
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Certilab",
-        "url": "https://www.certilab.cat",
-        "description": "Consultoría energética técnica e independiente",
-        "founder": {
-            "@type": "Person",
-            "name": "Eva María González Gracia",
-            "jobTitle": "Arquitecta Técnica"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "hola@certilab.cat",
-            "telephone": "+34608515922",
-            "contactType": "customer service"
-        }
-    }
-    </script>
-
-    <link rel="stylesheet" href="/style.css">
-    <script src="/cookies.js" defer></script>
-    <style>
-        /* Blog Hub específico */
-        body { background: #f4f1ed; }
-        .blog-hub { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-
-        .breadcrumbs { font-size: 0.85rem; color: var(--gris); margin-bottom: 30px; }
-        .breadcrumbs a { color: var(--terra); text-decoration: none; font-weight: 600; }
-        .breadcrumbs a:hover { text-decoration: underline; }
-        .breadcrumbs .sep { margin: 0 6px; color: #94a3b8; }
-
-        .hub-header { text-align: center; margin-bottom: 50px; }
-        .hub-header .hub-tag { display: inline-block; background: var(--terra-lt); color: var(--terra-dk); padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-        .hub-header h1 { font-family: var(--font-serif); font-size: 2.2rem; color: var(--terra-dk); margin: 0 0 16px; font-weight: 400; }
-        .hub-header p { font-size: 1.05rem; color: var(--gris); max-width: 600px; margin: 0 auto; line-height: 1.6; }
-
-        .post-card { background: var(--blanc); border: 1px solid rgba(139,111,71,0.15); border-radius: var(--rl); padding: 32px; margin-bottom: 24px; transition: box-shadow 0.2s, transform 0.2s; }
-        .post-card:hover { box-shadow: var(--sh); transform: translateY(-2px); }
-        .post-card .post-date { font-size: 0.8rem; color: #94a3b8; font-weight: 500; margin-bottom: 8px; }
-        .post-card h2 { font-family: var(--font-serif); font-size: 1.4rem; margin: 0 0 12px; font-weight: 600; }
-        .post-card h2 a { color: var(--terra-dk); text-decoration: none; }
-        .post-card h2 a:hover { color: var(--terra); }
-        .post-card .post-excerpt { font-size: 0.95rem; color: var(--gris); line-height: 1.6; margin: 0 0 16px; }
-        .post-card .read-more { display: inline-block; color: var(--terra); font-weight: 700; text-decoration: none; font-size: 0.9rem; }
-        .post-card .read-more:hover { text-decoration: underline; }
-
-        .cta-block { background: var(--terra-dk); color: white; border-radius: var(--rl); padding: 32px; text-align: center; margin-top: 40px; }
-        .cta-block h3 { font-family: var(--font-serif); font-size: 1.3rem; margin: 0 0 12px; font-weight: 400; }
-        .cta-block p { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin: 0 0 20px; line-height: 1.6; }
-        .cta-block .btn-cta { display: inline-block; background: var(--terra-lt); color: var(--terra-dk); padding: 14px 30px; border-radius: var(--r); text-decoration: none; font-weight: 700; font-size: 1rem; transition: background 0.2s; }
-        .cta-block .btn-cta:hover { background: #d4a04a; }
-
-        @media (max-width: 767px) {
-            .hub-header h1 { font-size: 1.6rem; }
-            .post-card { padding: 24px; }
-        }
-    </style>
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div id="cookie-banner" role="alert" aria-live="polite">
+    <p>Utilizamos cookies t&eacute;cnicas para garantizar su seguridad profesional. <a href="/cookies.html">Pol&iacute;tica de Cookies</a>.</p>
+    <button onclick="closeCookies()">Aceptar</button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Navegaci&oacute;n principal">
     <div class="nav-inner">
-        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+        <a href="/" class="nav-logo" aria-label="Certilab &mdash; inicio">
             <span>Certilab</span>
         </a>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <button class="nav-toggle" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="nav-menu">
             <span></span><span></span><span></span>
         </button>
-        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
-            <li><a href="/#servicios">Servicios</a></li>
-            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
-            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-            <li><a href="/calculadoracat/">Calculadora</a></li>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegaci&oacute;n principal">
+            <li><a href="/">Inicio</a></li>
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios <span class="arrow"></span></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="/formulario/">Diagn&oacute;stico Gratuito</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opini&oacute;n (39€)</a></li>
+                    <li><a href="/segunda-opinion-express/">Segunda Opini&oacute;n Express</a></li>
+                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario (199€)</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe T&eacute;cnico (399€)</a></li>
+                </ul>
+            </li>
+            <li><a href="/por-que-no-emite-ce/">Por qu&eacute; no emitimos CE</a></li>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/formulario/" class="nav-cta">Diagn&oacute;stico Gratis</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta-secondary">Por qu&eacute; no emitimos CE</a></li>
         </ul>
     </div>
 </nav>
 
-    <main id="main-content">
-        <div class="blog-hub">
+  <main id="main-content">
+    <header class="blog-header">
+      <h1>Blog de Certilab</h1>
+      <p>
+        Informaci&oacute;n t&eacute;cnica sobre certificaci&oacute;n energ&eacute;tica, eficiencia en edificios,
+        ayudas p&uacute;blicas y normativa. Escrito por Eva Mar&iacute;a Gonz&aacute;lez Gracia,
+        Arquitecta T&eacute;cnica colegiada.
+      </p>
+    </header>
 
-            <!-- Breadcrumbs visibles -->
-            <nav class="breadcrumbs" aria-label="Migas de pan">
-                <a href="/">Inicio</a>
-                <span class="sep">›</span>
-                <span>Blog</span>
-            </nav>
+    <div class="blog-grid">
 
-            <!-- Header -->
-            <header class="hub-header">
-                <span class="hub-tag">Blog</span>
-                <h1>Consultoría Energética para Particulares y Profesionales</h1>
-                <p>Artículos técnicos sobre certificación energética, normativa de eficiencia, ayudas y consultoría inmobiliaria, escritos por Eva María González Gracia, Arquitecta Técnica Colegiada Cateb 9457.</p>
-            </header>
+      <article class="blog-card">
+        <span class="meta">28 abril 2026 · Certificado Energético</span>
+        <h2><a href="/blog/obtener-certificado-energetico-gratis/">¿Se puede obtener un certificado energético gratis? Guía 2026</a></h2>
+        <p>
+          Te explicamos todas las vías legales para conseguir un certificado energético sin coste:
+          subvenciones autonómicas, programas municipales, deducciones fiscales y alternativas
+          que realmente funcionan en 2026. Sin atajos ilegales ni promesas vacías.
+        </p>
+        <a href="/blog/obtener-certificado-energetico-gratis/" class="read-more">Leer artículo →</a>
+      </article>
 
-            <!-- Artículo 1 -->
-            <article class="post-card">
-                <time class="post-date" datetime="2026-04-15">15 de abril de 2026</time>
-                <h2><a href="/blog/errores-certificado-energetico/">5 Errores en Certificados Energéticos que Pueden Costarte Caro</a></h2>
-                <p class="post-excerpt">Descubre los 5 errores más graves al obtener un certificado energético: fraudes CAE, técnicos sin visita, no registrar el certificado… Evita multas de hasta 6.000€ y protege tu vivienda con información verificada por una Arquitecta Técnica colegiada.</p>
-                <a href="/blog/errores-certificado-energetico/" class="read-more">Leer artículo →</a>
-            </article>
+      <article class="blog-card">
+        <span class="meta">15 abril 2026 · Certificado Energético</span>
+        <h2><a href="/blog/errores-certificado-energetico/">Errores comunes en el certificado energético que pueden costarte dinero</a></h2>
+        <p>
+          Superficies mal medidas, orientaciones erróneas, sistemas de climatización inventados.
+          Detecta los 7 errores más frecuentes que inflan o hunden la calificación energética
+          de tu vivienda y aprende a identificarlos antes de que sea tarde.
+        </p>
+        <a href="/blog/errores-certificado-energetico/" class="read-more">Leer artículo →</a>
+      </article>
 
-            <!-- Artículo 2 -->
-            <article class="post-card">
-                <time class="post-date" datetime="2026-05-01">1 de mayo de 2026</time>
-                <h2><a href="/blog/obtener-certificado-energetico-gratis/">Obtener Certificado Energético Gratis: Por Qué Es Imposible (y Qué Riesgos Corres)</a></h2>
-                <p class="post-excerpt">¿Has visto anuncios de "certificado energético gratis" o a 39€? Como Arquitecta Técnica te explico por qué es legalmente imposible, los riesgos reales que corres al contratarlos y cómo puedes ahorrar de verdad sin caer en fraudes ni sanciones.</p>
-                <a href="/blog/obtener-certificado-energetico-gratis/" class="read-more">Leer artículo →</a>
-            </article>
+    </div>
 
-            <!-- CTA intermedio -->
-            <div class="cta-block">
-                <h3>¿Tienes dudas sobre tu caso concreto?</h3>
-                <p>Solicita un Diagnóstico Gratuito y una Arquitecta Técnica colegiada analizará tu situación en menos de 24h. Sin compromiso, sin coste.</p>
-                <a href="/formulario/" class="btn-cta">Solicitar Diagnóstico Gratis →</a>
-            </div>
+    <div class="blog-cta">
+      <p>¿Tienes dudas sobre tu certificado energético?</p>
+      <a href="/formulario/" class="btn-primary">Hacer el diagnóstico gratuito</a>
+    </div>
+  </main>
 
-        </div>
+  <!-- TRUST BLOCK -->
+  <section class="trust-block" aria-label="Información profesional">
+    <p><strong>Eva María González Gracia</strong></p>
+    <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+    <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
+    <div class="trust-block-badges">
+      <span>Cateb 9457</span>
+      <span>Seguro RC</span>
+      <span>Consultoría energética independiente</span>
+    </div>
+    <p class="disclaimer">Certilab no emite certificados energéticos oficiales con registro en CCAA.<br>
+    Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
+  </section>
 
-        <!-- Trust Block -->
-        <section class="trust-block" aria-label="Información profesional">
-            <p><strong>Eva María González Gracia</strong></p>
-            <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
-            <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
-            <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
-                <span>Cateb 9457</span>
-                <span>Seguro RC</span>
-                <span>Consultoría energética independiente</span>
-            </div>
-            <p class="disclaimer">Certilab no emite certificados energéticos oficiales con registro en CCAA.<br>
-            Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
-        </section>
-    </main>
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p>Consultoría energética técnica e independiente.<br>
+          Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegación pie de página">
+        <ul>
+          <li><a href="/formulario/">Diagnóstico Express</a></li>
+          <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+          <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+          <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+          <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
+          <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
+          <li><a href="/profesionales/">Para profesionales</a></li>
+          <li><a href="/por-que-no-emite-ce/">Por qué no emitimos certificados</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-legal" aria-label="Páginas legales">
+        <ul>
+          <li><a href="/privacidad.html">Privacidad</a></li>
+          <li><a href="/cookies.html">Cookies</a></li>
+          <li><a href="/legal.html">Aviso legal</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-copy">
+      © 2026 Certilab · Todos los derechos reservados ·
+      <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
+    </p>
+  </footer>
 
-    <footer class="footer" role="contentinfo">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <p>Consultoría energética técnica e independiente.<br>
-                Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
-            </div>
-            <nav class="footer-nav" aria-label="Navegación pie de página">
-                <ul>
-                    <li><a href="/formulario/">Diagnóstico Express</a></li>
-                    <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
-                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
-                    <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-                    <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
-                    <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
-                    <li><a href="/profesionales/">Para profesionales</a></li>
-                    <li><a href="/por-que-no-emite-ce/">Por qué no emitimos certificados</a></li>
-                    <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-                </ul>
-            </nav>
-            <nav class="footer-legal" aria-label="Páginas legales">
-                <ul>
-                    <li><a href="/privacidad.html">Privacidad</a></li>
-                    <li><a href="/cookies.html">Cookies</a></li>
-                    <li><a href="/legal.html">Aviso legal</a></li>
-                </ul>
-            </nav>
-        </div>
-        <p class="footer-copy">© 2026 Certilab · Todos los derechos reservados</p>
-    </footer>
-
-    <script>
-        (function() {
-            var toggle = document.querySelector('.nav-toggle');
-            var menu = document.querySelector('.nav-menu');
-            if (!toggle || !menu) return;
-            toggle.addEventListener('click', function() {
-                var expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', String(!expanded));
-                menu.classList.toggle('is-open');
+  <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('is-open');
+        });
+        // Cerrar menú móvil al hacer clic en enlace
+        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
             });
-            // Cerrar menú móvil al hacer clic en cualquier enlace
-            document.querySelectorAll('.nav-menu a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    menu.classList.remove('is-open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
+        });
+        // Dropdown toggle en escritorio y móvil
+        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
+        dropdowns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var parent = btn.closest('.nav-dropdown');
+                if (parent) {
+                    parent.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
+                }
             });
-        })();
-    </script>
+        });
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            dropdowns.forEach(function(btn) {
+                var parent = btn.closest('.nav-dropdown');
+                if (parent && !parent.contains(e.target)) {
+                    parent.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    })();
+  </script>
 </body>
 </html>

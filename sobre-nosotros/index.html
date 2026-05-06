@@ -15,14 +15,14 @@
     <meta property="og:description" content="Certilab nace de una mirada distinta sobre la eficiencia energética: la del Mediterráneo. Conoce nuestra filosofía, manifiesto y al equipo detrás del proyecto.">
     <meta property="og:url" content="https://www.certilab.cat/sobre-nosotros/">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://www.certilab.cat/favicon.png">
+    <meta property="og:image" content="https://certilab.cat/og-image.jpg">
     <meta property="og:locale" content="es_ES">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Sobre nosotros — Certilab">
     <meta name="twitter:description" content="Certilab nace de una mirada distinta sobre la eficiencia energética: la del Mediterráneo. Conoce nuestra filosofía, manifiesto y al equipo detrás del proyecto.">
-    <meta name="twitter:image" content="https://www.certilab.cat/favicon.png">
+    <meta name="twitter:image" content="https://certilab.cat/og-image.jpg">
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
@@ -76,7 +76,8 @@
         <button onclick="closeCookies()">Aceptar</button>
     </div>
 
-    <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
         <a href="/" class="nav-logo" aria-label="Certilab — inicio">
             <span>Certilab</span>
@@ -85,17 +86,23 @@
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
-            <li><a href="/#servicios">Servicios</a></li>
-            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
-            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios <span class="arrow"></span></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="/formulario/">Diagnóstico Gratuito</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opinión (39€)</a></li>
+                    <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
+                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario (199€)</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe Técnico (399€)</a></li>
+                </ul>
+            </li>
+            <li><a href="/por-que-no-emite-ce/">Por qué no emitimos CE</a></li>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/formulario/" class="nav-cta">Diagnóstico Gratis</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta-secondary">Por qué no emitimos CE</a></li>
         </ul>
     </div>
 </nav>
@@ -115,6 +122,18 @@
                 <p>La eficiencia energética nórdica trasplantada al sur produce certificados que no entienden lo que están midiendo. Casas con doble aislamiento que se sobrecalientan en julio. Mejoras subvencionadas que reducen consumos en kilovatios pero no en confort real.</p>
                 <p>Certilab parte de una mirada distinta. Aplicamos rigor técnico — el que la normativa española exige — pero con la sensibilidad cultural del lugar donde trabajamos. Una vivienda en Sevilla no se analiza igual que una en Bilbao. Una promoción en la costa mediterránea pide otras prioridades que una en el interior peninsular.</p>
                 <p>No firmamos certificados energéticos oficiales. La ley exige visita presencial, y nosotros operamos en remoto en toda España. Nos especializamos en lo que sí podemos ofrecer mejor: análisis técnicos sin desplazamientos, segundas opiniones sobre certificados ya emitidos, consultoría energética para decisiones inmobiliarias.</p>
+            </div>
+        </section>
+
+        <!-- CTA intermedio tras Filosofía -->
+        <section class="section" aria-labelledby="cta-inter2-title" style="background:var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+            <div style="max-width:650px; margin:0 auto; text-align:center;">
+                <h2 id="cta-inter2-title" style="font-family:var(--font-serif); font-size:1.5rem; color:var(--terra-dk); margin-bottom:0.75rem; font-weight:400;">¿Tienes dudas sobre la eficiencia energética en el Mediterráneo?</h2>
+                <p style="font-size:1rem; color:var(--gris); margin-bottom:1.5rem; line-height:1.6;">Cada inmueble es distinto. Cuéntanos tu caso y te orientamos sin compromiso.</p>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="/formulario/" style="display:inline-block; background:var(--terra); color:white; padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700;">Diagnóstico Gratis →</a>
+                    <a href="/segunda-opinion/" style="display:inline-block; background:transparent; color:var(--terra-dk); padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700; border:2px solid var(--terra-dk);">Segunda Opinión (39€)</a>
+                </div>
             </div>
         </section>
 
@@ -188,6 +207,18 @@
             </div>
         </section>
 
+        <!-- CTA intermedio tras Personas -->
+        <section class="section" aria-labelledby="cta-inter3-title" style="background:var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+            <div style="max-width:650px; margin:0 auto; text-align:center;">
+                <h2 id="cta-inter3-title" style="font-family:var(--font-serif); font-size:1.5rem; color:var(--terra-dk); margin-bottom:0.75rem; font-weight:400;">Habla con Eva sobre tu caso</h2>
+                <p style="font-size:1rem; color:var(--gris); margin-bottom:1.5rem; line-height:1.6;">Cada análisis lo revisa personalmente una Arquitecta Técnica colegiada. No hay algoritmos, no hay plantillas genéricas.</p>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="/formulario/" style="display:inline-block; background:var(--terra); color:white; padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700;">Diagnóstico Gratis →</a>
+                    <a href="/informe-tecnico-energetico/" style="display:inline-block; background:transparent; color:var(--terra-dk); padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700; border:2px solid var(--terra-dk);">Informe Técnico (399€)</a>
+                </div>
+            </div>
+        </section>
+
         <!-- S5: TRUST BLOCK (añadido) -->
         <section class="trust-block" aria-label="Información profesional">
             <p><strong>Eva María González Gracia</strong></p>
@@ -245,23 +276,46 @@
     </footer>
 
     <script>
-        (function() {
-            var toggle = document.querySelector('.nav-toggle');
-            var menu = document.querySelector('.nav-menu');
-            if (!toggle || !menu) return;
-            toggle.addEventListener('click', function() {
-                var expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', String(!expanded));
-                menu.classList.toggle('is-open');
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('is-open');
+        });
+        // Cerrar menú móvil al hacer clic en enlace
+        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
             });
-            // Cerrar menú móvil al hacer clic en cualquier enlace
-            document.querySelectorAll('.nav-menu a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    menu.classList.remove('is-open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
+        });
+        // Dropdown toggle en escritorio y móvil
+        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
+        dropdowns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var parent = btn.closest('.nav-dropdown');
+                if (parent) {
+                    parent.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
+                }
             });
-        })();
-    </script>
+        });
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            dropdowns.forEach(function(btn) {
+                var parent = btn.closest('.nav-dropdown');
+                if (parent && !parent.contains(e.target)) {
+                    parent.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    })();
+  </script>
 </body>
 </html>

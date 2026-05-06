@@ -1,8 +1,30 @@
 User-agent: *
 Allow: /
 
-# Bloqueo de archivos internos (no necesarios para indexación)
+# Bloqueo de archivos internos
 Disallow: /deploy/
+
+# ── Crawlers de IA ── Permitimos indexación completa para visibilidad en buscadores con IA
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
 
 # Sitemap principal
 Sitemap: https://www.certilab.cat/sitemap.xml

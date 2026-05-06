@@ -1,161 +1,216 @@
-"""
-Unifica el <nav> en todas las páginas HTML del proyecto Certilab.
-También añade font-display: swap a Google Fonts y el fix del menú móvil.
-"""
-import os
+"""Unify nav and fix og:image across all HTML pages of Certilab."""
 import re
-import glob
+import os
+from pathlib import Path
 
-# ============================================================
-# NAV CANÓNICO (el que irá en TODAS las páginas)
-# ============================================================
-CANONICAL_NAV = '''<nav class="nav" role="navigation" aria-label="Navegación principal">
+ROOT = Path(r"c:\Users\evam7\certilab\web-garraf")
+
+# Files with the main nav (exclude legal/cookies/privacidad which use minimal layout)
+HTML_FILES = [
+    "index.html",
+    "404.html",
+    "sobre-nosotros/index.html",
+    "por-que-no-emite-ce/index.html",
+    "segunda-opinion/index.html",
+    "segunda-opinion-express/index.html",
+    "check-up-inmobiliario/index.html",
+    "informe-tecnico-energetico/index.html",
+    "formulario/index.html",
+    "calculadoracat/index.html",
+    "ayudas-eficiencia-energetica/index.html",
+    "profesionales/index.html",
+    "blog/errores-certificado-energetico/index.html",
+    "blog/obtener-certificado-energetico-gratis/index.html",
+]
+
+NEW_NAV = """<!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Navegaci\u00f3n principal">
     <div class="nav-inner">
-        <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+        <a href="/" class="nav-logo" aria-label="Certilab \u2014 inicio">
             <span>Certilab</span>
         </a>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <button class="nav-toggle" aria-label="Abrir men\u00fa" aria-expanded="false" aria-controls="nav-menu">
             <span></span><span></span><span></span>
         </button>
-        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
-            <li><a href="/#servicios">Servicios</a></li>
-            <li><a href="/segunda-opinion/">Segunda Opinión</a></li>
-            <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
-            <li><a href="/check-up-inmobiliario/">Check-Up</a></li>
-            <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
-            <li><a href="/formulario/">Diagnóstico Gratis</a></li>
-            <li><a href="/calculadoracat/">Calculadora</a></li>
+        <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegaci\u00f3n principal">
+            <li><a href="/">Inicio</a></li>
+            <li class="nav-dropdown">
+                <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios <span class="arrow"></span></button>
+                <ul class="nav-dropdown-menu">
+                    <li><a href="/formulario/">Diagn\u00f3stico Gratuito</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opini\u00f3n (39\u20ac)</a></li>
+                    <li><a href="/segunda-opinion-express/">Segunda Opini\u00f3n Express</a></li>
+                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario (199\u20ac)</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe T\u00e9cnico (399\u20ac)</a></li>
+                </ul>
+            </li>
+            <li><a href="/por-que-no-emite-ce/">Por qu\u00e9 no emitimos CE</a></li>
             <li><a href="/blog/">Blog</a></li>
-            <li><a href="/profesionales/">Profesionales</a></li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
-            <li><a href="/por-que-no-emite-ce/" class="nav-cta">Por qué no emitimos CE</a></li>
+            <li><a href="/calculadoracat/">Calculadora</a></li>
+            <li><a href="/formulario/" class="nav-cta">Diagn\u00f3stico Gratis</a></li>
+            <li><a href="/por-que-no-emite-ce/" class="nav-cta-secondary">Por qu\u00e9 no emitimos CE</a></li>
         </ul>
     </div>
-</nav>'''
+</nav>"""
 
-# ============================================================
-# SCRIPT MENÚ MÓVIL UNIFICADO (incluye fix para cerrar al click)
-# ============================================================
-MOBILE_MENU_JS = '''    <script>
-        (function() {
-            var toggle = document.querySelector('.nav-toggle');
-            var menu = document.querySelector('.nav-menu');
-            if (!toggle || !menu) return;
-            toggle.addEventListener('click', function() {
-                var expanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', String(!expanded));
-                menu.classList.toggle('is-open');
+NEW_SCRIPT = """<script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('is-open');
+        });
+        // Cerrar men\u00fa m\u00f3vil al hacer clic en enlace
+        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
             });
-            // Cerrar menú móvil al hacer clic en cualquier enlace
-            document.querySelectorAll('.nav-menu a').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    menu.classList.remove('is-open');
-                    toggle.setAttribute('aria-expanded', 'false');
-                });
+        });
+        // Dropdown toggle en escritorio y m\u00f3vil
+        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
+        dropdowns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var parent = btn.closest('.nav-dropdown');
+                if (parent) {
+                    parent.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
+                }
             });
-        })();'''
+        });
+        // Cerrar dropdown al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            dropdowns.forEach(function(btn) {
+                var parent = btn.closest('.nav-dropdown');
+                if (parent && !parent.contains(e.target)) {
+                    parent.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    })();
+  </script>"""
 
-# ============================================================
-# FUNCIONES
-# ============================================================
 
-def replace_nav(content):
-    """Reemplaza el bloque <nav ...> ... </nav> completo por el canónico."""
-    # Patrón: desde <nav hasta </nav> (multilínea, non-greedy en el contenido)
-    pattern = r'<nav\b[^>]*>.*?</nav>'
-    if re.search(pattern, content, re.DOTALL):
-        return re.sub(pattern, CANONICAL_NAV.strip(), content, count=1, flags=re.DOTALL)
-    else:
-        # Si no encuentra <nav>, intenta buscar solo <nav (por si hay diferencias)
-        pattern2 = r'<nav\b.*?</nav>'
-        if re.search(pattern2, content, re.DOTALL):
-            return re.sub(pattern2, CANONICAL_NAV.strip(), content, count=1, flags=re.DOTALL)
+def replace_nav_block(content):
+    """Replace <nav class="nav" ...> ... </nav> with the unified nav."""
+    # Find opening <nav class="nav"
+    pattern_start = re.compile(r'<nav\s+class="nav"[^>]*>')
+    m = pattern_start.search(content)
+    if not m:
+        return content
+
+    start_idx = m.start()
+    depth = 1
+    i = m.end()
+    while i < len(content) and depth > 0:
+        # Look for next <nav or </nav>
+        next_open = content.find('<nav', i)
+        next_close = content.find('</nav>', i)
+        if next_close == -1:
+            break
+        if next_open != -1 and next_open < next_close:
+            depth += 1
+            i = next_open + 4
+        else:
+            depth -= 1
+            if depth == 0:
+                end_idx = next_close + len('</nav>')
+                return content[:start_idx] + NEW_NAV + content[end_idx:]
+            i = next_close + len('</nav>')
     return content
 
-def replace_mobile_menu_js(content):
-    """Reemplaza el bloque del menú móvil JS por la versión unificada con fix."""
-    # Buscar el script que contiene nav-toggle y reemplazarlo
-    # Patrón: desde (function() { var toggle... hasta })();
-    pattern = r'<script>\s*\(function\(\)\s*\{[^}]*var toggle[^<]*?\}\)\(\);\s*</script>'
-    if re.search(pattern, content, re.DOTALL):
-        return re.sub(pattern, MOBILE_MENU_JS.strip() + '\n    </script>', content, count=1, flags=re.DOTALL)
 
-    # Fallback: buscar cualquier script que contenga nav-toggle
-    pattern2 = r'<script>[^<]*nav-toggle[^<]*</script>'
-    if re.search(pattern2, content, re.DOTALL):
-        return re.sub(pattern2, MOBILE_MENU_JS.strip() + '\n    </script>', content, count=1, flags=re.DOTALL)
+def replace_script_block(content):
+    """Replace the inline nav script with the new one that includes dropdown handler."""
+    # Match the script block that starts with (function() { ... nav-toggle
+    pattern = re.compile(
+        r'<script>\s*\(function\(\)\s*\{.*?nav-toggle.*?\}\s*\)\s*\(\s*\)\s*;\s*</script>',
+        re.DOTALL
+    )
+    m = pattern.search(content)
+    if not m:
+        # Try looser pattern for older pages
+        pattern2 = re.compile(
+            r'<script>\s*//\s*Mobile nav toggle.*?</script>',
+            re.DOTALL
+        )
+        m2 = pattern2.search(content)
+        if m2:
+            return content[:m2.start()] + NEW_SCRIPT + content[m2.end():]
+        return content
+    return content[:m.start()] + NEW_SCRIPT + content[m.end():]
 
-    return content
 
-def add_font_display_swap(content):
-    """Añade &display=swap a todas las URLs de Google Fonts que no lo tengan."""
-    # Busca URLs de Google Fonts sin display=swap
-    pattern = r'(https://fonts\.googleapis\.com/css2\?[^"\'\s]+)'
-    def replacer(match):
-        url = match.group(1)
-        if 'display=swap' not in url:
-            if '?' in url:
-                url += '&display=swap'
-            else:
-                url += '?display=swap'
-        return url
-    return re.sub(pattern, replacer, content)
+def fix_og_image(content):
+    """Replace favicon.png in og:image with og-image.jpg."""
+    # Match og:image with favicon.png
+    pattern = re.compile(
+        r'<meta\s+property="og:image"\s+content="[^"]*favicon\.png"[^>]*>',
+        re.IGNORECASE
+    )
+    replacement = '<meta property="og:image" content="https://certilab.cat/og-image.jpg">'
+    return pattern.sub(replacement, content)
+
+
+def fix_og_image_twitter(content):
+    """Fix twitter:image if it exists with favicon.png."""
+    pattern = re.compile(
+        r'<meta\s+name="twitter:image"\s+content="[^"]*favicon\.png"[^>]*>',
+        re.IGNORECASE
+    )
+    replacement = '<meta name="twitter:image" content="https://certilab.cat/og-image.jpg">'
+    return pattern.sub(replacement, content)
+
 
 def process_file(filepath):
-    """Procesa un archivo HTML aplicando todas las correcciones."""
-    with open(filepath, 'r', encoding='utf-8') as f:
-        original = f.read()
+    path = ROOT / filepath
+    if not path.exists():
+        print(f"  SKIP (no existe): {filepath}")
+        return
 
-    content = original
+    content = path.read_text(encoding='utf-8')
+    modified = False
 
-    # 1. Unificar nav
-    content = replace_nav(content)
+    # Fix og:image
+    new_content = fix_og_image(content)
+    if new_content != content:
+        modified = True
+        content = new_content
 
-    # 2. Fix menú móvil
-    content = replace_mobile_menu_js(content)
+    # Fix twitter:image if present
+    new_content = fix_og_image_twitter(content)
+    if new_content != content:
+        modified = True
+        content = new_content
 
-    # 3. font-display: swap
-    content = add_font_display_swap(content)
+    # Replace nav
+    new_content = replace_nav_block(content)
+    if new_content != content:
+        modified = True
+        content = new_content
 
-    if content != original:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(content)
-        return True
-    return False
+    # Replace script
+    new_content = replace_script_block(content)
+    if new_content != content:
+        modified = True
+        content = new_content
 
-def main():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
+    if modified:
+        path.write_text(content, encoding='utf-8')
+        print(f"  MODIFICADO: {filepath}")
+    else:
+        print(f"  sin cambios: {filepath}")
 
-    # Encontrar todos los HTML
-    html_files = []
-    for root, dirs, files in os.walk(base_dir):
-        # Saltar node_modules, .git, deploy
-        dirs[:] = [d for d in dirs if d not in ('node_modules', '.git', 'deploy', 'docs')]
-        for f in files:
-            if f.endswith('.html'):
-                html_files.append(os.path.join(root, f))
-
-    print(f"Encontrados {len(html_files)} archivos HTML")
-    modified = []
-    skipped = []
-
-    for fp in sorted(html_files):
-        rel = os.path.relpath(fp, base_dir)
-        try:
-            changed = process_file(fp)
-            if changed:
-                modified.append(rel)
-                print(f"  [OK] MODIFICADO: {rel}")
-            else:
-                skipped.append(rel)
-        except Exception as e:
-                print(f"  [ERROR] en {rel}: {e}")
-
-    print(f"\n--- RESUMEN ---")
-    print(f"Modificados: {len(modified)}")
-    for m in modified:
-        print(f"  • {m}")
-    print(f"Sin cambios: {len(skipped)}")
 
 if __name__ == '__main__':
-    main()
+    print("=== Unificando nav y corrigiendo og:image ===")
+    for f in HTML_FILES:
+        process_file(f)
+    print("=== Completado ===")
