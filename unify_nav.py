@@ -24,6 +24,7 @@ HTML_FILES = [
     "blog/obtener-certificado-energetico-gratis/index.html",
     "blog/cuanto-cuesta-certificado-energetico-2026/index.html",
     "blog/brown-discount-precio-vivienda/index.html",
+    "blog/ayudas-next-generation-rehabilitacion-energetica-2026/index.html",
     "gracias/index.html",
 ]
 
@@ -56,6 +57,7 @@ NEW_NAV = """  <nav class="nav" role="navigation" aria-label="Navegaci\u00f3n pr
                     <li><a href="/blog/cuanto-cuesta-certificado-energetico-2026/">Precio CE 2026: lo barato sale caro</a></li>
                     <li><a href="/blog/obtener-certificado-energetico-gratis/">\u00bfCertificado Gratis? Gu\u00eda 2026</a></li>
                     <li><a href="/blog/errores-certificado-energetico/">Errores comunes en el CE</a></li>
+                    <li><a href="/blog/ayudas-next-generation-rehabilitacion-energetica-2026/">Next Generation 2026</a></li>
                 </ul>
             </li>
             <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
