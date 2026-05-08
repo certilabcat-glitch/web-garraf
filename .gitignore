@@ -17,3 +17,16 @@ build/
 # Env
 .env
 .env.*
+.env.local
+
+# Secrets & keys
+*.pem
+*.key
+*.crt
+
+# Audit scripts (no desplegar)
+audit_seo.py
+fix_meta_pixel.py
+unify_nav.py
+verificar_seo.py
+verify_seo.py

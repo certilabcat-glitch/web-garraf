@@ -21,6 +21,24 @@
     <meta name="twitter:title" content="Tu Diagnóstico Energético Gratis | Certilab">
     <meta name="twitter:description" content="Diagnóstico energético gratuito y sin compromiso. Servicio 100% remoto. Resultado en 48h. Arquitecta Técnica Cateb 9457.">
 
+    <!-- Meta Pixel -->
+    <script>
+    try {
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); fbq('track', 'ViewContent', {content_name: 'Diagnostico_Gratuito', value: 0, currency: 'EUR'}); } catch(e) {}
+    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
+    /></noscript>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -456,6 +474,84 @@
                     parent.classList.remove('open');
                     btn.setAttribute('aria-expanded', 'false');
                 }
+            });
+        });
+    })();
+
+    // Mostrar/ocultar campo enlace de anuncio según perfil
+    (function() {
+        var perfilSelect = document.getElementById('perfilSelect');
+        var divEnlace = document.getElementById('divEnlace');
+        if (perfilSelect && divEnlace) {
+            perfilSelect.addEventListener('change', function() {
+                divEnlace.style.display = (this.value === 'comprador') ? 'block' : 'none';
+            });
+        }
+    })();
+
+    // Envío del formulario vía fetch al webhook n8n
+    (function() {
+        var form = document.getElementById('leadForm');
+        var btn = document.getElementById('btnEnviar');
+        var success = document.getElementById('success-message');
+        if (!form || !btn || !success) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validar CP español
+            var cp = document.getElementById('cpInput');
+            if (cp && !/^[0-5][0-9]{4}$/.test(cp.value)) {
+                alert('Por favor, introduce un código postal español válido (5 dígitos, comenzando por 0-5).');
+                cp.focus();
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+
+            // Serializar datos del formulario
+            var data = new FormData(form);
+            var payload = {};
+            data.forEach(function(val, key) {
+                payload[key] = val;
+            });
+
+            // Añadir metadatos
+            payload.fuente = window.location.href;
+            payload.timestamp = new Date().toISOString();
+            payload.pagina = 'formulario-diagnostico-gratuito';
+
+            fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/auditoria-pago-certilab', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Error del servidor');
+                return res.text();
+            })
+            .then(function() {
+                // Éxito: ocultar formulario, mostrar mensaje
+                form.style.display = 'none';
+                success.style.display = 'block';
+
+                // Track conversión en Meta Pixel
+                if (typeof fbq !== 'undefined') {
+                    try { fbq('track', 'Lead', { content_name: 'Diagnostico_Gratuito', value: 0, currency: 'EUR' }); } catch(e) {}
+                }
+
+                // Redirigir a gracias tras 3 segundos
+                var nextUrl = form.querySelector('input[name="_next"]');
+                if (nextUrl && nextUrl.value) {
+                    setTimeout(function() { window.location.href = nextUrl.value; }, 3000);
+                }
+            })
+            .catch(function(err) {
+                console.error('Error al enviar:', err);
+                btn.disabled = false;
+                btn.textContent = 'Solicitar diagnóstico sin compromiso';
+                alert('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o escríbenos por WhatsApp al 608 515 922.');
             });
         });
     })();

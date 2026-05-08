@@ -306,7 +306,7 @@
                 <div class="feature">
                     <div class="icon" style="font-size:1.5rem; font-weight:300; color:var(--brown);">VI</div>
                     <h4>Atención directa</h4>
-                    <p>Atención directa con un profesional </p>
+                    <p>Atención directa con un profesional colegiado, sin intermediarios.</p>
                 </div>
             </div>
         </section>
@@ -366,34 +366,38 @@
             </div>
         </section>
 
-        <section class="container" id="faq" aria-labelledby="faq-title">
-            <h2 id="faq-title" class="section-title">Preguntas Frecuentes Profesionales</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-q">¿Cómo funciona el servicio para profesionales?<span class="icon">+</span></div>
-                    <div class="faq-a">Es muy simple: tus clientes envían fotos y datos directamente a través de nuestro formulario. Nosotros nos encargamos de todo el proceso técnico y te enviamos el análisis en 48h. Tú recibes una factura mensual consolidada.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Qué volumen mínimo necesito?<span class="icon">+</span></div>
-                    <div class="faq-a">El volumen mínimo para mantener la tarifa profesional es de 3 expedientes al mes. Si necesitas menos, podemos ofrecerte precios especiales según tu caso concreto.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Los análisis son válidos para compraventa?<span class="icon">+</span></div>
-                    <div class="faq-a">Nuestros análisis son informes técnicos orientativos. Para trámites legales como compraventa o alquiler, necesitarás un certificado energético oficial emitido por técnico con visita presencial, según RD 390/2021.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Cómo funciona la factura mensual?<span class="icon">+</span></div>
-                    <div class="faq-a">Al final de cada mes, te enviamos una única factura consolidada con todos los servicios realizados. Puedes pagarla por transferencia bancaria o tarjeta. Sin pagos individuales por cada expediente.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Podéis trabajar en toda España?<span class="icon">+</span></div>
-                    <div class="faq-a">Sí. Realizamos análisis para toda España. El proceso es 100% online, sin importar la ubicación de la propiedad.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">¿Cómo solicito acceso profesional?<span class="icon">+</span></div>
-                    <div class="faq-a">Rellena el formulario de registro con tus datos profesionales. Verificamos manualmente tu perfil y te enviamos las condiciones específicas para tu tipo de negocio en menos de 24h.</div>
-                </div>
-            </div>
+        <section class="faq-native" aria-labelledby="faq-title">
+            <h2 id="faq-title">Preguntas Frecuentes Profesionales</h2>
+
+            <details>
+                <summary>¿Cómo funciona el servicio para profesionales?</summary>
+                <p>Es muy simple: tus clientes envían fotos y datos directamente a través de nuestro formulario. Nosotros nos encargamos de todo el proceso técnico y te enviamos el análisis en 48h. Tú recibes una factura mensual consolidada.</p>
+            </details>
+
+            <details>
+                <summary>¿Qué volumen mínimo necesito?</summary>
+                <p>El volumen mínimo para mantener la tarifa profesional es de 3 expedientes al mes. Si necesitas menos, podemos ofrecerte precios especiales según tu caso concreto.</p>
+            </details>
+
+            <details>
+                <summary>¿Los análisis son válidos para compraventa?</summary>
+                <p>Nuestros análisis son informes técnicos orientativos. Para trámites legales como compraventa o alquiler, necesitarás un certificado energético oficial emitido por técnico con visita presencial, según RD 390/2021.</p>
+            </details>
+
+            <details>
+                <summary>¿Cómo funciona la factura mensual?</summary>
+                <p>Al final de cada mes, te enviamos una única factura consolidada con todos los servicios realizados. Puedes pagarla por transferencia bancaria o tarjeta. Sin pagos individuales por cada expediente.</p>
+            </details>
+
+            <details>
+                <summary>¿Podéis trabajar en toda España?</summary>
+                <p>Sí. Realizamos análisis para toda España. El proceso es 100% online, sin importar la ubicación de la propiedad.</p>
+            </details>
+
+            <details>
+                <summary>¿Cómo solicito acceso profesional?</summary>
+                <p>Rellena el formulario de registro con tus datos profesionales. Verificamos manualmente tu perfil y te enviamos las condiciones específicas para tu tipo de negocio en menos de 24h.</p>
+            </details>
         </section>
 
         <section class="container" id="registro">
@@ -531,6 +535,57 @@
                     parent.classList.remove('open');
                     btn.setAttribute('aria-expanded', 'false');
                 }
+            });
+        });
+    })();
+
+    // Envío del formulario profesional vía fetch al webhook n8n
+    (function() {
+        var form = document.getElementById('proForm');
+        var success = document.getElementById('success-msg');
+        if (!form || !success) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Enviando...';
+
+            var data = new FormData(form);
+            var payload = {};
+            data.forEach(function(val, key) {
+                payload[key] = val;
+            });
+            payload.fuente = window.location.href;
+            payload.timestamp = new Date().toISOString();
+            payload.pagina = 'profesionales-registro';
+
+            fetch('https://n8n-n8n.nfnizn.easypanel.host/webhook/auditoria-pago-certilab', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Error del servidor');
+                return res.text();
+            })
+            .then(function() {
+                form.style.display = 'none';
+                success.style.display = 'block';
+
+                if (typeof fbq !== 'undefined') {
+                    try { fbq('track', 'Lead', { content_name: 'Profesionales_Registro', value: 0, currency: 'EUR' }); } catch(e) {}
+                }
+
+                // Scroll suave al mensaje de éxito
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            })
+            .catch(function(err) {
+                console.error('Error al enviar:', err);
+                btn.disabled = false;
+                btn.textContent = 'Solicitar acceso profesional →';
+                alert('Hubo un error al enviar tu solicitud. Por favor, inténtalo de nuevo o escríbenos por WhatsApp al 608 515 922.');
             });
         });
     })();
