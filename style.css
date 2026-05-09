@@ -796,16 +796,7 @@ details a { color: var(--black); text-decoration: underline; }
   line-height: 1.6;
 }
 
-/* B3 — Steps */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0 3rem;
-}
-.step {
-  text-align: center;
-}/* B6 — Steps grid (sección Proceso) */
+/* B3+B6 — Steps grid (sección Proceso, unificada) */
 .steps-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -849,20 +840,6 @@ details a { color: var(--black); text-decoration: underline; }
   font-size: 0.9rem;
   color: var(--grey);
 }
-.step h4 {
-  font-family: var(--font-serif);
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--black);
-  margin-bottom: 0.4rem;
-}
-.step p {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  color: var(--grey);
-  line-height: 1.6;
-}
-
 /* B4 — Includes box */
 .includes-box {
   border: 1px solid var(--border);
@@ -1112,11 +1089,12 @@ details a { color: var(--black); text-decoration: underline; }
 }
 .dir-link:hover { border-color: var(--black); }
 
-/* B10 — Trust block (por-que-no-emite-ce) */
+/* B10 — Trust block (bloque de confianza, usado en todas las páginas + blog) */
 .trust-block {
-  padding: 4rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   text-align: center;
   border-top: 1px solid var(--border);
+  font-size: 0.92rem;
 }
 .trust-block p {
   font-family: var(--font-sans);
@@ -1132,7 +1110,18 @@ details a { color: var(--black); text-decoration: underline; }
 .trust-block .disclaimer {
   font-size: 0.8rem;
   font-style: italic;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+}
+.trust-block .trust-block-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.8rem 0;
+}
+.trust-block img {
+  height: 40px;
+  width: auto;
 }
 
 /* B11 — Situations + schedule + comparison (segunda-opinion-express) */
@@ -1242,6 +1231,54 @@ details a { color: var(--black); text-decoration: underline; }
   margin: 0 auto 1.5rem;
   line-height: 1.7;
 }
+
+/* B12.1 — Utilidades de fondo crema */
+.bg-cream      { background: var(--crema); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.bg-cream-top  { background: var(--crema); border-top: 1px solid var(--border); }
+
+/* B12.2 — ROI comparison (Check-Up Inmobiliario) */
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 3rem 0; text-align: center; }
+.roi-box  { border: 1px solid var(--border); padding: 2rem 1.5rem; }
+.roi-box.highlight { border: 2px solid var(--black); }
+.roi-label { font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.75rem; }
+.roi-price { font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.2rem); color: var(--black); margin-bottom: 0.5rem; }
+.roi-desc  { font-family: var(--font-sans); font-size: 0.85rem; color: var(--grey); line-height: 1.6; }
+
+/* B12.3 — Casos reales (Check-Up Inmobiliario) */
+.caso-card { border-left: 2px solid var(--terra); padding: 1.5rem 2rem; margin-bottom: 2rem; background: #fff; }
+.caso-card:last-child { margin-bottom: 0; }
+.caso-label { font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terra-dark); margin-bottom: 0.5rem; }
+.caso-title { font-family: var(--font-serif); font-size: 1.15rem; font-weight: 400; color: var(--black); margin-bottom: 0.75rem; }
+.caso-text  { font-family: var(--font-sans); font-size: 0.95rem; color: var(--grey); line-height: 1.7; }
+
+/* B12.4 — Compromiso (Check-Up Inmobiliario) */
+.compromiso-list { max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+.compromiso-item { display: flex; gap: 1rem; align-items: flex-start; }
+.compromiso-num  { font-size: 1.5rem; flex-shrink: 0; font-family: var(--font-serif); color: var(--grey); }
+.compromiso-body { flex: 1; }
+.compromiso-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--black); margin-bottom: 0.3rem; }
+.compromiso-text  { font-family: var(--font-sans); font-size: 0.9rem; color: var(--grey); line-height: 1.6; margin: 0; }
+
+/* B12.5 — "Lo que NO es" (Check-Up Inmobiliario) */
+.not-list { max-width: 700px; margin: 0 auto; }
+.not-item { margin-bottom: 1rem; font-family: var(--font-sans); font-size: 0.95rem; color: var(--dark); line-height: 1.7; }
+
+/* B12.6 — Contenedores estrechos */
+.content-narrow { max-width: 700px; margin: 0 auto; }
+.content-wide   { max-width: 750px; margin: 0 auto; }
+
+/* B12.7 — Utilidades de alineación de texto */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+
+/* B12.8 — ROI footnote */
+.roi-footnote { font-family: var(--font-sans); font-size: 0.85rem; color: var(--grey); text-align: center; max-width: 700px; margin: 2rem auto 0; line-height: 1.6; }
+
+/* B12.9 — Sección "Lo que NO es" */
+.not-section { text-align: center; padding: 1rem 0; }
+.not-footer  { font-family: var(--font-sans); font-size: 0.85rem; color: var(--grey); text-align: center; margin-top: 2rem; }
+.not-footer a { color: var(--terra-dark); text-decoration: underline; text-underline-offset: 2px; }
+.not-footer a:hover { color: var(--terra); }
 
 /* B7 — Sobre nosotros: prose, manifiesto, personas */
 
@@ -1805,6 +1842,352 @@ details a { color: var(--black); text-decoration: underline; }
 
   .pricing-card .price-amount {
     font-size: 2.5rem;
+  }
+}
+
+/* =============================================
+   BLOG — Artículos y layout de contenido
+   ============================================= */
+
+/* Contenedor principal en páginas de blog */
+.page-blog #main-content,
+.blog-article {
+  padding: 2rem 1.5rem 6rem;
+  min-height: 60vh;
+}
+
+/* Artículo individual */
+.blog-article {
+  max-width: 750px;
+  margin: 0 auto;
+  font-family: var(--font-sans);
+  color: var(--dark);
+  line-height: 1.8;
+}
+
+/* Cabecera de artículo */
+.article-header {
+  margin-bottom: 2.5rem;
+}
+.article-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.25;
+  color: var(--dark);
+  margin-bottom: 0.75rem;
+}
+
+/* Metadatos (fecha, autor) */
+.article-meta {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.article-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.article-meta a {
+  color: var(--terra-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+.article-meta a:hover {
+  text-decoration: underline;
+}
+
+/* Lead / entradilla */
+.article-lead {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--grey);
+  border-left: 3px solid var(--terra);
+  padding-left: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+
+/* Secciones del artículo */
+.article-section {
+  margin-bottom: 2.5rem;
+}
+.article-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--dark);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  scroll-margin-top: 5rem;
+}
+.article-section h3 {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--dark);
+  margin: 1.5rem 0 0.6rem;
+}
+.article-section p {
+  margin-bottom: 1.1rem;
+  font-size: 1.02rem;
+}
+.article-section strong {
+  font-weight: 600;
+}
+
+/* Citas destacadas */
+.article-quote {
+  background: var(--crema);
+  border-left: 4px solid var(--terra);
+  border-radius: 0 6px 6px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* Tablas (precios, comparativas) */
+.article-table-wrapper {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  min-width: 500px;
+}
+.article-table thead {
+  background: var(--verde);
+  color: #fff;
+}
+.article-table thead th {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.article-table thead th:first-child {
+  position: sticky;
+  left: 0;
+  background: var(--verde);
+  z-index: 1;
+}
+.article-table tbody td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.article-table tbody td:first-child {
+  background: var(--crema);
+  font-weight: 600;
+  position: sticky;
+  left: 0;
+  z-index: 0;
+}
+.article-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Listas */
+.article-list {
+  padding-left: 1.5rem;
+  margin: 1rem 0 1.5rem;
+}
+.article-list li {
+  margin-bottom: 0.55rem;
+  padding-left: 0.25rem;
+  line-height: 1.7;
+}
+.article-list li::marker {
+  color: var(--terra);
+}
+
+/* Summary box (resumen de precio) */
+.summary-box {
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+.summary-box .precio {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--terra-dark);
+  font-weight: 700;
+}
+
+/* Interlink banner (enlace a otro artículo) */
+.interlink-banner {
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.interlink-banner strong {
+  color: var(--terra-dark);
+}
+.interlink-banner a {
+  color: var(--verde);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.interlink-banner a:hover {
+  text-decoration: underline;
+}
+
+/* Callout box (destacado importante) */
+.callout-box {
+  background: #fef9f0;
+  border-left: 4px solid var(--verde);
+  border-radius: 0 8px 8px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 0.98rem;
+}
+
+/* Checklist warning (lista de verificación) */
+.checklist-warning {
+  background: #fff8f0;
+  border: 1px solid #e6c460;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+}
+.checklist-warning ul {
+  padding-left: 1.4rem;
+  margin: 0.8rem 0 0;
+}
+.checklist-warning li {
+  margin-bottom: 0.4rem;
+  line-height: 1.7;
+}
+.checklist-warning li::marker {
+  content: '\26A0\FE0F';
+}
+.checklist-warning strong {
+  color: var(--terra-dark);
+}
+
+/* CTA inline (botón en texto, ej. "Solicitar ahora") */
+.cta-inline {
+  display: inline-block;
+  padding: 0.55rem 1.5rem;
+  background: var(--verde);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-inline:hover {
+  background: #3a6b4a;
+  transform: scale(1.03);
+}
+
+/* Bio del autor */
+.author-bio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 3rem 0 2rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.author-bio img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.author-bio strong {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-bottom: 0.2rem;
+}
+.author-bio .author-cateb {
+  font-size: 0.8rem;
+  color: var(--grey);
+}
+
+/* CTA final de artículo */
+.blog-cta {
+  background: var(--verde);
+  color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.blog-cta h3 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+.blog-cta p {
+  margin-bottom: 1.2rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.blog-cta a {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  background: #fff;
+  color: var(--verde);
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: transform 0.15s;
+}
+.blog-cta a:hover {
+  transform: scale(1.04);
+}
+
+/* Ajustes responsive para blog */
+@media (max-width: 768px) {
+  .blog-article {
+    padding: 1.5rem 1rem 5rem;
+  }
+  .article-header h1 {
+    font-size: 1.5rem;
+  }
+  .article-lead {
+    font-size: 1.05rem;
+  }
+  .article-section h2 {
+    font-size: 1.25rem;
+  }
+  .author-bio {
+    flex-direction: column;
+    text-align: center;
   }
 }
 

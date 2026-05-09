@@ -25,27 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Meta Pixel -->
-    <script>
-    try {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
-    fbq('track', 'ViewContent', {content_name: 'Check-Up Inmobiliario', value: 199, currency: 'EUR'});
-    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
-    /></noscript>
-
-    <!-- Schema.org BreadcrumbList + Service -->
+<!-- Schema.org BreadcrumbList + Service -->
     <script type="application/ld+json">
     [{
         "@context": "https://schema.org",
@@ -91,10 +71,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-    <div id="cookie-banner" role="alert" aria-live="polite">
-        <p>Utilizamos cookies técnicas para garantizar su seguridad profesional. <a href="/cookies.html">Política de Cookies</a>.</p>
-        <button onclick="closeCookies()">Aceptar</button>
+</div>
     </div>
 
       <nav class="nav" role="navigation" aria-label="Navegación principal">
@@ -190,24 +167,24 @@
         </section>
 
         <!-- S2.5: ROI — El coste de NO hacer el Check-Up -->
-        <section class="section" style="background:var(--cream); border-top:1px solid var(--border); border-bottom:1px solid var(--border);" aria-labelledby="roi-title">
-            <div style="max-width:700px; margin:0 auto;">
-                <h2 id="roi-title" class="section-title">¿Cuánto cuesta <em style="font-style:italic;">no</em> hacer el Check-Up?</h2>
+        <section class="section bg-crema" aria-labelledby="roi-title">
+            <div class="content-narrow">
+                <h2 id="roi-title" class="section-title">¿Cuánto cuesta <em>no</em> hacer el Check-Up?</h2>
                 <p class="section-sub">199€ hoy pueden ahorrarte miles de euros mañana.</p>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin:3rem 0; text-align:center;">
-                    <div style="border:1px solid var(--border); padding:2rem 1.5rem;">
-                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Sin Check-Up</p>
-                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">12.000 – 25.000€</p>
-                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Coste medio de reformas no detectadas, sobrecoste energético en 5 años o litigios por cargas ocultas.</p>
+                <div class="roi-grid">
+                    <div class="roi-box">
+                        <p class="roi-label">Sin Check-Up</p>
+                        <p class="roi-price">12.000 – 25.000€</p>
+                        <p class="roi-desc">Coste medio de reformas no detectadas, sobrecoste energético en 5 años o litigios por cargas ocultas.</p>
                     </div>
-                    <div style="border:2px solid var(--black); padding:2rem 1.5rem;">
-                        <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--grey); margin-bottom:0.75rem;">Con Check-Up</p>
-                        <p style="font-family:var(--font-serif); font-size:clamp(1.8rem,3vw,2.2rem); color:var(--black); margin-bottom:0.5rem;">199€</p>
-                        <p style="font-family:var(--font-sans); font-size:0.85rem; color:var(--grey); line-height:1.6;">Inversión única que te da el poder de negociar con datos, detectar red flags antes de firmar y evitar sustos post-compra.</p>
+                    <div class="roi-box highlight">
+                        <p class="roi-label">Con Check-Up</p>
+                        <p class="roi-price">199€</p>
+                        <p class="roi-desc">Inversión única que te da el poder de negociar con datos, detectar red flags antes de firmar y evitar sustos post-compra.</p>
                     </div>
                 </div>
-                <p style="text-align:center; font-family:var(--font-sans); font-size:0.95rem; color:var(--dark); margin-bottom:1.5rem;">El Check-Up representa menos del <strong>0,1% del precio medio de una vivienda en España (200.000€)</strong>. Un margen de seguridad insignificante comparado con lo que está en juego.</p>
-                <div style="text-align:center;">
+                <p class="roi-footnote">El Check-Up representa menos del <strong>0,1% del precio medio de una vivienda en España (200.000€)</strong>. Un margen de seguridad insignificante comparado con lo que está en juego.</p>
+                <div class="text-center">
                     <a href="/formulario/" class="btn-primary">Quiero el Check-Up — 199€</a>
                 </div>
             </div>
@@ -285,24 +262,24 @@
         </section>
 
         <!-- S5.5: CASO REAL ANONIMIZADO -->
-        <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="caso-title">
+        <section class="section bg-crema" aria-labelledby="caso-title">
             <h2 id="caso-title" class="section-title">Caso real: lo que el Check-Up detectó antes de que fuera tarde</h2>
             <p class="section-sub">Historias reales de clientes que evitaron problemas graves. Datos anonimizados por confidencialidad profesional.</p>
-            <div style="max-width:750px; margin:0 auto;">
-                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
-                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso A — Barcelona, 2025</p>
-                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">12.000€ en reformas pendientes que no aparecían en la información del vendedor</h4>
-                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Comprador de un piso en Gràcia. El certificado energético decía calificación E. Nuestro análisis detectó que la caldera comunitaria estaba al final de su vida útil, que el cerramiento de la terraza no tenía licencia y que la instalación eléctrica era anterior a 2002. El comprador negoció 12.000€ de rebaja y pudo planificar las reformas antes de entrar. <strong>Inversión en Check-Up: 199€. Ahorro obtenido: 12.000€.</strong></p>
+            <div class="content-narrow" style="max-width:750px;">
+                <div class="caso-card">
+                    <p class="caso-label">Caso A — Barcelona, 2025</p>
+                    <h4 class="caso-title">12.000€ en reformas pendientes que no aparecían en la información del vendedor</h4>
+                    <p class="caso-text">Comprador de un piso en Gràcia. El certificado energético decía calificación E. Nuestro análisis detectó que la caldera comunitaria estaba al final de su vida útil, que el cerramiento de la terraza no tenía licencia y que la instalación eléctrica era anterior a 2002. El comprador negoció 12.000€ de rebaja y pudo planificar las reformas antes de entrar. <strong>Inversión en Check-Up: 199€. Ahorro obtenido: 12.000€.</strong></p>
                 </div>
-                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; margin-bottom:2rem; background:#fff;">
-                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso B — Valencia, 2024</p>
-                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">El piso tenía una carga hipotecaria no cancelada que el vendedor "olvidó" mencionar</h4>
-                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Inversor que evaluaba un inmueble para alquiler turístico. El vendedor aseguraba que la vivienda estaba libre de cargas. La consulta al Registro reveló una hipoteca pendiente de 45.000€ de un préstamo personal del propietario anterior. La compra se condicionó a la cancelación registral antes de la firma. <strong>Sin el Check-Up, el inversor habría heredado una deuda de 45.000€.</strong></p>
+                <div class="caso-card">
+                    <p class="caso-label">Caso B — Valencia, 2024</p>
+                    <h4 class="caso-title">El piso tenía una carga hipotecaria no cancelada que el vendedor "olvidó" mencionar</h4>
+                    <p class="caso-text">Inversor que evaluaba un inmueble para alquiler turístico. El vendedor aseguraba que la vivienda estaba libre de cargas. La consulta al Registro reveló una hipoteca pendiente de 45.000€ de un préstamo personal del propietario anterior. La compra se condicionó a la cancelación registral antes de la firma. <strong>Sin el Check-Up, el inversor habría heredado una deuda de 45.000€.</strong></p>
                 </div>
-                <div style="border-left:2px solid var(--brown); padding:1.5rem 2rem; background:#fff;">
-                    <p style="font-family:var(--font-sans); font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--brown); margin-bottom:0.5rem;">Caso C — Madrid, 2025</p>
-                    <h4 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--black); margin-bottom:0.75rem;">Certificado energético con calificación C que en realidad era una G</h4>
-                    <p style="font-family:var(--font-sans); font-size:0.95rem; color:var(--grey); line-height:1.7;">Piso de los años 70 en venta. El certificado energético del vendedor indicaba calificación C. El Check-Up detectó que el certificado estaba mal calculado: omitía los puentes térmicos, usaba una zona climática incorrecta y declaraba aislamiento donde no lo había. La calificación real estimada era G. El comprador desistió de la compra. <strong>Se ahorró comprar un piso con un gasto energético 3 veces superior al que esperaba.</strong></p>
+                <div class="caso-card">
+                    <p class="caso-label">Caso C — Madrid, 2025</p>
+                    <h4 class="caso-title">Certificado energético con calificación C que en realidad era una G</h4>
+                    <p class="caso-text">Piso de los años 70 en venta. El certificado energético del vendedor indicaba calificación C. El Check-Up detectó que el certificado estaba mal calculado: omitía los puentes térmicos, usaba una zona climática incorrecta y declaraba aislamiento donde no lo había. La calificación real estimada era G. El comprador desistió de la compra. <strong>Se ahorró comprar un piso con un gasto energético 3 veces superior al que esperaba.</strong></p>
                 </div>
             </div>
         </section>
@@ -378,18 +355,18 @@
             <p style="text-align:center; margin-top:2rem; font-size:0.85rem; color:var(--grey);">El Check-Up es el <strong>único servicio que cubre todos los frentes</strong> en un solo informe. No necesitas coordinar 3 profesionales distintos.</p>
         </section>
 
-        <!-- S6: QUÉ NO ES — Mejorado -->
-        <section class="section" style="background:var(--cream); border-top:1px solid var(--border);" aria-labelledby="not-title">
-            <h2 id="not-title" class="section-title" style="text-align:left;">Lo que el Check-Up Inmobiliario NO es</h2>
-            <div style="max-width:700px;">
-                <p style="margin-bottom:1rem;">✗ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado. El Check-Up no valora económicamente el inmueble: te da los datos técnicos para que tú decidas si el precio es justo.</p>
-                <p style="margin-bottom:1rem;">✗ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor para verificar su exactitud, pero no emitimos uno nuevo con registro en CCAA.</p>
-                <p style="margin-bottom:1rem;">✗ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma. Sí verificamos si los datos catastrales son coherentes con lo que necesitarías para obtenerla.</p>
-                <p style="margin-bottom:1rem;">✗ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas exactamente qué verificar in situ antes de firmar. Te damos el checklist, no la inspección física.</p>
-                <p style="margin-bottom:1rem;">✗ <strong>No es un asesoramiento legal.</strong> No sustituye a tu abogado. Complementamos su trabajo con el análisis técnico que él no puede hacer.</p>
+        <!-- S6: QUÉ NO ES -->
+        <section class="section bg-crema not-section" aria-labelledby="not-title">
+            <h2 id="not-title" class="section-title text-left">Lo que el Check-Up Inmobiliario NO es</h2>
+            <div class="not-list">
+                <p class="not-item">✗ <strong>No es una tasación oficial.</strong> Para el valor de mercado necesitas un tasador homologado. El Check-Up no valora económicamente el inmueble: te da los datos técnicos para que tú decidas si el precio es justo.</p>
+                <p class="not-item">✗ <strong>No es un certificado energético oficial.</strong> Analizamos el certificado existente del vendedor para verificar su exactitud, pero no emitimos uno nuevo con registro en CCAA.</p>
+                <p class="not-item">✗ <strong>No es una cédula de habitabilidad.</strong> Eso corresponde a tu Comunidad Autónoma. Sí verificamos si los datos catastrales son coherentes con lo que necesitarías para obtenerla.</p>
+                <p class="not-item">✗ <strong>No sustituye a una visita presencial de un técnico.</strong> Detectamos red flags para que sepas exactamente qué verificar in situ antes de firmar. Te damos el checklist, no la inspección física.</p>
+                <p class="not-item">✗ <strong>No es un asesoramiento legal.</strong> No sustituye a tu abogado. Complementamos su trabajo con el análisis técnico que él no puede hacer.</p>
             </div>
-            <p style="margin-top:1.5rem; font-size:0.9rem; color:var(--grey);">
-                <a href="/por-que-no-emite-ce/" style="color:var(--terra);">Más información sobre por qué no emitimos certificados energéticos →</a>
+            <p class="not-footer">
+                <a href="/por-que-no-emite-ce/">Más información sobre por qué no emitimos certificados energéticos →</a>
             </p>
         </section>
 
@@ -397,33 +374,33 @@
         <section class="section" aria-labelledby="garantia-title">
             <h2 id="garantia-title" class="section-title">Compromiso de transparencia</h2>
             <p class="section-sub">Porque confiamos en el rigor de nuestro trabajo</p>
-            <div style="max-width:650px; margin:0 auto; display:flex; flex-direction:column; gap:1.5rem;">
-                <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">I</span>
-                    <div>
-                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Confidencialidad absoluta</h4>
-                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Tu intención de compra y los resultados del análisis son estrictamente confidenciales. No compartimos información con terceros, inmobiliarias ni vendedores.</p>
+            <div class="compromiso-list">
+                <div class="compromiso-item">
+                    <span class="compromiso-num">I</span>
+                    <div class="compromiso-body">
+                        <h4 class="compromiso-title">Confidencialidad absoluta</h4>
+                        <p class="compromiso-text">Tu intención de compra y los resultados del análisis son estrictamente confidenciales. No compartimos información con terceros, inmobiliarias ni vendedores.</p>
                     </div>
                 </div>
-                <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">II</span>
-                    <div>
-                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Rigor técnico profesional</h4>
-                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Cada Check-Up está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. No usamos automatismos para generar informes.</p>
+                <div class="compromiso-item">
+                    <span class="compromiso-num">II</span>
+                    <div class="compromiso-body">
+                        <h4 class="compromiso-title">Rigor técnico profesional</h4>
+                        <p class="compromiso-text">Cada Check-Up está elaborado por Eva González, Arquitecta Técnica colegiada nº 9457 (Cateb), con seguro de Responsabilidad Civil profesional. No usamos automatismos para generar informes.</p>
                     </div>
                 </div>
-                <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">III</span>
-                    <div>
-                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Compromiso de entrega en 48h</h4>
-                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza y te damos una nueva fecha. Si el retraso supera las 24h adicionales, te reembolsamos 50€.</p>
+                <div class="compromiso-item">
+                    <span class="compromiso-num">III</span>
+                    <div class="compromiso-body">
+                        <h4 class="compromiso-title">Compromiso de entrega en 48h</h4>
+                        <p class="compromiso-text">Si por causas imputables a Certilab el informe se entrega fuera de plazo, te avisamos antes de que venza y te damos una nueva fecha. Si el retraso supera las 24h adicionales, te reembolsamos 50€.</p>
                     </div>
                 </div>
-                <div style="display:flex; gap:1rem; align-items:flex-start;">
-                    <span style="font-size:1.5rem; flex-shrink:0;">IV</span>
-                    <div>
-                        <h4 style="font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--black); margin-bottom:0.3rem;">Atención directa sin intermediarios</h4>
-                        <p style="font-family:var(--font-sans); font-size:0.9rem; color:var(--grey); line-height:1.6;">Hablas directamente con la arquitecta técnica que elabora tu informe. Sin comerciales, sin call center, sin respuestas automáticas. Si tienes dudas al leer el informe, te las resolvemos.</p>
+                <div class="compromiso-item">
+                    <span class="compromiso-num">IV</span>
+                    <div class="compromiso-body">
+                        <h4 class="compromiso-title">Atención directa sin intermediarios</h4>
+                        <p class="compromiso-text">Hablas directamente con la arquitecta técnica que elabora tu informe. Sin comerciales, sin call center, sin respuestas automáticas. Si tienes dudas al leer el informe, te las resolvemos.</p>
                     </div>
                 </div>
             </div>
@@ -452,7 +429,7 @@
             <p><strong>Eva María González Gracia</strong></p>
             <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
             <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
-            <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
+            <div class="trust-block-badges">
                 <span>Cateb 9457</span>
                 <span>Seguro RC</span>
                 <span>Consultoría energética independiente</span>
@@ -525,51 +502,8 @@
             <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
         </p>
     </footer>
+    <!-- Banner de cookies con consentimiento RGPD -->
+    <script src="/cookies.js" defer></script>
 
-    <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } };
-
-    (function() {
-        var toggle = document.querySelector('.nav-toggle');
-        var menu = document.querySelector('.nav-menu');
-        if (!toggle || !menu) return;
-        toggle.addEventListener('click', function() {
-            var expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('is-open');
-        });
-        // Cerrar menú móvil al hacer clic en enlace
-        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                menu.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-        // Dropdown toggle en escritorio y móvil
-        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
-        dropdowns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                var parent = btn.closest('.nav-dropdown');
-                if (parent) {
-                    parent.classList.toggle('open');
-                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
-                }
-            });
-        });
-        // Cerrar dropdown al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            dropdowns.forEach(function(btn) {
-                var parent = btn.closest('.nav-dropdown');
-                if (parent && !parent.contains(e.target)) {
-                    parent.classList.remove('open');
-                    btn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-    })();
-  </script>
 </body>
 </html>

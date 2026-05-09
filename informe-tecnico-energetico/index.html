@@ -25,27 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Meta Pixel -->
-    <script>
-    try {
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    try { fbq('init', '1271893388238243'); fbq('track', 'PageView'); } catch(e) {}
-    fbq('track', 'ViewContent', {content_name: 'Informe Técnico Energético', value: 399, currency: 'EUR'});
-    } catch(e) { console.warn('Facebook Pixel no se ha podido cargar:', e); }
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1271893388238243&ev=PageView&noscript=1"
-    /></noscript>
-
-    <!-- Schema.org BreadcrumbList + Service -->
+<!-- Schema.org BreadcrumbList + Service -->
     <script type="application/ld+json">
     [{
         "@context": "https://schema.org",
@@ -91,13 +71,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-
-    <div id="cookie-banner" role="alert" aria-live="polite">
-        <p>Utilizamos cookies técnicas para garantizar su seguridad profesional. <a href="/cookies.html">Política de Cookies</a>.</p>
-        <button onclick="closeCookies()">Aceptar</button>
-    </div>
-
-      <nav class="nav" role="navigation" aria-label="Navegación principal">
+<nav class="nav" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
         <a href="/" class="nav-logo" aria-label="Certilab — inicio">
             <span>Certilab</span>
@@ -538,7 +512,6 @@
             Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
         </section>
 
-
     </main>
 
     <footer class="footer" role="contentinfo">
@@ -573,51 +546,8 @@
             <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
         </p>
     </footer>
+    <!-- Banner de cookies con consentimiento RGPD -->
+    <script src="/cookies.js" defer></script>
 
-    <script>
-        function closeCookies() { document.getElementById('cookie-banner').style.display = 'none'; localStorage.setItem('certilab_v2026', 'true'); }
-        window.onload = function() { if(!localStorage.getItem('certilab_v2026')) { document.getElementById('cookie-banner').style.display = 'block'; } };
-
-    (function() {
-        var toggle = document.querySelector('.nav-toggle');
-        var menu = document.querySelector('.nav-menu');
-        if (!toggle || !menu) return;
-        toggle.addEventListener('click', function() {
-            var expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            menu.classList.toggle('is-open');
-        });
-        // Cerrar menú móvil al hacer clic en enlace
-        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                menu.classList.remove('is-open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-        // Dropdown toggle en escritorio y móvil
-        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
-        dropdowns.forEach(function(btn) {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                var parent = btn.closest('.nav-dropdown');
-                if (parent) {
-                    parent.classList.toggle('open');
-                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
-                }
-            });
-        });
-        // Cerrar dropdown al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            dropdowns.forEach(function(btn) {
-                var parent = btn.closest('.nav-dropdown');
-                if (parent && !parent.contains(e.target)) {
-                    parent.classList.remove('open');
-                    btn.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-    })();
-  </script>
 </body>
 </html>
