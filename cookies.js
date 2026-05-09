@@ -148,6 +148,31 @@
     footerLegal.appendChild(li);
   }
 
+  /* ── API pública para la página de cookies ── */
+  window.CertilabCookies = {
+    /**
+     * Devuelve 'all', 'essential' o null (sin elección)
+     */
+    getStatus: function () {
+      return getConsent();
+    },
+
+    /**
+     * Establece explícitamente la elección: 'all' | 'essential'
+     * - 'all': guarda preferencia, elimina banner si existe, carga Pixel
+     * - 'essential': guarda preferencia, elimina banner si existe, NO carga Pixel
+     */
+    setChoice: function (choice) {
+      if (choice !== 'all' && choice !== 'essential') return;
+      setConsent(choice);
+      removeBanner();
+      if (choice === 'all') {
+        loadMetaPixel();
+      }
+      console.log('Cookies: preferencia cambiada a → ' + choice);
+    }
+  };
+
   /* ── Init ── */
   function init() {
     var consent = getConsent();

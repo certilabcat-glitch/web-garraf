@@ -2,37 +2,654 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="vbxqc3rtusTH9zjcV54qo7HI9PV9D2exiFZ4VjhDyv4" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies — Certilab</title>
+    <meta name="description" content="Política de cookies de Certilab. Información transparente sobre las cookies técnicas esenciales y analíticas (Meta Pixel) que utilizamos, y cómo puedes gestionarlas.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.certilab.cat/cookies.html">
-    <title>Política de Cookies | Certilab</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="google-site-verification" content="vbxqc3rtusTH9zjcV54qo7HI9PV9D2exiFZ4VjhDyv4" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Política de Cookies — Certilab">
+    <meta property="og:description" content="Información transparente sobre las cookies técnicas esenciales y analíticas (Meta Pixel) que utilizamos, y cómo puedes gestionarlas.">
+    <meta property="og:url" content="https://www.certilab.cat/cookies.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://certilab.cat/og-image.jpg">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Política de Cookies — Certilab">
+    <meta name="twitter:description" content="Información transparente sobre las cookies técnicas esenciales y analíticas (Meta Pixel) que utilizamos, y cómo puedes gestionarlas.">
+    <meta name="twitter:image" content="https://certilab.cat/og-image.jpg">
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://www.certilab.cat/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Política de Cookies",
+                "item": "https://www.certilab.cat/cookies.html"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+    <script src="/cookies.js" defer></script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 50px auto; padding: 20px; background: #f9f9f9; }
-        h1 { color: #1a1a1a; border-bottom: 2px solid #c5a35d; padding-bottom: 10px; font-size: 1.8rem; }
-        .box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-        strong { color: #c5a35d; }
+        /* Cookies page — Aesop pattern (aligned with formulario) */
+        .cookies-container {
+            background: var(--blanc);
+            border: 1px solid rgba(139,111,71,0.16);
+            border-radius: var(--rl);
+            padding: 40px;
+            box-shadow: var(--sh);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        @media (max-width: 767px) {
+            .cookies-container { padding: 24px; }
+        }
+
+        .cookies-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .cookies-header .logo-txt {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--terra-dk);
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .cookies-header h1 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--terra-dk);
+            margin: 0 0 12px;
+            font-weight: 400;
+        }
+        .cookies-header p {
+            color: var(--gris);
+            font-size: 0.95rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .cookies-section {
+            margin-bottom: 30px;
+        }
+        .cookies-section-title {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            color: var(--terra-dk);
+            margin: 0 0 16px;
+            font-weight: 600;
+        }
+
+        .cookies-prose {
+            color: var(--gris);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .cookies-prose p {
+            margin-bottom: 1rem;
+        }
+        .cookies-prose ul {
+            margin: 0 0 1.5rem 1.5rem;
+            padding: 0;
+        }
+        .cookies-prose li {
+            margin-bottom: 0.5rem;
+        }
+        .cookies-prose a {
+            color: var(--terra);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .cookies-prose a:hover {
+            color: var(--terra-dk);
+        }
+
+        /* Cookie table — Aesop styled */
+        .cookie-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 2rem 0;
+            font-size: 0.9rem;
+        }
+        .cookie-table thead th {
+            background: var(--crema);
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 2px solid var(--border);
+            font-weight: 600;
+            color: var(--terra-dk);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cookie-table tbody td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .cookie-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .cookie-table code {
+            background: rgba(139,111,71,0.08);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--terra-dk);
+            white-space: nowrap;
+        }
+        .cookie-table .cookie-note {
+            font-size: 0.8rem;
+            color: var(--gris);
+            font-style: italic;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Panel interactivo de configuración */
+        .cookies-panel {
+            background: var(--crema);
+            border: 1px solid rgba(139,111,71,0.2);
+            border-radius: var(--r);
+            padding: 24px;
+            margin-top: 20px;
+        }
+        .cookies-panel-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--blanc);
+            border-radius: var(--r);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--terra-dk);
+        }
+        .cookies-status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .cookies-status-dot--all {
+            background: var(--verde);
+        }
+        .cookies-status-dot--essential {
+            background: var(--terra);
+        }
+        .cookies-status-dot--none {
+            background: #ccc;
+        }
+
+        .cookies-panel-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .cookies-panel-btn {
+            padding: 12px 24px;
+            border-radius: var(--r);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .cookies-panel-btn--primary {
+            background: var(--terra);
+            color: #fff;
+        }
+        .cookies-panel-btn--primary:hover {
+            background: var(--terra-dk);
+        }
+        .cookies-panel-btn--secondary {
+            background: var(--blanc);
+            color: var(--terra-dk);
+            border: 2px solid var(--terra-dk);
+        }
+        .cookies-panel-btn--secondary:hover {
+            background: var(--terra-dk);
+            color: #fff;
+        }
+        .cookies-panel-btn--active {
+            box-shadow: 0 0 0 3px rgba(139,111,71,0.3);
+            cursor: default;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        .cookies-panel-msg {
+            font-size: 0.85rem;
+            color: var(--verde);
+            margin-top: 12px;
+            display: none;
+            font-weight: 600;
+        }
+        .cookies-panel-msg.is-visible {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Política de Cookies</h1>
-        <p>En <strong>Certilab</strong>, propiedad de Eva Gonzalez, utilizamos cookies para asegurar que el sitio web funcione correctamente y para cumplir con las normativas de seguridad jurídica.</p>
-        
-        <h3>1. ¿Qué son las cookies?</h3>
-        <p>Son pequeños archivos de texto que se almacenan en su navegador cuando visita una web. Permiten recordar su visita para mejorar su experiencia de navegación.</p>
-        
-        <h3>2. Cookies que utilizamos</h3>
-        <p>Este sitio web utiliza únicamente <strong>cookies técnicas y esenciales</strong>:</p>
-        <ul>
-            <li><strong>certilabCookies:</strong> Una cookie propia que sirve para recordar si usted ha aceptado el aviso de cookies y que no le vuelva a aparecer el banner inferior.</li>
-            <li><strong>Seguridad:</strong> Cookies necesarias para la protección contra fraudes o accesos no autorizados.</li>
-        </ul>
 
-        <h3>3. Cookies de terceros</h3>
-        <p>No utilizamos cookies de publicidad, ni de seguimiento (tracking), ni de análisis de comportamiento de terceros.</p>
-        
-        <h3>4. Cómo gestionar las cookies</h3>
-        <p>Usted puede restringir, bloquear o borrar las cookies de este sitio web en cualquier momento modificando la configuración de su navegador. Si lo hace, es posible que el banner de aceptación aparezca en cada visita, pero la navegación seguirá siendo funcional.</p>
-    </div>
+    <nav class="nav" role="navigation" aria-label="Navegación principal">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+                <span>Certilab</span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu" role="list" aria-label="Navegación principal">
+                <li><a href="/">Inicio</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios <span class="arrow"></span></button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/formulario/">Diagnóstico Gratuito</a></li>
+                        <li><a href="/segunda-opinion/">Segunda Opinión (39€)</a></li>
+                        <li><a href="/segunda-opinion-express/">Segunda Opinión Express</a></li>
+                        <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario (199€)</a></li>
+                        <li><a href="/informe-tecnico-energetico/">Informe Técnico (399€)</a></li>
+                    </ul>
+                </li>
+                <li><a href="/por-que-no-emite-ce/">Por qué no emitimos CE</a></li>
+                <li class="nav-dropdown">
+                    <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">Blog <span class="arrow"></span></button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/blog/">Ver todos los artículos</a></li>
+                        <li><a href="/blog/brown-discount-precio-vivienda/">Brown Discount: qué es</a></li>
+                        <li><a href="/blog/cuanto-cuesta-certificado-energetico-2026/">Precio CE 2026: lo barato sale caro</a></li>
+                        <li><a href="/blog/obtener-certificado-energetico-gratis/">¿Certificado Gratis? Guía 2026</a></li>
+                        <li><a href="/blog/errores-certificado-energetico/">Errores comunes en el CE</a></li>
+                        <li><a href="/blog/ayudas-next-generation-rehabilitacion-energetica-2026/">Next Generation 2026</a></li>
+                    </ul>
+                </li>
+                <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+                <li><a href="/calculadoracat/">Calculadora</a></li>
+                <li><a href="/formulario/" class="nav-cta">Diagnóstico Gratis</a></li>
+                <li><a href="/por-que-no-emite-ce/" class="nav-cta-secondary">Por qué no emitimos CE</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- Respuesta Directa -->
+        <div class="direct-response">
+            <p><strong>En Certilab solo utilizamos cookies técnicas esenciales</strong> para el funcionamiento del sitio y, si nos das tu consentimiento, cookies analíticas (Meta Pixel) para medir la eficacia de nuestra web. No utilizamos cookies de publicidad comportamental ni vendemos tus datos a terceros. Tú decides.</p>
+        </div>
+
+        <div class="container">
+            <div class="cookies-container">
+                <div class="cookies-header">
+                    <div class="logo-txt">Certilab</div>
+                    <h1>Política de Cookies</h1>
+                    <p>Transparencia sobre qué datos recogemos, para qué y cómo puedes gestionarlos.</p>
+                </div>
+
+                <!-- Panel interactivo: siempre visible al inicio -->
+                <div class="cookies-section" id="gestionar" aria-labelledby="gestionar-title">
+                    <h2 class="cookies-section-title" id="gestionar-title">Tu configuración actual</h2>
+                    <div class="cookies-panel" id="cookies-config-panel">
+                        <div class="cookies-panel-status" id="cookies-status-display">
+                            <span>⏳</span>
+                            <span>Cargando tu preferencia…</span>
+                        </div>
+                        <div class="cookies-panel-actions">
+                            <button class="cookies-panel-btn cookies-panel-btn--secondary" id="btn-cookies-essential">Solo técnicas</button>
+                            <button class="cookies-panel-btn cookies-panel-btn--primary" id="btn-cookies-all">Aceptar todas</button>
+                        </div>
+                        <p class="cookies-panel-msg" id="cookies-msg">✓ Preferencia actualizada</p>
+                    </div>
+                </div>
+
+                <div class="cookies-section" id="que-son" aria-labelledby="que-son-title">
+                    <h2 class="cookies-section-title" id="que-son-title">¿Qué son las cookies?</h2>
+                    <div class="cookies-prose">
+                        <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo (ordenador, móvil, tablet) cuando los visitas. Sirven para que el sitio recuerde información sobre tu visita: preferencias de navegación, sesión de usuario, o para medir cómo se usa el sitio y poder mejorarlo.</p>
+                        <p>Según su finalidad, las cookies se clasifican en:</p>
+                        <ul>
+                            <li><strong>Cookies técnicas o necesarias:</strong> imprescindibles para que el sitio funcione correctamente. No requieren consentimiento del usuario según la LSSI (Ley 34/2002).</li>
+                            <li><strong>Cookies analíticas o de medición:</strong> permiten al responsable del sitio web medir la actividad de los usuarios (páginas visitadas, tiempo de navegación, origen de la visita) para introducir mejoras. Sí requieren consentimiento.</li>
+                            <li><strong>Cookies de publicidad comportamental:</strong> almacenan información del comportamiento de navegación para mostrar anuncios personalizados. Sí requieren consentimiento.</li>
+                        </ul>
+                        <p>En Certilab <strong>no utilizamos cookies de publicidad comportamental</strong>. Solo utilizamos cookies técnicas esenciales y, si nos das tu consentimiento, cookies analíticas (Meta Pixel) para medir la eficacia de nuestro sitio.</p>
+                    </div>
+                </div>
+
+                <div class="cookies-section" id="cookies-que-usamos" aria-labelledby="cookies-usamos-title">
+                    <h2 class="cookies-section-title" id="cookies-usamos-title">Cookies que utilizamos</h2>
+                    <div class="cookies-prose">
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600; margin-top:0;">Cookies técnicas (esenciales)</h3>
+                        <p>Estas cookies son necesarias para el funcionamiento del sitio web y no pueden desactivarse en nuestros sistemas. No almacenan información personal. Se instalan automáticamente al visitar el sitio, sin necesidad de consentimiento previo, de acuerdo con el artículo 22.2 de la LSSI.</p>
+                        <table class="cookie-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Duración</th>
+                                    <th>Finalidad</th>
+                                    <th>Titular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>certilab_cookies_accepted</code></td>
+                                    <td>365 días</td>
+                                    <td>Almacena tu preferencia de consentimiento de cookies (aceptaste todas o solo técnicas)</td>
+                                    <td>Certilab (propia)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Cookies analíticas (requieren consentimiento)</h3>
+                        <p>Si nos das tu consentimiento expreso haciendo clic en <strong>"Aceptar todas"</strong>, instalaremos las siguientes cookies analíticas de terceros. Si eliges <strong>"Solo técnicas"</strong>, estas cookies NO se instalarán.</p>
+                        <table class="cookie-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Duración</th>
+                                    <th>Finalidad</th>
+                                    <th>Titular</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>_fbp</code></td>
+                                    <td>90 días</td>
+                                    <td>Cookie de identificación de Meta (Facebook) usada para medir conversiones y audiencias</td>
+                                    <td>Meta Platforms, Inc. (EE.UU.)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>_fbc</code></td>
+                                    <td>90 días</td>
+                                    <td>Cookie de clic de Meta usada para atribuir visitas a campañas<span class="cookie-note">Solo se establece si el usuario llegó a través de un enlace de Meta (anuncio o post)</span></td>
+                                    <td>Meta Platforms, Inc. (EE.UU.)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>Estas cookies pertenecen al servicio <strong>Meta Pixel</strong> (anteriormente Facebook Pixel), que utilizamos para medir la actividad en nuestro sitio y mejorar nuestras comunicaciones. Meta Platforms, Inc. está certificada bajo el <strong>Data Privacy Framework</strong> (DPF) entre la UE y EE.UU., lo que garantiza un nivel adecuado de protección de datos según la Decisión de Adecuación de la Comisión Europea de 10 de julio de 2023.</p>
+                        <p>Puedes consultar la política de privacidad de Meta aquí: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener noreferrer">https://www.facebook.com/privacy/policy</a></p>
+                    </div>
+                </div>
+
+                <div class="cookies-section" id="como-gestionar" aria-labelledby="como-gestionar-title">
+                    <h2 class="cookies-section-title" id="como-gestionar-title">Cómo gestionar las cookies</h2>
+                    <div class="cookies-prose">
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600; margin-top:0;">Desde el banner de cookies</h3>
+                        <p>En tu primera visita a nuestro sitio, verás un banner de cookies con dos opciones claras:</p>
+                        <ul>
+                            <li><strong>"Solo técnicas"</strong> — solo se instalarán las cookies esenciales para el funcionamiento del sitio. No se cargará Meta Pixel ni ninguna cookie analítica.</li>
+                            <li><strong>"Aceptar todas"</strong> — se instalarán las cookies técnicas y las analíticas (Meta Pixel). Tu consentimiento se conservará durante 365 días. Transcurrido ese plazo, volveremos a solicitártelo.</li>
+                        </ul>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Cambiar tu preferencia en cualquier momento</h3>
+                        <p>Puedes cambiar tu elección cuando quieras. Tienes dos opciones:</p>
+                        <ul>
+                            <li><strong>Desde esta misma página:</strong> usa el panel de configuración que aparece al inicio de esta Política de Cookies.</li>
+                            <li><strong>Desde el pie de página:</strong> en cada página de Certilab encontrarás un enlace <strong>"Configurar cookies"</strong> en el footer.</li>
+                        </ul>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Desde tu navegador</h3>
+                        <p>Todos los navegadores modernos permiten bloquear o eliminar cookies desde sus ajustes de privacidad. Aquí tienes los enlaces de ayuda para los navegadores más comunes:</p>
+                        <ul>
+                            <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Firefox</a></li>
+                            <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
+                            <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
+                            <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
+                        </ul>
+                        <p>Ten en cuenta que si bloqueas las cookies técnicas, algunas partes del sitio podrían no funcionar correctamente.</p>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Base jurídica del tratamiento</h3>
+                        <p>La base jurídica para el uso de cookies técnicas es la <strong>necesidad para la prestación del servicio solicitado por el usuario</strong> (artículo 22.2 de la LSSI): son imprescindibles para que el sitio funcione. La base jurídica para el uso de cookies analíticas (Meta Pixel) es el <strong>consentimiento expreso e informado</strong> que nos otorgas al hacer clic en "Aceptar todas" (artículo 6.1.a del RGPD y artículo 22.2 de la LSSI).</p>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Tus derechos</h3>
+                        <p>En todo momento puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de tus datos personales. Tienes la información completa sobre cómo ejercer estos derechos en nuestra <a href="/privacidad.html">Política de Privacidad</a>. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>) si consideras que no hemos tratado tus datos correctamente.</p>
+
+                        <h3 style="font-family:var(--font-serif); color:var(--terra-dk); font-weight:600;">Responsable del tratamiento</h3>
+                        <p>El responsable del tratamiento de los datos recabados mediante cookies es:</p>
+                        <p>
+                            <strong>Eva María González Gracia</strong><br>
+                            Arquitecta Técnica · Colegiada nº 9457 · Cateb<br>
+                            Correo electrónico: <a href="mailto:contacto@certilab.cat">contacto@certilab.cat</a><br>
+                            Sitio web: <a href="https://www.certilab.cat">www.certilab.cat</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cookies-section" id="cambios" aria-labelledby="cambios-title">
+                    <h2 class="cookies-section-title" id="cambios-title">Cambios en esta política</h2>
+                    <div class="cookies-prose">
+                        <p>Esta Política de Cookies se revisa periódicamente para mantenerla actualizada según los cambios en nuestra web, en la normativa aplicable o en los servicios de terceros que utilizamos. La fecha de última actualización aparece al final de esta página.</p>
+                        <p>Te recomendamos revisar esta página cada cierto tiempo para conocer cualquier novedad. Si los cambios son sustanciales, te informaremos mediante un aviso en la web o, si fuera necesario, solicitando de nuevo tu consentimiento.</p>
+                    </div>
+                </div>
+
+                <!-- Fecha de actualización -->
+                <p style="text-align:center; color:var(--gris); font-size:0.85rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border);">
+                    Última actualización: 9 de mayo de 2026
+                </p>
+            </div>
+        </div>
+
+        <!-- CTA intermedio -->
+        <section class="section" aria-labelledby="cta-inter-title" style="background:var(--crema); border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-top:2rem;">
+            <div style="max-width:650px; margin:0 auto; text-align:center;">
+                <h2 id="cta-inter-title" style="font-family:var(--font-serif); font-size:1.5rem; color:var(--terra-dk); margin-bottom:0.75rem; font-weight:400;">¿Tienes dudas sobre el certificado energético de tu vivienda?</h2>
+                <p style="font-size:1rem; color:var(--gris); margin-bottom:1.5rem; line-height:1.6;">Solicita un Diagnóstico Gratuito y te orientamos sin compromiso.</p>
+                <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                    <a href="/formulario/" style="display:inline-block; background:var(--terra); color:white; padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700;">Diagnóstico Gratis →</a>
+                    <a href="/#servicios" style="display:inline-block; background:transparent; color:var(--terra-dk); padding:14px 28px; border-radius:var(--r); text-decoration:none; font-weight:700; border:2px solid var(--terra-dk);">Ver servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Block -->
+        <section class="trust-block" aria-label="Información profesional">
+            <p><strong>Eva María González Gracia</strong></p>
+            <p>Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+            <p>Seguro RC Profesional · Servicio 100% online para toda España</p>
+            <div style="display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;">
+                <span>Cateb 9457</span>
+                <span>Seguro RC</span>
+                <span>Consultoría energética independiente</span>
+            </div>
+            <p class="disclaimer">Certilab no emite certificados energéticos oficiales con registro en CCAA.<br>
+            Somos una consultoría energética independiente especializada en análisis técnicos remotos.</p>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p>Consultoría energética técnica e independiente.<br>Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+            </div>
+            <nav class="footer-nav" aria-label="Navegación pie de página">
+                <ul>
+                    <li><a href="/formulario/">Diagnóstico Express</a></li>
+                    <li><a href="/segunda-opinion/">Segunda Opinión del Certificado Energético</a></li>
+                    <li><a href="/check-up-inmobiliario/">Check-Up Inmobiliario</a></li>
+                    <li><a href="/informe-tecnico-energetico/">Informe Técnico</a></li>
+                    <li><a href="/ayudas-eficiencia-energetica/">Ayudas energéticas</a></li>
+                    <li><a href="/calculadoracat/">Calculadora ahorro</a></li>
+                    <li><a href="/profesionales/">Para profesionales</a></li>
+                    <li><a href="/por-que-no-emite-ce/">Por qué no emitimos certificados</a></li>
+                    <li><a href="/sobre-nosotros/">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-legal" aria-label="Páginas legales">
+                <ul>
+                    <li><a href="/privacidad.html">Privacidad</a></li>
+                    <li><a href="/cookies.html">Cookies</a></li>
+                    <li><a href="/legal.html">Aviso legal</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p class="footer-copy">
+            © 2026 Certilab · Todos los derechos reservados ·
+            <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
+        </p>
+    </footer>
+
+    <!-- Panel interactivo: script de gestión de cookies -->
+    <script>
+    (function() {
+        'use strict';
+
+        var statusDisplay = document.getElementById('cookies-status-display');
+        var btnAll = document.getElementById('btn-cookies-all');
+        var btnEssential = document.getElementById('btn-cookies-essential');
+        var msgEl = document.getElementById('cookies-msg');
+
+        function updateUI() {
+            var status = window.CertilabCookies ? window.CertilabCookies.getStatus() : null;
+
+            // Actualizar indicador de estado
+            var dotClass, statusText, btnAllClass, btnEssentialClass;
+
+            if (status === 'all') {
+                dotClass = 'cookies-status-dot--all';
+                statusText = '<strong>Aceptaste todas las cookies.</strong> Se cargan cookies técnicas y Meta Pixel (analíticas). Tu consentimiento se conserva durante 365 días.';
+                btnAllClass = 'cookies-panel-btn--active';
+                btnEssentialClass = '';
+            } else if (status === 'essential') {
+                dotClass = 'cookies-status-dot--essential';
+                statusText = '<strong>Solo cookies técnicas.</strong> No se carga Meta Pixel ni cookies analíticas de terceros. Tu preferencia se conserva durante 365 días.';
+                btnAllClass = '';
+                btnEssentialClass = 'cookies-panel-btn--active';
+            } else {
+                dotClass = 'cookies-status-dot--none';
+                statusText = '<strong>Aún no has elegido.</strong> Actualmente solo se cargan cookies técnicas. Usa los botones de abajo para decidir.';
+                btnAllClass = '';
+                btnEssentialClass = '';
+            }
+
+            statusDisplay.innerHTML = '<span class="cookies-status-dot ' + dotClass + '"></span><span>' + statusText + '</span>';
+
+            // Actualizar estilos de botones activos
+            btnAll.className = 'cookies-panel-btn cookies-panel-btn--primary' + (btnAllClass ? ' ' + btnAllClass : '');
+            btnEssential.className = 'cookies-panel-btn cookies-panel-btn--secondary' + (btnEssentialClass ? ' ' + btnEssentialClass : '');
+        }
+
+        function setChoice(choice) {
+            if (window.CertilabCookies) {
+                window.CertilabCookies.setChoice(choice);
+            }
+            updateUI();
+            // Mostrar mensaje de confirmación
+            msgEl.classList.add('is-visible');
+            setTimeout(function() {
+                msgEl.classList.remove('is-visible');
+            }, 3000);
+        }
+
+        // Eventos
+        if (btnAll) {
+            btnAll.addEventListener('click', function() {
+                setChoice('all');
+            });
+        }
+        if (btnEssential) {
+            btnEssential.addEventListener('click', function() {
+                setChoice('essential');
+            });
+        }
+
+        // Inicializar UI cuando CertilabCookies esté disponible
+        function initPanel() {
+            if (window.CertilabCookies) {
+                updateUI();
+            } else {
+                // Esperar a que cookies.js se cargue (está con defer)
+                var checkInterval = setInterval(function() {
+                    if (window.CertilabCookies) {
+                        clearInterval(checkInterval);
+                        updateUI();
+                    }
+                }, 100);
+                // Timeout de seguridad tras 5s
+                setTimeout(function() {
+                    clearInterval(checkInterval);
+                    if (!window.CertilabCookies) {
+                        statusDisplay.innerHTML = '<span class="cookies-status-dot cookies-status-dot--none"></span><span><strong>Solo cookies técnicas activas.</strong> El gestor de preferencias no está disponible en este momento. Puedes gestionar las cookies desde tu navegador.</span>';
+                    }
+                }, 5000);
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPanel);
+        } else {
+            initPanel();
+        }
+    })();
+    </script>
+
+    <!-- Navegación responsiva -->
+    <script>
+    (function() {
+        var toggle = document.querySelector('.nav-toggle');
+        var menu = document.querySelector('.nav-menu');
+        if (!toggle || !menu) return;
+        toggle.addEventListener('click', function() {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            menu.classList.toggle('is-open');
+        });
+        document.querySelectorAll('.nav-menu > li > a, .nav-dropdown-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        var dropdowns = document.querySelectorAll('.nav-dropdown-toggle');
+        dropdowns.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var parent = btn.closest('.nav-dropdown');
+                if (parent) {
+                    parent.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', parent.classList.contains('open'));
+                }
+            });
+        });
+        document.addEventListener('click', function(e) {
+            dropdowns.forEach(function(btn) {
+                var parent = btn.closest('.nav-dropdown');
+                if (parent && !parent.contains(e.target)) {
+                    parent.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    })();
+    </script>
 </body>
 </html>
