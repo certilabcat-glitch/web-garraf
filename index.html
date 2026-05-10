@@ -148,6 +148,29 @@
     <p class="hero-nota">100% remoto · Sin visita presencial · Sin alertar al vendedor · Protegemos la intimidad de su hogar</p>
   </header>
 
+    <!-- BUSCADOR CERTI-CORE · Expediente Forense -->
+    <form id="certi-expediente-form" class="certi-buscador" aria-label="Iniciar expediente forense" style="max-width:560px;margin:1.5rem auto 0 auto;display:flex;gap:0.5rem;align-items:center;">
+      <label for="certi-input" class="sr-only">Dirección o referencia catastral de su inmueble</label>
+      <input
+        id="certi-input"
+        type="text"
+        placeholder="Ej: Calle Mayor 12, Barcelona o ref. catastral"
+        autocomplete="off"
+        aria-label="Dirección o referencia catastral"
+        style="flex:1;padding:0.8rem 1rem;border:2px solid var(--border);border-radius:8px;font-family:var(--font-sans);font-size:0.95rem;background:white;color:var(--dark);outline:none;"
+      >
+      <button
+        type="submit"
+        class="certi-submit btn-primary"
+        style="white-space:nowrap;padding:0.8rem 1.5rem;border-radius:8px;font-family:var(--font-sans);font-weight:700;font-size:0.95rem;background:var(--terra);color:white;border:none;cursor:pointer;"
+      >
+        🔍 Analizar
+      </button>
+    </form>
+    <p style="font-family:var(--font-sans);font-size:0.75rem;color:var(--grey);text-align:center;margin-top:0.5rem;">
+      🔒 Privacidad por Diseño · Sus datos viajan cifrados directamente a nuestro backend profesional · Sin cookies de terceros
+    </p>
+
   <!-- EL PROBLEMA -->
   <section class="section problem-section" aria-labelledby="problema-title">
     <h2 class="section-title" id="problema-title">El mercado de los informes energéticos tiene un problema</h2>
@@ -612,7 +635,8 @@
   </script>
     <!-- Banner de cookies con consentimiento RGPD -->
     <script src="/cookies.js" defer></script>
-
+    <!-- CertiCore · Motor de Expediente Forense (fire-and-forget a n8n) -->
+    <script src="/js/certi-core.js" defer></script>
 
 </body>
 </html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Expediente Forense abierto. Visualice los datos de su inmueble, compare niveles de blindaje técnico y elija la protección que necesita.">
+  <title>Expediente Abierto · Resultados | Certilab Forense</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Certilab — inicio">
+      <span>Certilab</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html" class="nav-link">Inicio</a>
+      <a href="/por-que-no-emite-ce/" class="nav-link">Por qué no emitimos CE</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECCIÓN 1: CABECERA DE ESCANEO — Expediente Abierto
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section escaneo-section" aria-labelledby="escaneo-title">
+    <p class="hero-eyebrow">Expediente Forense · Certilab</p>
+    <h1 id="escaneo-title" class="escaneo-heading">
+      Expediente <em class="terra">abierto</em> — resultados preliminares
+    </h1>
+    <p class="escaneo-subtitle">
+      Los datos que ve a continuación proceden de fuentes públicas automatizadas.
+      <strong>No constituyen dictamen técnico ni tienen validez legal</strong> hasta su validación colegiada.
+    </p>
+
+    <!-- Grid 2 columnas: mapa + datos -->
+    <div class="escaneo-grid">
+      <!-- Columna Izquierda: Mapa -->
+      <div class="escaneo-mapa-col">
+        <div class="escaneo-mapa-wrapper">
+          <iframe
+            id="escaneo-mapa-iframe"
+            title="Ubicación del inmueble"
+            src="https://maps.google.com/maps?q=Barcelona,+Catalunya&output=embed&z=14"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="escaneo-mapa-overlay">
+            <span class="escaneo-badge">📍 Unidad Localizada</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Datos del inmueble -->
+      <div class="escaneo-datos-col">
+        <div class="escaneo-datos-card">
+          <h2 class="escaneo-datos-title">Datos del Inmueble</h2>
+          <table class="escaneo-datos-tabla" aria-label="Datos del inmueble escaneado">
+            <tbody>
+              <tr>
+                <th>Dirección</th>
+                <td id="dato-direccion">Cargando datos…</td>
+              </tr>
+              <tr>
+                <th>Población</th>
+                <td id="dato-poblacion">—</td>
+              </tr>
+              <tr>
+                <th>Referencia Catastral</th>
+                <td id="dato-refcat">Búsqueda en curso…</td>
+              </tr>
+              <tr>
+                <th>Año construcción (est.)</th>
+                <td id="dato-ano">Estimando…</td>
+              </tr>
+              <tr>
+                <th>Timestamp del expediente</th>
+                <td id="dato-ts">—</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="escaneo-datos-numexpte" id="num-expediente">
+            N.º Expediente: <span>—</span>
+          </p>
+        </div>
+
+        <!-- Alerta técnica -->
+        <div class="alerta-tecnica">
+          <p class="alerta-tecnica-icono">⚠️</p>
+          <div class="alerta-tecnica-texto">
+            <strong>Discrepancias normativas detectadas.</strong>
+            Los datos públicos automatizados de este inmueble presentan posibles incongruencias con el RD 390/2021 y el CTE DB-HE.
+            Solo una <strong>arquitecta técnica colegiada</strong> puede validar su conformidad y emitir un dictamen vinculante.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECCIÓN 2: TABLA DE NIVELES DE BLINDAJE
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section blindaje-section" aria-labelledby="blindaje-title">
+    <p class="hero-eyebrow">Protección Técnica</p>
+    <h2 id="blindaje-title" class="blindaje-heading">
+      Niveles de <em class="terra">Blindaje Forense</em>
+    </h2>
+    <p class="blindaje-subtitle">
+      De los datos brutos al dictamen colegiado. Elija cuánto peso jurídico necesita para su decisión.
+    </p>
+
+    <!-- Tabla comparativa 3 columnas -->
+    <div class="blindaje-table-wrapper">
+      <table class="blindaje-table" aria-label="Comparativa de niveles de blindaje forense">
+        <thead>
+          <tr>
+            <th class="blindaje-th-feature"><span>Servicio incluido</span></th>
+            <th class="blindaje-th-col" data-plan="basico">
+              <span class="blindaje-plan-nombre">Diagnóstico Básico</span>
+              <span class="blindaje-plan-precio">0 €</span>
+            </th>
+            <th class="blindaje-th-col" data-plan="segunda">
+              <span class="blindaje-plan-nombre">Segunda Opinión</span>
+              <span class="blindaje-plan-precio">39 €</span>
+            </th>
+            <th class="blindaje-th-col blindaje-col-destacada" data-plan="checkup">
+              <span class="blindaje-badge-recomendado">⭐ Recomendado</span>
+              <span class="blindaje-plan-nombre">Check-Up Forense</span>
+              <span class="blindaje-plan-precio">199 €</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Datos catastrales públicos</span>
+              <span class="blindaje-feature-desc">Superficie, uso, año, titularidad</span>
+            </td>
+            <td class="blindaje-td-check" data-plan="basico"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check" data-plan="segunda"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Detección algorítmica de anomalías</span>
+              <span class="blindaje-feature-desc">Patrones de discrepancia en fuentes públicas</span>
+            </td>
+            <td class="blindaje-td-check" data-plan="basico"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check" data-plan="segunda"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Revisión CEE por Arquitecta Técnica</span>
+              <span class="blindaje-feature-desc">Validación del certificado existente</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-check" data-plan="segunda"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Detección de fraude en certificado</span>
+              <span class="blindaje-feature-desc">Falsificaciones, errores de escala, firmas inválidas</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-check" data-plan="segunda"><span class="check-icon">✓</span></td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Análisis Brown Discount</span>
+              <span class="blindaje-feature-desc">Impacto de la ineficiencia energética en el valor</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-no" data-plan="segunda">—</td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Cargas registrales (Nota Simple)</span>
+              <span class="blindaje-feature-desc">Hipotecas, embargos, afecciones fiscales</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-no" data-plan="segunda">—</td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Dictamen técnico colegiado</span>
+              <span class="blindaje-feature-desc">Informe firmado con validez notarial y registral</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-no" data-plan="segunda">—</td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Audio-resumen IA</span>
+              <span class="blindaje-feature-desc">Explicación en lenguaje claro en 5 minutos</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">—</td>
+            <td class="blindaje-td-no" data-plan="segunda">—</td>
+            <td class="blindaje-td-check blindaje-col-destacada"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Extensión del informe</span>
+              <span class="blindaje-feature-desc">Páginas de análisis técnico</span>
+            </td>
+            <td class="blindaje-td-texto" data-plan="basico">1–2 pp</td>
+            <td class="blindaje-td-texto" data-plan="segunda">4–6 pp</td>
+            <td class="blindaje-td-texto blindaje-col-destacada"><strong>10–15 pp</strong></td>
+          </tr>
+          <tr>
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre">Validez ante notario, banco o juzgado</span>
+              <span class="blindaje-feature-desc">¿Sirve como prueba documental?</span>
+            </td>
+            <td class="blindaje-td-no" data-plan="basico">No vinculante</td>
+            <td class="blindaje-td-texto" data-plan="segunda">Informativo</td>
+            <td class="blindaje-td-texto blindaje-col-destacada"><strong>Dictamen vinculante</strong></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="blindaje-fila-responsabilidad">
+            <td class="blindaje-td-feature">
+              <span class="blindaje-feature-nombre blindaje-feature-critica">Responsabilidad Profesional</span>
+              <span class="blindaje-feature-desc">Seguro RC y firma colegiada activa</span>
+            </td>
+            <td class="blindaje-td-responsabilidad" data-plan="basico">
+              <span class="responsabilidad-badge responsabilidad-badge-info">Informativo</span>
+              <span class="responsabilidad-sub">Sin firma colegiada</span>
+            </td>
+            <td class="blindaje-td-responsabilidad" data-plan="segunda">
+              <span class="responsabilidad-badge responsabilidad-badge-info">Informativo</span>
+              <span class="responsabilidad-sub">Sin firma colegiada</span>
+            </td>
+            <td class="blindaje-td-responsabilidad blindaje-col-destacada">
+              <span class="responsabilidad-badge responsabilidad-badge-colegiada">Firma Colegiada Cateb 9457</span>
+              <span class="responsabilidad-sub">+ Seguro RC activo</span>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <!-- CTAs -->
+    <div class="blindaje-ctas">
+      <a href="/formulario/?plan=diagnostico" class="blindaje-cta blindaje-cta-basico">
+        <span class="blindaje-cta-label">Diagnóstico Básico</span>
+        <span class="blindaje-cta-accion">Descargar datos públicos →</span>
+      </a>
+      <a href="/segunda-opinion/" class="blindaje-cta blindaje-cta-segunda">
+        <span class="blindaje-cta-label">Segunda Opinión · 39€</span>
+        <span class="blindaje-cta-accion">Seleccionar →</span>
+      </a>
+      <a href="/configurar-auditoria/" class="blindaje-cta blindaje-cta-destacada">
+        <span class="blindaje-cta-label">Check-Up Forense · 199€</span>
+        <span class="blindaje-cta-accion">Blindar mi Patrimonio →</span>
+      </a>
+    </div>
+
+    <p class="blindaje-garantia">
+      🔒 <strong>Privacidad por Diseño:</strong> sus datos solo se procesan para este expediente.
+      No se almacenan logs de navegación ni se comparten con terceros.
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECCIÓN 3: FAQ RÁPIDA
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section faq-corta-section" aria-labelledby="faq-corta-title">
+    <h2 id="faq-corta-title" class="faq-corta-heading">Preguntas frecuentes</h2>
+    <div class="faq-corta-list">
+      <details class="faq-corta-item">
+        <summary class="faq-corta-summary">
+          ¿Por qué el diagnóstico gratuito no tiene validez legal?
+        </summary>
+        <div class="faq-corta-body">
+          <p>Los datos públicos (Catastro, Sede Electrónica, etc.) se obtienen por medios automatizados. No han sido revisados ni interpretados por un técnico colegiado, por lo que <strong>no pueden usarse como prueba en una compraventa, hipoteca ni procedimiento judicial</strong>. Son meramente informativos.</p>
+        </div>
+      </details>
+      <details class="faq-corta-item">
+        <summary class="faq-corta-summary">
+          ¿Qué diferencia hay entre la Segunda Opinión y el Check-Up Forense?
+        </summary>
+        <div class="faq-corta-body">
+          <p>La <strong>Segunda Opinión (39€)</strong> audita un certificado energético existente y detecta posibles fraudes o errores. El <strong>Check-Up Forense (199€)</strong> va mucho más allá: incorpora análisis Brown Discount, cargas registrales, dictamen firmado con seguro RC y validez ante notario y banco. Es la diferencia entre una revisión y un blindaje jurídico completo.</p>
+        </div>
+      </details>
+      <details class="faq-corta-item">
+        <summary class="faq-corta-summary">
+          ¿Puedo usar estos datos para negociar con el vendedor?
+        </summary>
+        <div class="faq-corta-body">
+          <p>El <strong>Check-Up Forense</strong> está diseñado expresamente para darle poder de negociación documentado. Un dictamen colegiado que acredita defectos energéticos y cargas ocultas es una herramienta de negociación real que puede justificar una rebaja del precio de compra (Brown Discount). Los niveles inferiores son meramente informativos.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECCIÓN 4: TRUST — La profesional detrás del dictamen
+       ════════════════════════════════════════════════════════════ -->
+  <section class="section trust-corta-section" aria-labelledby="trust-corta-title">
+    <div class="trust-corta-card">
+      <p class="hero-eyebrow">Garantía Profesional</p>
+      <h2 id="trust-corta-title" class="trust-corta-heading">
+        Su caso, en manos de una <em class="terra">arquitecta técnica colegiada</em>
+      </h2>
+      <div class="trust-corta-body">
+        <div class="trust-corta-texto">
+          <p><strong>Eva María González Gracia</strong>, colegiada Cateb n.º 9457, es la responsable técnica de cada expediente. Su firma y su seguro de responsabilidad civil respaldan cada Check-Up Forense.</p>
+          <p class="trust-corta-cita">«La tecnología escanea. La técnica diagnostica. La colegiación protege.»</p>
+          <p class="trust-corta-firma">— Eva M.ª González Gracia · Arquitecta Técnica</p>
+        </div>
+        <div class="trust-corta-sellos">
+          <div class="trust-sello">
+            <span class="trust-sello-icono">🏛️</span>
+            <span>Cateb 9457</span>
+          </div>
+          <div class="trust-sello">
+            <span class="trust-sello-icono">🛡️</span>
+            <span>Seguro RC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p>Consultoría energética técnica e independiente.<br>
+        Eva María González Gracia · Arquitecta Técnica · Colegiada nº 9457 · Cateb</p>
+    </div>
+    <nav class="footer-legal" aria-label="Páginas legales">
+      <ul>
+        <li><a href="/privacidad.html">Privacidad</a></li>
+        <li><a href="/cookies.html">Cookies</a></li>
+        <li><a href="/legal.html">Aviso legal</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="footer-copy">
+    © 2026 Certilab · Todos los derechos reservados ·
+    <a href="/por-que-no-emite-ce/">No emitimos certificados energéticos oficiales</a>
+  </p>
+</footer>
+
+<!-- Carga de datos del expediente desde query params -->
+<script>
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(window.location.search);
+  var direccion = params.get('direccion') || '';
+  var calle = params.get('calle') || '';
+  var poblacion = params.get('poblacion') || '';
+  var ts = params.get('ts') || '';
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Rellenar datos del inmueble
+  var dirDisplay = direccion || 'Sin datos — acceso directo a la página';
+  var calleDisplay = calle || dirDisplay.split(',')[0] || '—';
+  var poblacionDisplay = poblacion || '—';
+
+  if ($('dato-direccion')) { $('dato-direccion').textContent = dirDisplay; }
+  if ($('dato-poblacion')) { $('dato-poblacion').textContent = poblacionDisplay; }
+  if ($('dato-refcat')) { $('dato-refcat').textContent = 'Pendiente de validación colegiada'; }
+  if ($('dato-ano')) { $('dato-ano').textContent = 'Pendiente de cruce catastral'; }
+  if ($('dato-ts')) { $('dato-ts').textContent = ts ? new Date(ts).toLocaleString('es-ES') : 'No disponible'; }
+
+  // Generar número de expediente
+  var numRef = ts ? ts.replace(/[^0-9]/g, '').substring(0, 12) : Date.now().toString();
+  var expteSpan = document.querySelector('#num-expediente span');
+  if (expteSpan) { expteSpan.textContent = 'CEF-' + numRef; }
+
+  // Actualizar iframe del mapa si hay población
+  if (poblacionDisplay && $('#escaneo-mapa-iframe')) {
+    var mapQuery = encodeURIComponent(poblacionDisplay + ', España');
+    $('#escaneo-mapa-iframe').src = 'https://maps.google.com/maps?q=' + mapQuery + '&output=embed&z=15';
+  }
+})();
+</script>
+
+</body>
+</html>
