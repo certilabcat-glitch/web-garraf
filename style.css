@@ -4082,3 +4082,170 @@ details a { color: var(--black); text-decoration: underline; }
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== SEGUNDA OPINIÓN — Risk Section (Agitación) ===== */
+.risk-section {
+  padding: 5rem 1.5rem;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.risk-section .section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  line-height: 1.25;
+  color: var(--black);
+}
+.risk-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+.risk-stat {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.risk-stat-num {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--terra-dark);
+  line-height: 1.1;
+  display: block;
+}
+.risk-stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--grey);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.risk-conclusion {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  color: var(--black);
+  line-height: 1.7;
+  font-weight: 400;
+}
+.risk-conclusion strong {
+  color: var(--terra-dark);
+  font-weight: 600;
+}
+@media (max-width: 700px) {
+  .risk-section { padding: 3.5rem 1.2rem; }
+  .risk-stats {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .risk-stat { padding: 1rem 0.5rem; }
+}
+
+/* ===== SEGUNDA OPINIÓN — Analysis Section (Entregables) ===== */
+.analysis-section {
+  padding: 5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.analysis-section .section-title {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+}
+.analysis-section .section-sub {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--grey);
+}
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.analysis-card {
+  padding: 2rem 1.75rem;
+  background: #FFF;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.analysis-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+.analysis-card p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.6;
+}
+.analysis-card .analysis-icon {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 700px) {
+  .analysis-section { padding: 3.5rem 1.2rem; }
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+  .analysis-card { padding: 1.5rem 1.25rem; }
+}
+
+/* ===== SEGUNDA OPINIÓN — Garantía Strip ===== */
+.guarantee-strip {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1.5rem;
+}
+.guarantee-strip-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.guarantee-strip-inner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  color: var(--black);
+  margin-bottom: 1.25rem;
+}
+.guarantee-strip-inner p {
+  font-family: var(--font-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  color: var(--black);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.guarantee-strip-inner p strong {
+  color: var(--terra-dark);
+}
+.guarantee-strip-inner .guarantee-note {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+/* ===== SEGUNDA OPINIÓN — Hero nota privacidad ===== */
+.hero-nota {
+  margin-top: 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+.hero-nota .lock-icon {
+  font-size: 0.9rem;
+}
