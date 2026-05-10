@@ -3565,3 +3565,520 @@ details a { color: var(--black); text-decoration: underline; }
     flex-wrap: wrap;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PÁGINA: informe-tecnico-energetico · Rediseño Aesop
+   ═══════════════════════════════════════════════════════════════ */
+
+/* --- Hero ITE: Badge + Precio Destacado --- */
+.ite-hero-badge {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--terra);
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+}
+
+.ite-hero-concepto {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--terra);
+  display: block;
+  margin-top: 4px;
+}
+
+.ite-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 680px;
+  margin: 20px auto 0;
+}
+
+.ite-hero-precio {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 28px 0 4px;
+  letter-spacing: -0.02em;
+}
+
+.ite-hero-precio small {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.ite-hero-creds {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: var(--muted);
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0 28px;
+}
+
+.ite-hero-creds span {
+  white-space: nowrap;
+}
+
+.ite-hero-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* --- Direct Response Box --- */
+.direct-response-ite {
+  max-width: 820px;
+  margin: 0 auto 40px;
+  padding: 24px 28px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.direct-response-ite strong {
+  color: var(--terra);
+  font-weight: 600;
+}
+
+/* --- Sección Problemática · Features Grid --- */
+.ite-section-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+/* --- ROI Grid --- */
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 650px;
+  margin: 3rem auto 2rem;
+}
+
+.roi-card {
+  border: 1px solid var(--border);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background: var(--white);
+  border-radius: 6px;
+}
+
+.roi-card--highlight {
+  border: 2px solid var(--ink);
+  background: var(--cream);
+}
+
+.roi-card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.roi-card-cifra {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.roi-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.roi-contexto {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.roi-cta {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/* --- Incluye Grid Visual --- */
+.incluye-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 920px;
+  margin: 2rem auto 0;
+}
+
+.incluye-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.incluye-card-icono {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.incluye-card h4 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.incluye-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* --- Casos Reales --- */
+.caso-card {
+  border-left: 2px solid var(--terra);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  background: var(--white);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.caso-card:last-child {
+  margin-bottom: 0;
+}
+
+.caso-card-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.caso-card-titulo {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+
+.caso-card-texto {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.caso-card-texto strong {
+  color: var(--ink);
+}
+
+/* --- Tabla Comparativa --- */
+.comparativa-wrapper {
+  overflow-x: auto;
+  max-width: 820px;
+  margin: 2rem auto 0;
+}
+
+.comparativa-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+.comparativa-table thead tr {
+  border-bottom: 2px solid var(--ink);
+}
+
+.comparativa-table th {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.comparativa-table th:first-child {
+  text-align: left;
+}
+
+.comparativa-table th.comparativa-col-destacada {
+  background: var(--cream);
+  font-weight: 600;
+}
+
+.comparativa-table th small {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.comparativa-table td {
+  padding: 0.65rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.comparativa-table td:first-child {
+  text-align: left;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.comparativa-table td.comparativa-col-destacada {
+  background: var(--cream);
+  font-weight: 600;
+}
+
+.comparativa-table td.comparativa-td-muted {
+  color: var(--muted);
+}
+
+.comparativa-nota {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comparativa-nota strong {
+  color: var(--ink);
+}
+
+/* --- Lo que NO es --- */
+.no-es-section {
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.no-es-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.no-es-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-left: 4px;
+}
+
+.no-es-item strong {
+  color: var(--ink);
+}
+
+.no-es-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* --- Compromiso / Garantía --- */
+.compromiso-grid {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compromiso-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.compromiso-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--terra);
+  flex-shrink: 0;
+  line-height: 1.2;
+}
+
+.compromiso-item h4 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0 0 0.3rem;
+}
+
+.compromiso-item p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* --- Sección CTA intermedia --- */
+.cta-section-ite {
+  padding: 56px 20px;
+  text-align: center;
+  background: var(--white);
+}
+
+.cta-section-ite h2 {
+  font-family: 'Crimson Pro', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.cta-section-ite p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 28px;
+  line-height: 1.55;
+}
+
+/* --- Proceso Steps Grid (compartido con otras páginas, se refina aquí) --- */
+.steps-grid-ite {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+.step-card-ite {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.step-num-ite {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: var(--white);
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+}
+
+.step-card-ite h4 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.step-card-ite p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* --- Responsive ITE --- */
+@media (max-width: 768px) {
+  .roi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .incluye-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ite-hero-ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ite-hero-creds {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .caso-card {
+    padding: 1.2rem 1.2rem;
+  }
+
+  .compromiso-grid {
+    gap: 1.2rem;
+  }
+
+  .steps-grid-ite {
+    grid-template-columns: 1fr;
+  }
+}

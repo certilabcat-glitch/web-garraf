@@ -48,17 +48,23 @@
 - Hacer "limpieza" o "refactor estético" sin que se te pida.
 
 ## Páginas en producción (Aesop completo, no tocar sin instrucción)
-- `/` (index.html)
+- `/` (index.html) — Rediseño "Certilab Forense" completado (commit ec9a7ad)
+- `/check-up-inmobiliario/` (199€) — Rediseño Aesop completado (commit 03cce94)
 - `/segunda-opinion/`
 - `/segunda-opinion-express/`
 - `/por-que-no-emite-ce/`
 - `/sobre-nosotros/`
+- `/resultado-auditoria/` — Página de resultados del buscador CertiCore (commit 7cdc2ef)
 
 ## Páginas pendientes de rediseño Aesop (aquí sí se puede trabajar)
-- `/check-up-inmobiliario/` (199 €)
-- `/informe-tecnico-energetico/` (399 €)
+- `/informe-tecnico-energetico/` (399 €) — Producto de ticket alto, prioridad alta
 - `/ayudas-eficiencia-energetica/`
-- `/formulario/`, `/calculadoracat/`, `/profesionales/`
+- `/formulario/`
+- `/calculadoracat/`
+- `/profesionales/`
+
+## Archivos de infraestructura recientes (no tocar sin instrucción)
+- `/js/certi-core.js` — Motor de expediente forense (commit 7cdc2ef)
 
 ## Flujo estándar de trabajo
 1. Plan Mode: explica qué vas a hacer, qué archivos tocas, qué riesgos hay.
