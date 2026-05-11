@@ -4249,3 +4249,599 @@ details a { color: var(--black); text-decoration: underline; }
 .hero-nota .lock-icon {
   font-size: 0.9rem;
 }
+
+/* ===================================================
+   CERTI-DATA: Formulario de Configuración de Expediente
+   =================================================== */
+
+.certidata-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Cabecera */
+.certidata-header {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+
+.certidata-header-badge {
+  display: inline-block;
+  background: var(--terra);
+  color: var(--crema);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.2rem;
+  border-radius: 3px;
+  margin-bottom: 1.2rem;
+}
+
+.certidata-header-title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+  margin: 0 0 0.8rem 0;
+  letter-spacing: -0.02em;
+}
+
+.certidata-header-subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--grey);
+  line-height: 1.7;
+  max-width: 620px;
+  margin: 0 auto 1.6rem auto;
+}
+
+.certidata-header-subtitle em {
+  font-style: italic;
+  color: var(--terra);
+}
+
+.certidata-privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fdf5ed;
+  border: 1px solid #ebd5c0;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #8b6914;
+}
+
+.certidata-privacy-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Formulario */
+.certidata-form {
+  margin-top: 0.5rem;
+}
+
+/* Bloques / Fieldsets */
+.certidata-block {
+  border: none;
+  border-top: 1px solid var(--border);
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+}
+
+.certidata-block-title {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--dark);
+  padding: 0;
+  margin: 0 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.certidata-block-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background: var(--terra);
+  color: var(--crema);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.certidata-block-desc {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--grey);
+  line-height: 1.65;
+  margin: 0.5rem 0 1.6rem 0;
+  max-width: 600px;
+}
+
+/* Campos */
+.certidata-field {
+  margin-bottom: 1.5rem;
+}
+
+.certidata-field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.certidata-field-half {
+  flex: 1;
+  min-width: 240px;
+}
+
+.certidata-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+/* Inputs con borde inferior (estilo Aesop) */
+.certidata-input,
+.certidata-select,
+.certidata-textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--dark);
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid var(--border);
+  padding: 0.65rem 0.15rem 0.6rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.25s ease;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.certidata-input:focus,
+.certidata-select:focus,
+.certidata-textarea:focus {
+  border-bottom-color: var(--terra);
+}
+
+.certidata-input::placeholder,
+.certidata-textarea::placeholder {
+  color: #c7bdb3;
+  font-weight: 300;
+}
+
+.certidata-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23957B6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.25rem center;
+  background-size: 1rem;
+  padding-right: 1.8rem;
+  cursor: pointer;
+}
+
+.certidata-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Checkboxes personalizados */
+.certidata-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.certidata-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.93rem;
+  color: var(--dark);
+  padding: 0.45rem 0;
+  transition: color 0.2s ease;
+}
+
+.certidata-checkbox:hover {
+  color: var(--terra);
+}
+
+.certidata-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.certidata-checkbox-custom {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  background: transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-top: 1px;
+}
+
+.certidata-checkbox input:checked + .certidata-checkbox-custom {
+  background: var(--terra);
+  border-color: var(--terra);
+}
+
+.certidata-checkbox input:checked + .certidata-checkbox-custom::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
+  border: solid var(--crema);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.certidata-checkbox input:focus-visible + .certidata-checkbox-custom {
+  outline: 2px solid var(--terra);
+  outline-offset: 2px;
+}
+
+.certidata-checkbox-text {
+  line-height: 1.45;
+}
+
+/* Tarjetas de Documentación */
+.certidata-doc-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.certidata-doc-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--crema);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.3rem 1.4rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certidata-doc-card:hover {
+  border-color: var(--terra);
+  box-shadow: 0 2px 12px rgba(139, 111, 71, 0.08);
+}
+
+.certidata-doc-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.certidata-doc-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.certidata-doc-name {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0 0 0.2rem 0;
+  line-height: 1.35;
+}
+
+.certidata-doc-hint {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--grey);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.certidata-doc-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Radio Cards (Sí/No) */
+.certidata-radio-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-width: 48px;
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.certidata-radio-card:hover {
+  border-color: var(--terra);
+  color: var(--terra);
+}
+
+.certidata-radio-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.certidata-radio-indicator {
+  transition: color 0.2s ease;
+}
+
+.certidata-radio-card input:checked + .certidata-radio-indicator {
+  color: var(--terra);
+}
+
+.certidata-radio-card:has(input:checked) {
+  background: var(--terra);
+  border-color: var(--terra);
+  color: var(--crema);
+}
+
+.certidata-radio-card:has(input:checked) .certidata-radio-indicator {
+  color: var(--crema);
+}
+
+.certidata-radio-card input:focus-visible + .certidata-radio-indicator {
+  outline: 2px solid var(--terra);
+  outline-offset: 2px;
+}
+
+/* Legal y Consentimiento */
+.certidata-legal {
+  background: #fafaf8;
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0 1.6rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--grey);
+  line-height: 1.65;
+}
+
+.certidata-legal strong {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.certidata-consent {
+  margin-bottom: 2rem;
+}
+
+.certidata-consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+.certidata-consent-checkbox a {
+  color: var(--terra);
+  text-decoration: underline;
+  text-underline-offset: 1px;
+}
+
+.certidata-consent-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.certidata-consent-custom {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 3px;
+  background: transparent;
+  transition: all 0.2s ease;
+  position: relative;
+  margin-top: 2px;
+}
+
+.certidata-consent-checkbox input:checked + .certidata-consent-custom {
+  background: var(--terra);
+  border-color: var(--terra);
+}
+
+.certidata-consent-checkbox input:checked + .certidata-consent-custom::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--crema);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* CTA */
+.certidata-cta-wrapper {
+  text-align: center;
+  padding: 1.2rem 0 0.5rem;
+}
+
+.certidata-cta {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--crema);
+  background: var(--terra);
+  border: none;
+  border-radius: 4px;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(139, 111, 71, 0.25);
+}
+
+.certidata-cta:hover,
+.certidata-cta:focus-visible {
+  background: var(--terra-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(139, 111, 71, 0.35);
+}
+
+.certidata-cta:disabled {
+  background: #c7bdb3;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.certidata-cta-disclaimer {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--grey);
+  margin-top: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Mensaje de éxito */
+.certidata-success {
+  display: none;
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.certidata-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.certidata-success-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0 0 0.6rem 0;
+}
+
+.certidata-success-text {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto 1.5rem auto;
+}
+
+.certidata-success-loader {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--terra);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: certidata-spin 0.8s linear infinite;
+}
+
+@keyframes certidata-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Utilidades de espaciado */
+.certidata-mt-20 { margin-top: 20px; }
+
+/* Actions en columna (para doc-card con input) */
+.certidata-doc-actions-col {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Input full-width dentro de doc-actions */
+.certidata-input-full {
+  width: 100%;
+}
+
+/* Consentimiento con margen extra */
+.certidata-consent-mt {
+  margin-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .certidata-header-title {
+    font-size: 1.7rem;
+  }
+  .certidata-header-subtitle {
+    font-size: 0.95rem;
+  }
+  .certidata-block-title {
+    font-size: 1.3rem;
+  }
+  .certidata-doc-card {
+    flex-direction: column;
+    padding: 1rem 1.1rem;
+    gap: 0.8rem;
+  }
+  .certidata-doc-actions {
+    align-self: flex-start;
+  }
+  .certidata-cta {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .certidata-field-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .certidata-privacy-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    padding: 0.55rem 1rem;
+  }
+}
